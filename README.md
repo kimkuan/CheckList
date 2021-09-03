@@ -10,9 +10,9 @@
 
 #### [:beer: 상현](https://lab.ssafy.com/s05-bigdata-dist/S05P21A406/-/tree/pjt-sub1/sanghyun)
 
-#### [:sunrise_over_mountains:영주](https://lab.ssafy.com/s05-bigdata-dist/S05P21A406/-/tree/pjt-sub1/youngju)
+#### [🌄 영주](https://lab.ssafy.com/s05-bigdata-dist/S05P21A406/-/tree/pjt-sub1/youngju)
 
-
+<br>
 
 #### 📝 그 외 공부한 내용
 
