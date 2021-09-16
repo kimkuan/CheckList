@@ -1,4 +1,4 @@
-package com.ssafy.checklist.domain.aircleaner.service;
+package com.ssafy.checklist.domain.airfryer.service;
 
 import com.ssafy.checklist.domain.aircleaner.controller.response.AircleanerGetRes;
 import com.ssafy.checklist.domain.aircleaner.entity.Aircleaner;
@@ -8,10 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
-public class AircleanerService {
+public class AirfryerService {
     @Autowired
     AircleanerRepository aircleanerRepository;
 
