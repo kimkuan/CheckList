@@ -1,6 +1,5 @@
 package com.ssafy.checklist.domain.airfryer.controller;
 
-import com.ssafy.checklist.domain.aircleaner.controller.response.AircleanerGetRes;
 import com.ssafy.checklist.domain.airfryer.controller.response.AirfryerGetRes;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
