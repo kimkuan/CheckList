@@ -27,4 +27,16 @@ public class AircleanerController {
 
         return null;
     }
+
+    @ApiOperation(value = "모든 공기청정기 조회", notes = "모든 공기청정기를 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("")
+    public ResponseEntity<AircleanerGetRes> findAircleaner(String id){
+
+        return null;
+    }
 }
