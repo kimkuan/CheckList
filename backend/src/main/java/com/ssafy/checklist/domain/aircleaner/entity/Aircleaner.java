@@ -19,5 +19,7 @@ public class Aircleaner {
 
     String brand;
 
+    String imageUrl;
+
     int price;
 }

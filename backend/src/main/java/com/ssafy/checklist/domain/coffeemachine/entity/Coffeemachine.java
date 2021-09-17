@@ -19,5 +19,7 @@ public class Coffeemachine {
 
     String brand;
 
+    String imageUrl;
+
     int price;
 }

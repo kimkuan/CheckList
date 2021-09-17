@@ -8,19 +8,22 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AirfryerGetRes {
-    @ApiModelProperty(required = true)
+    @ApiModelProperty
     @NotNull
     String id;
 
-    @ApiModelProperty(required = true)
+    @ApiModelProperty
     String name;
 
-    @ApiModelProperty(required = true)
+    @ApiModelProperty
     String modelName;
 
-    @ApiModelProperty(required = true)
+    @ApiModelProperty
     String brand;
 
-    @ApiModelProperty(required = true)
+    @ApiModelProperty
+    String imageUrl;
+
+    @ApiModelProperty
     int price;
 }
