@@ -19,5 +19,7 @@ public class Airfryer {
 
     String brand;
 
+    String imageUrl;
+
     int price;
 }
