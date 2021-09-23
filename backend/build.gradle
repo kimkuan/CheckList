@@ -4,6 +4,8 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'io.spring.dependency-management'
+
 group = 'com.ssafy'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -20,7 +22,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.projectlombok:lombok")
@@ -32,6 +34,18 @@ dependencies {
     implementation("com.google.guava:guava:29.0-jre")
     annotationProcessor("com.google.guava:guava:29.0-jre")
 
+    // Hbase 관련 라이브러리
+    implementation("org.springframework.data:spring-data-hadoop:2.5.0.RELEASE")
+    implementation("org.springframework.data:spring-data-hadoop-hbase:2.5.0.RELEASE")
+    implementation("org.apache.hbase:hbase:3.0.0-alpha-1")
+    implementation("org.apache.hbase:hbase-client:3.0.0-alpha-1")
+
+    implementation fileTree(dir: 'libs', include:['*.jar'])
+
+    implementation("com.h2database:h2")
+
+    // getVirtualServerName() 오류를 해결하기 위한 버전 업그레이드
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 test {
