@@ -1,123 +1,129 @@
 <template>
-  <div style="display: flex; justify-content: center">
-    <div class="productHead">
-      <div class="p-img">
-        <!-- 이미지 -->
-        <img alt="product sample img" src="@/assets/product_sample.jpg" />
+  <div>
+    <!-- <div style="display: flex; justify-content: center"> -->
+    <div class="section" style="display: flex; justify-content: center;">
+      <div class="productHead">
+        <div class="p-img">
+          <!-- 이미지 -->
+          <img alt="product sample img" src="@/assets/product_sample.jpg" />
+        </div>
+        <div class="p-info">
+          <!-- 제품 내용 -->
+          건조기
+          <br />
+          <div class="title">
+            <div style="width: 75%">
+              <h4>삼성전자</h4>
+              <h2>제품코드 DV14T8520BV</h2>
+            </div>
+            <div style="width: 25%; text-align: right">
+              <button>비교함<br />담기</button>
+            </div>
+          </div>
+          <br />
+          <div>
+            <div style="display: inline-block; width: 75%">
+              <h1>최저가 1,200,000원</h1>
+            </div>
+            <div style="display: inline-block; width: 25%; text-align: right">
+              <button>사러가기</button>
+            </div>
+          </div>
+
+          <div>
+            <!-- 최저가 추이 그래프 -->
+          </div>
+        </div>
       </div>
-      <div class="p-info">
-        <!-- 제품 내용 -->
-        건조기
-        <br />
+    </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <div class="core-spec">
         <div class="title">
-          <div style="width: 75%">
-            <h4>삼성전자</h4>
-            <h2>제품코드 DV14T8520BV</h2>
-          </div>
-          <div style="width: 25%; text-align: right">
-            <button>비교함<br />담기</button>
-          </div>
-        </div>
-        <br />
-        <div>
-          <div style="display: inline-block; width: 75%">
-            <h1>최저가 1,200,000원</h1>
-          </div>
-          <div style="display: inline-block; width: 25%; text-align: right">
-            <button>사러가기</button>
-          </div>
+          <div><h2 style="width: 50%">주요 스펙</h2></div>
+          <div style="text-align: right"><button>스펙전체보기</button></div>
         </div>
 
-        <div>
-          <!-- 최저가 추이 그래프 -->
+        <div style="text-align: left; ">
+          <div class="spec-item"><p style="margin-bottom: 0px; color: #7E7E7E;">가격대</p><p style="margin-top: 0px">데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
         </div>
       </div>
     </div>
 
-    <!-- <div class="division-line"><hr></div> -->
-    <!-- <hr class="division-line" /> -->
+    <hr class="division-line" />
 
-    <div class="core-spec">
-      <div class="title">
-        <div><h2 style="width: 50%">주요 스펙</h2></div>
-        <div style="text-align: right"><button>스펙전체보기</button></div>
-      </div>
-
-      <div style="text-align: left; ">
-        <div class="spec-item"><p style="margin-bottom: 0px; color: #7E7E7E;">가격대</p><p style="margin-top: 0px">데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-        <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-      </div>
-    </div>
-
-    <!-- <hr class="division-line" /> -->
-
-    <div class="score">
-      <h2>상품 점수</h2>
-      <div class="score-chart">
-        <div class="score-group">
-          <h3 class="title">가격</h3>
-          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-          <div class="chart">
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle" />
-            <div class="circle" />
+    <div class="section" style="display: flex; justify-content: center;">
+      <div class="score">
+        <h2>상품 점수</h2>
+        <div class="score-chart">
+          <div class="score-group">
+            <h3 class="title">가격</h3>
+            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+            <div class="chart">
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle" />
+              <div class="circle" />
+            </div>
+            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
           </div>
-          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
-        </div>
-        <div class="score-group">
-          <h3 class="title">용량</h3>
-          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-          <div class="chart">
-            <div class="circle-middle" />
-            <div class="circle-middle" />
-            <div class="circle-middle" />
-            <div class="circle-middle" />
-            <div class="circle" />
+          <div class="score-group">
+            <h3 class="title">용량</h3>
+            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+            <div class="chart">
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle" />
+            </div>
+            <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
           </div>
-          <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
-        </div>
-        <div class="score-group">
-          <h3 class="title">가격</h3>
-          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-          <div class="chart">
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle" />
-            <div class="circle" />
+          <div class="score-group">
+            <h3 class="title">가격</h3>
+            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+            <div class="chart">
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle" />
+              <div class="circle" />
+            </div>
+            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
           </div>
-          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
-        </div>
-        <div class="score-group">
-          <h3 class="title">냉각성능</h3>
-          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-          <div class="chart">
-            <div class="circle-high" />
-            <div class="circle-high" />
-            <div class="circle-high" />
-            <div class="circle-high" />
-            <div class="circle-high" />
+          <div class="score-group">
+            <h3 class="title">냉각성능</h3>
+            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+            <div class="chart">
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+            </div>
+            <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
           </div>
-          <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
-        </div>
-        <div class="score-group">
-          <h3 class="title">가격</h3>
-          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-          <div class="chart">
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle-low" />
-            <div class="circle" />
-            <div class="circle" />
+          <div class="score-group">
+            <h3 class="title">가격</h3>
+            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+            <div class="chart">
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle-low" />
+              <div class="circle" />
+              <div class="circle" />
+            </div>
+            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
           </div>
-          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
         </div>
       </div>
     </div>
@@ -133,18 +139,25 @@ export default {
 
 <style scoped>
 
+.section {
+  margin: 50px;
+}
+
 hr.division-line {
-  width: 1205px;
+  /* width: 1205px; */
+  width: 85%;
+  max-width: 1205px;
+  border: 1px solid #D8D8D8;;
 }
 
 .productHead {
-  position: absolute;
+  /* position: absolute; */
   width: 1047px;
   /* width: 55%; */
   height: 465px;
   /* left: 437px; */
   /* margin: 0px auto; */
-  top: 178px;
+  /* top: 178px; */
   /* background-color: lightgray; */
   text-align: center;
   display: flex;
@@ -203,13 +216,13 @@ hr.division-line {
 
 .core-spec {
   /* display: inline-block; */
-  position: absolute;
+  /* position: absolute; */
   /* width: 55%; */
   width: 1048px;
   height: 292px;
   /* left: 437px; */
   /* margin: 0px auto; */
-  top: 733px;
+  /* top: 733px; */
   /* background-color: lightgray; */
   text-align: center;
   justify-content: left;
@@ -250,12 +263,12 @@ hr.division-line {
 }
 
 .score {
-  position: absolute;
+  /* position: absolute; */
   /* width: 40%; */
   width: 646px;
   height: 487px;
   /* left: 637px; */
-  top: 1115px;
+  /* top: 1115px; */
   text-align: center;
 }
 
