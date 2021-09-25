@@ -30,8 +30,9 @@
             </div>
           </div>
 
-          <div>
+          <div class="price-chart">
             <!-- 최저가 추이 그래프 -->
+            <product-detail-chart></product-detail-chart>
           </div>
         </div>
       </div>
@@ -131,10 +132,17 @@
 </template>
 
 <script>
+import ProductDetailChart from './detail/ProductDetailChart.vue';
+
 export default {
   name: "ProductDetail",
-  setup() {},
+  components: {
+    ProductDetailChart,
+  },
+  setup() {
+  },
 };
+
 </script>
 
 <style scoped>
@@ -212,6 +220,10 @@ hr.division-line {
   color: #fff3f3;
   border: none;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+}
+
+.price-chart {
+  margin: 50px auto;
 }
 
 .core-spec {
