@@ -34,6 +34,9 @@
       </div>
     </div>
 
+    <!-- <div class="division-line"><hr></div> -->
+    <!-- <hr class="division-line" /> -->
+
     <div class="core-spec">
       <div class="title">
         <div><h2 style="width: 50%">주요 스펙</h2></div>
@@ -51,8 +54,72 @@
       </div>
     </div>
 
+    <!-- <hr class="division-line" /> -->
+
     <div class="score">
       <h2>상품 점수</h2>
+      <div class="score-chart">
+        <div class="score-group">
+          <h3 class="title">가격</h3>
+          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+          <div class="chart">
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle" />
+            <div class="circle" />
+          </div>
+          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
+        </div>
+        <div class="score-group">
+          <h3 class="title">용량</h3>
+          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+          <div class="chart">
+            <div class="circle-middle" />
+            <div class="circle-middle" />
+            <div class="circle-middle" />
+            <div class="circle-middle" />
+            <div class="circle" />
+          </div>
+          <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
+        </div>
+        <div class="score-group">
+          <h3 class="title">가격</h3>
+          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+          <div class="chart">
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle" />
+            <div class="circle" />
+          </div>
+          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
+        </div>
+        <div class="score-group">
+          <h3 class="title">냉각성능</h3>
+          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+          <div class="chart">
+            <div class="circle-high" />
+            <div class="circle-high" />
+            <div class="circle-high" />
+            <div class="circle-high" />
+            <div class="circle-high" />
+          </div>
+          <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
+        </div>
+        <div class="score-group">
+          <h3 class="title">가격</h3>
+          <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
+          <div class="chart">
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle-low" />
+            <div class="circle" />
+            <div class="circle" />
+          </div>
+          <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -66,9 +133,14 @@ export default {
 
 <style scoped>
 
+hr.division-line {
+  width: 1205px;
+}
+
 .productHead {
   position: absolute;
   width: 1047px;
+  /* width: 55%; */
   height: 465px;
   /* left: 437px; */
   /* margin: 0px auto; */
@@ -132,6 +204,7 @@ export default {
 .core-spec {
   /* display: inline-block; */
   position: absolute;
+  /* width: 55%; */
   width: 1048px;
   height: 292px;
   /* left: 437px; */
@@ -178,11 +251,81 @@ export default {
 
 .score {
   position: absolute;
+  /* width: 40%; */
   width: 646px;
   height: 487px;
   /* left: 637px; */
   top: 1115px;
   text-align: center;
+}
+
+.score-chart {
+  margin: 57px auto;
+}
+
+.score-group {
+  margin: 15px auto;
+}
+
+.score-chart h3 {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.score-chart .score-group h3 {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+h3.title {
+  text-align: right;
+  width: 15%;
+}
+
+h3.content {
+  text-align: left;
+  width: 30%;
+}
+
+.score-chart .score-group .chart {
+  display: inline-block;
+  width: 30%;
+}
+
+.circle {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #ECECEC;
+}
+
+.circle-low {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #FFD480;
+}
+
+.circle-middle {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #FF8946;
+}
+
+.circle-high {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #FF553E;
 }
 
 h1 {
