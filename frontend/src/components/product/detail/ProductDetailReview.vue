@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align:center; display:flex; justify-content: center;">
+  <div style="text-align: center; display: flex; justify-content: center">
     <div class="review-analysis">
       <h2>리뷰 분석</h2>
       <div class="review-summary">
@@ -13,7 +13,7 @@
             <img src="@/assets/star-grey.png" alt="star-grey" />
           </div>
           <!-- 총 평점 계산해서 h4 태그 안에 넣기 -->
-          <h4 style="margin-top: 5px;">4 / 5</h4>
+          <h4 style="margin-top: 5px">4 / 5</h4>
         </div>
         <div id="review-count">
           <h3>전체 리뷰 수</h3>
@@ -58,17 +58,50 @@
           </div>
         </div>
       </div>
-      <div id="word-cloud"></div>
+      <div id="word-cloud">
+        <div id="cloud" ref="cloud" style="width: 100%; height: 100%"></div>
+      </div>
       <div id="review-data"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Anychart from "anychart";
+
 export default {
   name: "ProductDetailReivew",
   components: {},
-  setup() {},
+  setup() {
+  },
+  mounted() {
+
+    // setup 안에서는 안됨. dom 만들어지기 전에 객체 로드하려고 해서 그런듯?
+    const chartData = [
+      {
+        x: "IT",
+        value: 590000000,
+      },
+      {
+        x: "Python",
+        value: 283000000,
+      },
+      {
+        x: "JAVA",
+        value: 527000000,
+      },
+      {
+        x: "C++",
+        value: 422000000,
+      },
+    ];
+
+    const chart = Anychart.tagCloud(chartData);
+    chart.angles([0]);
+    // chartw.normal().fill("#1f66ad"); // 글자색 바꾸기
+    chart.container(this.$refs.cloud);
+    chart.draw();
+  },
 };
 </script>
 
@@ -141,22 +174,30 @@ export default {
 #graph1 {
   width: 160px;
   height: 12px;
-  background: linear-gradient(90deg, #666666 80%, #C4C4C4 20%);
+  background: linear-gradient(90deg, #666666 80%, #c4c4c4 20%);
   margin: auto 3px;
 }
 
 #graph2 {
   width: 160px;
   height: 12px;
-  background: linear-gradient(90deg, #666666 60%, #C4C4C4 40%);
+  background: linear-gradient(90deg, #666666 60%, #c4c4c4 40%);
   margin: auto 3px;
 }
 
 #graph3 {
   width: 160px;
   height: 12px;
-  background: linear-gradient(90deg, #666666 50%, #C4C4C4 50%);
+  background: linear-gradient(90deg, #666666 50%, #c4c4c4 50%);
   margin: auto 3px;
+}
+
+#word-cloud {
+  width: 50%;
+  height: 350px;
+  text-align: center;
+  justify-content: center;
+  margin: 20px auto;
 }
 
 h1 {
