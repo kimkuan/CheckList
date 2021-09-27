@@ -1,6 +1,5 @@
 package com.ssafy.checklist.domain.main.controller;
 
-import com.ssafy.checklist.domain.log.controller.response.LogBestProductGetRes;
 import com.ssafy.checklist.domain.main.controller.response.ProductGetRes;
 import com.ssafy.checklist.domain.review.controller.response.ReviewGetRes;
 import io.swagger.annotations.Api;
