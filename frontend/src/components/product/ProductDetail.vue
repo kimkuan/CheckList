@@ -128,16 +128,24 @@
         </div>
       </div>
     </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-reivew style="width:100%"></product-detail-reivew>
+    </div>
   </div>
 </template>
 
 <script>
 import ProductDetailChart from './detail/ProductDetailChart.vue';
+import ProductDetailReivew from './detail/ProductDetailReview.vue';
 
 export default {
   name: "ProductDetail",
   components: {
     ProductDetailChart,
+    ProductDetailReivew,
   },
   setup() {
   },
@@ -148,7 +156,7 @@ export default {
 <style scoped>
 
 .section {
-  margin: 50px;
+  margin: 50px auto;
 }
 
 hr.division-line {
