@@ -52,7 +52,7 @@ public class MainController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @GetMapping("")
-    public ResponseEntity<List<LogBestProductGetRes>> findAllBestProduct(){
+    public ResponseEntity<List<ProductGetRes>> findAllBestProduct(){
 
         return null;
     }
