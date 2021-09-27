@@ -4,7 +4,7 @@
       <searchFilter />
     </div>
     <div class="productCard">
-      <ProductCard v-for="product in products" :product="product" :key="product.id" />
+      <SearchList v-for="product in products" :product="product" :key="product.id" />
     </div>
   </div>
 </template>
@@ -15,14 +15,14 @@
 
 <script>
 import SearchFilter from "../components/search/SearchFilter.vue";
-import ProductCard from "../components/product/ProductCard.vue";
+import SearchList from "../components/search/SearchList.vue";
 import {computed} from 'vue';
 import {useStore} from "vuex";
 export default {
   name: 'Search',
   components: {
     SearchFilter,
-    ProductCard,
+    SearchList,
   },
   setup(){
     const store = useStore();
