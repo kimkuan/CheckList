@@ -69,9 +69,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -81,10 +81,10 @@
             <h3 class="title">용량</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
               <div class="circle" />
             </div>
             <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
@@ -93,9 +93,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -105,11 +105,11 @@
             <h3 class="title">냉각성능</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
             </div>
             <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
           </div>
@@ -117,9 +117,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -340,7 +340,7 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FFD480;
+  background: #FF8946;
 }
 
 .circle-middle {
@@ -349,7 +349,7 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FF8946;
+  background: #FFD480;
 }
 
 .circle-high {
@@ -358,7 +358,16 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FF553E;
+  background: #9EED9C;
+}
+
+.circle-highest {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #7BD8FF;
 }
 
 h1 {
