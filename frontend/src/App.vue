@@ -1,28 +1,17 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <Header />
-    </div>
-
-    <router-view/>
-    
-    <Footer />
-  </div>
+  <Main></Main>
 </template>
 
 <script>
-import Header from '@/components/MainHeader.vue';
-import Footer from '@/components/MainFooter.vue';
+import Main from "./views/Main.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header,
-    Footer,
+    Main,
   },
 };
 </script>
-
 
 <style>
 #app {
