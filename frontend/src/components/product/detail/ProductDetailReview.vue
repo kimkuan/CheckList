@@ -61,17 +61,24 @@
       <div id="word-cloud">
         <div id="cloud" ref="cloud" style="width: 100%; height: 100%"></div>
       </div>
-      <div id="review-data"></div>
+      <div id="review-data">
+        <div v-for="item in 5" :key="item.id">
+          <product-detail-reivew-card></product-detail-reivew-card>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Anychart from "anychart";
+import ProductDetailReivewCard from "../review/ProductDetailReviewCard.vue";
 
 export default {
   name: "ProductDetailReivew",
-  components: {},
+  components: {
+    ProductDetailReivewCard,
+  },
   setup() {
   },
   mounted() {
@@ -114,7 +121,7 @@ export default {
 }
 
 .review-summary {
-  margin: 20px auto;
+  margin: 50px auto;
   max-width: 1058px;
   width: 70%;
   height: 222px;
@@ -194,10 +201,20 @@ export default {
 
 #word-cloud {
   width: 50%;
+  max-width: 750px;
   height: 350px;
   text-align: center;
   justify-content: center;
   margin: 20px auto;
+}
+
+#review-data {
+  width: 50%;
+  max-width: 900px;
+  display: inline-block;
+  margin: 30px auto;
+  /* text-align: center; */
+  /* justify-content: center; */
 }
 
 h1 {
