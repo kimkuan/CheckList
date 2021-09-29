@@ -16,5 +16,11 @@
 
 .main-container {
   /* height: calc(100% - 70px); /* 전체 높이 - 헤더 높이 */
+  width: 100%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  position: relative;
   min-height: calc(100vh - 140px);
 }
+
+
