@@ -65,6 +65,27 @@
         <div v-for="item in 5" :key="item.id">
           <product-detail-reivew-card></product-detail-reivew-card>
         </div>
+        <div style="display:flex; justify-content: center;">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
@@ -122,8 +143,8 @@ export default {
 
 .review-summary {
   margin: 50px auto;
-  max-width: 1058px;
-  width: 70%;
+  /* max-width: 1058px; */
+  width: 85%;
   height: 222px;
   background: #fff3f3;
   border-radius: 20px;
@@ -169,6 +190,8 @@ export default {
 .star-ratio {
   display: flex;
   justify-content: right;
+  margin-right: 5px;
+  width: 263px;
 }
 
 .star-ratio img {
@@ -202,14 +225,14 @@ export default {
 #word-cloud {
   width: 50%;
   max-width: 750px;
-  height: 350px;
+  height: 400px;
   text-align: center;
   justify-content: center;
   margin: 20px auto;
 }
 
 #review-data {
-  width: 50%;
+  width: 65%;
   max-width: 900px;
   display: inline-block;
   margin: 30px auto;
@@ -217,10 +240,19 @@ export default {
   /* justify-content: center; */
 }
 
+#review-data nav {
+  margin-top: 30px;
+}
+
+.page-link {
+  color: #000000;
+  border: none;
+}
+
 h1 {
   font-size: 35px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
   display: inline-block;
   width: 80%;
 }
@@ -228,18 +260,13 @@ h1 {
 h2 {
   font-size: 30px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
 }
 
 h4 {
   font-size: 20px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
 }
 
-@font-face {
-  font-family: "SpoqaHanSansNeo";
-  font-weight: 600;
-  src: url("../../../assets/fonts/SpoqaHanSansNeo-Bold.ttf");
-}
 </style>
