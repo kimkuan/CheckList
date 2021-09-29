@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main-header {
   z-index: 100; /* 헤더 맨위 고정 */
   position: sticky;
