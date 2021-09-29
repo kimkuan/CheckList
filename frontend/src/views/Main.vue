@@ -1,6 +1,9 @@
 <template>
-  <div class="main-content">
-    <main-header></main-header>
+  <div class="main-wrapper">
+    <main-header :height="`70px`"></main-header>
+    <div class="main-container">
+      <router-view></router-view>
+    </div>
     <main-footer></main-footer>
   </div>
 </template>
@@ -17,3 +20,8 @@ export default {
   },
 };
 </script>
+
+<style>
+@import "../css/Common.css";
+@import "../css/Main.css";
+</style>
