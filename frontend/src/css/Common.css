@@ -1,0 +1,59 @@
+/* 공통 CSS */
+
+/* 높이 설정 */
+html, body {
+  height: 100vh;
+}
+
+/* 폰트 설정 */
+body {
+  margin: 0;
+  font-family: SpoqaHanSansNeo-Regular;
+  font-weight: 500;
+  font-size: 16px;
+  overflow-X: hidden; /* 채팅방을 숨겼을 때, 가로 스크롤바가 생기지 않게하기 위함 */
+}
+
+/* Mobile */
+@media (max-width: 749px) {
+  .hide-on-small {
+    display: none !important;
+  }
+  .hide-on-big {
+    display: block;
+  }
+}
+
+/* Desktop */
+@media (min-width: 750px) {
+  html, body {
+    min-width: 750px;
+  }
+  .hide-on-small {
+    display: block;
+  }
+  .hide-on-big {
+    display: none !important;
+  }
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
