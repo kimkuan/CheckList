@@ -1,77 +1,49 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light main-header">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <ul>
-      <li></li>
-      <li>
-        <div class="logo"></div>
-      </li>
-    </ul>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
+  <nav class="navbar navbar-light bg-light" :style="{ height: height }">
+    <div class="container-fluid">
+      <a class="one" @click="clickLogo">
+        <img src="../assets/images/logo.png" alt="" width="150" height="50" />
+      </a>
+      <div class="search-box two">
+        <input type="text" class="search-txt" name="" placeholder="Search">
+        <a class="search-btn" href="#">
+          <i class="fas fa-search"></i>
+        </a>
+      </div>
+      <div class="three" style="width : 100px"></div>
     </div>
   </nav>
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
   name: "main-header",
-  setup() {},
+  components: {},
+  props: {
+    height: {
+      type: String,
+      default: "70px",
+    },
+  },
+  setup() {
+    const router = useRouter();
+    const clickLogo = function () {
+      router.push({ name: "Main" }); // vue-router.js 밑에 정의해둔 메인페이지 경로로 이동
+    };
+
+    const searchProduct = function() {
+
+    };
+
+    return { router, clickLogo, searchProduct };
+  },
+  data() {
+    return {};
+  },
+  computed() {},
+  method() {},
 };
 </script>
 
@@ -81,7 +53,59 @@ export default {
   position: sticky;
   top: 0;
   left: 0;
+  width: 100%;
   text-align: center;
   overflow: visible;
+}
+a {
+  cursor: pointer;
+}
+.one {
+  width: 20%;
+}
+
+.two {
+  width: 60%;
+}
+
+.three {
+  width: 20%;
+}
+
+.search-box {
+  padding-left: 10px;
+  width: 400px;
+  height: 30px;
+  background-color: #FFF3F3;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-btn {
+  padding-right: 5px;
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #FFF3F3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+.search-txt{
+  display: flex;
+  padding: 0;
+  width: 240px;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+}
+.search-txt::placeholder {
+  opacity: .5;
 }
 </style>
