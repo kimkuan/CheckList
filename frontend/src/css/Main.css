@@ -1,0 +1,20 @@
+/* 공통으로 적용되어야할 css */
+@media (max-width: 700px) {
+  .main-container {
+    /* header와 footer 크기에 맞게 140 변경*/
+    min-height: calc(100vh - 140px);
+  }
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 140px) !important;
+  display: block !important;
+  margin-left: 15%; /* 페이지 양옆 200px여백 -> 10% */
+  margin-right: 15%;
+  align-self: center;
+}
+
+.main-container {
+  /* height: calc(100% - 70px); /* 전체 높이 - 헤더 높이 */
+  min-height: calc(100vh - 140px);
+}
