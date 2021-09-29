@@ -43,4 +43,16 @@ public class MainController {
 
         return null;
     }
+
+    @ApiOperation(value = "실시간 베스트 상품 목록", notes = "실시간 전품목 베스트상품 목록을 3개까지 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("")
+    public ResponseEntity<List<ProductGetRes>> findAllBestProduct(){
+
+        return null;
+    }
 }
