@@ -39,21 +39,21 @@ body {
 
 @font-face {
   font-family: 'SpoqaHanSansNeo-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+  src: url("../assets/fonts/SpoqaHanSansNeo-Regular.otf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SpoqaHanSansNeo-Light';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Light.woff') format('woff');
+  src: url("../assets/fonts/SpoqaHanSansNeo-Light.otf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SpoqaHanSansNeo-Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff') format('woff');
+  src: url("../assets/fonts/SpoqaHanSansNeo-Bold.otf");
   font-weight: normal;
   font-style: normal;
 }
