@@ -16,9 +16,6 @@
               <h4>삼성전자</h4>
               <h2>제품코드 DV14T8520BV</h2>
             </div>
-            <div style="width: 25%; text-align: right">
-              <button>비교함<br />담기</button>
-            </div>
           </div>
           <br />
           <div>
@@ -47,14 +44,14 @@
           <div style="text-align: right"><button>스펙전체보기</button></div>
         </div>
 
-        <div style="text-align: left; ">
-          <div class="spec-item"><p style="margin-bottom: 0px; color: #7E7E7E;">가격대</p><p style="margin-top: 0px">데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+        <div class="content">
+          <div class="spec-item"><div><p style="color: #7E7E7E;">가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
         </div>
       </div>
     </div>
@@ -161,9 +158,10 @@ export default {
 
 hr.division-line {
   /* width: 1205px; */
-  width: 85%;
-  max-width: 1205px;
+  /* width: 85%; */
+  /* max-width: 1205px; */
   border: 1px solid #D8D8D8;;
+  margin: 100px 0px;
 }
 
 .productHead {
@@ -269,6 +267,12 @@ hr.division-line {
   border: 0.5px solid #000000;
 }
 
+.core-spec .content {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
 .spec-item {
   display: inline-block;
   width: 18%;
@@ -279,7 +283,20 @@ hr.division-line {
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   text-align: center;
   vertical-align: middle;
+  justify-content: center;
   /* margin-left: 3%; */
+}
+
+.spec-item div {
+  width: 100%;
+  vertical-align: middle;
+  margin-top: 10%;
+  align-items: center;
+}
+
+.spec-item p {
+  width: 100%;
+  margin: 5px auto;
 }
 
 .score {
@@ -313,11 +330,13 @@ hr.division-line {
 h3.title {
   text-align: right;
   width: 15%;
+  font-size: 25px;
 }
 
 h3.content {
   text-align: left;
-  width: 30%;
+  width: 40%;
+  font-size: 25px;
 }
 
 .score-chart .score-group .chart {
@@ -373,7 +392,7 @@ h3.content {
 h1 {
   font-size: 35px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
   display: inline-block;
   width: 80%;
 }
@@ -381,18 +400,18 @@ h1 {
 h2 {
   font-size: 30px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
 }
 
 h4 {
   font-size: 20px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: "SpoqaHanSansNeo-Bold";
 }
 
-@font-face {
+/* @font-face {
   font-family: "SpoqaHanSansNeo";
   font-weight: 600;
   src: url("../../assets/fonts/SpoqaHanSansNeo-Bold.ttf");
-}
+} */
 </style>
