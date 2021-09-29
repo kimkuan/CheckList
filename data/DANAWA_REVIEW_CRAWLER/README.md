@@ -1,6 +1,7 @@
 # 다나와 리뷰 크롤러
 
-0️⃣ 본인의 크롬 버전에 맞게 chromedriver.exe를 다운받아서 변경한다. (설치된 chroedriver는 94버전입니다.) <br>
+0️⃣ 본인의 크롬 버전에 맞게 chromedriver.exe를 다운받아서 변경한다. (설치된 chromedriver는 94버전입니다.) <br>
+ & 파이썬은 반드시! 3.7 버전 사용 <br>
  & ```pip install scrapy``` <br>
  & ```pip install selenium``` <br>
 

@@ -127,7 +127,12 @@ class DanawaCrawler:
                 wait = WebDriverWait(browser,5)
                 
                 print(crawlingURL)
-
+                
+                if crawlingName == "Monitor" :
+                    browser.find_element_by_xpath('//a[@id="danawa-prodBlog-productOpinion-button-tab-companyReview"]').click()
+                
+                time.sleep(5)
+                
                 htmlReview = browser.find_element_by_xpath('//div[@class="mall_review"]').get_attribute('outerHTML')
                 selectorReview = Selector(text=htmlReview)
                 productCrawlingSize = selectorReview.xpath('//div[@class="point_num"]/span[@class="cen_w"]/strong/text()').getall()
