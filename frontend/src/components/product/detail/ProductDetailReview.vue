@@ -88,47 +88,67 @@
         </div>
       </div>
     </div>
+    <product-detail-review-modal v-if="displayModal" v-bind:word="word" @call-parent="hideModal"></product-detail-review-modal>
   </div>
 </template>
 
 <script>
+import { reactive, toRefs, onMounted } from 'vue'
+
 import Anychart from "anychart";
 import ProductDetailReivewCard from "../review/ProductDetailReviewCard.vue";
+import ProductDetailReviewModal from "../review/ProductDetailReviewModal.vue";
 
 export default {
   name: "ProductDetailReivew",
   components: {
     ProductDetailReivewCard,
+    ProductDetailReviewModal,
   },
   setup() {
-  },
-  mounted() {
+    const state = reactive({
+      displayModal: false,
+      word: "",
+      chartData: [
+        {
+          x: "IT",
+          value: 590000000,
+        },
+        {
+          x: "Python",
+          value: 283000000,
+        },
+        {
+          x: "JAVA",
+          value: 527000000,
+        },
+        {
+          x: "C++",
+          value: 422000000,
+        },
+      ],
+    });
 
-    // setup 안에서는 안됨. dom 만들어지기 전에 객체 로드하려고 해서 그런듯?
-    const chartData = [
-      {
-        x: "IT",
-        value: 590000000,
-      },
-      {
-        x: "Python",
-        value: 283000000,
-      },
-      {
-        x: "JAVA",
-        value: 527000000,
-      },
-      {
-        x: "C++",
-        value: 422000000,
-      },
-    ];
+    onMounted(() => {
+      const chart = Anychart.tagCloud(state.chartData);
+      chart.angles([0]);
+      chart.selected().fill(chart.normal().fill()); // word 선택시 색상 변하지 않도록 설정
+      chart.container(document.getElementById('cloud'));
+      chart.tooltip(false); // data 설명창? 안뜨게 수정
+      chart.draw();
+      chart.listen("pointClick", function() {
+        // console.log(chart.getSelectedPoints()[0].index);
+        // console.log(chart.getPoint(chart.getSelectedPoints()[0].index).get('x'))
+        state.word = chart.getPoint(chart.getSelectedPoints()[0].index).get('x');
+        state.displayModal = true;
+      });
+    })
 
-    const chart = Anychart.tagCloud(chartData);
-    chart.angles([0]);
-    // chartw.normal().fill("#1f66ad"); // 글자색 바꾸기
-    chart.container(this.$refs.cloud);
-    chart.draw();
+    const hideModal = () => {
+      state.displayModal = false;
+    }
+
+    return { ...toRefs(state), hideModal }
   },
 };
 </script>
