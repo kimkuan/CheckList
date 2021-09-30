@@ -64,7 +64,7 @@ a {
 .search-box {
   padding-left: 10px;
   width: 100%;
-  height: 35px;
+  height: 40px;
   background-color: #fff3f3;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -75,7 +75,7 @@ a {
   text-decoration: none;
   float: right;
   width: 35px;
-  height: 35px;
+  height: 40px;
   background-color: #fff3f3;
   border-radius: 50%;
   display: flex;
@@ -83,14 +83,14 @@ a {
   align-items: center;
   color: red;
 }
-.search-txt{
+.search-txt {
   align-self: center;
   display: flex;
   border: none;
   background: none;
   outline: none;
   float: left;
-  line-height: 35px;
+  line-height: 40px;
 }
 .search-txt::placeholder {
   opacity: 0.5;

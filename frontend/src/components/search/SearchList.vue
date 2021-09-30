@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card-body">
-                    <h5 class="mt-5 mb-3">{{product.price}}~</h5>
+                    <h5 class="mt-5 mb-3">{{product.price}}</h5>
                     <button @click="goToBuy()" class="btn btn-block goToBuy rounded-pill fw-bold">사러가기</button>
                 </div>
             </div>
@@ -35,8 +35,8 @@ export default {
 
 <style scoped>
 .searchList {
-    width: 820px;
-    height: 250px;
+    width: 700px;
+    height: 240px;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border: none;
@@ -44,5 +44,12 @@ export default {
 .goToBuy {
     background-color: #FFEDED;
     padding: 6px 20px 6px 20px;
+}
+.card-title {
+    text-align: center;
+    margin: auto;
+}
+.card-body {
+    text-align: center;
 }
 </style>
