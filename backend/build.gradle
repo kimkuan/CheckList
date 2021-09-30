@@ -11,6 +11,11 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
+    all {
+        //exclude group: "commons-logging", module: "commons-logging"
+        //exclude group: "log4j", module: "log4j"
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+    }
     compileOnly {
         extendsFrom annotationProcessor
     }
@@ -28,6 +33,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+    annotationProcessor("org.springframework.boot:spring-boot-starter-data-jpa")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
     implementation("io.springfox:springfox-swagger2:3.0.0")
     implementation("io.springfox:springfox-swagger-ui:3.0.0")
 
@@ -37,15 +45,24 @@ dependencies {
     // Hbase 관련 라이브러리
     implementation("org.springframework.data:spring-data-hadoop:2.5.0.RELEASE")
     implementation("org.springframework.data:spring-data-hadoop-hbase:2.5.0.RELEASE")
-    implementation("org.apache.hbase:hbase:3.0.0-alpha-1")
-    implementation("org.apache.hbase:hbase-client:3.0.0-alpha-1")
+    //implementation("org.apache.hbase:hbase:3.0.0-alpha-1")
+    //implementation("org.apache.hbase:hbase-client:3.0.0-alpha-1")
+    //implementation("org.apache.hbase:hbase:1.2.6")
+    //implementation("org.apache.hbase:hbase-client:1.2.6")
+    implementation("org.apache.hbase:hbase:2.2.3")
+    implementation("org.apache.hbase:hbase-client:2.2.3")
 
     implementation fileTree(dir: 'libs', include:['*.jar'])
 
     implementation("com.h2database:h2")
 
     // getVirtualServerName() 오류를 해결하기 위한 버전 업그레이드
-    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compileOnly ("javax.servlet:javax.servlet-api:4.0.1")
+
+    // 로그 관련 라이브러리
+    // implementation("org.apache.logging.log4j:log4j-core:2.14.0")
+    implementation ("log4j:log4j:1.2.17")
+
 }
 
 test {
