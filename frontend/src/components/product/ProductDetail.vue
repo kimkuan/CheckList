@@ -130,8 +130,11 @@
 
     <div class="section" style="display: flex; justify-content: center;">
       <product-detail-reivew style="width:100%"></product-detail-reivew>
-      <product-detail-low-price></product-detail-low-price>
     </div>
+
+    <hr class="division-line" />
+
+    <product-detail-low-price></product-detail-low-price>
   </div>
 </template>
 
@@ -393,25 +396,20 @@ h3.content {
 }
 
 h1 {
-  /* font-size: 30px; */
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
   display: inline-block;
   width: 80%;
 }
 
 h2 {
-  /* font-size: 25px; */
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
 }
 
 h4 {
-  /* font-size: 18px; */
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
 }
 
-/* @font-face {
-  font-family: "SpoqaHanSansNeo";
-  font-weight: 600;
-  src: url("../../assets/fonts/SpoqaHanSansNeo-Bold.ttf");
-} */
 </style>
