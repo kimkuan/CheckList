@@ -29,7 +29,7 @@ export default {
   props: {
     height: {
       type: String,
-      default: '70px'
+      default: '85px'
     }
   },
 
@@ -82,7 +82,7 @@ export default {
 }
 
 .col {
-  font-size: 0.001rem;
+  font-size: 1rem;
 }
 
 .click {
@@ -93,8 +93,11 @@ export default {
   padding-top: 1%;
 }
 
+.two {
+  padding-bottom: 1%;
+}
 .copyright {
   font-family: SpoqaHanSansNeo-Light;
-  font-size: xx-small;
+  font-size: small;
 }
 </style>

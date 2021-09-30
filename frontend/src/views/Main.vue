@@ -4,7 +4,7 @@
     <div class="main-container">
       <router-view></router-view>
     </div>
-    <main-footer :height="`70px`"></main-footer>
+    <main-footer :height="`85px`"></main-footer>
   </div>
 </template>
 
