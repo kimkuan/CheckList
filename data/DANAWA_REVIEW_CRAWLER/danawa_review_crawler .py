@@ -44,7 +44,8 @@ STR_CRAWLING_PAGE_SIZE = 'crawlingPageSize'
 
 # 크롤링 페이지 설정 시 90개로 선택한 후의 페이지 개수를 넣어야함
 class DanawaCrawler:
-    
+
+
     # 카테고리 csv 파일 읽는 작업 (카테고리 5개 다 넣을 수 있을듯)
     def __init__(self):
         self.crawlingCategory = list()
@@ -71,14 +72,28 @@ class DanawaCrawler:
             pool.join()
  
     def CrawlingCategory(self, categoryValue):
+
+        # 이전에 진행한 상품번호를 배열에 받아옴
+        storedPcode = []
+        with open('storedPcode.csv', 'r', encoding='utf8') as f:
+            reader = csv.reader(f)
+            storedPcode = list(reader)[0:]
+
+        print("이미 저장한 상품 번호 리스트")
+        print(storedPcode)
+
         crawlingName = categoryValue[STR_NAME]
         crawlingURL = categoryValue[STR_URL]
         crawlingSize = categoryValue[STR_CRAWLING_PAGE_SIZE]
 
         # data
-        crawlingFile = open(f'{crawlingName}.csv', 'w', newline='', encoding='utf8')
+        crawlingFile = open(f'{crawlingName}.csv', 'a', newline='', encoding='utf8')
         crawlingData_csvWriter = csv.writer(crawlingFile)
         # crawlingData_csvWriter.writerow([(datetime.datetime.now() + timedelta(hours=UTC_TIME)).strftime('%Y-%m-%d %H:%M:%S')])
+
+        # stored pcode
+        storedPcodeFile = open(f'storedPcode.csv', 'a', newline='', encoding='utf8')
+        storedPcode_cvsWriter = csv.writer(storedPcodeFile)
 
         print('Crawling Start Category: ' + crawlingName)
 
@@ -116,6 +131,21 @@ class DanawaCrawler:
                 productId = productIds[j][11:]
                 productIdURL = f'&pcode={productId}'
                 productName = productNames[j].strip()
+                
+                # 이미 리뷰가 저장된 상품이면 다음 상품 진행
+                exit = False
+                for pcode in storedPcode :
+                    if productId == pcode[0] :
+                        exit = True
+                        break
+                
+                if exit == True :
+                    print(productId + "는 이미 저장되었습니다 -> PASS")
+                    continue
+
+                # 현재 저장하는 상품의 ID를 storedPcode.csv에 저장
+                storedPcode_cvsWriter.writerow([productId])
+                storedPcodeFile.flush() # 실시간 업데이트
 
                 browser = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
                 browser.implicitly_wait(5) # 웹페이지 로딩 기다리는 것 -> 5초로 늘려도 괜찮을 듯
@@ -153,6 +183,10 @@ class DanawaCrawler:
                     print("크롤링할 페이지 개수 >>> ", reviewCrawlingSize)
 
                     # 리뷰 171개 -> reviewCrawlingSize : 18개
+                    # 크롤링할 페이지 개수가 100개가 넘으면 100개 이하로만 수집 (최대 리뷰 1000개)
+                    if reviewCrawlingSize > 100 : 
+                        reviewCrawlingSize = 100
+
                     for k in range(1, reviewCrawlingSize+1) :
                         #print("********** cur page >> {}".format(k), '***********')
                         if k % 10 == 0:
@@ -208,7 +242,7 @@ class DanawaCrawler:
                 #     print(">> reviewList : " + reviewList[k])
                 # productId, 카테고리, 모델명, 평점, 등록시간, 작성자 아이디, 사이트정보, 제목, 내용, 사진, 사진
                 
-                
+        storedPcodeFile.close()       
         crawlingFile.close()
         print('Crawling Finish : ' + crawlingName)
 
