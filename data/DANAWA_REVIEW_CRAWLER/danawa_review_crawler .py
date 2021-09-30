@@ -115,6 +115,8 @@ class DanawaCrawler:
         # 커피머신 전체 목록 가져오는 작업
         for i in range(1, crawlingSize+1):
             if i == 1:
+                browser.find_element_by_xpath('//option[@value="90"]').click()
+                browser.find_element_by_xpath('//li[@data-sort-method="NEW"]').click()
                 print(1)
             elif i % 10 == 1:
                 while True :
@@ -124,6 +126,7 @@ class DanawaCrawler:
                     except:
                         print(os.error)
                         print(crawlingName + " >> 전체 목록 페이지 중 ", i, " 선택 시 NoSuchElementException")
+                        browser.quit()
                         browser = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
                         browser.implicitly_wait(15) # 웹페이지 로딩 기다리는 것 -> 5초로 늘려도 괜찮을 듯
                         WebDriverWait(browser, 15)
@@ -138,7 +141,11 @@ class DanawaCrawler:
             elif i % 10 != 1:
                 while True :
                     try:
+                        # 음식물처리기 & 공기청정기 & 모니터 버전
                         browser.find_element_by_xpath('//a[@class="num "][%d]' % (i % 10)).click()
+
+                        # 커피머신 & 에어프라이어 & 버전
+                        # browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[4]/div/div/a[{i}]').click()
                         break
                     except:
                         print(crawlingName + " >> 전체 목록 페이지 중 ", i, " 선택 시 NoSuchElementException")
@@ -148,8 +155,10 @@ class DanawaCrawler:
                         crawlingURL = categoryValue[STR_URL]
                         browser.get(crawlingURL)
                         print(crawlingURL)
-                        browser.find_element_by_xpath('//option[@value="90"]').click()
-                        wait = WebDriverWait(browser,5)
+                        browser.find_element_by_xpath('//select[@class="qnt_selector"]/option[@value="90"]').click()
+                        browser.implicitly_wait(15)
+                        time.sleep(3)
+                        # print(browser.find_element_by_xpath('//div[@class="prod_num_nav"]/div/div').get_attribute('outerHTML'))
                         # 'product_list_cover' : 로딩되기 전 페이지 -> 이게 안 보일 때까지 기다린다
                         wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
                         print("--------------------------------------------------------")
@@ -189,6 +198,7 @@ class DanawaCrawler:
 
             #상품별 로직
             for j in range(len(productIds)) :
+                print("몇 번째? ", j)
                 productId = productIds[j][11:]
                 productIdURL = f'&pcode={productId}'
                 productName = productNames[j].strip()
@@ -362,8 +372,8 @@ class DanawaCrawler:
                             reviewTime = reviewTimeList[l]
                             reviewWriter = reviewWriterList[l]
                             reviewMall = reviewMallList[l]
-                            print(reviewTitle)
-                            print("---------------------------------------")
+                            # print(reviewTitle)
+                            # print("---------------------------------------")
                             crawlingData_csvWriter.writerow([productId, crawlingName, productName, reviewTitle, reviewContent, reviewScore[0], reviewMall, reviewTime, reviewWriter, reviewImgList])
                 # 리뷰 제목 : <div class="tit_W"> <p class="tit">
                 # 내용 : <div class="atc">
