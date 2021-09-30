@@ -130,6 +130,7 @@
 
     <div class="section" style="display: flex; justify-content: center;">
       <product-detail-reivew style="width:100%"></product-detail-reivew>
+      <product-detail-low-price></product-detail-low-price>
     </div>
   </div>
 </template>
@@ -137,12 +138,14 @@
 <script>
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
+import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 
 export default {
   name: "ProductDetail",
   components: {
     ProductDetailChart,
     ProductDetailReivew,
+    ProductDetailLowPrice,
   },
   setup() {
   },
@@ -330,13 +333,13 @@ hr.division-line {
 h3.title {
   text-align: right;
   width: 15%;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 h3.content {
   text-align: left;
   width: 40%;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .score-chart .score-group .chart {
@@ -390,23 +393,20 @@ h3.content {
 }
 
 h1 {
-  font-size: 35px;
+  /* font-size: 30px; */
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo-Bold";
   display: inline-block;
   width: 80%;
 }
 
 h2 {
-  font-size: 30px;
+  /* font-size: 25px; */
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo-Bold";
 }
 
 h4 {
-  font-size: 20px;
+  /* font-size: 18px; */
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo-Bold";
 }
 
 /* @font-face {

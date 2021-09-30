@@ -154,7 +154,7 @@ class DanawaCrawler:
                 productId = productIds[j][11:]
                 productIdURL = f'&pcode={productId}'
                 productName = productNames[j].strip()
-
+                
                 # 이미 리뷰가 저장된 상품이면 다음 상품 진행
                 exit = False
                 for pcode in storedPcode :
@@ -165,10 +165,6 @@ class DanawaCrawler:
                 if exit == True :
                     print(productId + "는 이미 저장되었습니다 -> PASS")
                     continue
-
-                # 현재 저장하는 상품의 ID를 storedPcode.csv에 저장
-                storedPcode_cvsWriter.writerow([productId])
-                storedPcodeFile.flush()
 
                 browser = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
                 browser.implicitly_wait(5) # 웹페이지 로딩 기다리는 것 -> 5초로 늘려도 괜찮을 듯
@@ -185,6 +181,20 @@ class DanawaCrawler:
                     browser.find_element_by_xpath('//a[@id="danawa-prodBlog-productOpinion-button-tab-companyReview"]').click()
                 
                 time.sleep(5)
+
+                # 상품
+                htmlProduct = browser.find_element_by_xpath('//*[@id="blog_content"]/div[2]/div[1]/div/div[1]/div/dl/dd/div/div/span[1]').get_attribute('outerHTML')
+                selectorProduct = Selector(text=htmlProduct)
+                productCategory = selectorProduct.xpath('//span/u/text()').get()
+
+                print(productCategory)
+
+                if productCategory == '액세서리' :
+                    continue
+
+                # 현재 저장하는 상품의 ID를 storedPcode.csv에 저장
+                storedPcode_cvsWriter.writerow([productId])
+                storedPcodeFile.flush() # 실시간 업데이트
                 
                 htmlReview = browser.find_element_by_xpath('//div[@class="mall_review"]').get_attribute('outerHTML')
                 selectorReview = Selector(text=htmlReview)
@@ -211,7 +221,7 @@ class DanawaCrawler:
                     print("크롤링할 페이지 개수 >>> ", reviewCrawlingSize)
 
                     for k in range(1, reviewCrawlingSize+1) :
-                        print("********** cur page >> {}".format(k), '***********')
+                        # print("********** cur page >> {}".format(k), '***********')
                         if k % 10 == 0:
                             browser.find_element_by_xpath('//a[@class="nav_edge nav_edge_next nav_edge_on"]').click()
                         elif k % 10 != 1:

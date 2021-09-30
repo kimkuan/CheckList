@@ -25,4 +25,6 @@ export default {
     //   },
     // ],
 
+    // 클릭한 상품의 모델명
+    productId: "",
 };
