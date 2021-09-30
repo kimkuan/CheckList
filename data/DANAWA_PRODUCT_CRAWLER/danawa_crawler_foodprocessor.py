@@ -2,9 +2,13 @@
 
 # danawa_cralwer.py
 # sammy310
-
-import requests
-from bs4 import BeautifulSoup
+#// Name, URL, Crawling Page Size
+# foodprocessor, "http://prod.danawa.com/list/?cate=1032269", 5
+# coffeemachine, "http://prod.danawa.com/list/?cate=1032061", 2
+# airfryer, "http://prod.danawa.com/list/?cate=10338814", 14
+# monitor, "http://prod.danawa.com/list/?cate=112757", 38
+# aircleaner, "http://prod.danawa.com/list/?cate=10331612", 19
+import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -13,12 +17,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from scrapy.selector import Selector
 
-import datetime
-from datetime import timedelta
 import csv
-import os
-import os.path
-import shutil
 
 import happybase
 
@@ -83,12 +82,12 @@ class DanawaCrawler:
         print('Crawling Start : ' + crawlingName)
         # 크롤링할 url가져와서 webdriver객체에 넣기
         browser = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
-        browser.implicitly_wait(2)
+        browser.implicitly_wait(20)
         browser.get(crawlingURL)
 
         # 상품리스트 90개까지 클릭, 품목에서 음식물 처리기 체크박스 클릭
         browser.find_element_by_xpath('//option[@value="90"]').click()
-        wait = WebDriverWait(browser,5)
+        wait = WebDriverWait(browser,30)
         browser.find_element_by_xpath('//*[@id="searchAttributeValue147493"]').click()
         wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
 
@@ -100,14 +99,23 @@ class DanawaCrawler:
             if page % 10 == 0:
                 browser.find_element_by_xpath('//a[@class="edge_nav nav_next"]').click()
             else:
-                browser.find_element_by_css_selector('#productListArea > div.prod_num_nav > div > div > a:nth-child('+str(page)+')').click()
+                while True:
+                    try:
+                        browser.find_element_by_css_selector('#productListArea > div.prod_num_nav > div > div > a:nth-child('+str(page % 10)+')').click()
+                        break
+                    except:
+                        print("CrawlingCategory > for > else문에서 예외 발생 리로딩")
+                        browser.quit()
+                        browser = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
+                        browser.implicitly_wait(20)
+                        browser.get(crawlingURL)
+                        continue
             wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
             # 품목 리스트의 상품코드, 상품링크가 들어있는 html 가져오기
             product_list_html = browser.find_elements_by_css_selector('div.main_prodlist_list > ul.product_list > li')
 
             # 품목 리스트를 처음부터 돌면서 상품코드와 상품링크를 긁은다음 CrawlingProduct에 매개변수로 넘겨주어 상세정보 크롤링하고 반환받기
             for product in product_list_html:
-                print(cnt, end='')
                 product_html = product.get_attribute('outerHTML')
                 product_selector = Selector(text=product_html)
                 # 마지막 유령상품에 도착했을 때 break
@@ -120,26 +128,76 @@ class DanawaCrawler:
                 product_info = self.CrawlingProduct(product_url, pcode)
                 if product_info == 0: # 0을 리턴했다는 것은 품절일 경우
                     continue
-                print(" :",product_info)
+                print(str(cnt)+" :",product_info)
                 cnt += 1
                 product_info_list.append(product_info)
-
+        print("product_info_list에 넣어진 결과")
+        for item in product_info_list:
+            print(item)
         print('Crawling Finish : ' + crawlingName)
+        browser.quit()
 
 
     def CrawlingProduct(self, product_url, pcode):
         url = product_url
         driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
-        WebDriverWait(driver, 5)
-        driver.implicitly_wait(4)
-        driver.get(url)
+        WebDriverWait(driver, 15)
+        driver.implicitly_wait(15)
+        while True:
+            try:
+                driver.get(url)
+                break
+            except:
+                print("driver.get(url)예외 발생, 리로딩")
+                driver.quit()
+                driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
+                WebDriverWait(driver, 15)
+                driver.implicitly_wait(15)
+                driver.get(url)
 
         spec_info_list = list()  # 최종 상품 정보를 담을 리스트
         # 상품코드 append
         spec_info_list.append({'pcode' : pcode})
         ##########################################상품 이름, 사진, 가격 정보################################################
         # 상품 이름
-        product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute('innerHTML')
+        # try:
+        #     product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute('innerHTML')
+        # except:
+        #     print("product_name_html 예외 발생 타임슬립 10초 시작")
+        #     print("url : ",url)
+        #     time.sleep(10)
+        #     try:
+        #         product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute('innerHTML')
+        #     except:
+        #         print("한번 더 예외 발생, 아예 다시 받아보기")
+        #         driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
+        #         WebDriverWait(driver, 15)
+        #         driver.implicitly_wait(15)
+        #         driver. get(url)
+        #         try:
+        #             product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute(
+        #                 'innerHTML')
+        #         except:
+        #             print("진짜 또 예외 발생, 한번만 더 받아보기")
+        #             driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
+        #             WebDriverWait(driver, 15)
+        #             driver.implicitly_wait(15)
+        #             driver.get(url)
+        #             product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute(
+        #                 'innerHTML')
+        while True:
+            try:
+                product_name_html = driver.find_element_by_css_selector('div.top_summary > h3').get_attribute(
+                    'innerHTML')
+                break
+            except:
+                print("예외 발생, 리로딩")
+                driver.quit()
+                driver = webdriver.Chrome(CHROMEDRIVER_PATH, chrome_options=self.chrome_option)
+                WebDriverWait(driver, 15)
+                driver.implicitly_wait(15)
+                driver.get(url)
+
         name_selector = Selector(text=product_name_html)
         product_name = name_selector.xpath('//text()').get()
 
@@ -154,7 +212,9 @@ class DanawaCrawler:
             product_price_html = driver.find_element_by_css_selector(
                 'div.lowest_list > table > tbody.high_list').get_attribute('innerHTML')
         except:
+            print("품절로 건너뜀")
             return 0
+
         price_list_selector = Selector(text=product_price_html)
         price_list_html = price_list_selector.xpath('//tr').getall()
         price_list = list()
@@ -226,7 +286,11 @@ class DanawaCrawler:
                 if value_html.xpath('//td/a'):  # a태그가 있을 땐 a태그 안에 text()를 key에 넣고
                     value = value_html.xpath('//td/a/text()').get()
                 else:  # a태그가 없을 땐 바로 th 안에 text()를 key에 넣음
-                    value = value_html.xpath('//td/text()').get()
+                    value = str(value_html.xpath('//td/text()').get())
+                # 제조회사의 value값은 이상하게 자꾸 '\n\t\t\t\t\t린나이 비움\t\t\t\t\t' 형태로 저장이돼서 replace로 바꿔봄
+                if str(key) == '제조회사':
+                    value = value.replace('\t', '')
+                    value = value.replace('\n', '')
                 spec_info_list.append({key: value})
 
         #상품 스펙 요약 정보(상품페이지 맨 위)의 부가 기능을 위 스펙 리스트에 추가
