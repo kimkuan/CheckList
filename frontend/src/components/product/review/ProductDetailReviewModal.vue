@@ -4,6 +4,7 @@
     tabindex="-1"
     id="productDetailReviewModal"
     ref="productDetailReviewModal"
+    style="background-color:rgba(0, 0, 0, 0.2);"
   >
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content" style="height: 750px">
@@ -19,7 +20,7 @@
           <hr>
         </div>
         <div class="modal-body p-5 align-items-center">
-          <div id="keyword-review">
+          <div id="keyword-review" style="margin-left: 15px;">
             <div v-for="item in 20" :key="item.id">
               <product-detail-reivew-card></product-detail-reivew-card>
             </div>
