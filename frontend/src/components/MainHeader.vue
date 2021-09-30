@@ -104,4 +104,9 @@ a {
 .two {
   width: 50%;
 }
+
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 </style>
