@@ -1,5 +1,5 @@
 <template>
-  <div id="product">
+  <div>
     <product-detail :productId="productId"></product-detail>
   </div>
 </template>
@@ -15,7 +15,7 @@ import {useStore} from "vuex";
 export default {
   name: 'Product',
   components: {
-    ProductDetail
+    ProductDetail,
   },
   setup(){
     const store = useStore();
@@ -25,6 +25,6 @@ export default {
     return {
       productId,
     }
-  }
+  },
 }
 </script>

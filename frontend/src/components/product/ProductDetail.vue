@@ -128,16 +128,24 @@
         </div>
       </div>
     </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-low-price></product-detail-low-price>
+    </div>
   </div>
 </template>
 
 <script>
 import ProductDetailChart from './detail/ProductDetailChart.vue';
+import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 
 export default {
   name: "ProductDetail",
   components: {
     ProductDetailChart,
+    ProductDetailLowPrice,
   },
   setup() {
   },
@@ -356,7 +364,7 @@ h3.content {
 h1 {
   font-size: 35px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: 'SpoqaHanSansNeo-Bold';
   display: inline-block;
   width: 80%;
 }
@@ -364,18 +372,13 @@ h1 {
 h2 {
   font-size: 30px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: 'SpoqaHanSansNeo-Bold';
 }
 
 h4 {
   font-size: 20px;
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
+  font-family: 'SpoqaHanSansNeo-Bold';
 }
 
-@font-face {
-  font-family: "SpoqaHanSansNeo";
-  font-weight: 600;
-  src: url("../../assets/fonts/SpoqaHanSansNeo-Bold.ttf");
-}
 </style>
