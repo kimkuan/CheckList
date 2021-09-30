@@ -1,6 +1,3 @@
 // Name, URL, Crawling Page Size
 CoffeeMachine, "http://prod.danawa.com/list/?cate=1032061", 2
-Monitor, "http://prod.danawa.com/list/?cate=112757", 38
 AirFryer, "http://prod.danawa.com/list/?cate=10338814", 13
-AirCleaner, "http://prod.danawa.com/list/?cate=10331612", 19
-FoodProcessor, "http://prod.danawa.com/list/?cate=1032269", 6

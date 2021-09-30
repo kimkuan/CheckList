@@ -16,9 +16,6 @@
               <h4>삼성전자</h4>
               <h2>제품코드 DV14T8520BV</h2>
             </div>
-            <div style="width: 25%; text-align: right">
-              <button>비교함<br />담기</button>
-            </div>
           </div>
           <br />
           <div>
@@ -47,14 +44,14 @@
           <div style="text-align: right"><button>스펙전체보기</button></div>
         </div>
 
-        <div style="text-align: left; ">
-          <div class="spec-item"><p style="margin-bottom: 0px; color: #7E7E7E;">가격대</p><p style="margin-top: 0px">데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
-          <div class="spec-item"><p>가격대 <br> 데이터</p></div>
+        <div class="content">
+          <div class="spec-item"><div><p style="color: #7E7E7E;">가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
         </div>
       </div>
     </div>
@@ -69,9 +66,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -81,10 +78,10 @@
             <h3 class="title">용량</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
+              <div class="circle-high" />
               <div class="circle" />
             </div>
             <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
@@ -93,9 +90,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -105,11 +102,11 @@
             <h3 class="title">냉각성능</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
+              <div class="circle-highest" />
             </div>
             <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
           </div>
@@ -117,9 +114,9 @@
             <h3 class="title">가격</h3>
             <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
             <div class="chart">
-              <div class="circle-low" />
-              <div class="circle-low" />
-              <div class="circle-low" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
+              <div class="circle-middle" />
               <div class="circle" />
               <div class="circle" />
             </div>
@@ -128,16 +125,41 @@
         </div>
       </div>
     </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+    </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-reivew style="width:100%"></product-detail-reivew>
+    </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-low-price></product-detail-low-price>
+    </div>
+
   </div>
 </template>
 
 <script>
 import ProductDetailChart from './detail/ProductDetailChart.vue';
+import ProductDetailReivew from './detail/ProductDetailReview.vue';
+import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
+import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 
 export default {
   name: "ProductDetail",
   components: {
     ProductDetailChart,
+    ProductDetailReivew,
+    ProductDetailLowPrice,
+    ProductDetailSpecAirFryer,
   },
   setup() {
   },
@@ -148,14 +170,15 @@ export default {
 <style scoped>
 
 .section {
-  margin: 50px;
+  margin: 50px auto;
 }
 
 hr.division-line {
   /* width: 1205px; */
-  width: 85%;
-  max-width: 1205px;
+  /* width: 85%; */
+  /* max-width: 1205px; */
   border: 1px solid #D8D8D8;;
+  margin: 100px 0px;
 }
 
 .productHead {
@@ -261,6 +284,12 @@ hr.division-line {
   border: 0.5px solid #000000;
 }
 
+.core-spec .content {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
 .spec-item {
   display: inline-block;
   width: 18%;
@@ -271,7 +300,20 @@ hr.division-line {
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   text-align: center;
   vertical-align: middle;
+  justify-content: center;
   /* margin-left: 3%; */
+}
+
+.spec-item div {
+  width: 100%;
+  vertical-align: middle;
+  margin-top: 10%;
+  align-items: center;
+}
+
+.spec-item p {
+  width: 100%;
+  margin: 5px auto;
 }
 
 .score {
@@ -305,11 +347,13 @@ hr.division-line {
 h3.title {
   text-align: right;
   width: 15%;
+  font-size: 20px;
 }
 
 h3.content {
   text-align: left;
-  width: 30%;
+  width: 40%;
+  font-size: 20px;
 }
 
 .score-chart .score-group .chart {
@@ -332,7 +376,7 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FFD480;
+  background: #FF8946;
 }
 
 .circle-middle {
@@ -341,7 +385,7 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FF8946;
+  background: #FFD480;
 }
 
 .circle-high {
@@ -350,32 +394,33 @@ h3.content {
   width: 23px;
   height: 23px;
   border-radius: 50%;
-  background: #FF553E;
+  background: #9EED9C;
+}
+
+.circle-highest {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #7BD8FF;
 }
 
 h1 {
-  font-size: 35px;
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
   display: inline-block;
   width: 80%;
 }
 
 h2 {
-  font-size: 30px;
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
 }
 
 h4 {
-  font-size: 20px;
+  font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
-  font-family: "SpoqaHanSansNeo";
 }
 
-@font-face {
-  font-family: "SpoqaHanSansNeo";
-  font-weight: 600;
-  src: url("../../assets/fonts/SpoqaHanSansNeo-Bold.ttf");
-}
 </style>

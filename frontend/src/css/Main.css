@@ -2,12 +2,12 @@
 @media (max-width: 700px) {
   .main-container {
     /* header와 footer 크기에 맞게 140 변경*/
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 155px);
   }
 }
 
 .main-wrapper {
-  min-height: calc(100vh - 140px) !important;
+  min-height: calc(100vh - 155px) !important;
   display: block !important;
   margin-left: 15%; /* 페이지 양옆 200px여백 -> 10% */
   margin-right: 15%;
@@ -16,5 +16,11 @@
 
 .main-container {
   /* height: calc(100% - 70px); /* 전체 높이 - 헤더 높이 */
-  min-height: calc(100vh - 140px);
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  position: relative;
+  min-height: calc(100vh - 155px);
 }
+
+
