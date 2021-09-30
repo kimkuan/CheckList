@@ -269,103 +269,10 @@ class DanawaCrawler:
         crawlingFile.close()
         print('Crawling Finish : ' + crawlingName)
 
-    def DataSort(self):
-        for crawlingValue in self.crawlingCategory:
-            dataName = crawlingValue[STR_NAME]
-            crawlingDataPath = f'{dataName}.csv'
 
-            if not os.path.exists(crawlingDataPath):
-                continue
-
-            crawl_dataList = list()
-            dataList = list()
-            
-            with open(crawlingDataPath, 'r', newline='', encoding='utf8') as file:
-                csvReader = csv.reader(file)
-                for row in csvReader:
-                    crawl_dataList.append(row)
-            
-            dataPath = f'{DATA_PATH}/{dataName}.csv'
-            if not os.path.exists(dataPath):
-                file = open(dataPath, 'w', encoding='utf8')
-                file.close()
-            with open(dataPath, 'r', newline='', encoding='utf8') as file:
-                csvReader = csv.reader(file)
-                for row in csvReader:
-                    dataList.append(row)
-            
-            
-            if len(dataList) == 0:
-                dataList.append(['Id', 'Name'])
-                
-            dataList[0].append(crawl_dataList[0][0])
-            dataSize = len(dataList[0])
-            
-            for product in crawl_dataList:
-                if not str(product[0]).isdigit():
-                    continue
-                
-                isDataExist = False
-                for data in dataList:
-                    if data[0] == product[0]:
-                        if len(data) < dataSize:
-                            data.append(product[2])
-                        isDataExist = True
-                        break
-                
-                if not isDataExist:
-                    newDataList = ([product[0], product[1]])
-                    for i in range(2,len(dataList[0])-1):
-                        newDataList.append(0)
-                    newDataList.append(product[2])
-                
-                    dataList.append(newDataList)
-                
-            for data in dataList:
-                if len(data) < dataSize:
-                    for i in range(len(data),dataSize):
-                        data.append(0)
-                
-            
-            productData = dataList.pop(0)
-            dataList.sort(key= lambda x: x[1])
-            dataList.insert(0, productData)
-                
-            with open(dataPath, 'w', newline='', encoding='utf8') as file:
-                csvWriter = csv.writer(file)
-                for data in dataList:
-                    csvWriter.writerow(data)
-                file.close()
-                
-            if os.path.isfile(crawlingDataPath):
-                os.remove(crawlingDataPath)
-
-    # 월초에 이전 월의 폴더 만들고 옮기는 작업
-    def DataRefresh(self):
-        dTime = datetime.datetime.today() + datetime.timedelta(hours=UTC_TIME)
-        if dTime.day == 1:
-            if not os.path.exists(DATA_PATH):
-                os.mkdir(DATA_PATH)
-            
-            # 그 전 달의 폴더를 만들기 위한 작업
-            dTime -= datetime.timedelta(days=1)
-            dateStr = dTime.strftime('%Y-%m')
-
-            dataSavePath = f'{DATA_REFRESH_PATH}/{dateStr}'
-            if not os.path.exists(dataSavePath):
-                os.mkdir(dataSavePath)
-            
-            for file in os.listdir(DATA_PATH):
-                fileName, fileExt = os.path.splitext(file)
-                if fileExt == '.csv':
-                    filePath = f'{DATA_PATH}/{file}'
-                    refreshFilePath = f'{dataSavePath}/{file}'
-                    shutil.move(filePath, refreshFilePath)
 
 
 
 if __name__ == '__main__':
     crawler = DanawaCrawler()
-    crawler.DataRefresh()
     crawler.StartCrawling()
-    crawler.DataSort()
