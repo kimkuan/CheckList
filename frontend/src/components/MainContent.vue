@@ -62,13 +62,13 @@
 
   <!-- 베스트 상품 -->
   <div class="best">
-    <h6>🏅 베스트</h6>
+    <h4>🏅 베스트</h4>
     <!-- <product-card></product-card> -->
   </div>
 
   <!-- 체크픽 -->
   <div class="checkpick">
-    <h6>체크픽</h6>
+    <h4>체크픽</h4>
     <div class="check-category">
       <nav>
         <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
@@ -117,19 +117,19 @@ export default {
   border-bottom: 1px solid rgb(229, 229, 229);
   margin-left: auto;
   margin-right: auto;
-  font-size: 10px;
+  font-size: 15px;
 }
 .best {
   height: 500px;
 }
 .check-category {
-  font-size: 12px;
+  font-size: 18px;
 }
 .tab-content {
   height: 200px;
 }
 
-h6 {
+h5 {
   font-family: SpoqaHanSansNeo-Bold;
 }
 
