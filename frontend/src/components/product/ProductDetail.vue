@@ -132,6 +132,12 @@
     <hr class="division-line" />
 
     <div class="section" style="display: flex; justify-content: center;">
+      <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+    </div>
+
+    <hr class="division-line" />
+
+    <div class="section" style="display: flex; justify-content: center;">
       <product-detail-low-price></product-detail-low-price>
     </div>
   </div>
@@ -140,12 +146,14 @@
 <script>
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
+import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 
 export default {
   name: "ProductDetail",
   components: {
     ProductDetailChart,
     ProductDetailLowPrice,
+    ProductDetailSpecAirFryer,
   },
   setup() {
   },
