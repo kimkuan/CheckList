@@ -1,4 +1,5 @@
 <template>
+  <!-- font 크기 수정 예정 -->
   <div class="low-price">
      <div class="title">
         <div><h2>최저가 사러가기</h2></div>
