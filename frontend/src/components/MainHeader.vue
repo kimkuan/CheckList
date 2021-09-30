@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-light bg-light" :style="{ height: height }">
+  <nav class="navbar navbar-light" :style="{ height: height }">
     <div class="container-fluid">
       <a class="one" @click="clickLogo">
         <img src="../assets/images/logo.png" alt="" width="150" height="50" />
@@ -10,7 +10,7 @@
           <i class="fas fa-search"></i>
         </a>
       </div>
-      <div class="three" style="width : 100px"></div>
+      <div class="three"></div>
     </div>
   </nav>
 </template>
@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main-header {
   z-index: 100; /* 헤더 맨위 고정 */
   position: sticky;
@@ -60,23 +60,12 @@ export default {
 a {
   cursor: pointer;
 }
-.one {
-  width: 20%;
-}
-
-.two {
-  width: 60%;
-}
-
-.three {
-  width: 20%;
-}
 
 .search-box {
   padding-left: 10px;
-  width: 400px;
-  height: 30px;
-  background-color: #FFF3F3;
+  width: 100%;
+  height: 35px;
+  background-color: #fff3f3;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
@@ -85,9 +74,9 @@ a {
   padding-right: 5px;
   text-decoration: none;
   float: right;
-  width: 30px;
-  height: 30px;
-  background-color: #FFF3F3;
+  width: 35px;
+  height: 35px;
+  background-color: #fff3f3;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -95,17 +84,29 @@ a {
   color: red;
 }
 .search-txt{
+  align-self: center;
   display: flex;
-  padding: 0;
-  width: 240px;
-  border:none;
+  border: none;
   background: none;
   outline: none;
   float: left;
-  font-size: 1rem;
-  line-height: 30px;
+  line-height: 35px;
 }
 .search-txt::placeholder {
-  opacity: .5;
+  opacity: 0.5;
+}
+
+.one,
+.three {
+  width: 25%;
+}
+
+.two {
+  width: 50%;
+}
+
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 </style>

@@ -14,6 +14,23 @@ body {
   overflow-X: hidden; /* 채팅방을 숨겼을 때, 가로 스크롤바가 생기지 않게하기 위함 */
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-family: SpoqaHanSansNeo-Bold;
+  font-size: 18px;
+}
+
 /* Mobile */
 @media (max-width: 749px) {
   .hide-on-small {
