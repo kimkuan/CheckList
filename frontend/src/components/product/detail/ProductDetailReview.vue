@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    <product-detail-review-modal v-if="displayModal" v-bind:word="word" @call-parent="hideModal"></product-detail-review-modal>
+    <product-detail-review-modal v-bind:word="word" @call-parent="hideModal"></product-detail-review-modal>
   </div>
 </template>
 
@@ -140,12 +140,17 @@ export default {
         // console.log(chart.getSelectedPoints()[0].index);
         // console.log(chart.getPoint(chart.getSelectedPoints()[0].index).get('x'))
         state.word = chart.getPoint(chart.getSelectedPoints()[0].index).get('x');
-        state.displayModal = true;
+        document.getElementById('productDetailReviewModal').classList.toggle('show');
+        document.getElementById('productDetailReviewModal').style.display = 'block';
+        document.getElementById('productDetailReviewModal').setAttribute('aria-modal', true);
+        // document.getElementById('productDetailReviewModal').setAttribute('role', 'dialog');
+        document.body.classList.toggle('modal-open');
+        document.body.style.overflow = 'hidden';
       });
     })
 
     const hideModal = () => {
-      state.displayModal = false;
+      console.log("암것두안혀")
     }
 
     return { ...toRefs(state), hideModal }
