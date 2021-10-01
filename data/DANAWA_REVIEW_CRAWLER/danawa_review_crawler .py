@@ -86,13 +86,13 @@ class DanawaCrawler:
         crawlingSize = categoryValue[STR_CRAWLING_PAGE_SIZE]
         
         # 기존 csv 파일 데이터 삭제
-        if os.path.isfile(f'{crawlingName}.csv') :
-            os.remove(f'{crawlingName}.csv')
-            print(crawlingName+".csv 삭제!")
+        # if os.path.isfile(f'{crawlingName}.csv') :
+        #     os.remove(f'{crawlingName}.csv')
+        #     print(crawlingName+".csv 삭제!")
             
         # data
         crawlingFile = open(f'{crawlingName}.csv', 'a', newline='', encoding='utf8')
-        crawlingData_csvWriter = csv.writer(crawlingFile)
+        crawlingData_csvWriter = csv.writer(crawlingFile, delimeter='\t')
         # crawlingData_csvWriter.writerow([(datetime.datetime.now() + timedelta(hours=UTC_TIME)).strftime('%Y-%m-%d %H:%M:%S')])
 
         # stored pcode
@@ -141,11 +141,21 @@ class DanawaCrawler:
             elif i % 10 != 1:
                 while True :
                     try:
+                        page = i % 10
+                        if i % 10 == 0:
+                            page = 10
+
                         # 음식물처리기 & 공기청정기 & 모니터 버전
-                        browser.find_element_by_xpath('//a[@class="num "][%d]' % (i % 10)).click()
+                        if crawlingName == "FoodProcessor" or crawlingName == "AirCleaner" :
+                            # browser.find_element_by_xpath('//a[@class="num "][%d]' % (i % 10)).click()
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[5]/div/div/a[{page}]').click()
+
+                        if crawlingName == "Monitor" :
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div[2]/div[2]/div[4]/div/div/a[{page}]').click()
 
                         # 커피머신 & 에어프라이어 & 버전
-                        # browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[4]/div/div/a[{i}]').click()
+                        if crawlingName == "CoffeeMachine" or crawlingName == "AirFryer" :
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[4]/div/div/a[{page}]').click()
                         break
                     except:
                         print(crawlingName + " >> 전체 목록 페이지 중 ", i, " 선택 시 NoSuchElementException")
@@ -363,7 +373,7 @@ class DanawaCrawler:
 
                         for l in range(len(reviewTitleList)) :
                             reviewTitle = reviewTitleList[l]
-                            reviewContent = reviewContentList[l]
+                            reviewContent = reviewContentList[l].replace("\n", " <br> ")
                                 
                             reviewImgList = reviewList.xpath(f'//li[@id="danawa-prodBlog-companyReview-content-wrap-{l}"]/div[@class="rvw_atc"]/div[@class="pto_list"]/ul/li/div/div/div/img').getall()
                             reviewScore = reviewList.xpath(f'//li[@id="danawa-prodBlog-companyReview-content-wrap-{l}"]/div[@class="top_info"]/span[@class="point_type_s"]/span[@class="star_mask"]/text()').getall()
