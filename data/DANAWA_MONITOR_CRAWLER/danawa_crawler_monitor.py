@@ -138,14 +138,11 @@ class DanawaCrawler:
                 cnt += 1
                 product_info_list.append(product_info)
 
-        print("크롤링 결과")
 
         f = open('monitor_detail', 'w', encoding='UTF-8')
         for row in product_info_list:
-            print(row)
             for column in row:
                 for key, value in column.items():
-                    print("key :", key, ", value :", value, ", len(value) :", len(value))
                     if type(value) is list:
                         for i in range(1, len(value) + 1):
                             f.write(str(key) + str(i) + ':' + str(value[i - 1]) + '\t')

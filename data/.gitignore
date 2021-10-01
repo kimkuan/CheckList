@@ -1,6 +1,5 @@
 ### IntelliJ IDEA ###
 .idea
-*.csv
 
 ### VS Code ###
 .vscode/
