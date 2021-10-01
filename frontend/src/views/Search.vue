@@ -35,7 +35,6 @@
 
         <div class="searchCategory">
           <SearchCategory :categories="categories" />
-          
         </div>
 
         <div class="searchList">
@@ -108,11 +107,23 @@ export default {
       categories : [
         {
           id : 1,
-          name : "에어프라이어"
+          name : "공기청정기"
         },
         {
           id : 2,
           name : "모니터"
+        },
+        {
+          id : 3,
+          name : "에어프라이어"
+        },
+        {
+          id : 4,
+          name : "음식물처리기"
+        },
+        {
+          id : 5,
+          name : "커피머신"
         },
       ],
       tabs,
