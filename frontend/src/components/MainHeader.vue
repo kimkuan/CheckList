@@ -5,8 +5,8 @@
         <img src="../assets/images/logo.png" alt="" width="150" height="50" />
       </a>
       <div class="search-box two">
-        <input type="text" class="search-txt" name="" placeholder="Search">
-        <a class="search-btn" href="#">
+        <input type="text" class="search-txt" name="" placeholder="Search" v-model="state.searchWord" @keyup.enter='clickSearchBtn'>
+        <a class="search-btn" @click="clickSearchBtn">
           <i class="fas fa-search"></i>
         </a>
       </div>
@@ -17,6 +17,8 @@
 
 <script>
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { reactive, onMounted } from "vue";
 
 export default {
   name: "main-header",
@@ -29,21 +31,32 @@ export default {
   },
   setup() {
     const router = useRouter();
+    const store = useStore();
+    const state = reactive({
+      searchWord: "",
+      searchWordList: [],
+    });
+
+    onMounted({
+    })
     const clickLogo = function () {
       router.push({ name: "Main" }); // vue-router.js 밑에 정의해둔 메인페이지 경로로 이동
     };
 
-    const searchProduct = function() {
-
+    const clickSearchBtn = function () {
+      console.log(state.searchWord);
+      state.searchWord = "";
     };
 
-    return { router, clickLogo, searchProduct };
+    return { router, store, state, onMounted, clickLogo, clickSearchBtn };
   },
   data() {
-    return {};
+    return {
+      // searchWord: "",
+    };
   },
   computed() {},
-  method() {},
+  methods: {},
 };
 </script>
 
