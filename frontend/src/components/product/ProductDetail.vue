@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <div style="display: flex; justify-content: center"> -->
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="section" style="padding-top: 0px">
       <div class="productHead">
         <div class="p-img">
           <!-- 이미지 -->
@@ -35,9 +35,21 @@
       </div>
     </div>
 
-    <hr class="division-line" />
+    <!-- <hr class="division-line" /> -->
 
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="category" style="margin-top: 50px;">
+      <nav>
+        <div class="nav nav-tabs nav-fill" id="detail-menu" role="tablist">
+          <button class="nav-link active category-button" id="nav-best-tab" type="button" role="tab" onclick="location.href='#core-spec'">주요스펙</button>
+          <button class="nav-link active category-button" id="nav-weather-tab" type="button" role="tab" onclick="location.href='#score'">상품점수</button>
+          <button class="nav-link active category-button" id="nav-digital-tab" type="button" role="tab" onclick="location.href='#detail-spec'">스펙분석</button>
+          <button class="nav-link active category-button" id="nav-life-tab" type="button" role="tab" onclick="location.href='#detail-review'">리뷰분석</button>
+          <button class="nav-link active category-button" id="nav-kitchen-tab" type="button" role="tab" onclick="location.href='#low-price'">최저가사러가기</button>
+        </div>
+      </nav>
+    </div>
+
+    <div class="section" id="core-spec" tabindex="-1">
       <div class="core-spec">
         <div class="title">
           <div><h2 style="width: 50%">주요 스펙</h2></div>
@@ -58,7 +70,7 @@
 
     <hr class="division-line" />
 
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="section" id="score">
       <div class="score">
         <h2>상품 점수</h2>
         <div class="score-chart">
@@ -128,19 +140,19 @@
 
     <hr class="division-line" />
 
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="section" id="detail-spec">
       <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
     </div>
 
     <hr class="division-line" />
 
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="section" id="detail-review">
       <product-detail-reivew style="width:100%"></product-detail-reivew>
     </div>
 
     <hr class="division-line" />
 
-    <div class="section" style="display: flex; justify-content: center;">
+    <div class="section" style="" id="low-price">
       <product-detail-low-price></product-detail-low-price>
     </div>
     <product-all-spec-modal id="productSpecModal"></product-all-spec-modal>
@@ -148,6 +160,8 @@
 </template>
 
 <script>
+import { reactive, onMounted } from 'vue'
+
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
@@ -164,6 +178,29 @@ export default {
     ProductAllSpecModal,
   },
   setup() {
+
+    const state = reactive({
+      scrollValue: 0,
+    })
+
+    const onScroll = function() {
+
+      if(0 > document.getElementById('detail-menu').getBoundingClientRect().top) {
+        if(!document.getElementById('detail-menu').classList.contains('fixed-top'))
+          document.getElementById('detail-menu').classList.add('fixed-top');
+      } else {
+        const tmp = document.getElementById('detail-menu').getBoundingClientRect().top;
+        if(window.pageYOffset>700 && tmp==0)  console.log()
+        else if( document.getElementById('detail-menu').classList.contains('fixed-top'))
+          document.getElementById('detail-menu').classList.remove("fixed-top");
+      }
+    }
+
+    onMounted(() => {
+      window.addEventListener('scroll', onScroll);
+    })
+
+    return { state, onScroll, onMounted }
   },
 };
 
@@ -172,7 +209,10 @@ export default {
 <style scoped>
 
 .section {
-  margin: 50px auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
 }
 
 hr.division-line {
@@ -180,7 +220,42 @@ hr.division-line {
   /* width: 85%; */
   /* max-width: 1205px; */
   border: 1px solid #D8D8D8;;
-  margin: 100px 0px;
+  margin-top: 100px;
+}
+
+.nav-link.active {
+  color: rgba(207, 0, 15, 1);
+  font-weight: bold;
+  background-color: #fff;
+  border-color: #fff #fff #cf000f;
+  border-width: 3px;
+}
+
+.nav-link {
+  color: #6d6d6d;
+}
+
+.category {
+  padding-top: 30px;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+}
+
+.category-button {
+  font-weight: bold;
+}
+
+.nav-tabs {
+  border-bottom: white;
+}
+
+.fixed-top {
+  background-color: white;
+  width: 70%;
+  padding-top: 30px;
+  margin: auto;
 }
 
 .productHead {
