@@ -97,14 +97,14 @@ class DanawaCrawler:
         product_info_list = list()
         cnt = 1 # 몇번째 상품인지 보려고걍 만들어봄
         print("총"+str(crawlingSize)+"페이지 크롤링 시작")
-        for page in range(1, crawlingSize+1):
-            if page == 1:
-                print(1)
-            elif page % 10 == 1:
-                browser.find_element_by_xpath('//a[@class="edge_nav nav_next"]').click()
-            elif page % 10 != 1:
-                browser.find_element_by_css_selector(
-                    '#productListArea > div.prod_num_nav > div > div > a:nth-child(' + str(page % 10) + ')').click()
+        for page in range(0, crawlingSize):
+            if page == 0:
+                browser.find_element_by_xpath('//li[@data-sort-method="BEST"]').click()
+            elif page > 0:
+                if page % 10 == 0:
+                    browser.find_element_by_xpath('//a[@class="edge_nav nav_next"]').click()
+                else:
+                    browser.find_element_by_xpath('//a[@class="num "][%d]' % (page % 10)).click()
             wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
             # 품목 리스트의 상품코드, 상품링크가 들어있는 html 가져오기
             product_list_html = browser.find_elements_by_css_selector('div.main_prodlist_list > ul.product_list > li')

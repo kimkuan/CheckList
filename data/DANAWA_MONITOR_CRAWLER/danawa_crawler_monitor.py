@@ -31,7 +31,6 @@ CRAWLING_DATA_CSV_FILE = 'CrawlingMonitor.csv'
 DATA_PATH = 'crawl_data'
 DATA_REFRESH_PATH = f'{DATA_PATH}/Last_Data'
 
-# CHROMEDRIVER_PATH = 'chromedriver_92.exe'
 CHROMEDRIVER_PATH = 'chromedriver.exe'
 
 UTC_TIME = 9
@@ -119,8 +118,8 @@ class DanawaCrawler:
                         continue
             wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
             # 품목 리스트의 상품코드, 상품링크가 들어있는 html 가져오기
-            product_list_html = browser.find_elements_by_css_selector('div.main_prodlist_list > ul.product_list > li')
-
+            product_list_html = browser.find_elements_by_css_selector(
+                'div.main_prodlist_list > ul.product_list > li.prod_item')
             # 품목 리스트를 처음부터 돌면서 상품코드와 상품링크를 긁은다음 CrawlingProduct에 매개변수로 넘겨주어 상세정보 크롤링하고 반환받기
             for product in product_list_html:
                 product_html = product.get_attribute('outerHTML')
@@ -138,9 +137,19 @@ class DanawaCrawler:
                 print(str(cnt)+" :",product_info)
                 cnt += 1
                 product_info_list.append(product_info)
-        print("product_info_list에 넣어진 결과")
-        for item in product_info_list:
-            print(item)
+
+
+        f = open('monitor_detail', 'w', encoding='UTF-8')
+        for row in product_info_list:
+            for column in row:
+                for key, value in column.items():
+                    if type(value) is list:
+                        for i in range(1, len(value) + 1):
+                            f.write(str(key) + str(i) + ':' + str(value[i - 1]) + '\t')
+                    else:
+                        f.write(str(key) + ':' + str(value) + '\t')
+            f.write('\n')
+
         print('Crawling Finish : ' + crawlingName)
         browser.quit()
 
@@ -187,7 +196,8 @@ class DanawaCrawler:
         img_selector = Selector(text=product_img_html)
         product_img_url = img_selector.xpath('//img').attrib['src']
 
-        # 가격 리스트 (품절일 경우 try except 문으로 건너뜀
+        ##########################################가격 리스트##########################################
+        # 품절일 경우 try except 문으로 건너뜀
         try:
             product_price_html = driver.find_element_by_css_selector(
                 'div.lowest_list > table > tbody.high_list').get_attribute('innerHTML')
@@ -202,7 +212,7 @@ class DanawaCrawler:
             # print(item)
             price_selector = Selector(text=plh)
             tr_class = price_selector.xpath('//tr').attrib['class']
-            if tr_class == '' or tr_class == 'lowest':
+            if tr_class == '' or tr_class == 'lowest' or tr_class == 'cash_lowest':
                 # print(plh)
                 # 상품 판매처 로고 이미지, 판매처 이름 크롤링
                 try:
@@ -210,7 +220,14 @@ class DanawaCrawler:
                     site_img_alt = Selector(text=plh).xpath('//a/img').attrib['alt']
                 except:
                     # 로고 이미지가 없을 땐 a태그의 text에있는 값으로 대체
-                    site_img_src = Selector(text=plh).xpath('//a').attrib['title']
+                    try:
+                        site_img_src = Selector(text=plh).xpath('//a').attrib['title']
+                    except:
+                        try:
+                            site_img_src = Selector(text=plh).xpath('//a/font/b/text()').get()
+                        except:
+                            print("가격에서 또 오류남 이 쇼핑몰 가격 정보는 건너뜀")
+                            continue
                     site_img_alt = site_img_src
                 # print("판매처 : "+site_img_alt+", brand_img_src :", site_img_src)
                 price_selector = Selector(text=plh).css('tr > td.price > a').xpath('//span/em/text()').get()
@@ -224,9 +241,6 @@ class DanawaCrawler:
         spec_info_list.append({'가격': price_list})
         ##########################################상품 테이블 정보################################################
         # 상품정보 테이블 전체 Selector로 가져오기
-        # product_detail_html = driver. \
-        #     find_element_by_xpath('//*[@id="productDescriptionArea"]/div/div[2]/table'). \
-        #     get_attribute('outerHTML')
         product_detail_html = driver.find_element_by_css_selector('div.prod_spec > table').get_attribute('innerHTML')
         selector = Selector(text=product_detail_html)
 
@@ -241,9 +255,10 @@ class DanawaCrawler:
             get_th_text = row_selector.xpath('//tr/th/text()').getall()
             if len(get_th_text) > 0 and get_th_text[0] == '인증':
                 break
-            # th만 있고 td가 없는 행 스킵
+            # th만 있고 td가 없는 행
             td_html = row_selector.xpath('//tr/td').getall()
             if not td_html:
+                spec_info_list.append({'대분류': get_th_text[0]})
                 continue
 
             # th, td를 각각 모두 리스트화 해서 키벨류 쌍을 인덱스로 컨트롤
