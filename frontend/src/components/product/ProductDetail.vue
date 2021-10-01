@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section-wrapper">
     <!-- <div style="display: flex; justify-content: center"> -->
     <div class="section" style="display: flex; justify-content: center;">
       <div class="productHead">
@@ -168,9 +168,9 @@ export default {
 </script>
 
 <style scoped>
-
 .section {
-  margin: 50px auto;
+  margin: 10% auto;
+  min-width: 400px;
 }
 
 hr.division-line {
