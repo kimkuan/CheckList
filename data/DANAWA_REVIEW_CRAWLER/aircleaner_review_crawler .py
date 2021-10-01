@@ -22,7 +22,7 @@ from multiprocessing import Pool
 
 PROCESS_COUNT = 5
 
-CRAWLING_DATA_CSV_FILE = 'ReviewCrawlingCategory.csv' # 커피머신의 리뷰데이터 가져올 것
+CRAWLING_DATA_CSV_FILE = 'ReviewCrawlingAircleaner.csv' # 커피머신의 리뷰데이터 가져올 것
 # DATA_PATH 까지는 폴더를 생성해야 정상적으로 파일이 들어감
 DATA_PATH = 'review_crawl_data'
 DATA_REFRESH_PATH = f'{DATA_PATH}/Last_Data'
@@ -74,7 +74,7 @@ class DanawaCrawler:
 
         # 이전에 진행한 상품번호를 배열에 받아옴
         storedPcode = []
-        with open('storedPcode.csv', 'r', encoding='utf8') as f:
+        with open('aircleanerPcode.csv', 'r', encoding='utf8') as f:
             reader = csv.reader(f)
             storedPcode = list(reader)[0:]
 
@@ -86,9 +86,9 @@ class DanawaCrawler:
         crawlingSize = categoryValue[STR_CRAWLING_PAGE_SIZE]
         
         # 기존 csv 파일 데이터 삭제
-        if os.path.isfile(f'{crawlingName}.csv') :
-            os.remove(f'{crawlingName}.csv')
-            print(crawlingName+".csv 삭제!")
+        # if os.path.isfile(f'{crawlingName}.csv') :
+        #     os.remove(f'{crawlingName}.csv')
+        #     print(crawlingName+".csv 삭제!")
             
         # data
         crawlingFile = open(f'{crawlingName}.csv', 'a', newline='', encoding='utf8')
@@ -141,11 +141,21 @@ class DanawaCrawler:
             elif i % 10 != 1:
                 while True :
                     try:
+                        page = i % 10
+                        if i % 10 == 0:
+                            page = 10
+
                         # 음식물처리기 & 공기청정기 & 모니터 버전
-                        browser.find_element_by_xpath('//a[@class="num "][%d]' % (i % 10)).click()
+                        if crawlingName == "FoodProcessor" or crawlingName == "AirCleaner" :
+                            # browser.find_element_by_xpath('//a[@class="num "][%d]' % (i % 10)).click()
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[5]/div/div/a[{page}]').click()
+
+                        if crawlingName == "Monitor" :
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div[2]/div[2]/div[4]/div/div/a[{page}]').click()
 
                         # 커피머신 & 에어프라이어 & 버전
-                        # browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[4]/div/div/a[{i}]').click()
+                        if crawlingName == "CoffeeMachine" or crawlingName == "AirFryer" :
+                            browser.find_element_by_xpath(f'/html/body/div[2]/div[2]/div[5]/div[2]/div[6]/div/div[2]/div[4]/div/div/a[{page}]').click()
                         break
                     except:
                         print(crawlingName + " >> 전체 목록 페이지 중 ", i, " 선택 시 NoSuchElementException")
@@ -230,7 +240,7 @@ class DanawaCrawler:
                 print(crawlingURL)
                 
                 # 상품
-                if crawlingName == "AirFryer" : 
+                if crawlingName == "AirFryer" :
                     htmlProduct = browser.find_element_by_xpath('//*[@id="blog_content"]/div[2]/div[1]/div/div[1]/div/dl/dd/div/div/span[1]').get_attribute('outerHTML')
                     selectorProduct = Selector(text=htmlProduct)
                     productCategory = selectorProduct.xpath('//span/u/text()').get()

@@ -97,7 +97,7 @@ class DanawaCrawler:
         product_info_list = list()
         cnt = 1 # 몇번째 상품인지 보려고걍 만들어봄
         print("총"+str(crawlingSize)+"페이지 크롤링 시작")
-        for page in range(0, crawlingSize+1):
+        for page in range(0, crawlingSize):
             if page == 0:
                 browser.find_element_by_xpath('//li[@data-sort-method="BEST"]').click()
             elif page > 0:
