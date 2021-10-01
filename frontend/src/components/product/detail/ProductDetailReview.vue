@@ -13,13 +13,13 @@
             <img src="@/assets/star-grey.png" alt="star-grey" />
           </div>
           <!-- 총 평점 계산해서 h4 태그 안에 넣기 -->
-          <h4 style="margin-top: 5px">4 / 5</h4>
+          <h4 style="margin-top: 10px">4 / 5</h4>
         </div>
         <div id="review-count">
           <h3>전체 리뷰 수</h3>
           <img src="@/assets/user.png" alt="user icon" />
           <!-- 전체 리뷰 수 카운트해서 h2 태그 안에 넣기 -->
-          <h2>231</h2>
+          <h4 style="margin-top: 10px">231</h4>
         </div>
         <div id="review-ratio">
           <h3>평점 비율</h3>
@@ -275,7 +275,6 @@ export default {
 }
 
 h1 {
-  font-size: 35px;
   margin: 0px 0px;
   font-family: "SpoqaHanSansNeo-Bold";
   display: inline-block;
@@ -283,13 +282,11 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
   margin: 0px 0px;
   font-family: "SpoqaHanSansNeo-Bold";
 }
 
 h4 {
-  font-size: 20px;
   margin: 0px 0px;
   font-family: "SpoqaHanSansNeo-Bold";
 }
