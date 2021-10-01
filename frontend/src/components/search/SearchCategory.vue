@@ -2,10 +2,8 @@
     <div class="dropdown">
         <select v-model="selected">
             <option disabled value="category">카테고리</option>
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
-    </select>
+            <option v-for="category in categories" :key="category.id" :value="category.name"> {{ category.name }}</option>
+        </select>
     </div>
 </template>
 
@@ -14,6 +12,9 @@ export default {
     name : "Category",
     props : ['categories'],
     components: {
+    },
+    data() {
+        return {selected:'category'};
     },
     setup(){
     },
@@ -24,5 +25,9 @@ export default {
 <style scoped>
 .dropdown {
     text-align: center;
+    margin: 5px;
+}
+select {
+    border: none;
 }
 </style>
