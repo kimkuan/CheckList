@@ -41,7 +41,7 @@
       <div class="core-spec">
         <div class="title">
           <div><h2 style="width: 50%">주요 스펙</h2></div>
-          <div style="text-align: right"><button>스펙전체보기</button></div>
+          <div style="text-align: right"><button data-bs-toggle="modal" data-bs-target="#productSpecModal">스펙전체보기</button></div>
         </div>
 
         <div class="content">
@@ -143,7 +143,7 @@
     <div class="section" style="display: flex; justify-content: center;">
       <product-detail-low-price></product-detail-low-price>
     </div>
-
+    <product-all-spec-modal id="productSpecModal"></product-all-spec-modal>
   </div>
 </template>
 
@@ -152,6 +152,7 @@ import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
   name: "ProductDetail",
@@ -160,6 +161,7 @@ export default {
     ProductDetailReivew,
     ProductDetailLowPrice,
     ProductDetailSpecAirFryer,
+    ProductAllSpecModal,
   },
   setup() {
   },
