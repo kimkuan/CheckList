@@ -28,3 +28,8 @@ export function deleteHistoryAll(state) {
 export function deleteWord(state, index) {
   state.searchHistory.splice(index, 1);
 }
+
+// 메인페이지에서 카테고리 선택 -> 카테고리 이름 저장
+export function setSelectCategoryName(state, name) {
+  state.selectCategoryName = name;
+}

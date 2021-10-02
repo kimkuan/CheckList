@@ -19,3 +19,8 @@ export function getSearchWord(state) {
 export function getSearchHistory(state) {
   return state.searchHistory;
 }
+
+// 선택한 카테고리 이름 가져오기
+export function getSelectCategoryName(state) {
+  return state.selectCategoryName;
+}

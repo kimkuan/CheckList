@@ -31,4 +31,6 @@ export default {
   // 최근 검색 목록
   searchHistory: [],
 
+  // 선택한 카테고리 이름
+  selectCategoryName: "",
 };
