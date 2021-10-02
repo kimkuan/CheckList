@@ -85,7 +85,7 @@ class DanawaCrawler:
         browser.get(crawlingURL)
 
         # 상품리스트 90개까지 클릭
-        # browser.find_element_by_xpath('//option[@value="90"]').click()
+        browser.find_element_by_xpath('//option[@value="90"]').click()
         wait = WebDriverWait(browser,30)
         wait.until(EC.invisibility_of_element((By.CLASS_NAME, 'product_list_cover')))
 
