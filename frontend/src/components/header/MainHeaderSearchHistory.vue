@@ -54,6 +54,7 @@ export default {
       console.log(word);
       store.commit("root/setSearchWord", word);
       console.log(store.getters["root/getSearchWord"]);
+      state.searchHistoryView = false;
       // 검색 결과 화면으로 이동
     };
 
