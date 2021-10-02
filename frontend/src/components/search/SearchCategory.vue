@@ -24,8 +24,9 @@ export default {
 </script>
 <style scoped>
 .dropdown {
+    font-size: 18px;
     text-align: center;
-    margin: 5px;
+    margin: 20px;
 }
 select {
     border: none;
