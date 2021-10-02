@@ -71,6 +71,7 @@ export default {
       store.commit("root/setSearchWord", state.searchWord);
       console.log(store.getters["root/getSearchHistory"]);
       state.searchWord = "";
+      state.searchHistoryView = false;
       // 검색 결과 화면으로 이동
       router.push({ name: "SearchProduct" });
     };
