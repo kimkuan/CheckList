@@ -124,6 +124,10 @@ export default {
 </script>
 
 <style scoped>
+button {
+  border: none;
+  background: none;
+}
 .d-block {
   height: 200px;
 }
@@ -168,10 +172,21 @@ export default {
 
 .category-button {
   font-weight: bold;
+  background: white;
 }
 
 .checkpick-button {
+  background: white;
   border-color: #fff #fff #fff #fff;
+}
+.checkpick-button.active {
+  background: white;
+  border-color: #fff #fff #fff #fff;
+}
+
+.checkpick-button:hover,
+.category-button:hover {
+  border-color: white;
 }
 
 .nav-tabs {
@@ -198,4 +213,5 @@ h3 {
   border: 0;
   font-weight: bold;
 }
+
 </style>
