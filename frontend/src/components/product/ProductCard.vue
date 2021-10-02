@@ -1,7 +1,7 @@
 <template>
-    <div class="productCard card m-2 mb-4 rounded-3">
-        <img :src="product.url" class="card-img-top" alt="상품이미지">
-        <div class="card-body">
+    <div class="productCard card p-2 m-2 mt-3 rounded-3" @click="clickProductDetail">
+        <img :src="product.url" class="card-img-top p-3" alt="상품이미지">
+        <div class="card-body p-2 mt-3 mb-4">
             <p class="card-text mb-1">
                 <small class="text-muted">{{product.brand}}</small><br />
                 <strong>{{product.name}}</strong><br />
@@ -16,18 +16,27 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
-    name : "Product",
+    name : "ProductCard",
     props : ['product'],
     setup(){
+        const router = useRouter();
+        const clickProductDetail = function () {
+            router.push({ name: "Product" });
+        };
+
+        return { router, clickProductDetail };
     }
 }
 </script>
 
 <style scoped>
 .productCard {
+    display: inline;
     width: 230px;
-    height: 230px;
+    height: 400px;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border: none;
@@ -40,5 +49,8 @@ export default {
 }
 .price {
     font-size: 18px;
+}
+.productCard:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 </style>

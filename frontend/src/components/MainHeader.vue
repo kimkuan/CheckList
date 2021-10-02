@@ -6,7 +6,7 @@
       </a>
       <div class="search-box two">
         <input type="text" class="search-txt" name="" placeholder="Search">
-        <a class="search-btn" href="#">
+        <a class="search-btn" href="#" @click="searchProduct">
           <i class="fas fa-search"></i>
         </a>
       </div>
@@ -34,7 +34,7 @@ export default {
     };
 
     const searchProduct = function() {
-
+      router.push({ name: "SearchProduct" });
     };
 
     return { router, clickLogo, searchProduct };
