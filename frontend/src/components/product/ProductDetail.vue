@@ -141,7 +141,9 @@
     <hr class="division-line" />
 
     <div class="section" id="detail-spec">
-      <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+      <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
+      <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner>
+
     </div>
 
     <hr class="division-line" />
@@ -165,7 +167,8 @@ import { reactive, onMounted } from 'vue'
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
-import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -174,7 +177,8 @@ export default {
     ProductDetailChart,
     ProductDetailReivew,
     ProductDetailLowPrice,
-    ProductDetailSpecAirFryer,
+    // ProductDetailSpecAirFryer,
+    ProductDetailSpecAirCleaner,
     ProductAllSpecModal,
   },
   setup() {
