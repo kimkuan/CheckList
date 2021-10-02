@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Main from "@/components/MainContent.vue";
 import AboutUs from "@/components/about/AboutUs.vue";
 import AboutService from "@/components/about/AboutService.vue";
+import MainRecentProductList from "@/components/MainRecentProductList.vue";
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: "/product",
     name: "Product",
     component: () => import("../views/Product.vue"),
+  },
+  {
+    path: "/recentProductList",
+    name: "RecentProductList",
+    component: MainRecentProductList,
   },
 ];
 
