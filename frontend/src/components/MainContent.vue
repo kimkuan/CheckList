@@ -128,6 +128,10 @@ button {
   border: none;
   background: none;
 }
+
+button:focus {
+  outline: none;
+}
 .d-block {
   height: 200px;
 }
