@@ -33,7 +33,7 @@
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { reactive, onMounted } from "vue";
-import MainHeaderSearchHistory from './header/MainHeaderSearchHistory.vue';
+import MainHeaderSearchHistory from "./header/MainHeaderSearchHistory.vue";
 
 export default {
   name: "main-header",

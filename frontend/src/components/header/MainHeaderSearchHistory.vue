@@ -65,6 +65,11 @@ export default {
 a {
   cursor: pointer;
 }
+
+button:focus {
+  outline: none;
+}
+
 .historyDiv {
   padding: 10px 10px 0px 32px;
 }
