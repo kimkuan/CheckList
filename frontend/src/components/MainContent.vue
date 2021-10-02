@@ -63,7 +63,9 @@
     </nav>
   </div>
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-best" role="tabpanel" aria-labelledby="nav-best-tab">베스트상품</div>
+    <div class="tab-pane fade show active" id="nav-best" role="tabpanel" aria-labelledby="nav-best-tab">
+      <main-category/>
+    </div>
     <div class="tab-pane fade" id="nav-weather" role="tabpanel" aria-labelledby="nav-weather-tab">계절가전</div>
     <div class="tab-pane fade" id="nav-digital" role="tabpanel" aria-labelledby="nav-digital-tab">...</div>
     <div class="tab-pane fade" id="nav-life" role="tabpanel" aria-labelledby="nav-life-tab">...</div>
@@ -105,11 +107,13 @@
 
 <script>
 import { useRouter } from "vue-router";
+import MainCategory from "./main/MainCategory.vue";
 // import ProductCard from "./product/ProductCard.vue";
 
 export default {
   name : "MainContent",
   components : {
+    MainCategory,
     // ProductCard
   },
   setup() {
