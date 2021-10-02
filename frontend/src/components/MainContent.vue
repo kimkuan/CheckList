@@ -53,7 +53,7 @@
   <!-- 카테고리 -->
   <div class="category">
     <nav>
-      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+      <div class="nav nav-tabs nav-fill nav-tabs-category" id="nav-category-tab" role="tablist">
         <button class="nav-link active category-button" id="nav-best-tab" data-bs-toggle="tab" data-bs-target="#nav-best" type="button" role="tab" aria-controls="nav-best" aria-selected="true">인기</button>
         <button class="nav-link category-button" id="nav-weather-tab" data-bs-toggle="tab" data-bs-target="#nav-weather" type="button" role="tab" aria-controls="nav-weather" aria-selected="false">계절가전</button>
         <button class="nav-link category-button" id="nav-digital-tab" data-bs-toggle="tab" data-bs-target="#nav-digital" type="button" role="tab" aria-controls="nav-digital" aria-selected="false">디지털IT</button>
@@ -64,12 +64,20 @@
   </div>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-best" role="tabpanel" aria-labelledby="nav-best-tab">
-      <main-category/>
+      <main-category :visible='[true,true,true,true,true,true]'/>
     </div>
-    <div class="tab-pane fade" id="nav-weather" role="tabpanel" aria-labelledby="nav-weather-tab">계절가전</div>
-    <div class="tab-pane fade" id="nav-digital" role="tabpanel" aria-labelledby="nav-digital-tab">...</div>
-    <div class="tab-pane fade" id="nav-life" role="tabpanel" aria-labelledby="nav-life-tab">...</div>
-    <div class="tab-pane fade" id="nav-kitchen" role="tabpanel" aria-labelledby="nav-kitchen-tab">...</div>
+    <div class="tab-pane fade" id="nav-weather" role="tabpanel" aria-labelledby="nav-weather-tab">
+      <main-category :visible='[false,false,true,false,false,true]'/>
+    </div>
+    <div class="tab-pane fade" id="nav-digital" role="tabpanel" aria-labelledby="nav-digital-tab">
+      <main-category :visible='[true,false,false,false,false,true]'/>
+    </div>
+    <div class="tab-pane fade" id="nav-life" role="tabpanel" aria-labelledby="nav-life-tab">
+      <main-category :visible='[false,false,false,false,false,false]'/>
+    </div>
+    <div class="tab-pane fade" id="nav-kitchen" role="tabpanel" aria-labelledby="nav-kitchen-tab">
+      <main-category :visible='[false,true,false,true,true,true]'/>
+    </div>
   </div>
 
   <!-- 베스트 상품 -->
@@ -86,7 +94,7 @@
     </h4>
     <div class="check-category">
       <nav>
-        <div class="nav nav-tabs justify-content-center checkp" id="nav-tab" role="tablist">
+        <div class="nav nav-tabs justify-content-center checkp" id="nav-checkpick-tab" role="tablist">
           <button class="nav-link active checkpick-button" id="nav-airflyer-tab" data-bs-toggle="tab" data-bs-target="#nav-airflyer" type="button" role="tab" aria-controls="nav-airflyer" aria-selected="true">에어프라이어</button>
           <button class="nav-link checkpick-button" id="nav-foodprocessor-tab" data-bs-toggle="tab" data-bs-target="#nav-foodprocessor" type="button" role="tab" aria-controls="nav-foodprocessor" aria-selected="false">음식물처리기</button>
           <button class="nav-link checkpick-button" id="nav-monitor-tab" data-bs-toggle="tab" data-bs-target="#nav-monitor" type="button" role="tab" aria-controls="nav-monitor" aria-selected="false">모니터</button>
@@ -95,7 +103,7 @@
         </div>
       </nav>
     </div>
-    <div class="tab-content" id="nav-tabContent">
+    <div class="tab-content" id="check-nav-tabContent">
       <div class="tab-pane fade show active" id="nav-airflyer" role="tabpanel" aria-labelledby="nav-airflyer-tab">에어에어</div>
       <div class="tab-pane fade" id="nav-foodprocessor" role="tabpanel" aria-labelledby="nav-foodprocessor-tab">계절가전</div>
       <div class="tab-pane fade" id="nav-monitor" role="tabpanel" aria-labelledby="nav-monitor-tab">...</div>
@@ -152,7 +160,7 @@ button:focus {
   font-size: 18px;
 }
 .tab-content {
-  height: 200px;
+  height: 25%;
 }
 
 .nav-link.active {
@@ -201,6 +209,9 @@ button:focus {
   border-bottom: white;
 }
 
+.nav-tabs-category {
+  border-bottom: 1px solid #dee2e6;
+}
 .container {
   height: 100%;
 }
