@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import Main from "@/components/MainContent.vue";
 import AboutUs from "@/components/about/AboutUs.vue";
 import AboutService from "@/components/about/AboutService.vue";
-import MainRecentProductList from "@/components/MainRecentProductList.vue";
 
 const routes = [
   {
@@ -31,15 +30,10 @@ const routes = [
     component: () => import("../views/Product.vue"),
   },
   {
-    path: "/recentProductList",
-    name: "RecentProductList",
-    component: MainRecentProductList,
-  },
-  {
     path: "/searchProduct",
     name: "SearchProduct",
     component: () => import("../views/SearchProduct.vue"),
-  }
+  },
 ];
 
 const router = createRouter({
