@@ -49,11 +49,14 @@ $ hdfs dfs -put airfryer_detail.txt {카테고리명}_product # 상품 데이터
 $ hdfs dfs -put Airfryer.txt {카테고리명}_review # 리뷰 데이터
 ```
 
-### 4. JAR 파일 생성
+### 4. 코드 수정
+- (수정) 주석처리 해둔 부분을 자신의 카테고리에 맞게 변경
+
+### 5. JAR 파일 생성
 
 [[IntelliJ] JAR 파일 생성하기](https://ifuwanna.tistory.com/244)
 
-### 5. MapReduce 코드 실행
+### 6. MapReduce 코드 실행
 
 ```bash
 $ cd /home/hadoop/Project
