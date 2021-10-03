@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/main")
 @Api(value = "MainController", tags = "MainController", description = " 메인 컨트롤러")
-
 public class MainController {
 
     @ApiOperation(value = "카테고리별 랭킹 조회", notes = "특정 카테고리의 상품목록을 랭킹순으로 조회한다.")

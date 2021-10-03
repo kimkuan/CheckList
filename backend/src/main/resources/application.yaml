@@ -8,9 +8,9 @@ hbase:
     zookeeper:
       znode.parent: /hbase
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/checklist?serverTimezone=Asia/Seoul
-    username: root
-    password: ssun
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/checklist?serverTimezone=Asia/Seoul
+#    username: root
+#    password:
