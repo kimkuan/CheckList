@@ -142,8 +142,8 @@
 
     <div class="section" id="detail-spec">
       <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
-      <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner>
-
+      <!-- <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner> -->
+      <product-detail-spec-coffee-machine />
     </div>
 
     <hr class="division-line" />
@@ -162,13 +162,14 @@
 </template>
 
 <script>
-import { reactive, onMounted } from 'vue'
-
+import { reactive, computed, onMounted } from 'vue'
+import { useStore } from "vuex";
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 // import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
-import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+// import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -178,13 +179,17 @@ export default {
     ProductDetailReivew,
     ProductDetailLowPrice,
     // ProductDetailSpecAirFryer,
-    ProductDetailSpecAirCleaner,
+    // ProductDetailSpecAirCleaner,
+    ProductDetailSpecCoffeeMachine,
     ProductAllSpecModal,
   },
   setup() {
-
+    const store = useStore();
     const state = reactive({
       scrollValue: 0,
+      product: computed(() => {
+        return store.getters["root/getProductDetail"];
+      }),
     })
 
     const onScroll = function() {
@@ -204,7 +209,7 @@ export default {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { state, onScroll, onMounted }
+    return { store, state, onScroll, onMounted }
   },
 };
 
