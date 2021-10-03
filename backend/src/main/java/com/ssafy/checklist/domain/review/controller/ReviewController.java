@@ -35,7 +35,7 @@ public class ReviewController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("")
+    @GetMapping("/{keyword}")
     public ResponseEntity<ReviewGetRes> findAllReviewByKeyword(String keyword){
         return null;
     }
