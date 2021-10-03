@@ -17,6 +17,7 @@ public class DBDriver extends Configured implements Tool{
 		
 		Configuration conf = new Configuration();
 		
+         // (수정) 자신의 VMWare 상에 있는 DB정보에 맞게 수정
 	     DBConfiguration.configureDB(conf,
 	     "com.mysql.jdbc.Driver",   // driver class
 	     "jdbc:mysql://localhost:3306/checklist?serverTimezone=UTC", // db url
@@ -39,7 +40,8 @@ public class DBDriver extends Configured implements Tool{
 	     job.setOutputFormatClass(DBOutputFormat.class);
 
 	     FileInputFormat.setInputPaths(job, new Path(args[0]));
-	     
+
+		// (수정) 각 상품의 테이블 컬럼에 맞게 수정
 	     DBOutputFormat.setOutput(job, 
 	    		 "airfryer_product", //output table name
 	    		 new String[] {"pcode", "name", "brand", "price", "img", "type", "volume", "size", "power", "spec"} //table columns

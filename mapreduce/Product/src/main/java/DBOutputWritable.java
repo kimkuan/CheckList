@@ -9,7 +9,9 @@ import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.lib.db.DBWritable;
 
 public class DBOutputWritable implements Writable, DBWritable{
-	
+
+	// (수정) 각 상품의 테이블 컬럼에 맞게 전체 수정
+	// Driver에 명시한  new String[] {"pcode", "name", "brand", "price", "img", "type", "volume", "size", "power", "spec"} 이 순서와 동일하게!
 	private long pcode;
 	private String name;
 	private String brand;
