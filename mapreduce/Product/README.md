@@ -36,7 +36,11 @@ $ hdfs dfs -mkdir {카테고리명}_review
 $ hdfs dfs -ls # product, review 디렉토리가 있어야 함
 ```
 
-### 2. 데이터를 HDFS에 넣기
+### 2. MySQL에 상품 테이블 만들기 
+- 테이블의 chatset은 utf8 / utf8-general-ci
+
+
+### 3. 데이터를 HDFS에 넣기
 
 ```bash
 - VMWare상에 데이터 파일을 복사해둔 후 다음 명령어 실행
@@ -45,11 +49,11 @@ $ hdfs dfs -put airfryer_detail.txt {카테고리명}_product # 상품 데이터
 $ hdfs dfs -put Airfryer.txt {카테고리명}_review # 리뷰 데이터
 ```
 
-### 3. JAR 파일 생성
+### 4. JAR 파일 생성
 
 [[IntelliJ] JAR 파일 생성하기](https://ifuwanna.tistory.com/244)
 
-### 4. MapReduce 코드 실행
+### 5. MapReduce 코드 실행
 
 ```bash
 $ cd /home/hadoop/Project
