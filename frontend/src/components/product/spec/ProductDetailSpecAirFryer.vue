@@ -115,17 +115,18 @@ h3 {
 .modal-button {
   margin: 0 auto;
   width: 100%;
-  height: 200px;
-  background-color: gray;
-
+  text-align: center;
 }
 .modal-button > button {
   width: 20%;
-  min-width: 250px;
-  height: 80px;
+  min-width: 300px;
+  height: 60px;
   background-color: white;
   border: none ;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  border-radius: 50px;
+  margin-top: 40px;
+  font-size: 18px;
 }
 </style>
 
