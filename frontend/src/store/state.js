@@ -6,4 +6,9 @@ export default {
         },
     */
 
+  // 클릭한 상품 모델명
+  productId: "",
+
+  // 클릭한 상품 설명 모달창
+  modal: "",
 };

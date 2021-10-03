@@ -9,6 +9,7 @@
         <div class="circle circle-margin">1</div>
         <h3>가격 | 보통</h3>
       </div>
+      <hr>
       <div class="chart">
         <div class="chart-back">&nbsp;</div>
         <div class="chart-low">&nbsp;</div>
@@ -29,6 +30,7 @@
         <div class="circle circle-margin">2</div>
         <h3>용량 | 좋음</h3>
       </div>
+      <hr>
       <div class="chart">
         <div class="chart-back">&nbsp;</div>
         <div class="chart-middle">&nbsp;</div>
@@ -40,10 +42,10 @@
         </div>
       </div>
       <div class="modal-button">
-        <button data-bs-toggle="modal" data-bs-target="#exampleModal">에어프라이기 용량은 어느정도가 적당할까?🤔</button>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" @click="clickModal('size')">에어프라이기 용량은 어느정도가 적당할까?🤔</button>
       </div>
 
-      <product-detail-spec-air-fryer-modal v-bind:desc="desc" id="exampleModal"></product-detail-spec-air-fryer-modal>
+      <product-detail-spec-air-fryer-modal id="exampleModal"></product-detail-spec-air-fryer-modal>
     </div>
 
     <div class="cook spec">
@@ -67,10 +69,31 @@
         </div>
       </div>
       <div class="modal-button">
-        <button data-bs-toggle="modal" data-bs-target="#exampleModal">에어프라이기 용량은 어느정도가 적당할까?🤔</button>
+        <button data-bs-toggle="modal" data-bs-target="#exampleModal" @click="clickModal('cook')">성능 측정?!</button>
       </div>
+      <product-detail-spec-air-fryer-modal desc="cook" id="exampleModal"></product-detail-spec-air-fryer-modal>
+    </div>
 
-      <product-detail-spec-air-fryer-modal v-bind:desc="desc" id="exampleModal"></product-detail-spec-air-fryer-modal>
+    <div class="cook spec">
+      <div class="sub-title">
+        <div class="circle circle-margin">4</div>
+        <h3>세척편의 | 매우 편리함</h3>
+        <hr>
+      </div>
+      <div class="chart">
+        <div class="chart-back">&nbsp;</div>
+        <div class="chart-high">&nbsp;</div>
+      </div>
+      <div class="content">
+        <div class="content-func">
+          <h4>분리형 용기</h4>
+          <div>바스켓과 내솥(내부팬)이 분리가 가능한 방식으로 깨끗하고 조금 더 간편하게 세척할 수 있습니다.</div>
+        </div>
+        <div class="content-func">
+          <h4>분리형 핸들</h4>
+          <div>바스켓과 손잡이가 분리되기 때문에 손잡이는 분리하고 바스켓만 세척할 수 있어 조금 더 편리합니다.</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -148,7 +171,7 @@ h4 {
 }
 .chart-high {
   background-color: #7BD8FF;
-  width: 90%
+  width: 100%
 }
 .chart-desc {
   position: relative;
@@ -189,8 +212,8 @@ h4 {
 </style>
 
 <script>
-// import { useStore } from "vuex";
 import ProductDetailSpecAirFryerModal from './ProductDetailSpecAirFryerModal.vue';
+import { useStore } from "vuex";
 
 export default {
   name: 'ProductDetailSpecAirFryer',
@@ -198,8 +221,15 @@ export default {
     ProductDetailSpecAirFryerModal,
   },
   setup(){
+    const store = useStore();
 
-    return { }
+    function clickModal(desc) {
+      console.log("클릭 모달" + desc)
+      store.commit("root/setModal", desc)
+      console.log("모달 ㄱ밧 :" + store.getters["root/getModal"])
+    }
+
+    return { clickModal }
   }
 }
 </script>
