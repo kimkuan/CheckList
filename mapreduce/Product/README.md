@@ -8,6 +8,12 @@
 - VMWare 한글 설정
 
 [[Ubuntu 20.04]한글 입력기 설치 & 설정하기](https://velog.io/@yujo/Ubuntu-20.04%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5%EA%B8%B0-%EC%84%A4%EC%B9%98-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+- VMWare Mysql 설치
+- mysql-connector-java-8.0.22.jar 파일 복사
+```
+cp mysql-connector-java-8.0.22.jar /usr/local/hadoop/share/hadoop/common/lib
+cp mysql-connector-java-8.0.22.jar /usr/local/hadoop/share/hadoop/mapreduce/lib
+```
 
 ```bash
 $ cd /home/hadoop
