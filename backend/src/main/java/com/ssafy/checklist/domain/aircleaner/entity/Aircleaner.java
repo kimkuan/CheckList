@@ -11,15 +11,13 @@ import javax.persistence.Id;
 @Setter
 public class Aircleaner {
     @Id
-    String id;
-
+    Long pcode;
     String name;
-
-    String modelName;
-
     String brand;
-
-    String imageUrl;
-
-    int price;
+    Long price;
+    String img;
+    String target;      // 사용목적
+    String area;        // 청정면적
+    String power;       // 필터등급
+    String spec;        // 전체스펙
 }
