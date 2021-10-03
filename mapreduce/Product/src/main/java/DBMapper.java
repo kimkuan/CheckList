@@ -30,7 +30,7 @@ public class DBMapper extends Mapper<LongWritable, Text, Text, Text> {
 
 			StringTokenizer token = new StringTokenizer(value.toString(), "\t");
 			StringBuilder sb = new StringBuilder();
-			String[] product = new String[10];
+			String[] product = new String[10]; // (수정) 상품 테이블의 컬럼 수에 맞게 수정
 			ArrayList<Spec> specList = new ArrayList<>();
 			boolean startSpec = false;
 
@@ -45,6 +45,8 @@ public class DBMapper extends Mapper<LongWritable, Text, Text, Text> {
 				if (str[0].equals("대분류"))
 					startSpec = true;
 
+				// (수정) 각 상품의 테이블 컬럼에 맞게 equals 안에 들어가는 값 수정
+				// Driver에 명시한  new String[] {"pcode", "name", "brand", "price", "img", "type", "volume", "size", "power", "spec"} //table columns 이 순서와 동일하게!
 				if (str[0].equals("pcode")) {
 					product[0] = str[1];
 				} else if (str[0].equals("상품이름")) {
