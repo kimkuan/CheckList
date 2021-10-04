@@ -16,7 +16,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/main")
 @Api(value = "MainController", tags = "MainController", description = " 메인 컨트롤러")
-
 public class MainController {
 
     @ApiOperation(value = "카테고리별 랭킹 조회", notes = "특정 카테고리의 상품목록을 랭킹순으로 조회한다.")
@@ -25,7 +24,7 @@ public class MainController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("")
+    @GetMapping("/category")
     public ResponseEntity<List<ProductGetRes>> findAllRankByCategory(String category){
 
         return null;
@@ -37,7 +36,7 @@ public class MainController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("")
+    @GetMapping("/{keyword}")
     public ResponseEntity<List<ProductGetRes>> findAllProductByKeyword(String keyword){
         // keyword에는 상품명, 상품모델명, 브랜드가 올 수 있다.
 
@@ -50,7 +49,7 @@ public class MainController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("")
+    @GetMapping("/best")
     public ResponseEntity<List<ProductGetRes>> findAllBestProduct(){
 
         return null;
