@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/airfryer")
-@Api(value = "AircleanerController", tags = "AircleanerController", description = "에어프라이어 컨트롤러")
+@Api(value = "AirfryerController", tags = "AirfryerController", description = "에어프라이어 컨트롤러")
 public class AirfryerController {
     @ApiOperation(value = "모든 에어프라이어 조회", notes = "모든 에어프라이어를 조회한다.")
     @ApiResponses({

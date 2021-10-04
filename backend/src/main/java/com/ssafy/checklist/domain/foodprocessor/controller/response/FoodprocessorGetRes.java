@@ -1,26 +1,46 @@
 package com.ssafy.checklist.domain.foodprocessor.controller.response;
 
+import com.ssafy.checklist.domain.foodprocessor.entity.Foodprocessor;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 public class FoodprocessorGetRes {
-    @ApiModelProperty(required = true)
-    @NotNull
-    String id;
+    Long pcode;
 
-    @ApiModelProperty(required = true)
     String name;
 
-    @ApiModelProperty(required = true)
-    String modelName;
-
-    @ApiModelProperty(required = true)
     String brand;
 
-    @ApiModelProperty(required = true)
-    int price;
+    Long price;
+
+    String img;
+
+    String form;
+
+    String volume;
+
+    String processType;
+
+    String spec;
+
+    public static FoodprocessorGetRes of(Foodprocessor foodprocessor) {
+        return FoodprocessorGetRes.builder()
+                .pcode(foodprocessor.getPcode())
+                .name(foodprocessor.getName())
+                .brand(foodprocessor.getBrand())
+                .price(foodprocessor.getPrice())
+                .img(foodprocessor.getImg())
+                .form(foodprocessor.getForm())
+                .volume(foodprocessor.getVolume())
+                .processType(foodprocessor.getProcessType())
+                .spec(foodprocessor.getSpec())
+                .build();
+    }
+
 }
