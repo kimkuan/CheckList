@@ -28,13 +28,13 @@ public class AircleanerGetRes {
     String img;
 
     @ApiModelProperty
-    String target;      // 사용목적
+    String type;      // 필터타입
 
     @ApiModelProperty
     String area;        // 청정면적
 
     @ApiModelProperty
-    String power;       // 필터등급
+    String dust;       // 먼지필터여부
 
     @ApiModelProperty
     String spec;        // 전체스펙
@@ -46,9 +46,9 @@ public class AircleanerGetRes {
                 .brand(aircleaner.getBrand())
                 .price(aircleaner.getPrice())
                 .img(aircleaner.getImg())
-                .target(aircleaner.getTarget())
+                .type(aircleaner.getType())
                 .area(aircleaner.getArea())
-                .power(aircleaner.getPower())
+                .dust(aircleaner.getDust())
                 .spec(aircleaner.getSpec())
                 .build();
     }

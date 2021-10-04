@@ -17,7 +17,6 @@ public class AircleanerService {
     AircleanerRepository aircleanerRepository;
 
     public List<AircleanerGetRes> findAll() {
-        List<AircleanerGetRes> response = new ArrayList<>();
         return aircleanerRepository.findAll().stream()
                 .map(AircleanerGetRes::from)
                 .collect(Collectors.toList());
