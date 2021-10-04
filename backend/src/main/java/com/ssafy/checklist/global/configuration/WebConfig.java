@@ -1,4 +1,4 @@
-package com.web.curation.config;
+package com.ssafy.checklist.global.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
