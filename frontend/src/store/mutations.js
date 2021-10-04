@@ -11,6 +11,11 @@ export function setProductId(state, productId) {
   state.productId = productId;
 }
 
+// 현재 클릭한 모달 이름 저장
+export function setModal(state, modal) {
+  state.modal = modal;
+}
+
 // 상단 검색어 저장
 export function setSearchWord(state, searchWord) {
   console.log(searchWord)

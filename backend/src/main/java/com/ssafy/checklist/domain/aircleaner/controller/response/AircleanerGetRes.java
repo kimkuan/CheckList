@@ -3,14 +3,12 @@ package com.ssafy.checklist.domain.aircleaner.controller.response;
 import com.ssafy.checklist.domain.aircleaner.entity.Aircleaner;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class AircleanerGetRes {
     @ApiModelProperty

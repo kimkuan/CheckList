@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="section-wrapper">
     <!-- <div style="display: flex; justify-content: center"> -->
     <div class="section" style="padding-top: 0px">
       <div class="productHead">
@@ -211,7 +211,6 @@ export default {
 </script>
 
 <style scoped>
-
 .section {
   margin: 0 auto;
   display: flex;

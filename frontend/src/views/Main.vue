@@ -6,7 +6,7 @@
     <transition name="slide-fade">
       <main-recent-productList v-show="show"></main-recent-productList>
     </transition>
-    
+
     <div class="main-container">
       <router-view></router-view>
     </div>

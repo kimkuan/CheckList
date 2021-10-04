@@ -22,7 +22,7 @@ public class DBDriver extends Configured implements Tool {
 		conf.set("categoryName", args[1]);
 
 		DBConfiguration.configureDB(conf, "com.mysql.jdbc.Driver", // driver class
-				"jdbc:mysql://localhost:3306/test?serverTimezone=UTC", // db url
+				"jdbc:mysql://localhost:3306/checklist?serverTimezone=UTC", // db url
 				"root", // user name
 				""); // password
 		Job job = Job.getInstance(conf);
