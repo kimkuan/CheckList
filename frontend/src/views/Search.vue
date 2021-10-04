@@ -56,7 +56,7 @@
         </div>
 
         <div class="searchList">
-          <SearchList v-for="product in products" :product="product" :key="product.id" />
+          <SearchList v-for="product in products" :product="product" :key="product.pcode" />
         </div>
       </tab-panel>
 
@@ -70,10 +70,11 @@ import SearchCategory from "../components/search/SearchCategory.vue";
 import SearchFilter from "../components/search/SearchFilter.vue";
 import SearchList from "../components/search/SearchList.vue";
 
+import { requestProducts } from "../store/actions";
 import { Tabs, Tab, TabPanels, TabPanel } from 'vue3-tabs';
 // import { useRouter } from "vue-router";
-// import { useStore } from "vuex";
-import {reactive, toRefs} from 'vue';
+import { useStore } from 'vuex';
+import { reactive, toRefs, onMounted } from 'vue';
 
 let filters = [
   {"가격": '~10만, 10~20만, 20-30만, 30만~'},
@@ -118,73 +119,71 @@ export default {
   },
   setup(){
     // const router = useRouter();
-    // const store = useStore();
+    const store = useStore();
     const state = reactive({
+      products: [],
       selectedTab: tabs[0].value
     });
-    function getActive(tab) {
+
+    const getProductInfo = () => {
+      requestProducts(store.getters["root/getSelectCategoryName"])
+        .then( res => {
+          state.products = res.data
+          console.log(state.products);
+        })
+        .catch(err => {
+          console.log(err);
+      });
+    }
+
+    const getActive = (tab) => {
       return state.selectedTab === tab;
     }
 
-    for (let filter in filters) {
-      Object.keys(filter).forEach(function(k){
-        console.log(filter);
-        console.log('키값 : '+k + ', 데이터값 : ' + filter[k]);
-      });
-    }
-    
+    // for (let filter in filters) {
+      // Object.keys(filter).forEach(function(k){
+        // console.log(filter);
+        // console.log('키값 : '+k + ', 데이터값 : ' + filter[k]);
+      // });
+    // }
+
+    onMounted(() => {
+      getProductInfo();
+      console.log(state.products);
+    })
+
     return {
-      products : [
-        {
-          pcode : 1,
-          name : "독일 헤르조그 콤포트 에어프라이어 2.0L",
-          brand : "HERZOG",
-          price : 56000,
-          score : "3",
-          url : "data:image/jpeg;base64,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"
-        },
-        {
-          pcode : 2,
-          name : "독일 헤르조그 콤포트 에어프라이어 2.0L",
-          brand : "HERZOG",
-          price : 56000,
-          score : "3",
-          url : "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAKoAqgMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABwUGAwQIAgH/xABLEAABAwICBAoECQoEBwAAAAABAAIDBBEFIQYSMVEHEyIyQWFxkaGxFDOBwQgVI0JSYnKC0RYkU4OSsrPC4fAlNGNzJmRldZSiw//EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwB4oQhAIQhB4lkZDG6SV4YxouXONgFXZ9LYpa51Bg1I+vqmAOkIcGRRA7C9+dr7gCepVnhix+ajpqOgopwyR8uvKBYkgDZY9FyPBbfBkyD8lY5oXB8k1RM+d/S5+uRn2AAdiCyR1OJvzqJoI/qwRk2+8459wWYVM+wvces2X23Ui3Ug+ekTn55Xzjp/0ju9erLG2WN1ZFSaw42RrngfVba57yEHrjp/0ju9HHz/AE3d63xSRZc7vWjWvipKiCJ785y4R36SBcjuv3IPnpFR0PK+OqKjokeOsW94XsBfLdSDXfU4qwXp6iB/1aiE5/eaRbuK0zpgaCpip8fw99EZXasdRG/jYHu3a1gQepwHVdShURpTBTVWj2IwVgHEup3lx+jYXDhuIIB9iC0U1RFUxCSCRr2HpCypJcFOlFRBpC6grahrqaanF9nPGrnfp2lO1AIQhAIQhAIQhALxNI2KJ8jzyWgkr2qhwp438R6H1szHWmkbqR9pyHiQg580r0iGI6a1VZUSyPpfSHMyzLY725PmnDwfFuB1bcO9J9IwzEwJaSotYCW2bfvNsR1tK59wik+MMRbE65aAXO6wE39Ca6Gqb+T1e4MhlI9GkvqmN+0AHoN82negdHFL5xa08Brp5uMw/FNUYlSgcYRkJmHmyt6jY3HQQQpfVCDTfES0gJccIWKVFJiGH4jh04p6mkD4yy/Qerd0Jp6oVY0s0LoNImXluyYc17TYhAuBwwYyyPUfS0bn25xafK6y6M6R1uPaWUeJYvVMDKXW1I28kXItYD2+C1avghnbVZYrEG3+eWg+aumiPBvQ4PIypqJTUzN5pJyHsQW+FmuXuaLNdYgbjbNZeL6l6qH+jhgYYGg39a/V7llg+Uia52pc/QdrD2FBpyMsEuuFfF3wYQcGo2vkq65p12xgkshB5RNt/N9pTA0gxCnwfDZa2puWss1kbM3SPJs1jR0kkgDtSa0ukrsLhnq650fx1iHKcA64haNjR9Voy6zcoF2yulo6tskLnMnY7I7CCurNGMRbiuA0VYx2trxNueuy5Cs7jdd99YHMHen7wEYz6Vg9Rhsjrvp3azR1FA1EIQgEIQgEIQgEjfhBYvryQYcx3JiGu8DfsHme5PFzg1pcdgFyuU+E/EziWP1st7gzajewC/mSg1NBqe8tRUkbLMafE+5WCuhNLK2YA8U87R80rU0Qg4rCYiRYyEvPfl4BWf0ZlVTvhlF2vFj1daCRi04NPBQzVjpTiFOSIKki7JGm2syQ7QHZXyOYDuiybeC4vS4zh8VbSO5EgzadrHDa09YXOTY+JllwvEOaeY/ycFJaG6U1Oh+LupK0udRykCQNzy2B7RvHiMugIOiiRa91VcQxN9fjlNhTHviikD5H6psXMaOgg9JIHZdZWYu2URuZI18UgBa9rrhzTsIKXGnOL1GBaTUddTO+Vha4NLhk4dINt4KBtxxRxM1ImMazc0WChccn+JHU1dSksZJOIZIm81xcDYgbAbi3tVVo+F3BnwA1lJWQz2zZGGvaT1G48QFXMa05l0oxbD4KaB1PSRVLXsjLrve4HnOtlsvl25oHZRyw4jTRzPiaTbY4A6q2RxVPFkGRxtBOWQAVaoql9FSsY513uzPUl5wpadvc2TAcOfrX5NY8Z3/0h/N+zvsElj+krcVxL4wbIPQaQkUDBte61jL2nMN3C56clxjNTPi2Ivc95c9xzN+aB0diwwt9Bgc6TlVk3PO0tG5TFLh5paTWlHy0mburqQUvFYRFNqgZBW7gcxf4s0wgjc60dSOLd7VX8fhs8O35KMwurdRYpS1DDYseDcdRQdkIWphVUK7DaaqabiWJrvbbNbaAQhCAQhCCN0kqRR4FXTk21YiL9uXvXIGNzmoqQ83JeXSHtcbrp3hdrDR6E1ljZ0vIHcT7lzCW8fjMUdsuMY32IGDhcIgpYYh8xjW9wU/St5Kh6XMhTtIOSEEbpHhfp9LxkOVTFmw/S3tVRfOzEqQQTnVmj9W87Qdx6kxpbNYXHYBdKKtkfFUvnZmHuLnDrKC3aHaYvwh3xXi5d6LrHUftMJ2+1p/qOm9t0npKPHqNs+s0TFotK3lMmA2HLYdxSgnqYalg43kvGwlZMKx+vwq7aSpPFk5xvzYfZ0eyyCYm0cnbLqsnyv8ASCuOh2AUuHTNq6qUSSNzDRme/oVQbp1Na76Cne7eHW8LHzWjiOl+J1rDG2VlPEdrYcr+3b3IGBptwgNpGy0eFSa1a4ar5m7IBubvd5duSXlD8kfSZs5PmB3R1rRp42Ms5+ZGwdAX2Wo136rDfegt2jNGayc10+bGH5MHpdv9isVWy7ConQ12thIb9B7h7/epydt2IKXj0XyZO43VUkBY8fVN1d8ZZdjx1Kl1WUh7EHTfBLiBr9C6TWN3Q3jP996uaUfwfa/jcNr6Mn1bg8Dz8wm4gEIQgEIQgWHD3UGPRykgB9bPn7CPxSAwYcbpBEf9Rx7gU8PhBvtRYSzfI8/upKaLDXxkO3Mcf770F/pOcFP0nNCgKTnBT9KeSEHnFX8Xh9S/dE4+CVVZuTN0hfq4PVdcdu9LGrOZQRj7NycbDfuXh0ZAuMx0EbF6qNhWu1zmG7XEdiD2Wle4tdpOptOWzNeOPf8AVP3V846TodbsFkGw24yc4k7rrLHkVqwnYtpm1Be9Bn3o527pL+H9FZpRdqqegjuTVN62nzVtk5qCt4w3IqhV+UuXWmFjDeQUvcS9ae0oGj8HipLdIK6nvk+mvb2hP5c5cAL9XTN7b86mcF0agEIQgEIQgTnwhSOJwoXzGubdyTujDCcQeYnarhGcyL9I6E4fhCkiPCbE564PglDop/nZf9v3oLfSmracvR5O3WZ+KmKeprGt5VHG77E9/NoUZSnMKWhOQQR+kVbMcJqA6hnaCANbXjIGY+tdL2eQuJ+Td4fimHpMf8GqPu/vBLubaUGjNmDkV9FDUuBLYi4DbYgol5ruxMHg+kc2HGNQkHUgNwfrPHvQL00NUNsD8+pffQanMmFwA2k5Jp1FTUCX18v7ZXrFKiT8mcVMj3PHowHKN9sjB70CpbG5ji1wzHWs7SR80+CxzevcezyWZu1BatCqh8clSGU0shIbzXMFtu8q2PqKot5NIB9uYDyBVV0G9dVfZb5lW92xBA4o6qcw6zIGdjy73BUTE2vbM7WIPKOwWTBxPNpVCxf17vtH3ILxwCn/AI5jGy8D/IrpJc18AuenzOqlkPgulEAhCEAhCECd+EO382wh31pB+6k7oq61fIP9P3hOr4QzP8EwyW3Nnc3vA/BJHRx2ribhvY7zCC8UpzCloTkFC0zrEKVhfkg1tJDfB6jsHmEu6jYUwMfdfCqgfVv4peznJBqvzBV44OJBJDixH6KIHt1iqM/YVdeDIfmuMu3cQP3/AMEE1U+tRjGWi+J/7Lf4sa+VPrV7xZmvoti43Ut+57SgV99Yl28rO1azPVrYZsQW3QfKWrP1W+9W4nkqnaGG3pR3lo81bC/JBHYjzSqFi3+Zf9pXrEHckqi4qfzh2/WKC9fB/bracvd9GkeV0guePg6x6+ltfJ9Cit3uC6HQCEIQCEIQLLh/g4zQuGUDOKsYfYQfwXP2Cv1MWZ16w8F0xwy0pquD3ErC5i1JP/YD3rl+jk1MQgf0aw8UF8p3bFJQyZBQkD1vxSZbUHrGH62H1A3sKoMxuFda9+tTyN3sI8FR5SgwSc0q+cGcdsHxeTfPC3ubIfeqHJzCmLwcs1dGa530qxvhH/VBt1PrVnq26+jmLj/kZD3WPuWCp9atuTPAsVH/AE+o/huKBSx80jrWVmwLGBq3XphyQWrRN2rFMd7x5KzcZydqqmjjtWmPW8qfEvJ2oPFc67CqNiBvM49ZVwrpbRON+hUysdd5QNn4NsN8Sxue3MijZftJPuT4Sg+DhR8XgOK1pHrqoRg7w1t/5k30AhCEAhCEETpZRfGOjOKUdrmalka0deqbeNlxw46jgR805exduEBwIOYO1caaU0LsN0ixKic3V4ipkjA6g4geFu9BPUs2sxpB2i632SZKu4XPenYCcwLKXjkyQZqmS7SqdJtI3FWaokyVYqMpnj6xQYjmLJl6ADV0Yqxurv8A5tS3iGtIB0Jh6AzNOEYlTfOZURy+xzS3+UINqp9atx+WCYr/ANvqP4TlqVPrVkxCdtNo3ikjja9K6IdryGD95ArpeS3tXlp2L1Uc0HrWMFBZMGdq00Y35+KmRJkoOgOpGxu4BSIkyQY8SmtC7ryVVqH3c49amsVm5AF9pUA8l7rNFyTsHSg6i4FKD0Hg6w0kWdUF85+8428AFelHaOUIwzR/DaAC3o1NHGe0NAKkUAhCEAhCEAkRwzcHOK1GNT6QYFSvrIqizqiCEXkjeGgEhvzgQBszvdPdCDi+mfJTTuhmjcx7TZzHNLS09II3qYjnbYZp4cLWiMWPUjKujhijxCLLji31jfou9x6Ej67AsYw4H0zDJtQbZIgXt7btQE0gI2qCrP8AMPzGealIIoJmcuofEdha4XsV4mwiOR2szEIfvMIQRlO0698rdqsGi2JfFeKB8xtTTsMMxvzQSCHW6iAey60Y8IkYCBVUrv1lvML18WT/AKSnPZM1Be6mN3HNAGtr2LC3MPHQW22jsUFphX/IRYVC5pc1/G1JDhk4XDWdouSesjcVEQsxSmgdDT15ihO2OOt1W9wctQUE3NvCP1gsg05oy5lha/aFgawiRrTbapb4sk+dU0o7Zb+QX0YTFrh78QgBt80EoMlK4C2a3DKLbVpupaeFpIrC+wudVtlmoMLxSvH5nh9RID89zSG/tHL++rMIrEZw99gMwbK8cG3BnjOMYxSYhi1HLR4XDIJXOnbqOmsbhrWnOxttOVlb+CrQs0OKfGOLQQzVEY+SYBrNiP0ut3knM03F0H0IQhAIQhAIQhAL4di+r4diDC+MPBa4Ag7QVD1mjtNMS6ImJx3bFOoKBRYjwQU8uIS1jKqqPGyGR0TJGhpJNz0X8VmqNBqUCz8IYOtlx5FNVfCgTUug2G35VFUs7JX/AIrB+QuE9MVWP17k6i0HaB3LzxUZBuxvcgSbtAsGcbllZ/5Dl6boHg42R1h/XuTnMMX6Nn7IXpsUdj8mz9lAnItBsJFrUNQ/7U0n4qRp9CaI21MGYftgnzTSDWjY0dy9oFJNwR0tfVmd/H0zHHOGOQBnsFrhXqh0VggYxsshc1jQ0NGywViC99KDBT0sVOwMhYGt6lsMyC+L0EH1CEIBCEIP/9k="
-        },
-      ],
       categories : [
         {
-          id : 1,
+          id : 'aircleaner',
           name : "공기청정기"
         },
         {
-          id : 2,
+          id : 'monitor',
           name : "모니터"
         },
         {
-          id : 3,
+          id : 'airfryer',
           name : "에어프라이어"
         },
         {
-          id : 4,
+          id : 'foodprocessor',
           name : "음식물처리기"
         },
         {
-          id : 5,
+          id : 'coffeemachine',
           name : "커피머신"
         },
       ],
+      state,
       tabs,
       filters,
       contents,
       getActive,
+      getProductInfo,
       ...toRefs(state),
     };
   },
-  mounted() {
-  },
-  methods:{ 
-  }
 }
 </script>
 

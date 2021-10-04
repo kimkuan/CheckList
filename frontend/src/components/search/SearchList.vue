@@ -6,7 +6,7 @@
         <div class="row g-0">
             <div class="col-md-3">
                 <div class="card-body image">
-                    <img :src="product.url" alt="상품 이미지" class="img-fluid rounded-3">
+                    <img :src="product.img" alt="상품 이미지" class="img-fluid rounded-3">
                 </div>
             </div>
             <div class="col-md-6">
