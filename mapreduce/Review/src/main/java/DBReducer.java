@@ -18,7 +18,7 @@ public class DBReducer extends Reducer<LongWritable,Text,DBOutputWritable,NullWr
 
 		String[] reviewValues = finalValue.toString().split("\t");
 
-		// new String[] {"pcode", "category", "name", "title", "content", "score", "site", "date", "user_id"} //table columns
+		// new String[] {"pcode", "category", "name", "title", "content", "score", "site", "date", "user_id", "image"} //table columns
 		DBOutputWritable productRecord = new DBOutputWritable(
 				Long.valueOf(reviewValues[0]),
 				reviewValues[1],
@@ -28,7 +28,8 @@ public class DBReducer extends Reducer<LongWritable,Text,DBOutputWritable,NullWr
 				Integer.valueOf(reviewValues[5]),
 				reviewValues[6],
 				reviewValues[7],
-				reviewValues[8]
+				reviewValues[8],
+				reviewValues[9]
 				);
 		
 		context.write(productRecord, NullWritable.get());

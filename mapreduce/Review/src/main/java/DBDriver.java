@@ -22,7 +22,7 @@ public class DBDriver extends Configured implements Tool{
 	     "com.mysql.jdbc.Driver",   // driver class
 	     "jdbc:mysql://localhost:3306/checklist?serverTimezone=UTC", // db url
 	     "root",    // user name
-	     "ssafy"); //password
+	     "ssafy406!@!@"); //password
 
 	     Job job = Job.getInstance(conf);
 		 job.setNumReduceTasks(4);
@@ -45,7 +45,7 @@ public class DBDriver extends Configured implements Tool{
 	     
 	     DBOutputFormat.setOutput(job, 
 	    		 "review", //output table name
-	    		 new String[] {"pcode", "category", "name", "title", "content", "score", "site", "date", "user_id"} //table columns
+	    		 new String[] {"pcode", "category", "name", "title", "content", "score", "site", "date", "user_id", "image"} //table columns
 	     );
 
 	     System.exit(job.waitForCompletion(true) ? 0 : 1);

@@ -19,11 +19,12 @@ public class DBOutputWritable implements Writable, DBWritable{
 	private String site;
 	private String date;
 	private String userId;
+	private String image;
 
 	// new String[] {"pcode", "category", "name", "title", "content", "score", "site", "date", "user_id"} //table columns
 
 	public DBOutputWritable(){}
-	public DBOutputWritable(long pcode, String category, String name, String title, String content, int score, String site, String date, String userId)
+	public DBOutputWritable(long pcode, String category, String name, String title, String content, int score, String site, String date, String userId, String image)
 	{
 		this.pcode = pcode;
 		this.category = category;
@@ -34,6 +35,7 @@ public class DBOutputWritable implements Writable, DBWritable{
 		this.score = score;
 		this.site = site;
 		this.userId = userId;
+		this.image = image;
 	}
 
 	public void write(PreparedStatement statement) throws SQLException {
@@ -47,6 +49,7 @@ public class DBOutputWritable implements Writable, DBWritable{
 		statement.setString(7, site);
 		statement.setString(8, date);
 		statement.setString(9, userId);
+		statement.setString(10, image);
 	}
 
 	public void readFields(ResultSet resultSet) throws SQLException {
@@ -60,6 +63,7 @@ public class DBOutputWritable implements Writable, DBWritable{
 		this.site = resultSet.getString(7);
 		this.date =resultSet.getString(8);
 		this.userId = resultSet.getString(9);
+		this.image = resultSet.getString(10);
 	}
 
 	public void write(DataOutput out) throws IOException {
