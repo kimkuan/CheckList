@@ -71,8 +71,9 @@ import SearchFilter from "../components/search/SearchFilter.vue";
 import SearchList from "../components/search/SearchList.vue";
 
 import { Tabs, Tab, TabPanels, TabPanel } from 'vue3-tabs';
+// import { useRouter } from "vue-router";
+// import { useStore } from "vuex";
 import {reactive, toRefs} from 'vue';
-// import {useStore} from "vuex";
 
 let filters = [
   {"가격": '~10만, 10~20만, 20-30만, 30만~'},
@@ -116,6 +117,7 @@ export default {
     SearchList,
   },
   setup(){
+    // const router = useRouter();
     // const store = useStore();
     const state = reactive({
       selectedTab: tabs[0].value
@@ -178,6 +180,8 @@ export default {
       getActive,
       ...toRefs(state),
     };
+  },
+  mounted() {
   },
   methods:{ 
   }

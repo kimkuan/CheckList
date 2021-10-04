@@ -7,6 +7,12 @@ import $axios from "axios";
 //   return $axios.get(url);
 // }
 
+// 카테고리별 전체 상품 목록 가져오기
+export function requestProducts(category) {
+  const url = "/api/" + category;
+  return $axios.get(url);
+}
+
 // 카테고리별 체크픽 가져오기
 export function requestCheckPick(category) {
   const url = "/api/main/rank/" + category;
