@@ -19,7 +19,7 @@ public class DBInputWritable implements Writable, DBWritable {
     private String size;
     private String pixel;
     private int hz;
-    private Object spec;
+    private String spec;
     private int ranking;
 
     public void write(PreparedStatement statement) throws SQLException {
@@ -28,7 +28,7 @@ public class DBInputWritable implements Writable, DBWritable {
         statement.setString(3, size);
         statement.setString(4, pixel);
         statement.setInt(5, hz);
-        statement.setObject(6, spec);
+        statement.setString(6, spec);
         statement.setInt(7, ranking);
     }
     public void readFields(ResultSet resultSet) throws SQLException {
@@ -37,7 +37,7 @@ public class DBInputWritable implements Writable, DBWritable {
         size = resultSet.getString(3);
         pixel = resultSet.getString(4);
         hz = resultSet.getInt(5);
-        spec = resultSet.getObject(6);
+        spec = resultSet.getString(6);
         ranking = resultSet.getInt(7);
     }
     public void write(DataOutput out) throws IOException {
@@ -65,7 +65,7 @@ public class DBInputWritable implements Writable, DBWritable {
         return hz;
     }
 
-    public Object getSpec() {
+    public String getSpec() {
         return spec;
     }
 
