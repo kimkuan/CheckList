@@ -35,6 +35,6 @@ export function deleteWord(state, index) {
 }
 
 // 메인페이지에서 카테고리 선택 -> 카테고리 이름 저장
-export function setSelectCategoryName(state, name) {
-  state.selectCategoryName = name;
+export function setSelectCategoryName(state, id) {
+  state.selectCategoryName = id;
 }

@@ -1,20 +1,22 @@
 // 비동기 API
 import $axios from "axios";
 
-// Kakao 서버로 받은 code로 AccessToken 가져오기
-// export function requestAccessToken({ state }, payload) {
-//   const url = "/kakao/oauth?code=" + payload;
-//   return $axios.get(url);
-// }
+const axiosService = $axios.create({
+  baseURL: 'http://localhost:8080/api/',
+});
 
 // 카테고리별 전체 상품 목록 가져오기
-export function requestProducts(category) {
-  const url = "/api/" + category;
-  return $axios.get(url);
+function requestProducts(category) {
+  return axiosService.get(category);
 }
 
 // 카테고리별 체크픽 가져오기
-export function requestCheckPick(category) {
+function requestCheckPick(category) {
   const url = "/api/main/rank/" + category;
   return $axios.get(url);
+}
+
+export {
+  requestProducts,
+  requestCheckPick
 }
