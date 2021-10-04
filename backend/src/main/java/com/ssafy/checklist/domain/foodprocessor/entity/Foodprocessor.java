@@ -1,5 +1,6 @@
 package com.ssafy.checklist.domain.foodprocessor.entity;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,14 +13,23 @@ import javax.persistence.Id;
 public class Foodprocessor {
 
     @Id
-    String id;
+    Long pcode;
 
+    @NotNull
     String name;
-
-    String modelName;
 
     String brand;
 
-    int price;
+    Long price;
+
+    String img;
+
+    String form;
+
+    String volume;
+
+    String processType;
+
+    String spec;
 
 }
