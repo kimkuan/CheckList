@@ -2,6 +2,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
@@ -36,13 +37,15 @@ public class DBMapper extends Mapper<LongWritable, Text, LongWritable, Text> {
 
 			StringTokenizer token = new StringTokenizer(value.toString(), "\t");
 			StringBuilder sb = new StringBuilder();
-			String review[] = new String[9];
+			String review[] = new String[10];
 
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < 10; i++) {
 				review[i] = token.nextToken();
 			}
+			String imageString = review[9];
+			review[9] = makeImageToJson(imageString); // JSON 형식의 이미지 소스 { "img" : [ "http~", "http~", "http~" ]}
 
-			for (int i = 0; i < 9; i++){
+			for (int i = 0; i < 10; i++){
 				sb.append(review[i] + "\t");
 			}
 
@@ -50,5 +53,28 @@ public class DBMapper extends Mapper<LongWritable, Text, LongWritable, Text> {
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
+	}
+
+	private String makeImageToJson(String imageString) {
+
+		JSONObject rootJson = new JSONObject();
+		JSONArray jsonArray = new JSONArray();
+
+		// "['<img src=""http://bampic.gmarket.co.kr/v1/885/195/2189195885/00877/2189195885356985687700.jpg"" alt=""용량도 크고 LED터치형에 디자인도 깔..."" onerror=""this.src=\'http://img.danawa.com/new/noData/img/noImg_160.gif\'"">']"
+
+		String[] tmp = imageString.split("\"\"");
+		for(String t : tmp){
+			System.out.println(t);
+
+			if(t.startsWith("http")) {
+				JSONObject subJson = new JSONObject();
+				subJson.put("src", t);
+				jsonArray.add(subJson);
+			}
+		}
+
+		rootJson.put("image", jsonArray);
+	
+		return rootJson.toString();
 	}
 }
