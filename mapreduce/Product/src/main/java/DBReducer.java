@@ -25,13 +25,14 @@ public class DBReducer extends Reducer<Text,Text,DBOutputWritable,NullWritable>{
 				Long.valueOf(productValues[0]),
 				productValues[1],
 				productValues[2],
-				Long.valueOf(productValues[3]),
-				productValues[4],
+				productValues[3],
+				Long.valueOf(productValues[4]),
 				productValues[5],
 				productValues[6],
 				productValues[7],
 				productValues[8],
-				productValues[9]
+				productValues[9],
+				productValues[10]
 				);
 		
 		context.write(productRecord, NullWritable.get());
