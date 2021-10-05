@@ -1,5 +1,6 @@
 package com.ssafy.checklist.domain.coffeemachine.controller.response;
 
+import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -10,20 +11,29 @@ import lombok.Setter;
 public class CoffeemachineGetRes {
     @ApiModelProperty
     @NotNull
-    String id;
+    Long pcode;
 
     @ApiModelProperty
     String name;
 
     @ApiModelProperty
-    String modelName;
-
-    @ApiModelProperty
     String brand;
 
     @ApiModelProperty
-    String imageUrl;
+    long price;
 
     @ApiModelProperty
-    int price;
+    String img;
+
+    @ApiModelProperty
+    String pressure;
+
+    @ApiModelProperty
+    String heat_time;
+
+    @ApiModelProperty
+    String water_volume;
+
+    @ApiModelProperty
+    String spec;
 }
