@@ -1,25 +1,34 @@
 package com.ssafy.checklist.domain.coffeemachine.entity;
 
+import com.sun.istack.NotNull;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "coffeemachine_product", schema = "checklist")
 public class Coffeemachine {
+
     @Id
-    String id;
+    Long pcode;
 
     String name;
 
-    String modelName;
-
     String brand;
 
-    String imageUrl;
-
     int price;
+
+    String img;
+
+    String pressure;
+
+    String heat_time;
+
+    String water_volume;
+
+    String spec;
 }
