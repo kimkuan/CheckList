@@ -22,7 +22,7 @@ public class FoodprocessorService {
                 .collect(Collectors.toList());
     }
 
-    public FoodprocessorGetRes findFoodprocessorById(String id) {
-        return foodprocessorRepository.findById(id).map(FoodprocessorGetRes::of).orElse(null);
+    public FoodprocessorGetRes findFoodprocessorById(Long pcode) {
+        return foodprocessorRepository.findById(pcode).map(FoodprocessorGetRes::of).orElse(null);
     }
 }

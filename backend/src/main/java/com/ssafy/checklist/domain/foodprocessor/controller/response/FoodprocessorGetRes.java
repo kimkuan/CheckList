@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Id;
+
 @Getter
 @Setter
 @Builder
@@ -17,15 +19,19 @@ public class FoodprocessorGetRes {
 
     String brand;
 
-    Long price;
-
     String img;
 
-    String form;
-
-    String volume;
+    Long price;
 
     String processType;
+
+    String processTime;
+
+    String decrease;
+
+    String size;
+
+    String sound;
 
     String spec;
 
@@ -34,11 +40,13 @@ public class FoodprocessorGetRes {
                 .pcode(foodprocessor.getPcode())
                 .name(foodprocessor.getName())
                 .brand(foodprocessor.getBrand())
-                .price(foodprocessor.getPrice())
                 .img(foodprocessor.getImg())
-                .form(foodprocessor.getForm())
-                .volume(foodprocessor.getVolume())
+                .price(foodprocessor.getPrice())
                 .processType(foodprocessor.getProcessType())
+                .processTime(foodprocessor.getProcessTime())
+                .decrease(foodprocessor.getDecrease())
+                .size(foodprocessor.getSize())
+                .sound(foodprocessor.getSound())
                 .spec(foodprocessor.getSpec())
                 .build();
     }
