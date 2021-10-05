@@ -1,5 +1,7 @@
 package com.ssafy.checklist.domain.monitor.controller.response;
 
+import com.google.gson.JsonObject;
+import com.ssafy.checklist.domain.monitor.entity.Monitor;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -7,22 +9,32 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MoniterGetRes {
+public class MonitorGetRes {
 
     @ApiModelProperty
     @NotNull
-    String id;
+    Long pcode;
 
     @ApiModelProperty
+    @NotNull
     String name;
-
-    @ApiModelProperty
-    String modelNamel;
 
     @ApiModelProperty
     String brand;
 
     @ApiModelProperty
-    int price;
+    Long price;
+
+    @ApiModelProperty
+    String img;
+
+    @ApiModelProperty
+    String size;
+
+    @ApiModelProperty
+    String pixel;
+
+    @ApiModelProperty
+    int hz;
 
 }
