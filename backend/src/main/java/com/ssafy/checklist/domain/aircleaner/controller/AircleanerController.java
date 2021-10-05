@@ -19,6 +19,7 @@ import java.util.List;
 @RequestMapping("/api/aircleaner")
 @Api(value = "AircleanerController", tags = "AircleanerController", description = "공기청정기 컨트롤러")
 public class AircleanerController {
+
     @Autowired
     AircleanerService aircleanerService;
 
