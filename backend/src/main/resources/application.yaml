@@ -1,16 +1,84 @@
-hbase:
-  config:
-    hbase:
-      zookeeper:
-        quorum: 3.36.131.86
-        property.clientport: 2181
-      rootdir: /hbase
-    zookeeper:
-      znode.parent: /hbase
+build:
+  date: '@build.date@'
+
+logging:
+  file:
+    name: ./dog-live.log
+  level:
+    org:
+      apache:
+        tiles: INFO
+      springframework:
+        web: DEBUG
+      sringframework:
+        boot: DEBUG
+        security: DEBUG
+    root: INFO
+
+server:
+  address: localhost
+  compression:
+    enabled: true
+  mime-types: application/json,application/xml,text/xml,text/plain,application/javascript,text/css,text/html,text/event-stream
+  port: 8081
+#  ssl:
+#    enabled: true
+#    key-store-type: PKCS12
+#    key-store: classpath:keystore/ssafy.p12
+#    key-store-password: doglivedoggi
+#    key-alias: ssafy
+#    trust-store: classpath:keystore/ssafy.ts
+#    trust-store-password: doglivedoggi
+  servlet:
+    contextPath: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+http-server:
+  http:
+    port: 8081
+
+spa:
+  default-file: /dist/index.html
 
 spring:
+  jpa:
+    show-sql : true
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        show_sql : true
+        format_sql : true
+        use_sql_comment: true
+
+  mvc:
+    throw-exception-if-no-handler-found: false
+
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+
+  web:
+    resources:
+      add-mappings: true
+      static-locations: classpath:/dist/
+
+  devtools:
+    livereload:
+      enabled: true
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul
     username: root
     password: ssafy406!@!@
+
+
