@@ -11,13 +11,13 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -29,20 +29,22 @@ public class CoffeemachineController {
     @Autowired
     CoffeemachineService coffeemachineService;
 
-    @ApiOperation(value = "모든 커피머신 조회", notes = "모든 커피머신을 조회한다.")
+    @ApiOperation(value = "페이징 & 필터에 맞는 커피머신 조회", notes = "페이지, 필터조건에 맞는 커피머신 목록 조회 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "조회 성공"),
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{page}/{filter}")
+    @GetMapping("/")
     /**
      * @Method Name : findCoffeemachineByFilter
      * @작성자 : 이영주
      * @Method 설명 : 필터조건에 맞는 카테고리가 커피머신인 상품 목록 조회, 상품정보와 상품성능분석점수가 포함된다.
      */
-    public ResponseEntity<List<CoffeemachineGetRes>> findCoffeemachineByFilter(@PathVariable("page") String page){
-        List<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findAll();
+    public ResponseEntity<Page<CoffeemachineGetRes>> findCoffeemachineByFilter(@PageableDefault(size = 15) Pageable pageable,
+        List<String> priceFilter, List<String> pressureFilter, List<String> heatFilter, List<String> waterFilter
+    ){
+        Page<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCoffeemachineListByFilter(pageable, priceFilter, pressureFilter, heatFilter, waterFilter);
         return new ResponseEntity<>(coffeemachineGetResList, HttpStatus.OK);
     }
 
@@ -55,7 +57,7 @@ public class CoffeemachineController {
     })
     @GetMapping("/{pcode}")
     /**
-    * @Method Name : findCoffeemachine
+    * @Method Name : findCoffeemachineByPcode
     * @작성자 : 이영주
     * @Method 설명 : pcode에 해당하는 상품 조회 (상품 정보, 성능 분석, 최저가 정보)
     */
