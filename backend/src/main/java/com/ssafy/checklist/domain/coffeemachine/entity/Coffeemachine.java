@@ -13,22 +13,31 @@ import javax.persistence.*;
 @Table(name = "coffeemachine_product", schema = "checklist")
 public class Coffeemachine {
 
+    @Column(name = "pcode")
     @Id
     Long pcode;
 
+    @Column(name = "name")
     String name;
 
+    @Column(name = "brand")
     String brand;
 
-    int price;
+    @Column(name = "price")
+    Long price;
 
+    @Column(name = "img")
     String img;
 
+    @Column(name = "pressure")
     String pressure;
 
-    String heat_time;
+    @Column(name = "heat_time")
+    String heatTime;
 
-    String water_volume;
+    @Column(name = "water_volume")
+    String waterVolume;
 
+    @Column(name = "spec")
     String spec;
 }

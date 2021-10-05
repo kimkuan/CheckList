@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -53,7 +50,7 @@ public class MainController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @PutMapping("/click/{pcode}")
-    public ResponseEntity updateProductHit(String pcode){
+    public ResponseEntity updateProductHit(@PathVariable("pcode") String pcode){
 
         return new ResponseEntity(HttpStatus.OK);
     }
