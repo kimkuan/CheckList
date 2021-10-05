@@ -1,0 +1,405 @@
+2021-10-05 15:48:39.357  INFO 20952 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 20952 (C:\Users\multicampus\project\ssafyProject\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\project\ssafyProject\S05P21A406\backend)
+2021-10-05 15:48:39.359  INFO 20952 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-05 15:48:39.408  INFO 20952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 15:48:39.408  INFO 20952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 15:48:40.342  INFO 20952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-05 15:48:40.434  INFO 20952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 86 ms. Found 7 JPA repository interfaces.
+2021-10-05 15:48:41.521  INFO 20952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-10-05 15:48:41.532  INFO 20952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-05 15:48:41.532  INFO 20952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-05 15:48:41.586  INFO 20952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-05 15:48:41.586  INFO 20952 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2177 ms
+2021-10-05 15:48:41.628  INFO 20952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-05 15:48:41.866  INFO 20952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-05 15:48:41.870  INFO 20952 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-05 15:48:41.904 DEBUG 20952 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-05 15:48:41.904 DEBUG 20952 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-05 15:48:42.087  INFO 20952 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-05 15:48:42.138  INFO 20952 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-05 15:48:42.296  INFO 20952 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-05 15:48:42.415  INFO 20952 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-05 15:48:43.257  INFO 20952 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-05 15:48:43.273  INFO 20952 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-05 15:48:44.140  WARN 20952 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-05 15:48:44.246 DEBUG 20952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-05 15:48:44.443  INFO 20952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-05 15:48:44.455 DEBUG 20952 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-05 15:48:44.482  INFO 20952 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-05 15:48:44.497 DEBUG 20952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-05 15:48:44.521 DEBUG 20952 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-05 15:48:44.533 DEBUG 20952 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-05 15:48:44.778  INFO 20952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-10-05 15:48:45.182  INFO 20952 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 6.247 seconds (JVM running for 6.714)
+2021-10-05 15:48:52.186  INFO 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 15:48:52.186  INFO 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-05 15:48:52.186 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-05 15:48:52.186 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-05 15:48:52.186 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-05 15:48:52.189 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5b31936b
+2021-10-05 15:48:52.190 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@27f1e00b
+2021-10-05 15:48:52.190 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-05 15:48:52.190  INFO 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2021-10-05 15:48:52.197 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2021-10-05 15:48:52.210 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2021-10-05 15:48:52.210 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2021-10-05 15:48:52.211 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [index.html]
+2021-10-05 15:48:52.215 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/index.html", parameters={}
+2021-10-05 15:48:52.217 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 15:48:52.226 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2021-10-05 15:48:52.228 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.327 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/app.8124431d.css", parameters={}
+2021-10-05 15:48:52.328 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:48:52.338 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.342 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/app.c8fc6e53.js", parameters={}
+2021-10-05 15:48:52.343 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:48:52.347 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.354 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-vendors.ab31c5ad.js", parameters={}
+2021-10-05 15:48:52.355 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:48:52.372 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.374 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-1357580e.a366c2e4.css", parameters={}
+2021-10-05 15:48:52.375 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:48:52.377 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.380 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-80d1872e.a8a62856.css", parameters={}
+2021-10-05 15:48:52.381 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-212ae5f9.3bec819f.css", parameters={}
+2021-10-05 15:48:52.381 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:48:52.382 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:48:52.384 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.384 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.388 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-1357580e.70231e0e.js", parameters={}
+2021-10-05 15:48:52.388 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-212ae5f9.d5673313.js", parameters={}
+2021-10-05 15:48:52.388 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:48:52.389 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:48:52.391 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.394 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-80d1872e.f23e910f.js", parameters={}
+2021-10-05 15:48:52.395 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:48:52.395 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.456 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/img/tmpCarouselImage2.031845db.png", parameters={}
+2021-10-05 15:48:52.458 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:48:52.462 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.467 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/img/air-cleaner.4bdb66c7.png", parameters={}
+2021-10-05 15:48:52.468 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:48:52.471 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.474 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/img/coffee-machine.bd06f1ef.png", parameters={}
+2021-10-05 15:48:52.475 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:48:52.477 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.480 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/img/logo2.a6ffba6c.png", parameters={}
+2021-10-05 15:48:52.481 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:48:52.484 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.534 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Regular.d66ff176.otf", parameters={}
+2021-10-05 15:48:52.535 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:48:52.605 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.607 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Bold.8ea1d900.otf", parameters={}
+2021-10-05 15:48:52.608 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:48:52.617 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.619 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Light.9b97934b.otf", parameters={}
+2021-10-05 15:48:52.620 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:48:52.779 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:52.780 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:48:53.020 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/favicon2.png", parameters={}
+2021-10-05 15:48:53.020 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 15:48:53.022 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:49:00.278 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/search", parameters={}
+2021-10-05 15:49:00.278 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 15:49:00.279 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2021-10-05 15:49:00.279 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2021-10-05 15:49:00.280 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2021-10-05 15:49:00.281 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2021-10-05 15:49:00.303 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2021-10-05 15:49:00.305 DEBUG 20952 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2021-10-05 15:54:23.066  INFO 14540 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 14540 (C:\Users\multicampus\project\ssafyProject\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\project\ssafyProject\S05P21A406\backend)
+2021-10-05 15:54:23.070  INFO 14540 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-05 15:54:23.137  INFO 14540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 15:54:23.137  INFO 14540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 15:54:24.590  INFO 14540 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-05 15:54:24.730  INFO 14540 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 127 ms. Found 7 JPA repository interfaces.
+2021-10-05 15:54:26.042  INFO 14540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-10-05 15:54:26.053  INFO 14540 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-05 15:54:26.053  INFO 14540 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-05 15:54:26.094  INFO 14540 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-05 15:54:26.095  INFO 14540 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2957 ms
+2021-10-05 15:54:26.128  INFO 14540 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-05 15:54:26.358  INFO 14540 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-05 15:54:26.362  INFO 14540 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-05 15:54:26.395 DEBUG 14540 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-05 15:54:26.395 DEBUG 14540 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-05 15:54:26.572  INFO 14540 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-05 15:54:26.618  INFO 14540 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-05 15:54:26.730  INFO 14540 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-05 15:54:26.824  INFO 14540 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-05 15:54:27.573  INFO 14540 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-05 15:54:27.581  INFO 14540 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-05 15:54:28.165  WARN 14540 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-05 15:54:28.239 DEBUG 14540 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-05 15:54:28.379  INFO 14540 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-05 15:54:28.388 DEBUG 14540 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-05 15:54:28.410  INFO 14540 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-05 15:54:28.419 DEBUG 14540 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-05 15:54:28.426 DEBUG 14540 --- [restartedMain] o.s.w.s.c.annotation.WebMvcConfigurer    : Default resource handling disabled
+2021-10-05 15:54:28.430 DEBUG 14540 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/resources/**, /swagger-ui.html, /webjars/**, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-05 15:54:28.437 DEBUG 14540 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-05 15:54:28.587  INFO 14540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-10-05 15:54:28.840  INFO 14540 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 6.422 seconds (JVM running for 7.151)
+2021-10-05 15:54:45.575  INFO 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 15:54:45.575  INFO 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-05 15:54:45.575 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-05 15:54:45.575 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-05 15:54:45.576 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-05 15:54:45.577 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6b5c32ac
+2021-10-05 15:54:45.577 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@735d03dc
+2021-10-05 15:54:45.577 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-05 15:54:45.577  INFO 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-05 15:54:45.585 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2021-10-05 15:54:45.598 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2021-10-05 15:54:45.598 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2021-10-05 15:54:45.599 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [index.html]
+2021-10-05 15:54:45.603 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/index.html", parameters={}
+2021-10-05 15:54:45.604  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /index.html
+2021-10-05 15:54:45.609 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ssafy.checklist.global.exception.NotFoundHandler#renderDefaultPage(NoHandlerFoundException)
+2021-10-05 15:54:45.614 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
+2021-10-05 15:54:45.615 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content (truncated)...]
+2021-10-05 15:54:45.619  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /index.html]
+2021-10-05 15:54:45.620 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2021-10-05 15:54:45.623 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.637 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/app.8124431d.css", parameters={}
+2021-10-05 15:54:45.639 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:45.645 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.649 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/app.c8fc6e53.js", parameters={}
+2021-10-05 15:54:45.649 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:45.655 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.658 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-vendors.ab31c5ad.js", parameters={}
+2021-10-05 15:54:45.659 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:45.672 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.674 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-1357580e.a366c2e4.css", parameters={}
+2021-10-05 15:54:45.675 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:45.676 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.679 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-80d1872e.a8a62856.css", parameters={}
+2021-10-05 15:54:45.679 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:45.681 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.683 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-212ae5f9.3bec819f.css", parameters={}
+2021-10-05 15:54:45.684 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:45.686 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.688 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-1357580e.70231e0e.js", parameters={}
+2021-10-05 15:54:45.689 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:45.691 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.694 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-212ae5f9.d5673313.js", parameters={}
+2021-10-05 15:54:45.694 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:45.699 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.702 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-80d1872e.f23e910f.js", parameters={}
+2021-10-05 15:54:45.702 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:45.777 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Regular.d66ff176.otf", parameters={}
+2021-10-05 15:54:45.778 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:54:45.846 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.848 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Bold.8ea1d900.otf", parameters={}
+2021-10-05 15:54:45.849 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:54:45.868 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.870 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Light.9b97934b.otf", parameters={}
+2021-10-05 15:54:45.871 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 15:54:45.937 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/img/air-cleaner.4bdb66c7.png", parameters={}
+2021-10-05 15:54:45.937 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/img/tmpCarouselImage2.031845db.png", parameters={}
+2021-10-05 15:54:45.937 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:54:45.937 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:54:45.939 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.939 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.942 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/img/coffee-machine.bd06f1ef.png", parameters={}
+2021-10-05 15:54:45.943 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/img/logo2.a6ffba6c.png", parameters={}
+2021-10-05 15:54:45.943 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:54:45.944 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 15:54:45.946 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:45.946 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:46.027 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:46.031 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:46.290 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/favicon2.png", parameters={}
+2021-10-05 15:54:46.291  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon2.png
+2021-10-05 15:54:46.291 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ssafy.checklist.global.exception.NotFoundHandler#renderDefaultPage(NoHandlerFoundException)
+2021-10-05 15:54:46.292 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
+2021-10-05 15:54:46.292 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content (truncated)...]
+2021-10-05 15:54:46.292  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /favicon2.png]
+2021-10-05 15:54:46.292 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:47.556 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/favicon2.png", parameters={}
+2021-10-05 15:54:47.557  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon2.png
+2021-10-05 15:54:47.557 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ssafy.checklist.global.exception.NotFoundHandler#renderDefaultPage(NoHandlerFoundException)
+2021-10-05 15:54:47.558 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
+2021-10-05 15:54:47.558 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content (truncated)...]
+2021-10-05 15:54:47.558  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /favicon2.png]
+2021-10-05 15:54:47.558 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:49.990 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/search", parameters={}
+2021-10-05 15:54:49.991  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /search
+2021-10-05 15:54:49.991 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ssafy.checklist.global.exception.NotFoundHandler#renderDefaultPage(NoHandlerFoundException)
+2021-10-05 15:54:49.992 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
+2021-10-05 15:54:49.992 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content (truncated)...]
+2021-10-05 15:54:49.992  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /search]
+2021-10-05 15:54:49.992 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 15:54:50.008 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-vendors.ab31c5ad.js", parameters={}
+2021-10-05 15:54:50.008 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/app.8124431d.css", parameters={}
+2021-10-05 15:54:50.008 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/app.c8fc6e53.js", parameters={}
+2021-10-05 15:54:50.009 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:50.009 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:50.009 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:50.010 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.010 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.010 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.015 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-1357580e.a366c2e4.css", parameters={}
+2021-10-05 15:54:50.015 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-212ae5f9.3bec819f.css", parameters={}
+2021-10-05 15:54:50.015 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-1357580e.70231e0e.js", parameters={}
+2021-10-05 15:54:50.015 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-80d1872e.a8a62856.css", parameters={}
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-212ae5f9.d5673313.js", parameters={}
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-80d1872e.f23e910f.js", parameters={}
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:50.016 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 15:54:50.017 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.017 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.017 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.017 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.017 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.018 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-05 15:54:50.054 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/favicon2.png", parameters={}
+2021-10-05 15:54:50.055  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon2.png
+2021-10-05 15:54:50.055 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.ssafy.checklist.global.exception.NotFoundHandler#renderDefaultPage(NoHandlerFoundException)
+2021-10-05 15:54:50.056 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:text/html' in response
+2021-10-05 15:54:50.056 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing ["<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content (truncated)...]
+2021-10-05 15:54:50.056  WARN 14540 --- [http-nio-127.0.0.1-8081-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /favicon2.png]
+2021-10-05 15:54:50.056 DEBUG 14540 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:07.889  INFO 8992 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 8992 (C:\Users\multicampus\project\ssafyProject\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\project\ssafyProject\S05P21A406\backend)
+2021-10-05 16:01:07.892  INFO 8992 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-05 16:01:07.937  INFO 8992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 16:01:07.937  INFO 8992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 16:01:08.841  INFO 8992 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-05 16:01:08.930  INFO 8992 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 7 JPA repository interfaces.
+2021-10-05 16:01:09.941  INFO 8992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-10-05 16:01:09.950  INFO 8992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-05 16:01:09.950  INFO 8992 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-05 16:01:09.990  INFO 8992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-05 16:01:09.991  INFO 8992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2053 ms
+2021-10-05 16:01:10.027  INFO 8992 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-05 16:01:10.287  INFO 8992 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-05 16:01:10.292  INFO 8992 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-05 16:01:10.323 DEBUG 8992 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-05 16:01:10.323 DEBUG 8992 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-05 16:01:10.504  INFO 8992 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-05 16:01:10.543  INFO 8992 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-05 16:01:10.659  INFO 8992 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-05 16:01:10.753  INFO 8992 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-05 16:01:11.315  INFO 8992 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-05 16:01:11.324  INFO 8992 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-05 16:01:12.028  WARN 8992 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-05 16:01:12.136 DEBUG 8992 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-05 16:01:12.332  INFO 8992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-05 16:01:12.342 DEBUG 8992 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-05 16:01:12.367  INFO 8992 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-05 16:01:12.382 DEBUG 8992 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-05 16:01:12.404 DEBUG 8992 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-05 16:01:12.415 DEBUG 8992 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-05 16:01:12.643  INFO 8992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-10-05 16:01:13.032  INFO 8992 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 5.642 seconds (JVM running for 6.336)
+2021-10-05 16:01:22.217  INFO 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-05 16:01:22.217  INFO 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-05 16:01:22.217 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-05 16:01:22.217 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-05 16:01:22.217 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-05 16:01:22.219 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@438c3fc1
+2021-10-05 16:01:22.219 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@7509db10
+2021-10-05 16:01:22.219 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-05 16:01:22.220  INFO 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-10-05 16:01:22.227 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2021-10-05 16:01:22.240 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, application/signed-exchange;v=b3;q=0.9, */*;q=0.8]
+2021-10-05 16:01:22.240 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : View name 'forward:', model {}
+2021-10-05 16:01:22.240 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [index.html]
+2021-10-05 16:01:22.243 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : "FORWARD" dispatch for GET "/index.html", parameters={}
+2021-10-05 16:01:22.245 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 16:01:22.253 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "FORWARD" dispatch, status 200
+2021-10-05 16:01:22.255 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.288 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/app.8124431d.css", parameters={}
+2021-10-05 16:01:22.289 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 16:01:22.297 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.299 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/js/app.c8fc6e53.js", parameters={}
+2021-10-05 16:01:22.300 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 16:01:22.303 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.306 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-vendors.ab31c5ad.js", parameters={}
+2021-10-05 16:01:22.307 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 16:01:22.319 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.321 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-1357580e.a366c2e4.css", parameters={}
+2021-10-05 16:01:22.322 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 16:01:22.324 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.327 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-80d1872e.a8a62856.css", parameters={}
+2021-10-05 16:01:22.327 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 16:01:22.329 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.332 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/css/chunk-212ae5f9.3bec819f.css", parameters={}
+2021-10-05 16:01:22.332 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/css/]]
+2021-10-05 16:01:22.334 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.337 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-1357580e.70231e0e.js", parameters={}
+2021-10-05 16:01:22.338 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 16:01:22.340 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.344 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-212ae5f9.d5673313.js", parameters={}
+2021-10-05 16:01:22.345 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 16:01:22.349 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.352 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/js/chunk-80d1872e.f23e910f.js", parameters={}
+2021-10-05 16:01:22.352 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/js/]]
+2021-10-05 16:01:22.423 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/img/tmpCarouselImage2.031845db.png", parameters={}
+2021-10-05 16:01:22.424 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 16:01:22.426 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.429 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/img/air-cleaner.4bdb66c7.png", parameters={}
+2021-10-05 16:01:22.429 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 16:01:22.431 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.433 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/img/coffee-machine.bd06f1ef.png", parameters={}
+2021-10-05 16:01:22.434 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 16:01:22.436 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.438 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/img/logo2.a6ffba6c.png", parameters={}
+2021-10-05 16:01:22.439 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/img/]]
+2021-10-05 16:01:22.441 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.451 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Regular.d66ff176.otf", parameters={}
+2021-10-05 16:01:22.452 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 16:01:22.532 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.535 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Bold.8ea1d900.otf", parameters={}
+2021-10-05 16:01:22.535 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 16:01:22.540 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.543 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/fonts/SpoqaHanSansNeo-Light.9b97934b.otf", parameters={}
+2021-10-05 16:01:22.544 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/fonts/]]
+2021-10-05 16:01:22.744 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.746 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:22.989 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/favicon2.png", parameters={}
+2021-10-05 16:01:22.990 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 16:01:22.991 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-05 16:01:28.900 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/product", parameters={}
+2021-10-05 16:01:28.901 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-05 16:01:28.904 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2021-10-05 16:01:28.904 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2021-10-05 16:01:28.905 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2021-10-05 16:01:28.908 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2021-10-05 16:01:28.944 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2021-10-05 16:01:28.949 DEBUG 8992 --- [http-nio-127.0.0.1-8081-exec-9] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2021-10-05 16:07:35.165  INFO 1252 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 1252 (C:\Users\multicampus\project\ssafyProject\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\project\ssafyProject\S05P21A406\backend)
+2021-10-05 16:07:35.169  INFO 1252 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-05 16:07:35.235  INFO 1252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-05 16:07:35.236  INFO 1252 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-05 16:07:36.673  INFO 1252 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-05 16:07:36.809  INFO 1252 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 7 JPA repository interfaces.
+2021-10-05 16:07:38.267  INFO 1252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-10-05 16:07:38.278  INFO 1252 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-05 16:07:38.279  INFO 1252 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-05 16:07:38.324  INFO 1252 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-05 16:07:38.325  INFO 1252 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3088 ms
+2021-10-05 16:07:38.360  INFO 1252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-05 16:07:38.584  INFO 1252 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-05 16:07:38.588  INFO 1252 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-05 16:07:38.629 DEBUG 1252 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-05 16:07:38.630 DEBUG 1252 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-05 16:07:38.816  INFO 1252 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-05 16:07:38.867  INFO 1252 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-05 16:07:38.999  INFO 1252 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-05 16:07:39.100  INFO 1252 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-05 16:07:39.648  INFO 1252 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-05 16:07:39.658  INFO 1252 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-05 16:07:40.232  WARN 1252 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-05 16:07:40.295 DEBUG 1252 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-05 16:07:40.410  INFO 1252 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-05 16:07:40.416 DEBUG 1252 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-05 16:07:40.431  INFO 1252 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-05 16:07:40.440 DEBUG 1252 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-05 16:07:40.454 DEBUG 1252 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-05 16:07:40.461 DEBUG 1252 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-05 16:07:40.593  INFO 1252 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-10-05 16:07:40.834  INFO 1252 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 6.349 seconds (JVM running for 6.968)
