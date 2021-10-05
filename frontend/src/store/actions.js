@@ -2,7 +2,7 @@
 import $axios from "axios";
 
 const axiosService = $axios.create({
-  baseURL: 'http://localhost:8080/api/',
+  baseURL: 'http://localhost:8082/api/',
 });
 
 // 카테고리별 전체 상품 목록 가져오기
