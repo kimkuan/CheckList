@@ -1,6 +1,5 @@
 package com.ssafy.checklist.domain.monitor.entity;
 
-import com.google.gson.JsonObject;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,17 +12,17 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Table(name = "monitor_product")
-public class Moniter {
+public class Monitor {
 
     @Id
-    String pcode;
+    long pcode;
 
     @NotNull
     String name;
 
     String brand;
 
-    Long price;
+    long price;
 
     String img;
 

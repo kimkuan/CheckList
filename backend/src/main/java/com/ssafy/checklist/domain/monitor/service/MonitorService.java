@@ -1,21 +1,19 @@
 package com.ssafy.checklist.domain.monitor.service;
 
-import com.ssafy.checklist.domain.monitor.controller.response.MoniterGetRes;
-import com.ssafy.checklist.domain.monitor.repository.MoniterRepository;
+import com.ssafy.checklist.domain.monitor.entity.Monitor;
+import com.ssafy.checklist.domain.monitor.repository.MonitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MoniterService {
+public class MonitorService {
 
     @Autowired
-    MoniterRepository moniterRepository;
+    MonitorRepository monitorRepository;
 
-    public MoniterGetRes findMonitorById(String pcode) {
+    public Monitor findMonitorById(String pcode) {
 
-        MoniterGetRes m = new MoniterGetRes();
-        m = moniterRepository.findMoniterByPcode(pcode).orElse(null);
-
-        return m;
+        return monitorRepository.findMonitorByPcode(Long.parseLong(pcode)).orElse(null);
     }
+
 }

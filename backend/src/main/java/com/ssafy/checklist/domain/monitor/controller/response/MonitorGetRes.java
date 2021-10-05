@@ -1,6 +1,5 @@
 package com.ssafy.checklist.domain.monitor.controller.response;
 
-import com.google.gson.JsonObject;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,7 +12,7 @@ public class MonitorGetRes {
 
     @ApiModelProperty
     @NotNull
-    Long pcode;
+    long pcode;
 
     @ApiModelProperty
     @NotNull
@@ -23,7 +22,7 @@ public class MonitorGetRes {
     String brand;
 
     @ApiModelProperty
-    Long price;
+    long price;
 
     @ApiModelProperty
     String img;
@@ -37,4 +36,23 @@ public class MonitorGetRes {
     @ApiModelProperty
     int hz;
 
+    @ApiModelProperty
+    String spec;
+
+//    String low
+
+    public static MonitorGetRes of(Monitor monitor) {
+        MonitorGetRes monitorGetRes = new MonitorGetRes();
+        monitorGetRes.setPcode(monitor.getPcode());
+        monitorGetRes.setName(monitor.getName());
+        monitorGetRes.setBrand(monitor.getBrand());
+        monitorGetRes.setPrice(monitor.getPrice());
+        monitorGetRes.setImg(monitor.getImg());
+        monitorGetRes.setSize(monitor.getSize());
+        monitorGetRes.setPixel(monitor.getPixel());
+        monitorGetRes.setHz(monitor.getHz());
+        monitorGetRes.setSpec(monitor.getSpec());
+
+        return monitorGetRes;
+    }
 }
