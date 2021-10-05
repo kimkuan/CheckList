@@ -59,33 +59,79 @@ public class CoffeemachineService {
             }
         } else {        // 모두 전체가 아닐 경우 -> 필터링 작업
             Specification<Coffeemachine> filter = Specification.where(CoffeemachineSpecification.all());
+
+            // 별개의 항목은 and
+            // 가격대 => 중복 선택 가능 (각 항목끼리는 or)
             if(!priceFilter.get(0).equals("전체")) {
+                for(String price : priceFilter) {
+                    System.out.println(price);
+                    price = price.replace("만원","");      // L 붙은거 제거
+                    String[] range = price.split("~");
 
-            }
 
-            if(!pressureFilter.get(0).equals("전체")) {
-                for(String pressure : pressureFilter) {
-                    System.out.println("필터링조건 >> " + pressure);
-                    filter = filter.or(CoffeemachineSpecification.eqPressure(pressure));
+                    System.out.println("가격정보 ???");
+                    for (String r : range) {
+                        System.out.println(r);
+                    }
+                    if(range[0].equals("")) {
+                        filter = filter.and(CoffeemachineSpecification.ltPrice(100000));
+                    } else if(range.length == 2) {
+                        int price1 = Integer.parseInt(range[0]) * 10000;
+                        int price2 = Integer.parseInt(range[1]) * 10000;
+                        filter = filter.and(CoffeemachineSpecification.betweenPrice(price1, price2));
+                    } else {
+                        filter = filter.and(CoffeemachineSpecification.gtPrice(300000));
+                    }
                 }
             }
 
-            if(!heatFilter.get(0).equals("전체")) {
-
+            // 펌프압력 => 중복 선택 가능
+            if(!pressureFilter.get(0).equals("전체")) {
+//                for(String pressure : pressureFilter) {
+//                    System.out.println("펌프압력  >>> " + pressure);
+//                    filter = filter.or(CoffeemachineSpecification.eqPressure(pressure));
+//                }
+                filter = filter.and(CoffeemachineSpecification.eqPressure(pressureFilter));
             }
 
-            if(!waterFilter.get(0).equals("전체")) {
 
+
+            // 예열시간 => 하나만 선택 가능 ["전체", "~30초", "~40초", "~50초"] 이런식으로 들어옴
+            if(!heatFilter.get(0).equals("전체")) {
+                int heatTime = Integer.parseInt(heatFilter.get(0).substring(1, 3));
+                System.out.println("예열시간 >> " + heatTime);
+                filter = filter.and(CoffeemachineSpecification.betweenHeatTime(heatTime));
+            }
+
+            // 물통용량 => 중복 선택 가능
+            if(!waterFilter.get(0).equals("전체")) {
+                for(String water : waterFilter) {
+                    System.out.println(water);
+                    water = water.replace("L","");      // L 붙은거 제거
+                    String[] range = water.split("~");
+
+                    if(range[0].equals("")) {
+                        filter = filter.and(CoffeemachineSpecification.ltWater(0.6));
+                    } else if(range.length == 2) {
+                        Double water1 = Double.parseDouble(range[0]);
+                        Double water2 = Double.parseDouble(range[1]);
+                        filter = filter.and(CoffeemachineSpecification.betweenWater(water1, water2));
+                    } else {
+                        filter = filter.and(CoffeemachineSpecification.gtWater(Double.valueOf(1)));
+                    }
+                }
             }
 
             coffeemachinelist = coffeemachineRepository.findAll(filter, pageRequest);
         }
 
+        int count = 1;
         for(Coffeemachine coffeemachine : coffeemachinelist) {
             Optional<CoffeemachinePerformance> coffeemachinePerformance = coffeemachinePerformanceRepository.findById(coffeemachine.getPcode());
             if(coffeemachinePerformance.isPresent()) {
                 coffeemachineGetResList.add(CoffeemachineGetRes.of(coffeemachine, coffeemachinePerformance.get()));
             }
+            System.out.println("count >> " + (count++) + " / price >> " + coffeemachine.getPrice()+ " / pressure >> " + coffeemachine.getPressure() + " / heatTime >>> " + coffeemachine.getHeatTime());
         }
         
         return coffeemachineGetResList;

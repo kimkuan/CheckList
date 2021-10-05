@@ -53,6 +53,7 @@ public class CoffeemachineGetRes {
         CoffeemachineGetRes res = new CoffeemachineGetRes();
         res.setPcode(coffeemachine.getPcode());
         res.setBrand(coffeemachine.getBrand());
+        res.setPrice(coffeemachine.getPrice());
         res.setImg(coffeemachine.getImg());
         res.setPressure(coffeemachine.getPressure());
         res.setHeatTime(coffeemachine.getHeatTime());
