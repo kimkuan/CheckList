@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CoffeemachineGetRes {
+public class CoffeemachineInfoGetRes {
     @ApiModelProperty
     Long pcode;
 
@@ -49,8 +49,12 @@ public class CoffeemachineGetRes {
     @ApiModelProperty
     long conveniencePoint;
 
-    public static CoffeemachineGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance) {
-        CoffeemachineGetRes res = new CoffeemachineGetRes();
+    // 최저가 사이트 정보
+//    @ApiModelProperty
+//    LowPriceInfo lowPriceInfo;
+
+    public static CoffeemachineInfoGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance) {
+        CoffeemachineInfoGetRes res = new CoffeemachineInfoGetRes();
         res.setPcode(coffeemachine.getPcode());
         res.setBrand(coffeemachine.getBrand());
         res.setImg(coffeemachine.getImg());
