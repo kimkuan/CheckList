@@ -12,12 +12,12 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -35,16 +35,17 @@ public class CoffeemachineController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/")
+    @GetMapping("/filter/{page}")
     /**
      * @Method Name : findCoffeemachineByFilter
      * @작성자 : 이영주
      * @Method 설명 : 필터조건에 맞는 카테고리가 커피머신인 상품 목록 조회, 상품정보와 상품성능분석점수가 포함된다.
      */
-    public ResponseEntity<Page<CoffeemachineGetRes>> findCoffeemachineByFilter(@PageableDefault(size = 15) Pageable pageable,
-        List<String> priceFilter, List<String> pressureFilter, List<String> heatFilter, List<String> waterFilter
+    public ResponseEntity<List<CoffeemachineGetRes>> findCoffeemachineByFilter(@PathVariable("page") int page,
+        @RequestParam(required = false, value="priceFilter[]") List<String> priceFilter, @RequestParam(required = false, value="pressureFilter[]") List<String> pressureFilter,
+                                                                               @RequestParam(required = false, value="heatFilter[]") List<String> heatFilter, @RequestParam(required = false, value="waterFilter[]") List<String> waterFilter
     ){
-        Page<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCoffeemachineListByFilter(pageable, priceFilter, pressureFilter, heatFilter, waterFilter);
+        List<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCoffeemachineListByFilter(page, priceFilter, pressureFilter, heatFilter, waterFilter);
         return new ResponseEntity<>(coffeemachineGetResList, HttpStatus.OK);
     }
 
