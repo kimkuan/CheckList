@@ -4,7 +4,12 @@ import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface LowPriceInfoRepository extends JpaRepository<LowPriceInfo, Long> {
+
+    public Optional<List<LowPriceInfo>> findAllByPcode(long pcode);
 
 }
