@@ -155,23 +155,23 @@ export default {
     return {
       categories : [
         {
-          id : 'aircleaner',
+          id : 'Aircleaner',
           name : "공기청정기"
         },
         {
-          id : 'monitor',
+          id : 'Monitor',
           name : "모니터"
         },
         {
-          id : 'airfryer',
+          id : 'Airfryer',
           name : "에어프라이어"
         },
         {
-          id : 'foodprocessor',
+          id : 'Foodprocessor',
           name : "음식물처리기"
         },
         {
-          id : 'coffeemachine',
+          id : 'Coffeemachine',
           name : "커피머신"
         },
       ],
@@ -202,7 +202,7 @@ export default {
   justify-content: center;
   border-top: 0.5px solid rgb(196, 196, 196);
   border-bottom: 0.5px solid rgb(196, 196, 196);
-  
+
 }
 .active {
   border-color: #CF000F;
