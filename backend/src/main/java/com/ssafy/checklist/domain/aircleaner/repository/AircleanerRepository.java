@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AircleanerRepository extends JpaRepository<Aircleaner, String> {
+public interface AircleanerRepository extends JpaRepository<Aircleaner, Long> {
 }

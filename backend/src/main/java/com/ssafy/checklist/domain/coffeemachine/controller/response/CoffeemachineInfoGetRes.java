@@ -2,10 +2,13 @@ package com.ssafy.checklist.domain.coffeemachine.controller.response;
 
 import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
 import com.ssafy.checklist.domain.coffeemachine.entity.CoffeemachinePerformance;
+import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -50,10 +53,10 @@ public class CoffeemachineInfoGetRes {
     long conveniencePoint;
 
     // 최저가 사이트 정보
-//    @ApiModelProperty
-//    LowPriceInfo lowPriceInfo;
+    @ApiModelProperty
+    List<LowPriceInfo> lowPriceInfoList;
 
-    public static CoffeemachineInfoGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance) {
+    public static CoffeemachineInfoGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance, List<LowPriceInfo> lowPriceInfoList) {
         CoffeemachineInfoGetRes res = new CoffeemachineInfoGetRes();
         res.setPcode(coffeemachine.getPcode());
         res.setBrand(coffeemachine.getBrand());
@@ -66,6 +69,7 @@ public class CoffeemachineInfoGetRes {
         res.setBrewingPoint(coffeemachinePerformance.getBrewing());
         res.setWaterVolumePoint(coffeemachinePerformance.getWaterVolume());
         res.setConveniencePoint(coffeemachinePerformance.getConvenience());
+        res.setLowPriceInfoList(lowPriceInfoList);
 
         return res;
     }
