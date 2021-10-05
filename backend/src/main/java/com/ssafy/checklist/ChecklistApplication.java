@@ -10,7 +10,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 import java.nio.charset.Charset;
 
-@CrossOrigin(origins = "*")
 @SpringBootApplication
 public class ChecklistApplication {
 
