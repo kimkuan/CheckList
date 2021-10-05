@@ -58,6 +58,9 @@
         <div class="searchList">
           <SearchList v-for="product in products" :product="product" :key="product.pcode" />
         </div>
+
+        <div class="page">
+        </div>
       </tab-panel>
 
 
@@ -121,14 +124,20 @@ export default {
     // const router = useRouter();
     const store = useStore();
     const state = reactive({
+      totalPages: 0,
+      totalProducts: 0,
+      pageSize: 0,
       products: [],
       selectedTab: tabs[0].value
     });
 
-    const getProductInfo = () => {
-      requestProducts(store.getters["root/getSelectCategoryName"])
+    const getProductInfo = (page) => {
+      requestProducts(store.getters["root/getSelectCategoryName"] + "/?pageNumber="+page)
         .then( res => {
-          state.products = res.data
+          console.log(res);
+          state.products = res.data.content;
+          state.totalPages = res.data.totalPages;
+          state.totalProducts = res.data.totalProducts;
           console.log(state.products);
         })
         .catch(err => {
@@ -148,7 +157,7 @@ export default {
     // }
 
     onMounted(() => {
-      getProductInfo();
+      getProductInfo(1);
       console.log(state.products);
     })
 
