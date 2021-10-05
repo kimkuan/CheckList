@@ -5,6 +5,7 @@ import com.ssafy.checklist.domain.coffeemachine.controller.response.Coffeemachin
 import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
 import com.ssafy.checklist.domain.coffeemachine.entity.CoffeemachinePerformance;
 import com.ssafy.checklist.domain.coffeemachine.service.CoffeemachineService;
+import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -61,7 +62,7 @@ public class CoffeemachineController {
     public ResponseEntity<CoffeemachineInfoGetRes> findCoffeemachineByPcode(@PathVariable("pcode") Long pcode){
         Coffeemachine coffeemachine = coffeemachineService.findCoffeemachineByPcode(pcode);
         CoffeemachinePerformance coffeemachinePerformance = coffeemachineService.findCoffeemachinePerformanceByPcode(pcode);
-
-        return new ResponseEntity<>(CoffeemachineInfoGetRes.of(coffeemachine, coffeemachinePerformance), HttpStatus.OK);
+        List<LowPriceInfo> lowPriceInfoList = coffeemachineService.findLowPriceInfoByPcode(pcode);
+        return new ResponseEntity<>(CoffeemachineInfoGetRes.of(coffeemachine, coffeemachinePerformance, lowPriceInfoList), HttpStatus.OK);
     }
 }
