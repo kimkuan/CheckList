@@ -3,6 +3,7 @@ package com.ssafy.checklist.domain.airfryer.entity;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,16 +13,35 @@ import javax.persistence.Table;
 @Setter
 @Table(name="airfryer_product", schema="checklist")
 public class Airfryer {
-    @Id
-    String id;
 
+    @Column(name = "pcode")
+    @Id
+    long pcode;
+
+    @Column(name = "name")
     String name;
 
-    String modelName;
-
+    @Column(name = "brand")
     String brand;
 
-    String imageUrl;
+    @Column(name = "price")
+    long price;
 
-    int price;
+    @Column(name = "img")
+    String img;
+
+    @Column(name = "type")
+    String type;
+
+    @Column(name = "volume")
+    String volume;
+
+    @Column(name = "power")
+    String power;
+
+    @Column(name = "size")
+    String size;
+
+    @Column(name = "spec")
+    String spec;
 }
