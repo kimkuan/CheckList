@@ -22,7 +22,7 @@ public class DBDriver extends Configured implements Tool{
 	     "com.mysql.jdbc.Driver",   // driver class
 	     "jdbc:mysql://localhost:3306/checklist?serverTimezone=UTC", // db url
 	     "root",    // user name
-	     "ssafy"); //password
+	     "ssafy406!@!@"); //password
 
 	     Job job = Job.getInstance(conf);
 	     job.setJarByClass(DBDriver.class);
@@ -43,8 +43,8 @@ public class DBDriver extends Configured implements Tool{
 
 		// (수정) 각 상품의 테이블 컬럼에 맞게 수정
 	     DBOutputFormat.setOutput(job, 
-	    		 "airfryer_product", //output table name
-	    		 new String[] {"pcode", "name", "brand", "price", "img", "type", "volume", "size", "power", "spec"} //table columns
+	    		 "foodprocessor_product", //output table name
+	    		 new String[] {"pcode", "name", "brand", "img", "price", "process_type", "process_time", "decrease", "size", "sound", "spec"} //table columns
 	     );
 
 	     System.exit(job.waitForCompletion(true) ? 0 : 1);
@@ -66,4 +66,8 @@ public class DBDriver extends Configured implements Tool{
 		}
 			
 	}
+
+
+
+
 }
