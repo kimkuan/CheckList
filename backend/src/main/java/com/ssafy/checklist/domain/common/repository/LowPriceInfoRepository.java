@@ -10,7 +10,6 @@ import java.util.Optional;
 @Repository
 public interface LowPriceInfoRepository extends JpaRepository<LowPriceInfo, Long> {
 
-    Optional<List<LowPriceInfo>> findByPcode(Long pcode);
-
+    public Optional<List<LowPriceInfo>> findAllByPcode(long pcode);
 
 }

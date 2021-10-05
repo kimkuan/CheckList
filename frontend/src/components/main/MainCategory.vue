@@ -8,7 +8,7 @@
       v-bind:key="index"
       v-for="(category, index) in state.categoryList"
     >
-      <div class="category" v-if="category.visible" @click="clickCategory(category.name)">
+      <div class="category" v-if="category.visible" @click="clickCategory(category.id)">
         <div class="category-img-div">
           <img class="category-img" :src="category.img" />
         </div>
@@ -40,26 +40,31 @@ export default {
         return [
           {
             name: "모니터",
+            id: "monitor",
             img: require("@/assets/images/category/monitor.png"),
             visible: props.visible[0],
           },
           {
             name: "에어프라이어",
+            id: "airfryer",
             img: require("../../assets/images/category/airfryer.png"),
             visible: props.visible[1],
           },
           {
             name: "공기청정기",
+            id: "aircleaner",
             img: require("../../assets/images/category/air-cleaner.png"),
             visible: props.visible[2],
           },
           {
             name: "커피머신",
+            id: "coffeemachine",
             img: require("../../assets/images/category/coffee-machine.png"),
             visible: props.visible[3],
           },
           {
             name: "음식물처리기",
+            id: "foodprocessor",
             img: require("../../assets/images/category/food-processor.png"),
             visible: props.visible[4],
           },
@@ -67,9 +72,9 @@ export default {
       }),
     });
 
-    const clickCategory = function (name) {
-      console.log("Main >> 선택한 카테고리 >> " + name);
-      store.commit("root/setSelectCategoryName", name);
+    const clickCategory = function (id) {
+      console.log("Main >> 선택한 카테고리 >> " + id);
+      store.commit("root/setSelectCategoryName", id);
       // Search.vue로 이동
       router.push({ name: "Search"});
     };
