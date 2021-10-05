@@ -5,12 +5,12 @@ module.exports = {
   devServer: {
     compress: true,
     disableHostCheck: true,
-    port: 8081,
+    port: 8082,
     open: true,
 
     proxy: {
       '/api': {
-        target: 'http://localhost:8081/'
+        target: 'http://localhost:8082/'
       },
     },
     historyApiFallback: true,

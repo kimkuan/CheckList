@@ -21,19 +21,25 @@ public class QReview extends EntityPathBase<Review> {
 
     public final StringPath category = createString("category");
 
-    public final StringPath id = createString("id");
+    public final StringPath content = createString("content");
 
-    public final StringPath photoList = createString("photoList");
+    public final StringPath date = createString("date");
 
-    public final StringPath productId = createString("productId");
+    public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    public final StringPath image = createString("image");
+
+    public final StringPath name = createString("name");
+
+    public final NumberPath<Long> pcode = createNumber("pcode", Long.class);
 
     public final NumberPath<Integer> score = createNumber("score", Integer.class);
 
     public final StringPath site = createString("site");
 
-    public final StringPath time = createString("time");
+    public final StringPath title = createString("title");
 
-    public final StringPath writer = createString("writer");
+    public final StringPath userId = createString("userId");
 
     public QReview(String variable) {
         super(Review.class, forVariable(variable));

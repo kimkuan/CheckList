@@ -1,4 +1,4 @@
-package com.ssafy.checklist.domain.airfryer.entity;
+package com.ssafy.checklist.domain.monitor.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@Table(name="airfryer_product", schema="checklist")
-public class Airfryer {
+@Table(name = "moniter_product", schema = "checklist")
+public class Moniter {
+
     @Id
     String id;
 
@@ -21,7 +22,9 @@ public class Airfryer {
 
     String brand;
 
+    int price;
+
     String imageUrl;
 
-    int price;
+
 }
