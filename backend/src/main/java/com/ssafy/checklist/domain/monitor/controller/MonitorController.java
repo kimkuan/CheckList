@@ -1,5 +1,6 @@
 package com.ssafy.checklist.domain.monitor.controller;
 
+import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.monitor.controller.response.MonitorGetRes;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
 import com.ssafy.checklist.domain.monitor.service.MonitorService;
@@ -52,9 +53,9 @@ public class MonitorController {
         Monitor m = monitorService.findMonitorById(pcode);
 
         // 최저가 정보...
-        
+        List<LowPriceInfo> list = monitorService.findLowPriceById(pcode);
 
-        return new ResponseEntity<MonitorGetRes>(MonitorGetRes.of(m), HttpStatus.OK);
+        return new ResponseEntity<MonitorGetRes>(MonitorGetRes.of(m, list), HttpStatus.OK);
     }
 
 }

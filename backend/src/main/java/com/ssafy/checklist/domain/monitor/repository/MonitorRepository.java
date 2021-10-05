@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MonitorRepository extends JpaRepository<Monitor, String> {
+public interface MonitorRepository extends JpaRepository<Monitor, Long> {
 
     Optional<Monitor> findMonitorByPcode(long pcode);
 }
