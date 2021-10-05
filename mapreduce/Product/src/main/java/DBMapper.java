@@ -30,7 +30,7 @@ public class DBMapper extends Mapper<LongWritable, Text, Text, Text> {
 
 			StringTokenizer token = new StringTokenizer(value.toString(), "\t");
 			StringBuilder sb = new StringBuilder();
-			String[] product = new String[10]; // (수정) 상품 테이블의 컬럼 수에 맞게 수정
+			String[] product = new String[11]; // (수정) 상품 테이블의 컬럼 수에 맞게 수정
 			ArrayList<Spec> specList = new ArrayList<>();
 			boolean startSpec = false;
 
@@ -53,28 +53,38 @@ public class DBMapper extends Mapper<LongWritable, Text, Text, Text> {
 					product[1] = str[1];
 				} else if (str[0].equals("제조회사")) {
 					product[2] = str[1];
+				} else if (str[0].equals("상품이미지")) {
+					product[3] = str[1];
 				} else if (str[0].equals("가격1")) {
 					int priceStartIndex = str[1].lastIndexOf(":");
 					String tmp = str[1].substring(priceStartIndex + 1, str[1].length()); // (공백)'73000'}]
-					product[3] = tmp.split("'")[1]; // 작은 따옴표를 기준으로 split
-				} else if (str[0].equals("상품이미지")) {
-					product[4] = str[1];
-				} else if (str[0].equals("형태")) {
-					product[5] = str[1];
-				} else if (str[0].equals("용량")) {
+					product[4] = tmp.split("'")[1]; // 작은 따옴표를 기준으로 split
+				} else if (str[0].equals("습식분쇄")) {
+					product[5] = "습식분쇄";
+				} else if (str[0].equals("미생물발효")) {
+					product[5] = "미생물발효";
+				} else if (str[0].equals("분쇄건조")) {
+					product[5] = "분쇄건조";
+				} else if (str[0].equals("건조")) {
+					if (product[5] == null) {
+						product[5] = "건조";
+					}
+				} else if (str[0].equals("처리시간")) {
 					product[6] = str[1];
-				} else if (str[0].startsWith("크기")) {
+				} else if (str[0].equals("감소량")) {
 					product[7] = str[1];
-				} else if (str[0].equals("소비전력")) {
+				} else if (str[0].startsWith("크기")) {
 					product[8] = str[1];
+				} else if (str[0].startsWith("소음")) {
+					product[9] = str[1];
 				} else {
 					if(startSpec) // 대분류 시작부터 specList에 담기
 						specList.add(new Spec(str[0], str[1]));
 				}
 			}
-			product[9] = makeSpecToJson(specList); // 전체 스펙
+			product[10] = makeSpecToJson(specList); // 전체 스펙
 
-			for (int i = 0; i < 10; i++){
+			for (int i = 0; i < 11; i++){
 				sb.append(product[i] + "\t");
 			}
 			context.write(new Text(product[0]), new Text(sb.toString()));

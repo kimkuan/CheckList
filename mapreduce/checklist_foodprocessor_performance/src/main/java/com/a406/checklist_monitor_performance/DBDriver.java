@@ -22,9 +22,9 @@ public class DBDriver extends Configured implements Tool {
 		Configuration conf = new Configuration();
 
 		DBConfiguration.configureDB(conf, "com.mysql.jdbc.Driver", // driver class
-				"jdbc:mysql://localhost:3306/test?serverTimezone=UTC", // db url
+				"jdbc:mysql://localhost:3306/checklist?serverTimezone=UTC", // db url
 				"root", // user name
-				""); // password
+				"ssafy406!@!@"); // password
 		Job job = Job.getInstance(conf);
 		job.setJarByClass(DBDriver.class);
 		job.setMapperClass(com.a406.checklist_monitor_performance.DBMapper.class);
@@ -48,14 +48,14 @@ public class DBDriver extends Configured implements Tool {
 		// setInput 2 inputQuery
 		// price 이후 ~ DENSE_RANK() 이전에 각 product에서 가져올 컬럼 작성
 		DBInputFormat.setInput(job, DBInputWritable.class,
-				"select pcode, price, type, volume, input_type, spec, DENSE_RANK() over (order by price desc) as ranking from foodprocessor_product",	// query
+				"select pcode, price, process_type, process_time, decrease, size, sound, spec, DENSE_RANK() over (order by price desc) as ranking from foodprocessor_product",	// query
 				"select count(pcode) from foodprocessor_product"	// null 주면 오류남
 		);
 
 		// DBOutputWritable 포맷에 맞게 string 배열 수정
 		// db의 컬럼명과 일치해야 함
 		DBOutputFormat.setOutput(job, "foodprocessor_performance", // output table name
-				new String[] { "pcode", "price", "performance", "management", "volume", "convenience" } // table columns
+				new String[] { "pcode", "price", "performance", "management", "processing", "convenience" } // table columns
 		);
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 
