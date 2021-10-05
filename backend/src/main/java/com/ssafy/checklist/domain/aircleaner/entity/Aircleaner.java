@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@Table(name="Aircleaner_product")
+@Table(name="aircleaner_product", schema="checklist")
 public class Aircleaner {
     @Id
     Long pcode;

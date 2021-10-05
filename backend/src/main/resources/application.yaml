@@ -3,7 +3,7 @@ build:
 
 logging:
   file:
-    name: ./dog-live.log
+    name: ./checklist.log
   level:
     org:
       apache:
@@ -76,9 +76,10 @@ spring:
       enabled: true
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul
-    username: root
-    password: ssafy406!@!@
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul
+      username: root
+      password: ssafy406!@!@
 
 

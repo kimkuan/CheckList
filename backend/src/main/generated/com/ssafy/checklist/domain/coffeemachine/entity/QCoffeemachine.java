@@ -21,7 +21,7 @@ public class QCoffeemachine extends EntityPathBase<Coffeemachine> {
 
     public final StringPath brand = createString("brand");
 
-    public final StringPath heat_time = createString("heat_time");
+    public final StringPath heatTime = createString("heatTime");
 
     public final StringPath img = createString("img");
 
@@ -31,11 +31,11 @@ public class QCoffeemachine extends EntityPathBase<Coffeemachine> {
 
     public final StringPath pressure = createString("pressure");
 
-    public final NumberPath<Integer> price = createNumber("price", Integer.class);
+    public final NumberPath<Long> price = createNumber("price", Long.class);
 
     public final StringPath spec = createString("spec");
 
-    public final StringPath water_volume = createString("water_volume");
+    public final StringPath waterVolume = createString("waterVolume");
 
     public QCoffeemachine(String variable) {
         super(Coffeemachine.class, forVariable(variable));
