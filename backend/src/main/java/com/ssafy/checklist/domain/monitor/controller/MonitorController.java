@@ -9,14 +9,16 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/monitor")
@@ -56,6 +58,30 @@ public class MonitorController {
         List<LowPriceInfo> list = monitorService.findLowPriceById(pcode);
 
         return new ResponseEntity<MonitorGetRes>(MonitorGetRes.of(m, list), HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "모니터 목록 조회", notes = "모니터를 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @PostMapping("/filters")
+    public ResponseEntity<Page<Monitor>> findMonitorList(@PageableDefault(size=10, sort="name", direction = Sort.Direction.DESC) Pageable pageRequest, @RequestBody Map<String, Object> filters){
+        /**
+         * @Method Name : findMoniterList
+         * @작성자 : 김윤주
+         * @Method 설명 : 필터에 부합하는 상품의 목록을 DB에서 페이징 처리를 통해 받아와 전달한다.
+         */
+
+        System.out.println(filters);
+        System.out.println(filters.get("가격대"));
+        System.out.println(filters.get("화면 크기"));
+        System.out.println(filters.get("해상도"));
+
+        Page<Monitor> list = monitorService.findMonitorByFilters(filters, pageRequest);
+
+        return new ResponseEntity<Page<Monitor>>(list, HttpStatus.OK);
     }
 
 }
