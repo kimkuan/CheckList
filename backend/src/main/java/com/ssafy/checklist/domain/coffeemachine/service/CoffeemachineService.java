@@ -83,7 +83,7 @@ public class CoffeemachineService {
      * @Method 설명 : pcode에 맞는 커피머신 최저가 사이트 정보 제공
      */
     public List<LowPriceInfo> findLowPriceInfoByPcode(Long pcode) {
-        Optional<List<LowPriceInfo>> lowPriceInfo = lowPriceInfoRepository.findByPcode(pcode);
+        Optional<List<LowPriceInfo>> lowPriceInfo = lowPriceInfoRepository.findAllByPcode(pcode);
 
         if(lowPriceInfo.isPresent()) {
             return lowPriceInfo.get();
