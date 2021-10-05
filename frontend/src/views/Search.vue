@@ -1,5 +1,21 @@
 <template>
   <div id="search">
+    <div class="searchTab">
+      <nav>
+        <div class="nav nav-tabs nav-fill nav-tabs-category" id="nav-category-tab" role="tablist">
+          <button class="nav-link active category-button" id="nav-check-tab" data-bs-toggle="tab" data-bs-target="#nav-check" type="button" role="tab" aria-controls="nav-check" aria-selected="true">체크픽</button>
+          <button class="nav-link category-button" id="nav-filter-tab" data-bs-toggle="tab" data-bs-target="#nav-filter" type="button" role="tab" aria-controls="nav-filter" aria-selected="false">직접탐색</button>
+        </div>
+      </nav>
+    </div>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-check" role="tabpanel" aria-labelledby="nav-check-tab">
+        
+      </div>
+      <div class="tab-pane fade" id="nav-filter" role="tabpanel" aria-labelledby="nav-filter-tab">
+        
+      </div>
+    </div>
     <tabs v-model="selectedTab">
       <tab
         v-for="(tab, i) in tabs"
@@ -197,11 +213,43 @@ export default {
 </script>
 
 <style scoped>
+button {
+  border: none;
+  background: none;
+}
+
+button:focus {
+  outline: none;
+}
+.searchTab {
+  background-color: #FFF5F5;
+  text-align: center;
+  justify-content: center;
+  border-top: 0.5px solid rgb(196, 196, 196);
+  border-bottom: 1px solid rgb(196, 196, 196);
+  font-size: 15px;
+}
+.tab-content {
+  height: 25%;
+}
+
+.nav-link.active {
+  color: rgba(207, 0, 15, 1);
+  font-weight: bold;
+  background-color: #FFF5F5;
+  border-bottom-color: #cf000f;
+  border-bottom-width: 3px;
+}
+
+.nav-link {
+  color: #6d6d6d;
+}
 .tab {
   padding: 1px 10px;
   margin: 5px 100px;
 }
-.tab-panel {
+
+/* .tab-panel {
   padding: 0px;
   box-sizing: border-box;
 }
@@ -212,11 +260,11 @@ export default {
   border-top: 0.5px solid rgb(196, 196, 196);
   border-bottom: 0.5px solid rgb(196, 196, 196);
   
-}
-.active {
+} */
+/* .active {
   border-color: #CF000F;
   border-bottom-width: 3px;
-}
+} */
 .description {
   background-color: #FFF5F5;
   height: 100px;
