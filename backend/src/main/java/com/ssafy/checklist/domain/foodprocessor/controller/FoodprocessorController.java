@@ -44,20 +44,20 @@ public class FoodprocessorController {
         return new ResponseEntity<List<FoodprocessorGetRes>>(foodprocessorGetResList, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "음식물처리기 상세 조회", notes = "id로 음식물처리기 상세정보를 조회한다.")
+    @ApiOperation(value = "음식물처리기 상세 조회", notes = "pcode로 음식물처리기 상세정보를 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "조회 성공"),
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{id}")
-    public ResponseEntity<FoodprocessorGetRes> findFoodprocessor(@PathVariable String id){
+    @GetMapping("/{pcode}")
+    public ResponseEntity<FoodprocessorGetRes> findFoodprocessor(@PathVariable String pcode){
         /**
         * @methodName : findFoodprocessor
         * @작성자 : 권영린
-        * @Class 설명 : id를 전달받으면 해당 id에 맞는 상품 상세정보를 반환한다.
+        * @Class 설명 : pcode를 전달받으면 해당 id에 맞는 상품 상세정보를 반환한다.
         */
-        FoodprocessorGetRes foodprocessorGetRes = foodprocessorService.findFoodprocessorById(id);
+        FoodprocessorGetRes foodprocessorGetRes = foodprocessorService.findFoodprocessorById(Long.parseLong(pcode));
         return new ResponseEntity<FoodprocessorGetRes>(foodprocessorGetRes, HttpStatus.OK);
     }
 
