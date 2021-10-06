@@ -108,7 +108,7 @@ public class MainController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @GetMapping("/filter/{category}")
-    public ResponseEntity<Filter> findFilterByCategory(String keyword){
+    public ResponseEntity<Filter> findFilterByCategory(@PathVariable("category")String keyword){
         /**
         * @Method Name : findFilterByCategory
         * @작성자 : 김윤주
