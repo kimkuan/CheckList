@@ -1,5 +1,6 @@
 <template>
   <div class="section-wrapper">
+    여기는 프로덕트 디테일 페이지
     <!-- <div style="display: flex; justify-content: center"> -->
     <div class="section" style="padding-top: 0px">
       <div class="productHead">
