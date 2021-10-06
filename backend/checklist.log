@@ -3992,3 +3992,118 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-06 11:52:02.270  INFO 15696 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 15696 (C:\Users\multicampus\Documents\dev\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Documents\dev\S05P21A406\backend)
+2021-10-06 11:52:02.277  INFO 15696 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:52:02.395  INFO 15696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:52:02.395  INFO 15696 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:52:04.064  INFO 15696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:52:04.262  INFO 15696 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180 ms. Found 10 JPA repository interfaces.
+2021-10-06 11:52:06.203  INFO 15696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:52:06.220  INFO 15696 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:52:06.220  INFO 15696 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:52:06.315  INFO 15696 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:52:06.315  INFO 15696 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3919 ms
+2021-10-06 11:52:06.381  INFO 15696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:52:06.904  INFO 15696 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:52:06.922  INFO 15696 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:52:06.982 DEBUG 15696 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:52:06.982 DEBUG 15696 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:52:07.251  INFO 15696 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:52:07.349  INFO 15696 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:52:07.588  INFO 15696 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:52:07.898  INFO 15696 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:52:09.366  INFO 15696 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:52:09.381  INFO 15696 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:52:10.114  WARN 15696 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:52:10.201 DEBUG 15696 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:52:10.346  INFO 15696 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:52:10.353 DEBUG 15696 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:52:10.370  INFO 15696 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:52:10.379 DEBUG 15696 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:52:10.392 DEBUG 15696 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:52:10.398 DEBUG 15696 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:52:10.560  INFO 15696 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:52:11.021  INFO 15696 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 9.762 seconds (JVM running for 13.518)
+2021-10-06 11:54:26.191  INFO 15696 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:54:26.191  INFO 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:54:26.192 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:54:26.192 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:54:26.192 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:54:26.193 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6cadc365
+2021-10-06 11:54:26.193 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@77a7861f
+2021-10-06 11:54:26.193 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:54:26.193  INFO 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 11:54:26.204 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/monitor/filters?page=1, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"d42b80e2-ee1a-411c-9dfa-6653fe6de062", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"126", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:54:26.207 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/monitor/filters?page=1", parameters={masked}
+2021-10-06 11:54:26.209 DEBUG 15696 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitorList(Pageable, Map)
+2021-10-06 11:54:26.252 DEBUG 15696 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[29~30], 화면 크기=[21인치, 30인치], 해상도=[FHD], 주사율=[60Hz]}]
+2021-10-06 11:54:26.435 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:54:26.436 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes@44dc28f1, com.ssafy.checkl (truncated)...]
+2021-10-06 11:54:26.469 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:54:26.470 DEBUG 15696 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/monitor/filters?page=1, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"d42b80e2-ee1a-411c-9dfa-6653fe6de062", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"126", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대": ["29~30"],
+	"화면 크기": ["21인치", "30인치"],
+	"해상도": ["FHD"],
+	"주사율": ["60Hz"]
+}]
+2021-10-06 12:05:48.514  INFO 7060 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 1.8.0_192 on DESKTOP-KVCQHCD with PID 7060 (C:\Users\multicampus\Documents\dev\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Documents\dev\S05P21A406\backend)
+2021-10-06 12:05:48.519  INFO 7060 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 12:05:48.651  INFO 7060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 12:05:48.652  INFO 7060 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 12:05:49.999  INFO 7060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 12:05:50.087  INFO 7060 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 81 ms. Found 10 JPA repository interfaces.
+2021-10-06 12:05:50.723  INFO 7060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 12:05:50.730  INFO 7060 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 12:05:50.730  INFO 7060 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 12:05:50.768  INFO 7060 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 12:05:50.769  INFO 7060 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2116 ms
+2021-10-06 12:05:50.798  INFO 7060 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 12:05:51.004  INFO 7060 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 12:05:51.014  INFO 7060 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 12:05:51.041 DEBUG 7060 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 12:05:51.042 DEBUG 7060 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 12:05:51.163  INFO 7060 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 12:05:51.204  INFO 7060 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 12:05:51.326  INFO 7060 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 12:05:51.457  INFO 7060 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 12:05:51.977  INFO 7060 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 12:05:51.984  INFO 7060 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 12:05:52.508  WARN 7060 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 12:05:52.564 DEBUG 7060 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 12:05:52.681  INFO 7060 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 12:05:52.686 DEBUG 7060 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 12:05:52.701  INFO 7060 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 12:05:52.708 DEBUG 7060 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 12:05:52.721 DEBUG 7060 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 12:05:52.727 DEBUG 7060 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 12:05:52.876  INFO 7060 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 12:05:53.266  INFO 7060 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 5.273 seconds (JVM running for 7.364)
+2021-10-06 12:06:02.670  INFO 7060 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 12:06:02.670  INFO 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 12:06:02.670 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 12:06:02.670 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 12:06:02.670 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 12:06:02.673 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4317ec20
+2021-10-06 12:06:02.673 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@49fa19e1
+2021-10-06 12:06:02.673 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 12:06:02.673  INFO 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2021-10-06 12:06:02.683 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/monitor/filters?page=1, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"1674f4ce-4dbc-4322-86e3-cc28ccb702e9", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"126", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:06:02.687 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/monitor/filters?page=1", parameters={masked}
+2021-10-06 12:06:02.688 DEBUG 7060 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitorList(Pageable, Map)
+2021-10-06 12:06:02.725 DEBUG 7060 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[29~30], 화면 크기=[21인치, 30인치], 해상도=[FHD], 주사율=[60Hz]}]
+2021-10-06 12:06:02.872 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:06:02.873 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes@3a322860, com.ssafy.checkl (truncated)...]
+2021-10-06 12:06:02.902 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:06:02.903 DEBUG 7060 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/monitor/filters?page=1, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"1674f4ce-4dbc-4322-86e3-cc28ccb702e9", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"126", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대": ["29~30"],
+	"화면 크기": ["21인치", "30인치"],
+	"해상도": ["FHD"],
+	"주사율": ["60Hz"]
+}]
+2021-10-06 12:06:28.459 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/monitor/910037, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"03bcaa43-246b-4c5c-872b-9c684d0b86b9", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive"]]
+2021-10-06 12:06:28.460 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/monitor/910037", parameters={}
+2021-10-06 12:06:28.461 DEBUG 7060 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitor(String)
+2021-10-06 12:06:28.486 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:06:28.487 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.ssafy.checklist.domain.monitor.controller.response.MonitorGetRes@2b78c137]
+2021-10-06 12:06:28.489 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:06:28.489 DEBUG 7060 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : After request [GET /api/monitor/910037, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.3", accept:"*/*", postman-token:"03bcaa43-246b-4c5c-872b-9c684d0b86b9", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive"]]
