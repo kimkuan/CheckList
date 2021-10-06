@@ -2,16 +2,19 @@ package com.ssafy.checklist.domain.aircleaner.controller.response;
 
 import com.ssafy.checklist.domain.aircleaner.entity.Aircleaner;
 import com.ssafy.checklist.domain.aircleaner.entity.AircleanerPerformance;
+import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AircleanerGetRes {
+public class AircleanerInfoGetRes {
     @ApiModelProperty
     @NotNull
     long pcode;
@@ -52,7 +55,12 @@ public class AircleanerGetRes {
     @ApiModelProperty
     long conveniencePoint;
 
-    public static AircleanerGetRes from(Aircleaner aircleaner, AircleanerPerformance aircleanerPerformance) {
+    @ApiModelProperty
+    List<LowPriceInfo> lowPriceInfoList;
+    
+    public static AircleanerInfoGetRes from(Aircleaner aircleaner,
+                                            AircleanerPerformance aircleanerPerformance,
+                                            List<LowPriceInfo> lowPriceInfoList) {
         return builder()
                 .pcode(aircleaner.getPcode())
                 .name(aircleaner.getName())
@@ -66,6 +74,7 @@ public class AircleanerGetRes {
                 .areaPoint(aircleanerPerformance.getArea())
                 .sensorPoint(aircleanerPerformance.getSensor())
                 .conveniencePoint(aircleanerPerformance.getConvenience())
+                .lowPriceInfoList(lowPriceInfoList)
                 .build();
     }
 }
