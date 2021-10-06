@@ -21,6 +21,6 @@ export default {
   // 클릭한 상품 설명 모달창
   modal: "",
 
-  // 최저가 정보
-  lowPriceInfoList: [],
+   // 상품 정보 (가격, 이름, 브랜드, 성능 정보 + 최저가 정보)
+   productInfo: {},
 };

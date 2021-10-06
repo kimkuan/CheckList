@@ -426,7 +426,7 @@ h4 {
 .sub-title {
   margin-bottom: 10px;
 }
-.circle {
+.spec .circle {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -699,7 +699,6 @@ export default {
   });
 
     function clickModal(desc) {
-      console.log("클릭 모달" + desc)
       store.commit("root/setModal", desc)
       console.log("모달 ㄱ밧 :" + store.getters["root/getModal"])
     }

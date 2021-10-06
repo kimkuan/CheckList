@@ -92,15 +92,10 @@ export default {
     const route = useRoute()
     const store = useStore()
     const state = reactive({
-      productInfo : {
-        name : "",
-        brand : "",
-        price : 0,
-      },
-      scrollValue: 0,
-      product: computed(() => {
-        return store.getters["root/getProductDetail"];
+      productInfo : computed(() => {
+        return store.getters["root/getProductInfo"];
       }),
+      scrollValue: 0,
     })
 
     const onScroll = function() {
@@ -140,14 +135,7 @@ export default {
     })
     .then(function(result){
       console.log(result.data)
-      var data = result.data
-
-      state.productInfo.name = data.name
-      state.productInfo.brand = data.brand
-      state.productInfo.img = data.img
-      state.productInfo.price = data.price
-
-      store.commit("root/setLowPriceInfoList", data.lowPriceInfoList);
+      store.commit("root/setProductInfo", result.data);
     })
     .catch(function(err){
       console.log(err)

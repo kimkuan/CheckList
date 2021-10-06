@@ -77,7 +77,7 @@ export default {
     const store = useStore()
 
     const state = reactive({
-      lowPriceInfoList : computed(() => store.getters["root/getLowPriceInfoList"]),
+      lowPriceInfoList : computed(() => store.getters["root/getProductInfo"].lowPriceInfoList),
     })
 
     return { state }

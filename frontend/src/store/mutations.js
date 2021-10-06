@@ -39,7 +39,7 @@ export function setSelectCategoryName(state, id) {
   state.selectCategoryName = id;
 }
 
-// 상품의 최저가 사이트 정보 저장
-export function setLowPriceInfoList(state, lowPriceInfoList) {
-  state.lowPriceInfoList = lowPriceInfoList;
+// 상품의 정보 저장
+export function setProductInfo(state, productInfo) {
+  state.productInfo = productInfo;
 }
