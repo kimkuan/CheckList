@@ -11,8 +11,10 @@ export function requestProducts(category) {
 }
 
 // 카테고리별 체크픽 가져오기
-export function requestCheckPick(category) {
-  const url = "/api/main/rank/" + category;
+export function requestCheckPick(payload) {
+  console.log(" 체크픽 가져오기 >>> ")
+  console.log(payload.category)
+  const url = payload.category + "/checkpick";
   return $axios.get(url);
 }
 

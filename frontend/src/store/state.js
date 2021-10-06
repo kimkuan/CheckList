@@ -23,4 +23,7 @@ export default {
 
    // 상품 정보 (가격, 이름, 브랜드, 성능 정보 + 최저가 정보)
    productInfo: {},
+
+   // 선택한 체크픽 카테고리 이름
+   mainCheckPickCategory:"",
 };
