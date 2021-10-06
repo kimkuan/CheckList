@@ -76,6 +76,10 @@ export default {
       console.log(store.getters["root/getSearchHistory"]);
       state.searchWord = "";
       state.searchHistoryView = false;
+
+      // 검색상품 리스트 초기화
+      store.commit("root/setSearchProductListInfo");
+      
       // 검색 결과 화면으로 이동
       router.push({ name: "SearchProduct", params: {keyword : keyword}});
     };

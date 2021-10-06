@@ -49,6 +49,11 @@ export function setSearchProductListInfo(state, searchProductList) {
   state.searchProductList = searchProductList;
 }
 
+// 검색 상품 리스트 초기화
+export function clearSearchProductListInfo(state) {
+  state.searchProductList = [];
+}
+
 // 메인 체크픽 카테고리 저장
 export function setMainCheckPickCategory(state, name) {
   state.mainCheckPickCategory = name;

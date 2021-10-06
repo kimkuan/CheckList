@@ -3,7 +3,7 @@
     <div class="productList">
       <div class="result">
         <span>검색 결과 </span> <span style="color:#CF000F; font-size:25px;"><strong>12</strong></span><span>건</span>
-        나오나? <h3>현재 검색어 : {{ state.searchWord }}</h3>
+        <h3>현재 검색어 : {{ state.searchWord }}</h3>
       </div>
       <ProductCard v-for="product in state.products" :product="product" :key="product.id"/>
       <InfiniteLoading @infinite="infiniteHandler"/>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { computed, reactive, watch } from 'vue';
+import { computed, reactive, watch, watchEffect } from 'vue';
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import ProductCard from "../components/product/ProductCard.vue";
@@ -39,17 +39,19 @@ export default {
         return store.getters["root/getSearchProductListInfo"];
       }),
       category : 'coffeemachine',
-      keywordValue : router.params.keyword,
+      keywordValue : computed(() => {
+        return router.params.keyword;
+      }),
       pageValue: 0,
     })
 
-    console.log("라우터로 전달받은 인자는 :" +state.keywordValue)
+    console.log("뷰엑스에저장된searchWord :" +state.searchWord)
 
     const infiniteHandler = function($state){
       console.log('Call infiniteHandler Method');
       store.dispatch("root/requestGetSearchProducts", {
         category : state.category,
-        keywordValue : state.keywordValue,
+        keywordValue : state.searchWord,
         pageValue : state.pageValue+1,
       })
       .then(function(result){
@@ -75,10 +77,14 @@ export default {
     }
 
     // 검색 axios
-    const setProducts = function(category, keywordValue, pageValue) {
+    const setProducts = function(category, searchWord, pageValue) {
+      console.log("79")
+      console.log(category)
+      console.log(searchWord)
+      console.log(pageValue)
       store.dispatch("root/requestGetSearchProducts", {
         category : category,
-        keywordValue : keywordValue,
+        keywordValue : searchWord,
         pageValue : pageValue,
       })
       .then(function(result){
@@ -89,19 +95,17 @@ export default {
         console.log(err)
       })
     }
-    let category = state.category;
-    let keywordValue = state.keywordValue;
-    let pageValue = state.pageValue;
 
-    setProducts(category, keywordValue, pageValue);
+    setProducts(state.category, state.searchWord, state.pageValue);
 
     watch(() => state.searchWord,
       (searchWord, prevSearchWord) => {
-        console.log("watch : 검색어 변경. 변경된 검색어 : "+searchWord)
-        // setProducts();
-        state.products = []
+        console.log("watch : 검색어 변경. 변경된 검색어 : "+state.searchWord)
+        state.pageValue = 0;
+        setProducts(state.category, state.searchWord, state.pageValue);
       }
     )
+    watchEffect(() => console.log(state.products))
 
     return {
       store, state, setProducts, infiniteHandler, 
