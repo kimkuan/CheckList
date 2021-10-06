@@ -3992,3 +3992,1003 @@ Caused by: java.net.ConnectException: Connection refused: connect
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
 2021-10-06 04:34:38.757 DEBUG 19472 --- [http-nio-8082-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
+2021-10-06 10:40:44.339  INFO 16956 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 16956 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 10:40:44.345  INFO 16956 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 10:40:44.454  INFO 16956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 10:40:44.455  INFO 16956 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 10:40:46.623  INFO 16956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 10:40:46.842  INFO 16956 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203 ms. Found 9 JPA repository interfaces.
+2021-10-06 10:40:49.181  INFO 16956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 10:40:49.199  INFO 16956 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 10:40:49.199  INFO 16956 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 10:40:49.285  INFO 16956 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 10:40:49.285  INFO 16956 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4828 ms
+2021-10-06 10:40:49.346  INFO 16956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 10:40:49.862  INFO 16956 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 10:40:49.882  INFO 16956 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 10:40:49.915 DEBUG 16956 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 10:40:49.915 DEBUG 16956 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 10:40:50.072  INFO 16956 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 10:40:50.134  INFO 16956 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 10:40:50.288  INFO 16956 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 10:40:50.491  INFO 16956 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 10:40:51.186  INFO 16956 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 10:40:51.196  INFO 16956 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 10:40:51.763  WARN 16956 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 10:40:51.835 DEBUG 16956 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 10:40:51.962  INFO 16956 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 10:40:51.968 DEBUG 16956 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 10:40:51.986  INFO 16956 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 10:40:51.996 DEBUG 16956 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 10:40:52.012 DEBUG 16956 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 10:40:52.019 DEBUG 16956 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 10:40:52.196  INFO 16956 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 10:40:52.499  INFO 16956 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 9.478 seconds (JVM running for 11.081)
+2021-10-06 10:40:55.315  INFO 16956 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 10:40:55.317  INFO 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 10:40:55.317 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 10:40:55.317 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 10:40:55.317 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 10:40:55.318 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@33ef2a75
+2021-10-06 10:40:55.319 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@2cfda716
+2021-10-06 10:40:55.319 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 10:40:55.319  INFO 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 10:40:55.327 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/ui", parameters={}
+2021-10-06 10:40:55.331 DEBUG 16956 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#uiConfiguration()
+2021-10-06 10:40:55.347 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-06 10:40:55.368 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.UiConfiguration@2c20c6ec]
+2021-10-06 10:40:55.386 DEBUG 16956 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:40:55.395 DEBUG 16956 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources/configuration/security", parameters={}
+2021-10-06 10:40:55.396 DEBUG 16956 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#securityConfiguration()
+2021-10-06 10:40:55.396 DEBUG 16956 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-06 10:40:55.398 DEBUG 16956 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.swagger.web.SecurityConfiguration@745c21d4]
+2021-10-06 10:40:55.399 DEBUG 16956 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:40:55.403 DEBUG 16956 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-resources", parameters={}
+2021-10-06 10:40:55.404 DEBUG 16956 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger.web.ApiResourceController#swaggerResources()
+2021-10-06 10:40:55.404 DEBUG 16956 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json] and supported [application/json]
+2021-10-06 10:40:55.406 DEBUG 16956 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[springfox.documentation.swagger.web.SwaggerResource@7f75949a]]
+2021-10-06 10:40:55.409 DEBUG 16956 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:40:55.439 DEBUG 16956 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/v2/api-docs", parameters={}
+2021-10-06 10:40:55.440 DEBUG 16956 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)
+2021-10-06 10:40:55.534 DEBUG 16956 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, */*] and supported [application/json, application/hal+json]
+2021-10-06 10:40:55.535 DEBUG 16956 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [springfox.documentation.spring.web.json.Json@255012b7]
+2021-10-06 10:40:55.537 DEBUG 16956 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:41:42.937 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88&pressureFilter%5B%5D=15bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=0.6~0.8L, client=0:0:0:0:0:0:0:1, headers=[host:"localhost:8082", connection:"keep-alive", sec-ch-ua:""Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"", accept:"*/*", sec-ch-ua-mobile:"?0", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36", sec-ch-ua-platform:""Windows"", sec-fetch-site:"same-origin", sec-fetch-mode:"cors", sec-fetch-dest:"empty", referer:"http://localhost:8082/swagger-ui/", accept-encoding:"gzip, deflate, br", accept-language:"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"]]
+2021-10-06 10:41:42.937 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88&pressureFilter%5B%5D=15bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=0.6~0.8L", parameters={masked}
+2021-10-06 10:41:42.938 DEBUG 16956 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(int, List, List, List, List)
+2021-10-06 10:41:43.188 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 10:41:43.188 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[]]
+2021-10-06 10:41:43.189 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:41:43.190 DEBUG 16956 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [GET /api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88&pressureFilter%5B%5D=15bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=0.6~0.8L, client=0:0:0:0:0:0:0:1, headers=[host:"localhost:8082", connection:"keep-alive", sec-ch-ua:""Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"", accept:"*/*", sec-ch-ua-mobile:"?0", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36", sec-ch-ua-platform:""Windows"", sec-fetch-site:"same-origin", sec-fetch-mode:"cors", sec-fetch-dest:"empty", referer:"http://localhost:8082/swagger-ui/", accept-encoding:"gzip, deflate, br", accept-language:"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"]]
+2021-10-06 10:42:33.860 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88%2C%20~40%EC%B4%88&pressureFilter%5B%5D=15bar%2C%2019bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=~0.6L%2C%200.6~0.8L, client=0:0:0:0:0:0:0:1, headers=[host:"localhost:8082", connection:"keep-alive", sec-ch-ua:""Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"", accept:"*/*", sec-ch-ua-mobile:"?0", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36", sec-ch-ua-platform:""Windows"", sec-fetch-site:"same-origin", sec-fetch-mode:"cors", sec-fetch-dest:"empty", referer:"http://localhost:8082/swagger-ui/", accept-encoding:"gzip, deflate, br", accept-language:"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"]]
+2021-10-06 10:42:33.861 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88%2C%20~40%EC%B4%88&pressureFilter%5B%5D=15bar%2C%2019bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=~0.6L%2C%200.6~0.8L", parameters={masked}
+2021-10-06 10:42:33.861 DEBUG 16956 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(int, List, List, List, List)
+2021-10-06 10:42:35.095 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 10:42:35.096 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@7bd26c95, com.ssaf (truncated)...]
+2021-10-06 10:42:35.100 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 10:42:35.100 DEBUG 16956 --- [http-nio-8082-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : After request [GET /api/coffeemachine/filter/1?heatFilter%5B%5D=~30%EC%B4%88%2C%20~40%EC%B4%88&pressureFilter%5B%5D=15bar%2C%2019bar&priceFilter%5B%5D=~10%EB%A7%8C%EC%9B%90&waterFilter%5B%5D=~0.6L%2C%200.6~0.8L, client=0:0:0:0:0:0:0:1, headers=[host:"localhost:8082", connection:"keep-alive", sec-ch-ua:""Chromium";v="94", "Google Chrome";v="94", ";Not A Brand";v="99"", accept:"*/*", sec-ch-ua-mobile:"?0", user-agent:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36", sec-ch-ua-platform:""Windows"", sec-fetch-site:"same-origin", sec-fetch-mode:"cors", sec-fetch-dest:"empty", referer:"http://localhost:8082/swagger-ui/", accept-encoding:"gzip, deflate, br", accept-language:"ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7"]]
+2021-10-06 11:34:37.624  INFO 11904 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 11904 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:34:37.628  INFO 11904 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:34:37.672  INFO 11904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:34:37.672  INFO 11904 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:34:38.587  INFO 11904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:34:38.796  INFO 11904 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 195 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:34:41.234  INFO 11904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:34:41.251  INFO 11904 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:34:41.252  INFO 11904 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:34:41.331  INFO 11904 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:34:41.331  INFO 11904 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3658 ms
+2021-10-06 11:34:41.391  INFO 11904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:34:42.089  INFO 11904 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:34:42.122  INFO 11904 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:34:42.179 DEBUG 11904 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:34:42.179 DEBUG 11904 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:34:42.458  INFO 11904 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:34:42.551  INFO 11904 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:34:42.706  INFO 11904 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:34:42.895  INFO 11904 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:34:43.726  INFO 11904 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:34:43.736  INFO 11904 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:34:44.307  WARN 11904 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:34:44.374 DEBUG 11904 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:34:44.506  INFO 11904 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:34:44.512 DEBUG 11904 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:34:44.528  INFO 11904 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:34:44.537 DEBUG 11904 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:34:44.551 DEBUG 11904 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:34:44.557 DEBUG 11904 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:34:44.765  INFO 11904 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:34:45.067  INFO 11904 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.95 seconds (JVM running for 8.47)
+2021-10-06 11:35:56.012  INFO 11904 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:35:56.014  INFO 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:35:56.014 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:35:56.014 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:35:56.014 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:35:56.015 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2d83d237
+2021-10-06 11:35:56.016 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5ac3b0d2
+2021-10-06 11:35:56.016 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:35:56.016  INFO 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 11:35:56.030 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [GET /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"9d85aebc-b552-423a-83b5-6f087b5c135c", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:35:56.033 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:35:56.037 DEBUG 11904 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:35:56.075 DEBUG 11904 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:35:56.111 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NumberFormatException: For input string: "0.8L"
+2021-10-06 11:35:56.111 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [GET /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"9d85aebc-b552-423a-83b5-6f087b5c135c", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:35:56.124 ERROR 11904 --- [http-nio-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "0.8L"] with root cause
+
+java.lang.NumberFormatException: For input string: "0.8L"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054) ~[na:na]
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110) ~[na:na]
+	at java.base/java.lang.Double.parseDouble(Double.java:543) ~[na:na]
+	at com.ssafy.checklist.domain.coffeemachine.service.CoffeemachineService$1.toPredicate(CoffeemachineService.java:153) ~[main/:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.applySpecificationToCriteria(SimpleJpaRepository.java:819) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:750) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:708) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:484) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:599) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy108.findAll(Unknown Source) ~[na:na]
+	at com.ssafy.checklist.domain.coffeemachine.service.CoffeemachineService.findCoffeemachineListByFilter(CoffeemachineService.java:53) ~[main/:na]
+	at com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController.findCoffeemachineByFilter(CoffeemachineController.java:47) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.AbstractRequestLoggingFilter.doFilterInternal(AbstractRequestLoggingFilter.java:289) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2021-10-06 11:35:56.128 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error?page=2", parameters={masked}
+2021-10-06 11:35:56.128 DEBUG 11904 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.global.core.RootController#redirectRoot()
+2021-10-06 11:35:56.138 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected '*/*' given [*/*]
+2021-10-06 11:35:56.138 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.servlet.view.InternalResourceView  : View name 'index.html', model {}
+2021-10-06 11:35:56.138 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.servlet.view.InternalResourceView  : Forwarding to [index.html]
+2021-10-06 11:35:56.139 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/index.html?page=2", parameters={masked}
+2021-10-06 11:35:56.141 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [Classpath [dist/], ServletContext [/]]
+2021-10-06 11:35:56.154 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2021-10-06 11:35:56.155 DEBUG 11904 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+2021-10-06 11:37:30.923 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"d8f2ea89-a4cd-4028-a21c-053f17ee59d1", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:37:30.923 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:37:30.924  WARN 11904 --- [http-nio-8082-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:37:30.924 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 405 METHOD_NOT_ALLOWED
+2021-10-06 11:37:30.925 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"d8f2ea89-a4cd-4028-a21c-053f17ee59d1", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"]]
+2021-10-06 11:37:30.925 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error?page=2", parameters={masked}
+2021-10-06 11:37:30.925  WARN 11904 --- [http-nio-8082-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:37:30.925 DEBUG 11904 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 405
+2021-10-06 11:37:58.745 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"19c23793-e35a-4fe1-bd9a-b33e53dc7c9d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:37:58.746 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:37:58.746  WARN 11904 --- [http-nio-8082-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:37:58.747 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 405 METHOD_NOT_ALLOWED
+2021-10-06 11:37:58.747 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"19c23793-e35a-4fe1-bd9a-b33e53dc7c9d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"]]
+2021-10-06 11:37:58.747 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error?page=2", parameters={masked}
+2021-10-06 11:37:58.747  WARN 11904 --- [http-nio-8082-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:37:58.748 DEBUG 11904 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 405
+2021-10-06 11:38:59.609  INFO 15980 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 15980 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:38:59.613  INFO 15980 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:38:59.681  INFO 15980 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:38:59.681  INFO 15980 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:39:01.104  INFO 15980 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:39:01.314  INFO 15980 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:39:03.087  INFO 15980 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:39:03.097  INFO 15980 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:39:03.098  INFO 15980 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:39:03.151  INFO 15980 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:39:03.152  INFO 15980 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3470 ms
+2021-10-06 11:39:03.183  INFO 15980 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:39:03.469  INFO 15980 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:39:03.485  INFO 15980 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:39:03.520 DEBUG 15980 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:39:03.520 DEBUG 15980 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:39:03.667  INFO 15980 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:39:03.714  INFO 15980 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:39:03.851  INFO 15980 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:39:04.040  INFO 15980 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:39:04.680  INFO 15980 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:39:04.688  INFO 15980 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:39:05.255  WARN 15980 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:39:05.326 DEBUG 15980 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:39:05.466  INFO 15980 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:39:05.471 DEBUG 15980 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:39:05.487  INFO 15980 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:39:05.499 DEBUG 15980 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:39:05.517 DEBUG 15980 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:39:05.525 DEBUG 15980 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:39:05.704  INFO 15980 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:39:06.018  INFO 15980 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.236 seconds (JVM running for 7.916)
+2021-10-06 11:39:12.800  INFO 15980 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:39:12.801  INFO 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:39:12.802 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:39:12.802 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:39:12.802 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:39:12.803 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5ef97bff
+2021-10-06 11:39:12.803 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@5d6009be
+2021-10-06 11:39:12.803 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:39:12.803  INFO 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 11:39:12.816 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"002c00ea-90ba-4521-a49c-fb5694ebe6be", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:39:12.819 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:39:12.821 DEBUG 15980 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:39:12.857 DEBUG 15980 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:39:12.892 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NumberFormatException: For input string: "0.8L"
+2021-10-06 11:39:12.893 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"002c00ea-90ba-4521-a49c-fb5694ebe6be", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:39:12.904 ERROR 15980 --- [http-nio-8082-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "0.8L"] with root cause
+
+java.lang.NumberFormatException: For input string: "0.8L"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054) ~[na:na]
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110) ~[na:na]
+	at java.base/java.lang.Double.parseDouble(Double.java:543) ~[na:na]
+	at com.ssafy.checklist.domain.coffeemachine.service.CoffeemachineService$1.toPredicate(CoffeemachineService.java:153) ~[main/:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.applySpecificationToCriteria(SimpleJpaRepository.java:819) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:750) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:708) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:484) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:599) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy109.findAll(Unknown Source) ~[na:na]
+	at com.ssafy.checklist.domain.coffeemachine.service.CoffeemachineService.findCoffeemachineListByFilter(CoffeemachineService.java:53) ~[main/:na]
+	at com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController.findCoffeemachineByFilter(CoffeemachineController.java:47) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.AbstractRequestLoggingFilter.doFilterInternal(AbstractRequestLoggingFilter.java:289) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2021-10-06 11:39:12.910 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error?page=2", parameters={masked}
+2021-10-06 11:39:12.912  WARN 15980 --- [http-nio-8082-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:39:12.913 DEBUG 15980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 405
+2021-10-06 11:40:11.362  INFO 1876 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 1876 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:40:11.367  INFO 1876 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:40:11.437  INFO 1876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:40:11.438  INFO 1876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:40:12.860  INFO 1876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:40:13.085  INFO 1876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 209 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:40:15.024  INFO 1876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:40:15.036  INFO 1876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:40:15.036  INFO 1876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:40:15.098  INFO 1876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:40:15.098  INFO 1876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3659 ms
+2021-10-06 11:40:15.140  INFO 1876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:40:15.471  INFO 1876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:40:15.491  INFO 1876 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:40:15.523 DEBUG 1876 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:40:15.524 DEBUG 1876 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:40:15.694  INFO 1876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:40:15.743  INFO 1876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:40:15.907  INFO 1876 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:40:16.280  INFO 1876 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:40:17.445  INFO 1876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:40:17.456  INFO 1876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:40:18.245  WARN 1876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:40:18.360 DEBUG 1876 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:40:18.752  INFO 1876 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:40:18.767 DEBUG 1876 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:40:18.822  INFO 1876 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:40:18.849 DEBUG 1876 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:40:18.906 DEBUG 1876 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:40:18.931 DEBUG 1876 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:40:19.414  INFO 1876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:40:20.250  INFO 1876 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 9.676 seconds (JVM running for 10.307)
+2021-10-06 11:40:20.921  INFO 1876 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:40:20.922  INFO 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:40:20.923 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:40:20.923 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:40:20.923 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:40:20.926 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@31265a54
+2021-10-06 11:40:20.927 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@31d7ca
+2021-10-06 11:40:20.927 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:40:20.928  INFO 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2021-10-06 11:40:20.963 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"7f617a66-f9a6-4051-92a4-c8e8f71acb04", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:40:20.972 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:40:20.978 DEBUG 1876 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:40:21.059 DEBUG 1876 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:40:21.847 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:40:21.848 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@4ce25d1e, com.ssaf (truncated)...]
+2021-10-06 11:40:21.919 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:40:21.922 DEBUG 1876 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"7f617a66-f9a6-4051-92a4-c8e8f71acb04", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:42:39.725  INFO 18244 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 18244 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:42:39.729  INFO 18244 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:42:39.797  INFO 18244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:42:39.797  INFO 18244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:42:41.218  INFO 18244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:42:41.427  INFO 18244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 196 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:42:43.116  INFO 18244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:42:43.126  INFO 18244 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:42:43.126  INFO 18244 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:42:43.171  INFO 18244 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:42:43.171  INFO 18244 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3373 ms
+2021-10-06 11:42:43.205  INFO 18244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:42:43.498  INFO 18244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:42:43.515  INFO 18244 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:42:43.545 DEBUG 18244 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:42:43.545 DEBUG 18244 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:42:43.692  INFO 18244 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:42:43.736  INFO 18244 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:42:43.869  INFO 18244 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:42:44.058  INFO 18244 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:42:44.695  INFO 18244 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:42:44.704  INFO 18244 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:42:45.322  WARN 18244 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:42:45.391 DEBUG 18244 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:42:45.529  INFO 18244 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:42:45.535 DEBUG 18244 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:42:45.550  INFO 18244 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:42:45.559 DEBUG 18244 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:42:45.574 DEBUG 18244 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:42:45.580 DEBUG 18244 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:42:45.793  INFO 18244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:42:46.088  INFO 18244 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.171 seconds (JVM running for 7.942)
+2021-10-06 11:42:47.560  INFO 18244 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:42:47.562  INFO 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:42:47.562 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:42:47.562 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:42:47.562 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:42:47.563 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7e0ac446
+2021-10-06 11:42:47.564 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@568156c2
+2021-10-06 11:42:47.564 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:42:47.564  INFO 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 11:42:47.577 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"f0cda3f1-2ac6-4fc1-bbc1-ddaf3aa7a399", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:42:47.580 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=2", parameters={masked}
+2021-10-06 11:42:47.582 DEBUG 18244 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:42:47.620 DEBUG 18244 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:42:48.084 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:42:48.084 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@247ab15, com.ssafy (truncated)...]
+2021-10-06 11:42:48.120 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:42:48.122 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=2, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"f0cda3f1-2ac6-4fc1-bbc1-ddaf3aa7a399", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:44:11.122 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"30eaabbd-2040-4f94-8c07-144a4f075f2b", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:44:11.122 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:44:11.122 DEBUG 18244 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:44:11.123 DEBUG 18244 --- [http-nio-8082-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:44:11.427 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:44:11.428 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@2d77b5b3, com.ssaf (truncated)...]
+2021-10-06 11:44:11.430 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:44:11.431 DEBUG 18244 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"30eaabbd-2040-4f94-8c07-144a4f075f2b", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:45:12.210 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"40004aed-6ed4-4ba2-a970-83cd17ee927d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:45:12.210 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:45:12.211 DEBUG 18244 --- [http-nio-8082-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:45:12.212 DEBUG 18244 --- [http-nio-8082-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[15bar, 19bar], 추출시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:45:12.505 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:45:12.505 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@16a6f0b6, com.ssaf (truncated)...]
+2021-10-06 11:45:12.506 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:45:12.507 DEBUG 18244 --- [http-nio-8082-exec-8] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"40004aed-6ed4-4ba2-a970-83cd17ee927d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "추출시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:46:44.885 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"413c51ad-7976-435f-b6c7-54910ba69fe6", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:46:44.886 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:46:44.886 DEBUG 18244 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:46:44.888 DEBUG 18244 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:46:45.178 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:46:45.178 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@45e649a9, com.ssaf (truncated)...]
+2021-10-06 11:46:45.179 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:46:45.180 DEBUG 18244 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"413c51ad-7976-435f-b6c7-54910ba69fe6", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:46:54.280 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"f53e40d9-11fa-4d8d-a979-56f7635d99df", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:46:54.280 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:46:54.281 DEBUG 18244 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:46:54.282 DEBUG 18244 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:46:54.566 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:46:54.566 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@54ed8e24, com.ssaf (truncated)...]
+2021-10-06 11:46:54.567 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:46:54.568 DEBUG 18244 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"f53e40d9-11fa-4d8d-a979-56f7635d99df", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"138", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:47:17.017 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"6fbe353b-69ac-4894-ba09-4248407f747c", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:47:17.017 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:47:17.018 DEBUG 18244 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:47:17.019 DEBUG 18244 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:47:17.327 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:47:17.327 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@51059b40, com.ssaf (truncated)...]
+2021-10-06 11:47:17.328 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:47:17.328 DEBUG 18244 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"6fbe353b-69ac-4894-ba09-4248407f747c", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:49:22.840  INFO 16412 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 16412 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:49:22.843  INFO 16412 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:49:22.889  INFO 16412 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:49:22.889  INFO 16412 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:49:23.811  INFO 16412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:49:23.943  INFO 16412 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:49:25.453  INFO 16412 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:49:25.463  INFO 16412 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:49:25.463  INFO 16412 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:49:25.520  INFO 16412 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:49:25.521  INFO 16412 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2631 ms
+2021-10-06 11:49:25.556  INFO 16412 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:49:25.921  INFO 16412 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:49:25.954  INFO 16412 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:49:26.021 DEBUG 16412 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:49:26.022 DEBUG 16412 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:49:26.328  INFO 16412 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:49:26.419  INFO 16412 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:49:26.654  INFO 16412 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:49:26.973  INFO 16412 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:49:28.183  INFO 16412 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:49:28.199  INFO 16412 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:49:29.171  WARN 16412 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:49:29.288 DEBUG 16412 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:49:29.530  INFO 16412 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:49:29.540 DEBUG 16412 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:49:29.571  INFO 16412 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:49:29.587 DEBUG 16412 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:49:29.613 DEBUG 16412 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:49:29.626 DEBUG 16412 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:49:29.866  INFO 16412 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:49:30.193  INFO 16412 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.865 seconds (JVM running for 8.374)
+2021-10-06 11:49:54.362  INFO 16412 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:49:54.364  INFO 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:49:54.365 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:49:54.365 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:49:54.366 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:49:54.369 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4af16324
+2021-10-06 11:49:54.370 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@43f38516
+2021-10-06 11:49:54.371 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:49:54.372  INFO 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2021-10-06 11:49:54.406 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"ccb91289-a8b2-40f6-a334-d406378ae855", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:49:54.414 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:49:54.419 DEBUG 16412 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:49:54.515 DEBUG 16412 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:49:55.270 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:49:55.272 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@243049ff, com.ssaf (truncated)...]
+2021-10-06 11:49:55.372 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:49:55.376 DEBUG 16412 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"ccb91289-a8b2-40f6-a334-d406378ae855", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:51:43.379 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"61c7ef7e-5e86-44e5-bd28-04ec31edc724", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"154", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:51:43.380 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:51:43.380 DEBUG 16412 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:51:43.381 DEBUG 16412 --- [http-nio-8082-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~10만원, 30만원~], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:51:43.616 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:51:43.617 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@46ab78cb, com.ssaf (truncated)...]
+2021-10-06 11:51:43.625 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:51:43.626 DEBUG 16412 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"61c7ef7e-5e86-44e5-bd28-04ec31edc724", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"154", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~10만원", "30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:53:04.871  INFO 15456 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 15456 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:53:04.873  INFO 15456 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:53:04.918  INFO 15456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:53:04.918  INFO 15456 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:53:05.844  INFO 15456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:53:06.058  INFO 15456 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 200 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:53:08.444  INFO 15456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:53:08.460  INFO 15456 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:53:08.461  INFO 15456 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:53:08.534  INFO 15456 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:53:08.534  INFO 15456 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3615 ms
+2021-10-06 11:53:08.591  INFO 15456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:53:09.037  INFO 15456 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:53:09.060  INFO 15456 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:53:09.114 DEBUG 15456 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:53:09.115 DEBUG 15456 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:53:09.385  INFO 15456 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:53:09.467  INFO 15456 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:53:09.650  INFO 15456 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:53:09.831  INFO 15456 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:53:10.489  INFO 15456 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:53:10.498  INFO 15456 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:53:11.065  WARN 15456 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:53:11.134 DEBUG 15456 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:53:11.266  INFO 15456 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:53:11.271 DEBUG 15456 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:53:11.288  INFO 15456 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:53:11.297 DEBUG 15456 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:53:11.312 DEBUG 15456 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:53:11.319 DEBUG 15456 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:53:11.491  INFO 15456 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:53:11.799  INFO 15456 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.396 seconds (JVM running for 7.894)
+2021-10-06 11:53:29.403  INFO 15456 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:53:29.405  INFO 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:53:29.405 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:53:29.405 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:53:29.405 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:53:29.406 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@186bdbfe
+2021-10-06 11:53:29.407 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@197d9d02
+2021-10-06 11:53:29.407 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:53:29.407  INFO 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-10-06 11:53:29.419 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"9c1dc884-6197-47c1-a64e-7fbf37d82dd8", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:53:29.422 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:53:29.425 DEBUG 15456 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:53:29.463 DEBUG 15456 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:53:29.947 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:53:29.947 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@2f089f94, com.ssaf (truncated)...]
+2021-10-06 11:53:29.992 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:53:29.994 DEBUG 15456 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"9c1dc884-6197-47c1-a64e-7fbf37d82dd8", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:55:41.322 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"6cdb71ae-e261-437e-9be4-3ea9b4a38f99", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:55:41.322 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 11:55:41.323 DEBUG 15456 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 11:55:41.324 DEBUG 15456 --- [http-nio-8082-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~10만원], 펌프압력=[15bar, 19bar], 예열시간=[~30초], 물통용량=[0.6~0.8L]}]
+2021-10-06 11:55:41.551 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:55:41.552 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@e3f09ed, com.ssafy (truncated)...]
+2021-10-06 11:55:41.555 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:55:41.555 DEBUG 15456 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"6cdb71ae-e261-437e-9be4-3ea9b4a38f99", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"141", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~10만원"],
+    "펌프압력":["15bar", "19bar"],
+    "예열시간":["~30초"],
+    "물통용량":["0.6~0.8L"]
+}]
+2021-10-06 11:57:37.216  INFO 12116 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 12116 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 11:57:37.217  INFO 12116 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 11:57:37.256  INFO 12116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 11:57:37.256  INFO 12116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 11:57:38.436  INFO 12116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 11:57:38.625  INFO 12116 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 177 ms. Found 9 JPA repository interfaces.
+2021-10-06 11:57:40.865  INFO 12116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 11:57:40.882  INFO 12116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 11:57:40.882  INFO 12116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 11:57:40.956  INFO 12116 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 11:57:40.957  INFO 12116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3700 ms
+2021-10-06 11:57:41.018  INFO 12116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 11:57:41.521  INFO 12116 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 11:57:41.543  INFO 12116 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 11:57:41.573 DEBUG 12116 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 11:57:41.574 DEBUG 12116 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 11:57:41.709  INFO 12116 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 11:57:41.756  INFO 12116 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 11:57:41.889  INFO 12116 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 11:57:42.049  INFO 12116 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 11:57:42.803  INFO 12116 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 11:57:42.811  INFO 12116 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 11:57:43.329  WARN 12116 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 11:57:43.389 DEBUG 12116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 11:57:43.506  INFO 12116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 11:57:43.512 DEBUG 12116 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 11:57:43.528  INFO 12116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 11:57:43.537 DEBUG 12116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 11:57:43.550 DEBUG 12116 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 11:57:43.557 DEBUG 12116 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 11:57:43.717  INFO 12116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 11:57:44.009  INFO 12116 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 7.223 seconds (JVM running for 7.666)
+2021-10-06 11:58:35.270  INFO 12116 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 11:58:35.272  INFO 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 11:58:35.272 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 11:58:35.272 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 11:58:35.272 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 11:58:35.273 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7df6ecea
+2021-10-06 11:58:35.273 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1453e2c3
+2021-10-06 11:58:35.282 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 11:58:35.283  INFO 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2021-10-06 11:58:35.307 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"696c68f9-454b-42b0-8b3d-ea48f9d2c71b", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"125", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:58:35.310 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : POST "/api/monitor/filters?page=0", parameters={masked}
+2021-10-06 11:58:35.313 DEBUG 12116 --- [http-nio-8082-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitorList(Pageable, Map)
+2021-10-06 11:58:35.347 DEBUG 12116 --- [http-nio-8082-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~15만원], 주사율=[전체], 해상도=[전체], 화면크기=[전체]}]
+2021-10-06 11:58:35.377 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.NumberFormatException: For input string: "15만원0000"
+2021-10-06 11:58:35.378 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"696c68f9-454b-42b0-8b3d-ea48f9d2c71b", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"125", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~15만원"],
+    "주사율":["전체"],
+    "해상도":["전체"],
+    "화면크기":["전체"]
+}]
+2021-10-06 11:58:35.387 ERROR 12116 --- [http-nio-8082-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NumberFormatException: For input string: "15만원0000"] with root cause
+
+java.lang.NumberFormatException: For input string: "15만원0000"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[na:na]
+	at java.base/java.lang.Long.parseLong(Long.java:692) ~[na:na]
+	at java.base/java.lang.Long.parseLong(Long.java:817) ~[na:na]
+	at com.ssafy.checklist.domain.monitor.service.MonitorService$1.toPredicate(MonitorService.java:63) ~[main/:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.applySpecificationToCriteria(SimpleJpaRepository.java:819) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:750) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.getQuery(SimpleJpaRepository.java:708) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:484) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:599) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.5.4.jar:2.5.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.9.jar:5.3.9]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.9.jar:5.3.9]
+	at com.sun.proxy.$Proxy116.findAll(Unknown Source) ~[na:na]
+	at com.ssafy.checklist.domain.monitor.service.MonitorService.findMonitorByFilters(MonitorService.java:43) ~[main/:na]
+	at com.ssafy.checklist.domain.monitor.controller.MonitorController.findMonitorList(MonitorController.java:82) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1064) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.9.jar:5.3.9]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.52.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.AbstractRequestLoggingFilter.doFilterInternal(AbstractRequestLoggingFilter.java:289) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.9.jar:5.3.9]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1726) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.52.jar:9.0.52]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+2021-10-06 11:58:35.392 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error?page=0", parameters={masked}
+2021-10-06 11:58:35.393  WARN 12116 --- [http-nio-8082-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2021-10-06 11:58:35.393 DEBUG 12116 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 405
+2021-10-06 11:58:51.180 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"121b70bb-4f3a-4d91-85d8-6848cbb76d0a", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"119", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:58:51.180 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/monitor/filters?page=0", parameters={masked}
+2021-10-06 11:58:51.181 DEBUG 12116 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitorList(Pageable, Map)
+2021-10-06 11:58:51.183 DEBUG 12116 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~15], 주사율=[전체], 해상도=[전체], 화면크기=[전체]}]
+2021-10-06 11:58:51.544 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:58:51.545 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Page 1 of 21 containing com.ssafy.checklist.domain.monitor.entity.Monitor instances]
+2021-10-06 11:58:51.570 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:58:51.570 DEBUG 12116 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"121b70bb-4f3a-4d91-85d8-6848cbb76d0a", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"119", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~15"],
+    "주사율":["전체"],
+    "해상도":["전체"],
+    "화면크기":["전체"]
+}]
+2021-10-06 11:59:12.376 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"c631d5d0-f481-43cd-92b8-5a42e70da593", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"119", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 11:59:12.377 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/monitor/filters?page=0", parameters={masked}
+2021-10-06 11:59:12.377 DEBUG 12116 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.monitor.controller.MonitorController#findMonitorList(Pageable, Map)
+2021-10-06 11:59:12.378 DEBUG 12116 --- [http-nio-8082-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~15], 주사율=[전체], 해상도=[전체], 화면크기=[전체]}]
+2021-10-06 11:59:12.513 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 11:59:12.513 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [Page 1 of 21 containing com.ssafy.checklist.domain.monitor.entity.Monitor instances]
+2021-10-06 11:59:12.516 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 11:59:12.516 DEBUG 12116 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/monitor/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"c631d5d0-f481-43cd-92b8-5a42e70da593", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"119", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~15"],
+    "주사율":["전체"],
+    "해상도":["전체"],
+    "화면크기":["전체"]
+}]
+2021-10-06 12:00:03.706 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"cd087ebf-c2b4-41f9-995f-5c76ed3c56f0", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:00:03.706 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:00:03.706 DEBUG 12116 --- [http-nio-8082-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:00:03.708 DEBUG 12116 --- [http-nio-8082-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~10만원], 펌프압력=[전체], 예열시간=[전체], 물통용량=[전체]}]
+2021-10-06 12:00:04.096 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:00:04.096 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@2184eac0, com.ssaf (truncated)...]
+2021-10-06 12:00:04.099 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:00:04.099 DEBUG 12116 --- [http-nio-8082-exec-5] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"cd087ebf-c2b4-41f9-995f-5c76ed3c56f0", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~10만원"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["전체"]
+}]
+2021-10-06 12:00:16.432 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"3cc0539c-57a9-45b8-bc79-1e4d1c050001", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:00:16.433 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:00:16.433 DEBUG 12116 --- [http-nio-8082-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:00:16.434 DEBUG 12116 --- [http-nio-8082-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[전체], 예열시간=[전체], 물통용량=[전체]}]
+2021-10-06 12:00:16.712 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:00:16.712 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@501604a5, com.ssaf (truncated)...]
+2021-10-06 12:00:16.715 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:00:16.715 DEBUG 12116 --- [http-nio-8082-exec-6] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"3cc0539c-57a9-45b8-bc79-1e4d1c050001", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["전체"]
+}]
+2021-10-06 12:01:25.823  INFO 16788 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Starting ChecklistApplication using Java 11.0.11 on DESKTOP-KVCQHCD with PID 16788 (C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend\build\classes\java\main started by multicampus in C:\Users\multicampus\Desktop\SSAFY\2학기\특화\S05P21A406\backend)
+2021-10-06 12:01:25.825  INFO 16788 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : No active profile set, falling back to default profiles: default
+2021-10-06 12:01:25.862  INFO 16788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-10-06 12:01:25.862  INFO 16788 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-10-06 12:01:26.612  INFO 16788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-06 12:01:26.719  INFO 16788 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 9 JPA repository interfaces.
+2021-10-06 12:01:28.006  INFO 16788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2021-10-06 12:01:28.015  INFO 16788 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-06 12:01:28.015  INFO 16788 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-10-06 12:01:28.054  INFO 16788 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-06 12:01:28.054  INFO 16788 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2192 ms
+2021-10-06 12:01:28.084  INFO 16788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-06 12:01:28.461  INFO 16788 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-06 12:01:28.509  INFO 16788 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul'
+2021-10-06 12:01:28.538 DEBUG 16788 --- [restartedMain] o.s.web.filter.CharacterEncodingFilter   : Filter 'characterEncodingFilter' configured for use
+2021-10-06 12:01:28.539 DEBUG 16788 --- [restartedMain] o.s.w.f.CommonsRequestLoggingFilter      : Filter 'commonsRequestLoggingFilter' configured for use
+2021-10-06 12:01:28.684  INFO 16788 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: entityManager]
+2021-10-06 12:01:28.735  INFO 16788 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-06 12:01:28.851  INFO 16788 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-06 12:01:29.004  INFO 16788 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-10-06 12:01:29.713  INFO 16788 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-06 12:01:29.722  INFO 16788 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'entityManager'
+2021-10-06 12:01:30.217  WARN 16788 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-06 12:01:30.276 DEBUG 16788 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+2021-10-06 12:01:30.390  INFO 16788 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-10-06 12:01:30.395 DEBUG 16788 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-10-06 12:01:30.410  INFO 16788 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [dist/index.html]
+2021-10-06 12:01:30.418 DEBUG 16788 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/swagger-ui/] in 'viewControllerHandlerMapping'
+2021-10-06 12:01:30.430 DEBUG 16788 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /resources/**, /swagger-ui.html, /css/**, /fonts/**, /icons/**, /img/**, /js/**, /swagger-ui/**] in 'resourceHandlerMapping'
+2021-10-06 12:01:30.436 DEBUG 16788 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-10-06 12:01:30.602  INFO 16788 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2021-10-06 12:01:30.869  INFO 16788 --- [restartedMain] c.ssafy.checklist.ChecklistApplication   : Started ChecklistApplication in 5.465 seconds (JVM running for 6.066)
+2021-10-06 12:01:47.819  INFO 16788 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-06 12:01:47.821  INFO 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-06 12:01:47.821 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2021-10-06 12:01:47.821 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2021-10-06 12:01:47.821 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2021-10-06 12:01:47.822 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@13543c7a
+2021-10-06 12:01:47.822 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4bb098dd
+2021-10-06 12:01:47.822 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2021-10-06 12:01:47.822  INFO 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-06 12:01:47.834 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"e38623c1-a10c-4a4b-8a7a-6156287b61ba", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:01:47.837 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:01:47.839 DEBUG 16788 --- [http-nio-8082-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:01:47.874 DEBUG 16788 --- [http-nio-8082-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[30만원~], 펌프압력=[전체], 예열시간=[전체], 물통용량=[전체]}]
+2021-10-06 12:01:49.125 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:01:49.126 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@f72a334, com.ssafy (truncated)...]
+2021-10-06 12:01:49.152 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:01:49.154 DEBUG 16788 --- [http-nio-8082-exec-1] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"e38623c1-a10c-4a4b-8a7a-6156287b61ba", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"131", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["30만원~"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["전체"]
+}]
+2021-10-06 12:02:04.232 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"12b913d1-845e-45b1-b4fb-fc3aaa961d0d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"143", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:02:04.232 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:02:04.232 DEBUG 16788 --- [http-nio-8082-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:02:04.234 DEBUG 16788 --- [http-nio-8082-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[~10만원, 30만원~], 펌프압력=[전체], 예열시간=[전체], 물통용량=[전체]}]
+2021-10-06 12:02:05.216 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:02:05.216 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@1460aba7, com.ssaf (truncated)...]
+2021-10-06 12:02:05.219 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:02:05.220 DEBUG 16788 --- [http-nio-8082-exec-3] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"12b913d1-845e-45b1-b4fb-fc3aaa961d0d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"143", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["~10만원","30만원~"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["전체"]
+}]
+2021-10-06 12:02:17.565 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"0f31f289-c92c-452a-b7d1-1cd70c37693f", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"127", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:02:17.565 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:02:17.566 DEBUG 16788 --- [http-nio-8082-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:02:17.567 DEBUG 16788 --- [http-nio-8082-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[전체], 펌프압력=[전체], 예열시간=[전체], 물통용량=[~0.6L]}]
+2021-10-06 12:02:18.509 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:02:18.509 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@40229e93, com.ssaf (truncated)...]
+2021-10-06 12:02:18.510 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:02:18.511 DEBUG 16788 --- [http-nio-8082-exec-4] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"0f31f289-c92c-452a-b7d1-1cd70c37693f", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"127", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["전체"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["~0.6L"]
+}]
+2021-10-06 12:03:23.645 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : Before request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"d224ca4e-2f22-44e4-9c1c-3aa21bbb1a0d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"132", Content-Type:"application/json;charset=ISO-8859-1"]]
+2021-10-06 12:03:23.645 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/api/coffeemachine/filters?page=0", parameters={masked}
+2021-10-06 12:03:23.645 DEBUG 16788 --- [http-nio-8082-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.ssafy.checklist.domain.coffeemachine.controller.CoffeemachineController#findCoffeemachineByFilter(Pageable, Map)
+2021-10-06 12:03:23.646 DEBUG 16788 --- [http-nio-8082-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [{가격대=[10~20만원], 펌프압력=[전체], 예열시간=[전체], 물통용량=[~0.6L]}]
+2021-10-06 12:03:24.621 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2021-10-06 12:03:24.622 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes@7e4eab3d, com.ssaf (truncated)...]
+2021-10-06 12:03:24.626 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2021-10-06 12:03:24.627 DEBUG 16788 --- [http-nio-8082-exec-7] o.s.w.f.CommonsRequestLoggingFilter      : After request [POST /api/coffeemachine/filters?page=0, client=0:0:0:0:0:0:0:1, headers=[user-agent:"PostmanRuntime/7.28.4", accept:"*/*", postman-token:"d224ca4e-2f22-44e4-9c1c-3aa21bbb1a0d", host:"localhost:8082", accept-encoding:"gzip, deflate, br", connection:"keep-alive", content-length:"132", Content-Type:"application/json;charset=UTF-8"], payload={
+    "가격대":["10~20만원"],
+    "펌프압력":["전체"],
+    "예열시간":["전체"],
+    "물통용량":["~0.6L"]
+}]

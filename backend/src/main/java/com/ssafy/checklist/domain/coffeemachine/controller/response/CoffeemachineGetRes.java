@@ -52,6 +52,7 @@ public class CoffeemachineGetRes {
     public static CoffeemachineGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance) {
         CoffeemachineGetRes res = new CoffeemachineGetRes();
         res.setPcode(coffeemachine.getPcode());
+        res.setName(coffeemachine.getName());
         res.setBrand(coffeemachine.getBrand());
         res.setPrice(coffeemachine.getPrice());
         res.setImg(coffeemachine.getImg());

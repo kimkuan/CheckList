@@ -24,18 +24,18 @@ public class CoffeemachineSpecification {
         };
     }
 
-    public static Specification<Coffeemachine> eqPressure(final List<String> pressureFilter) {
-        return new Specification<Coffeemachine>() {
-            @Override
-            public Predicate toPredicate(Root<Coffeemachine> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                Predicate equalPredicate = criteriaBuilder.conjunction();
-                for(String pressure: pressureFilter) {
-                    criteriaBuilder.or(criteriaBuilder.equal(root.get("pressure"), pressure));
-                }
-                return equalPredicate;
-            }
-        };
-    }
+//    public static Specification<Coffeemachine> eqPressure(final List<String> pressureFilter) {
+//        return new Specification<Coffeemachine>() {
+//            @Override
+//            public Predicate toPredicate(Root<Coffeemachine> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+//                Predicate equalPredicate = criteriaBuilder.conjunction();
+//                for(String pressure: pressureFilter) {
+//                    criteriaBuilder.or(criteriaBuilder.equal(root.get("pressure"), pressure));
+//                }
+//                return equalPredicate;
+//            }
+//        };
+//    }
 
     public static Specification<Coffeemachine> betweenHeatTime(final int heatTime) {
         return new Specification<Coffeemachine>() {
@@ -46,15 +46,15 @@ public class CoffeemachineSpecification {
         };
     }
 
-//    public static Specification<Coffeemachine> eqPressure(final String pressure) {
-//        return new Specification<Coffeemachine>() {
-//            @Override
-//            public Predicate toPredicate(Root<Coffeemachine> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-//                Predicate equalPredicate = criteriaBuilder.equal(root.get("pressure"), pressure);
-//                return equalPredicate;
-//            }
-//        };
-//    }
+    public static Specification<Coffeemachine> eqPressure(final String pressure) {
+        return new Specification<Coffeemachine>() {
+            @Override
+            public Predicate toPredicate(Root<Coffeemachine> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                Predicate equalPredicate = criteriaBuilder.equal(root.get("pressure"), pressure);
+                return equalPredicate;
+            }
+        };
+    }
 
     public static Specification<Coffeemachine> betweenWater(final Double water1, final Double water2) {
         return new Specification<Coffeemachine>() {
