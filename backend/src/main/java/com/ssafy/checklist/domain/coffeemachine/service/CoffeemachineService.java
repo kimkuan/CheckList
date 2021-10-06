@@ -6,15 +6,26 @@ import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
 import com.ssafy.checklist.domain.coffeemachine.entity.CoffeemachinePerformance;
 import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachinePerformanceRepository;
 import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachineRepository;
+import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachineSpecification;
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
+import org.checkerframework.checker.nullness.Opt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -33,20 +44,141 @@ public class CoffeemachineService {
     * @작성자 : 이영주
     * @Method 설명 : 주어진 페이지번호, 필터 조건에 맞는 커피머신 목록 제공
     */
-    public Page<CoffeemachineGetRes> findCoffeemachineListByFilter(Pageable pageable, List<String> priceFilter, List<String> pressureFilter,
-                                                                   List<String> heatFilter, List<String> waterFilter) {
+    public List<CoffeemachineGetRes> findCoffeemachineListByFilter(Pageable pageable, Map<String, Object> map) {
 
-        // 커피머신 목록 가져오고
-        List<Coffeemachine> coffeemachinelist;
-        Page<CoffeemachineGetRes> coffeemachineGetResList = null;
-        // for문으로 그에 맞는 성능 가져와서 return?
-        // 그냥 목록 보여주기
-        if(priceFilter.get(0).equals("전체") && pressureFilter.get(0).equals("전체") &&
-                heatFilter.get(0).equals("전체") && waterFilter.get(0).equals("전체")) {
-//            Specification<Coffeemachine> filter = Specification.where()
-//            coffeemachinelist = coffeemachineRepository.findAll(filter, pageable);
+        Page<Coffeemachine> coffeemachinelist = null;
+        List<CoffeemachineGetRes> coffeemachineGetResList = new ArrayList<>();
+        Specification<Coffeemachine> filter = getMultiFilter(map);
+
+        coffeemachinelist = coffeemachineRepository.findAll(filter, pageable);
+
+        int count = 1;
+        for(Coffeemachine coffeemachine : coffeemachinelist) {
+            Optional<CoffeemachinePerformance> coffeemachinePerformance = coffeemachinePerformanceRepository.findById(coffeemachine.getPcode());
+            if(coffeemachinePerformance.isPresent()) {
+                coffeemachineGetResList.add(CoffeemachineGetRes.of(coffeemachine, coffeemachinePerformance.get()));
+            }
+            System.out.println("count >> " + (count++) + " / price >> " + coffeemachine.getPrice()+ " / pressure >> " + coffeemachine.getPressure() + " / heatTime >>> " + coffeemachine.getHeatTime());
         }
+        
         return coffeemachineGetResList;
+    }
+
+    public Specification<Coffeemachine> getMultiFilter(Map<String, Object> map) {
+        return new Specification<Coffeemachine>() {
+            @Override
+            public Predicate toPredicate(Root<Coffeemachine> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                Predicate p = criteriaBuilder.conjunction();
+                List<Predicate> predicateList = new ArrayList<>();
+
+                if(map.get("가격대") != null) {
+                    List<String> values = (ArrayList<String>) map.get("가격대");
+
+                    if(!values.contains("전체")) {
+                        String priceZero = values.get(0);
+                        priceZero = priceZero.replace("만원", "");
+                        String[] rangeZero = priceZero.split("~");
+
+                        System.out.println("priceZero >>>> " + priceZero);
+                        if(rangeZero[0].equals("")) {
+                            System.out.println("가격 100000 이하");
+                            p = criteriaBuilder.and(p, criteriaBuilder.lessThan(root.get("price"), Long.valueOf(100000)));
+                        } else if(rangeZero.length == 2) {
+                            long price1 = Long.parseLong(rangeZero[0]) * 10000;
+                            long price2 = Long.parseLong(rangeZero[1]) * 10000;
+                            System.out.println("가격 " + price1 + " 이상 " + price2 + " 이하");
+                            p = criteriaBuilder.and(p, criteriaBuilder.between(root.get("price"), price1, price2));
+                        } else {
+                            System.out.println("가격 300000 이상");
+                            p = criteriaBuilder.and(p, criteriaBuilder.greaterThan(root.get("price"), Long.valueOf(300000)));
+                        }
+                        for(int i = 1; i < values.size(); i++) {
+                            String price = values.get(i);
+                            System.out.println(price);
+                            price = price.replace("만원","");      // L 붙은거 제거
+                            String[] range = price.split("~");
+
+                            System.out.println("가격정보 ???");
+                            for (String r : range) {
+                                System.out.println(r);
+                            }
+                            if(range[0].equals("")) {
+                                p = criteriaBuilder.or(p, criteriaBuilder.lessThan(root.get("price"), Long.valueOf(100000)));
+                            } else if(range.length == 2) {
+                                long price1 = Long.parseLong(range[0]) * 10000;
+                                long price2 = Long.parseLong(range[1]) * 10000;
+                                p = criteriaBuilder.or(p, criteriaBuilder.between(root.get("price"), price1, price2));
+                            } else {
+                                p = criteriaBuilder.or(p, criteriaBuilder.greaterThan(root.get("price"), Long.valueOf(300000)));
+                            }
+                        }
+                    }
+                }
+
+                if(map.get("펌프압력") != null) {
+                    List<String> values = (ArrayList<String>) map.get("펌프압력");
+
+                    if(!values.contains("전체")) {
+                        p = criteriaBuilder.and(p, criteriaBuilder.equal(root.get("pressure"), values.get(0)));
+                        for(int i = 1; i < values.size(); i++) {
+                            p = criteriaBuilder.or(p, criteriaBuilder.equal(root.get("pressure"), values.get(i)));
+                        }
+                    }
+                }
+
+                if(map.get("예열시간") != null) {
+                    List<String> values = (ArrayList<String>) map.get("예열시간");
+                    if(!values.contains("전체")) {
+                        int heatTime = Integer.parseInt(values.get(0).substring(1, 3));
+                        System.out.println("예열시간 >> " + heatTime);
+                        p = criteriaBuilder.and(p, criteriaBuilder.between(root.get("heatTime"), 3, heatTime));
+
+                        for(int i = 1; i < values.size(); i++) {
+                            int heat = Integer.parseInt(values.get(i).substring(1,3));
+                            p = criteriaBuilder.or(p, criteriaBuilder.between(root.get("heatTime"), 3, heatTime));
+                        }
+
+                    }
+                }
+
+                if(map.get("물통용량") != null) {
+                    List<String> values = (ArrayList<String>) map.get("물통용량");
+                    if(!values.contains("전체")) {
+                        String waterZero = values.get(0);
+                        waterZero = waterZero.replace("L", "");
+                        String[] rangeZero = waterZero.split("~");
+
+                        System.out.println("waterZero >>>> " + waterZero);
+                        if(rangeZero[0].equals("")) {
+                            p = criteriaBuilder.and(p, criteriaBuilder.lessThanOrEqualTo(root.get("waterVolume"), Double.valueOf(0.6)));
+                        } else if(rangeZero.length == 2) {
+                            Double water1 = Double.parseDouble(rangeZero[0]);
+                            Double water2 = Double.parseDouble(rangeZero[1]);
+                            p = criteriaBuilder.and(p, criteriaBuilder.between(root.get("waterVolume"), water1, water2));
+                        } else {
+                            p = criteriaBuilder.and(p, criteriaBuilder.greaterThanOrEqualTo(root.get("waterVolume"), Double.valueOf(1)));
+                        }
+                        for(int i = 1; i < values.size(); i++) {
+                            String water = values.get(i);
+                            System.out.println(water);
+                            water = water.replace("만원","");      // L 붙은거 제거
+                            String[] range = water.split("~");
+
+                            if(range[0].equals("")) {
+                                p = criteriaBuilder.and(p, criteriaBuilder.lessThanOrEqualTo(root.get("waterVolume"), Double.valueOf(0.6)));
+                            } else if(range.length == 2) {
+                                Double water1 = Double.parseDouble(range[0]);
+                                Double water2 = Double.parseDouble(range[1]);
+                                p = criteriaBuilder.and(p, criteriaBuilder.between(root.get("waterVolume"), water1, water2));
+                            } else {
+                                p = criteriaBuilder.and(p, criteriaBuilder.greaterThanOrEqualTo(root.get("waterVolume"), Double.valueOf(1)));
+                            }
+                        }
+                    }
+                }
+                return p;
+            }
+        };
     }
 
     /**  

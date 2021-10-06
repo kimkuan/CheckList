@@ -180,23 +180,23 @@ export default {
     return {
       categories : [
         {
-          id : 'aircleaner',
+          id : 'Aircleaner',
           name : "공기청정기"
         },
         {
-          id : 'monitor',
+          id : 'Monitor',
           name : "모니터"
         },
         {
-          id : 'airfryer',
+          id : 'Airfryer',
           name : "에어프라이어"
         },
         {
-          id : 'foodprocessor',
+          id : 'Foodprocessor',
           name : "음식물처리기"
         },
         {
-          id : 'coffeemachine',
+          id : 'Coffeemachine',
           name : "커피머신"
         },
       ],
@@ -261,10 +261,7 @@ button:focus {
   border-bottom: 0.5px solid rgb(196, 196, 196);
   
 } */
-/* .active {
-  border-color: #CF000F;
-  border-bottom-width: 3px;
-} */
+
 .description {
   background-color: #FFF5F5;
   height: 100px;

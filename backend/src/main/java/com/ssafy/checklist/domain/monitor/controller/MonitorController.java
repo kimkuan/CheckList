@@ -2,7 +2,9 @@ package com.ssafy.checklist.domain.monitor.controller;
 
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.monitor.controller.response.MonitorGetRes;
+import com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
+import com.ssafy.checklist.domain.monitor.entity.MonitorPerformance;
 import com.ssafy.checklist.domain.monitor.service.MonitorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,16 +50,19 @@ public class MonitorController {
         /**
          * @Method Name : findMoniter
          * @작성자 : 김윤주
-         * @Method 설명 : pcode에 해당하는 상품의 상세정보와 최저가 정보를 DB에서 받아와 전달한다.
+         * @Method 설명 : pcode에 해당하는 상품의 상세정보와 성능 분석 정보, 최저가 정보를 DB에서 받아와 전달한다.
          */
 
         // 상세정보
         Monitor m = monitorService.findMonitorById(pcode);
 
+        // 분석정보
+        MonitorPerformance mp = monitorService.findMonitorPerformanceById(pcode);
+
         // 최저가 정보...
         List<LowPriceInfo> list = monitorService.findLowPriceById(pcode);
 
-        return new ResponseEntity<MonitorGetRes>(MonitorGetRes.of(m, list), HttpStatus.OK);
+        return new ResponseEntity<MonitorGetRes>(MonitorGetRes.of(m, mp, list), HttpStatus.OK);
     }
 
     @ApiOperation(value = "모니터 목록 조회", notes = "모니터를 조회한다.")
@@ -67,11 +72,11 @@ public class MonitorController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @PostMapping("/filters")
-    public ResponseEntity<Page<Monitor>> findMonitorList(@PageableDefault(size=10, sort="name", direction = Sort.Direction.DESC) Pageable pageRequest, @RequestBody Map<String, Object> filters){
+    public ResponseEntity<List<MonitorInfoGetRes>> findMonitorList(@PageableDefault(size=10, sort="pcode", direction = Sort.Direction.DESC) Pageable pageRequest, @RequestBody Map<String, Object> filters){
         /**
          * @Method Name : findMoniterList
          * @작성자 : 김윤주
-         * @Method 설명 : 필터에 부합하는 상품의 목록을 DB에서 페이징 처리를 통해 받아와 전달한다.
+         * @Method 설명 : 필터에 부합하는 상품의 목록(pcode, 가격 등 상품의 기본정보와 성능분석 포함)을 DB에서 페이징 처리를 통해 받아와 전달한다.
          */
 
         System.out.println(filters);
@@ -79,9 +84,9 @@ public class MonitorController {
         System.out.println(filters.get("화면 크기"));
         System.out.println(filters.get("해상도"));
 
-        Page<Monitor> list = monitorService.findMonitorByFilters(filters, pageRequest);
+        List<MonitorInfoGetRes> list = monitorService.findMonitorByFilters(filters, pageRequest);
 
-        return new ResponseEntity<Page<Monitor>>(list, HttpStatus.OK);
+        return new ResponseEntity<List<MonitorInfoGetRes>>(list, HttpStatus.OK);
     }
 
 }

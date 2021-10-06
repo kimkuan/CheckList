@@ -2,8 +2,8 @@ build:
   date: '@build.date@'
 
 logging:
-  file:
-    name: ./checklist.log
+#  file:
+#    name: ./checklist.log
   level:
     org:
       apache:
@@ -68,7 +68,7 @@ spring:
 
   web:
     resources:
-      add-mappings: false
+#      add-mappings: false
       static-locations: classpath:/dist/
 
   devtools:

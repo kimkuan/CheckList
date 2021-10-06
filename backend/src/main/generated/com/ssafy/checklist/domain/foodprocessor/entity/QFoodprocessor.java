@@ -21,7 +21,7 @@ public class QFoodprocessor extends EntityPathBase<Foodprocessor> {
 
     public final StringPath brand = createString("brand");
 
-    public final StringPath form = createString("form");
+    public final StringPath decrease = createString("decrease");
 
     public final StringPath img = createString("img");
 
@@ -31,11 +31,15 @@ public class QFoodprocessor extends EntityPathBase<Foodprocessor> {
 
     public final NumberPath<Long> price = createNumber("price", Long.class);
 
+    public final StringPath processTime = createString("processTime");
+
     public final StringPath processType = createString("processType");
 
-    public final StringPath spec = createString("spec");
+    public final StringPath size = createString("size");
 
-    public final StringPath volume = createString("volume");
+    public final StringPath sound = createString("sound");
+
+    public final StringPath spec = createString("spec");
 
     public QFoodprocessor(String variable) {
         super(Foodprocessor.class, forVariable(variable));
