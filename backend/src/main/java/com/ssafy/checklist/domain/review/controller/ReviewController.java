@@ -1,12 +1,24 @@
 package com.ssafy.checklist.domain.review.controller;
 
 import com.ssafy.checklist.domain.review.controller.response.ReviewGetRes;
+import com.ssafy.checklist.domain.review.controller.response.ReviewListGetRes;
+import com.ssafy.checklist.domain.review.entity.Review;
+import com.ssafy.checklist.domain.review.entity.ReviewWordCloud;
+import com.ssafy.checklist.domain.review.repository.ReviewRepository;
+import com.ssafy.checklist.domain.review.service.ReviewService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,16 +30,35 @@ import java.util.List;
 
 public class ReviewController {
 
-    @ApiOperation(value = "모든 리뷰 조회", notes = "특정 제품에 대한 모든 리뷰를 조회한다.")
+    @Autowired
+    ReviewService reviewService;
+
+    @ApiOperation(value = "상품 리뷰 조회", notes = "pcode와 동일한 상품에 대한 모든 리뷰를 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "조회 성공"),
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("")
-    public ResponseEntity<List<ReviewGetRes>> findAllReview(String id){
-        return null;
+    @GetMapping("/{pcode}")
+    public ResponseEntity<ReviewListGetRes> findAllReview(Long pcode, @PageableDefault(size = 10, sort = "pcode", direction = Sort.Direction.DESC) Pageable pageable){
+
+        ReviewListGetRes reviewListGetRes = reviewService.findAll(pcode, pageable);
+        return new ResponseEntity<>(reviewListGetRes, HttpStatus.OK);
     }
+
+
+    @ApiOperation(value = "상품 워드 클라우드 데이터 조회", notes = "pcode와 동일한 상품에 대한 워드 클라우드 데이터를 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/wordcloud/{pcode}")
+    public ResponseEntity<ReviewWordCloud> findWordCloudByKeyword(Long pcode){
+        ReviewWordCloud reviewWordCloud = reviewService.findById(pcode);
+        return new ResponseEntity<>(reviewWordCloud, HttpStatus.OK);
+    }
+
 
     @ApiOperation(value = "특정 키워드를 갖는 모든 리뷰 조회", notes = "제품에 대한 리뷰 중, 특정 키워드에 갖는 리뷰 목록을 조회한다.")
     @ApiResponses({
@@ -35,9 +66,12 @@ public class ReviewController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{keyword}")
-    public ResponseEntity<ReviewGetRes> findAllReviewByKeyword(String keyword){
-        return null;
+    @GetMapping("/{pcode}/{keyword}")
+    public ResponseEntity<Page<Review>> findAllReviewByKeyword(Long pcode, String keyword, @PageableDefault(size = 10, sort = "pcode", direction = Sort.Direction.DESC) Pageable pageable, String keyword){
+        Page<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword, pageable);
+        return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
+
+
 
 }
