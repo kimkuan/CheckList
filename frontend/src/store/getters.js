@@ -29,3 +29,8 @@ export function getSearchHistory(state) {
 export function getSelectCategoryName(state) {
   return state.selectCategoryName;
 }
+
+// 현재 상품의 최저가 사이트 정보 가져오기
+export function getLowPriceInfoList(state) {
+  return state.lowPriceInfoList;
+}

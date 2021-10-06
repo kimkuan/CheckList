@@ -16,7 +16,13 @@ function requestCheckPick(category) {
   return $axios.get(url);
 }
 
+// 상품의 상세 정보 가져오기
+export function requestProductInfo({ state }, payload) {
+  const url = payload.category + "/" + payload.pcode;
+  return $axios.get(url);
+}
+
 export {
   requestProducts,
-  requestCheckPick
+  requestCheckPick,
 }

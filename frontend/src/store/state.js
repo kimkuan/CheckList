@@ -20,4 +20,7 @@ export default {
 
   // 클릭한 상품 설명 모달창
   modal: "",
+
+  // 최저가 정보
+  lowPriceInfoList: [],
 };
