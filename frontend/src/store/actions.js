@@ -23,3 +23,12 @@ export function requestProductInfo({ state }, payload) {
   const url = payload.category + "/" + payload.pcode;
   return $axios.get(url);
 }
+
+// 키워드 검색 결과 가져오기
+export function requestGetSearchProducts({ state }, payload) {
+  const category = payload.category
+  const keywordValue = payload.keywordValue
+  const pageValue = payload.pageValue
+  const url = category + "/search/" + pageValue + "/" + keywordValue
+  return $axios.get(url);
+}
