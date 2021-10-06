@@ -186,7 +186,7 @@ public class MonitorService {
         Page<Monitor> monitors = monitorRepository.findAllByNameContaining(keyword, pageRequest);
 
         List<MonitorGetRes> monitorGetResList = new ArrayList<>();
-        int size = monitors.getSize();
+        int size = monitors.getContent().size();
         for(int i = 0; i < size; i++) {
             Monitor monitor = monitors.getContent().get(i);
             Optional<MonitorPerformance> monitorPerformance = monitorPerformanceRepository.findById(monitor.getPcode());
