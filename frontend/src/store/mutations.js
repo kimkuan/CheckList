@@ -38,3 +38,8 @@ export function deleteWord(state, index) {
 export function setSelectCategoryName(state, id) {
   state.selectCategoryName = id;
 }
+
+// 상품의 정보 저장
+export function setProductInfo(state, productInfo) {
+  state.productInfo = productInfo;
+}

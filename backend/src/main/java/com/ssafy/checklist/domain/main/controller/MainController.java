@@ -2,11 +2,15 @@ package com.ssafy.checklist.domain.main.controller;
 
 import com.ssafy.checklist.domain.main.controller.response.FilterGetRes;
 import com.ssafy.checklist.domain.main.controller.response.ProductGetRes;
+import com.ssafy.checklist.domain.main.entity.Filter;
+import com.ssafy.checklist.domain.main.entity.Product;
+import com.ssafy.checklist.domain.main.service.MainService;
 import com.ssafy.checklist.domain.review.controller.response.ReviewGetRes;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +22,9 @@ import java.util.List;
 @Api(value = "MainController", tags = "MainController", description = " 메인 컨트롤러")
 public class MainController {
 
+    @Autowired
+    MainService mainService;
+
     @ApiOperation(value = "카테고리별 랭킹 조회", notes = "특정 카테고리의 상품목록을 랭킹순으로 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "조회 성공"),
@@ -26,6 +33,12 @@ public class MainController {
     })
     @GetMapping("/category")
     public ResponseEntity<List<ProductGetRes>> findAllRankByCategory(String category){
+
+        /**
+         * @Method Name : findAllProductByKeyword
+         * @작성자 : 김윤주
+         * @Method 설명 : 각 도메인에서 따로 구현
+         */
 
         return null;
     }
@@ -40,6 +53,12 @@ public class MainController {
     public ResponseEntity<List<ProductGetRes>> findAllProductByKeyword(String keyword){
         // keyword에는 상품명, 상품모델명, 브랜드가 올 수 있다.
 
+        /**
+        * @Method Name : findAllProductByKeyword
+        * @작성자 : 김윤주
+        * @Method 설명 : 각 도메인에서 따로 구현
+        */
+
         return null;
     }
 
@@ -51,6 +70,13 @@ public class MainController {
     })
     @PutMapping("/click/{pcode}")
     public ResponseEntity updateProductHit(@PathVariable("pcode") String pcode){
+        /**  
+        * @Method Name : updateProductHit  
+        * @작성자 : 김윤주 
+        * @Method 설명 : 상품의 조회수 증가시킴. 반환값은 X.
+        */
+
+        mainService.updateProductHit(pcode);
 
         return new ResponseEntity(HttpStatus.OK);
     }
@@ -64,7 +90,15 @@ public class MainController {
     @GetMapping("/best")
     public ResponseEntity<List<ProductGetRes>> findAllBestProduct(){
 
-        return null;
+        /**
+        * @Method Name : findAllBestProduct
+        * @작성자 : 김윤주
+        * @Method 설명 : 조회수 상위 3개 상품의 정보를 가져와서 반환함.
+        */
+
+        List<ProductGetRes> list = mainService.findBestProduct();
+
+        return new ResponseEntity<List<ProductGetRes>>(list, HttpStatus.OK);
     }
 
     @ApiOperation(value = "카테고리 필터 옵션 조회", notes = "카테고리에 맞는 옵션 목록을 조회한다.")
@@ -74,9 +108,15 @@ public class MainController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @GetMapping("/filter/{category}")
-    public ResponseEntity<FilterGetRes> findFilterByCategory(String keyword){
-        // keyword에는 상품명, 상품모델명, 브랜드가 올 수 있다.
+    public ResponseEntity<Filter> findFilterByCategory(String keyword){
+        /**
+        * @Method Name : findFilterByCategory
+        * @작성자 : 김윤주
+        * @Method 설명 : 카테고리에 맞는 필터 옵션을 조회하여 반환함.
+        */
 
-        return null;
+        Filter filter = mainService.findFilterByCategory(keyword);
+
+        return new ResponseEntity<Filter>(filter, HttpStatus.OK);
     }
 }
