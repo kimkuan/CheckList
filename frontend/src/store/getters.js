@@ -34,3 +34,8 @@ export function getSelectCategoryName(state) {
 export function getProductInfo(state) {
   return state.productInfo;
 }
+
+// 검색한 상품 목록 가져오기
+export function getSearchProductListInfo(state) {
+  return state.searchProductList;
+}

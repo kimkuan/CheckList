@@ -43,3 +43,8 @@ export function setSelectCategoryName(state, id) {
 export function setProductInfo(state, productInfo) {
   state.productInfo = productInfo;
 }
+
+// 검색한 상품리스트 저장
+export function setSearchProductListInfo(state, searchProductList) {
+  state.searchProductList = searchProductList;
+}

@@ -22,5 +22,8 @@ export default {
   modal: "",
 
    // 상품 정보 (가격, 이름, 브랜드, 성능 정보 + 최저가 정보)
-   productInfo: {},
+  productInfo: {},
+   
+  // 검색한 상품 리스트
+  searchProductList: [],
 };
