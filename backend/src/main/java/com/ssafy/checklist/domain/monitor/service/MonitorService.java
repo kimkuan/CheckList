@@ -2,7 +2,10 @@ package com.ssafy.checklist.domain.monitor.service;
 
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
+import com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
+import com.ssafy.checklist.domain.monitor.entity.MonitorPerformance;
+import com.ssafy.checklist.domain.monitor.repository.MonitorPerformanceRepository;
 import com.ssafy.checklist.domain.monitor.repository.MonitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +17,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,9 +30,16 @@ public class MonitorService {
     @Autowired
     LowPriceInfoRepository lowPriceInfoRepository;
 
+    @Autowired
+    MonitorPerformanceRepository monitorPerformanceRepository;
+
     public Monitor findMonitorById(String pcode) {
 
         return monitorRepository.findMonitorByPcode(Long.parseLong(pcode)).orElse(null);
+    }
+
+    public MonitorPerformance findMonitorPerformanceById(String pcode) {
+        return monitorPerformanceRepository.findById(Long.parseLong(pcode)).orElse(null);
     }
 
     public List<LowPriceInfo> findLowPriceById(String pcode) {
@@ -36,15 +47,55 @@ public class MonitorService {
         return lowPriceInfoRepository.findAllByPcode(Long.parseLong(pcode)).orElse(null);
     }
 
-    public Page<Monitor> findMonitorByFilters(Map<String, Object> map, Pageable pageRequest) {
+    public List<MonitorInfoGetRes> findMonitorByFilters(Map<String, Object> map, Pageable pageRequest) {
+
+        /**
+        * @Method Name : findMonitorByFilters
+        * @작성자 : 김윤주
+        * @Method 설명 : 필터링 검색 결과를 페이징 처리하여 가져오는 메소드 호출.
+        *               해당하는 상품들의 성능 분석 정보를 가져오는 메소드를 호출.
+        *               두 메소드 호출의 결과를 MonitorInfoGetRes 타입으로 묶어 반환함.
+        */
 
         Specification<Monitor> spec = getMultiFilter(map);
 
-        return monitorRepository.findAll(spec, pageRequest);
+        // 필터링 검색 결과 목록
+        Page<Monitor> mp = monitorRepository.findAll(spec, pageRequest);
+        List<Monitor> mList = mp.getContent();
+
+        // 성능분석 정보
+        List<MonitorPerformance> mpList = new LinkedList<>();
+        for(int i=0; i< mList.size(); i++) {
+            mpList.add(monitorPerformanceRepository.findById(mList.get(i).getPcode()).orElse(null));
+        }
+
+        return MonitorInfoGetRes.of(mList, mpList);
     }
+
+//    public List<MonitorPerformance> findMonitorPerformanceByPcode(long[] pList) {
+//        /**
+//        * @Method Name : findMonitorPerformanceByPcode
+//        * @작성자 : 김윤주
+//        * @Method 설명 : pcode List에 해당하는 성능분석 정보를 List로 가져와 반환함
+//        */
+//
+//        List<MonitorPerformance> mpList = new LinkedList<>();
+//
+//        for(int i=0; i<pList.length; i++) {
+//            mpList.add(monitorPerformanceRepository.findById(pList[i]).orElse(null));
+//        }
+//
+//        return mpList;
+//    }
 
     @SuppressWarnings({"unused", "unchecked"})
     public Specification<Monitor> getMultiFilter(Map<String, Object> map) {
+        /**
+        * @Method Name : getMultiFilter
+        * @작성자 : 김윤주
+        * @Method 설명 : 필터링 정보를 Map으로 가져와 쿼리를 생성하여 검색하고 결과를 반환. (복수 조건)
+        */
+
         return new Specification<Monitor>() {
             private static final long serialVersionUID = 1L;
 

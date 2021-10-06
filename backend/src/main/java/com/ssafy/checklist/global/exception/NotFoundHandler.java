@@ -30,7 +30,7 @@ public class NotFoundHandler {
 	public ResponseEntity<String> renderDefaultPage(NoHandlerFoundException ex) {
 		String url = ex.getRequestURL();
 
-		if(url.startsWith("/api")) {
+		if(url.startsWith("/api/")) {
 			return ResponseEntity.notFound().build();
 		}else {
 			try {

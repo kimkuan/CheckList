@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AirfryerRepository extends JpaRepository<Airfryer, String> {
+public interface AirfryerRepository extends JpaRepository<Airfryer, Long> {
+
 }
