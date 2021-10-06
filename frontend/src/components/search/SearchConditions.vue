@@ -58,12 +58,9 @@ export default {
         let string = JSON.parse(res.data.condition);
         console.log(string);
         for (let s in string) {
-          console.log(s);
           arrayTitles.push(s);
-          console.log(string[s]);
           arrayfilters.push(string[s]);
         }
-        console.log(arrayTitles);
         state.filterTitles = arrayTitles;
         state.filters = arrayfilters;
       })
