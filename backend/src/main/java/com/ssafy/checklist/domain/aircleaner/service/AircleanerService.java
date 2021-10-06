@@ -9,7 +9,9 @@ import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -162,5 +164,40 @@ public class AircleanerService {
                 return p;
             }
         };
+    }
+
+    /**
+     * @Method Name : findCheckPick
+     * @작성자 : 김선혜
+     * @Method 설명 : 공기청정기 체크픽 제공
+     */
+    public List<AircleanerGetRes> findCheckPick() {
+        List<AircleanerGetRes> aircleanerGetResList = new ArrayList<>();
+        List<AircleanerPerformance> aircleanerPerformances = aircleanerPerformanceRepository.findCheckPick();
+        for(AircleanerPerformance aircleanerPerformance : aircleanerPerformances) {
+            Aircleaner aircleaner = aircleanerRepository.getById(aircleanerPerformance.getPcode());
+            aircleanerGetResList.add(AircleanerGetRes.from(aircleaner, aircleanerPerformance));
+        }
+        return aircleanerGetResList;
+    }
+
+    /**
+     * @Method Name : findAllByKeyword
+     * @작성자 : 김선혜
+     * @Method 설명 : keyword를 포함하는 공기청정기 제공
+     */
+    public List<AircleanerGetRes> findAllByKeyword(int page, String keyword) {
+        PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
+        Page<Aircleaner> aircleaners = aircleanerRepository.findAllByNameContaining(keyword, pageRequest);
+
+        List<AircleanerGetRes> aircleanerGetResList = new ArrayList<>();
+        int size = aircleaners.getContent().size();
+        for(int i = 0; i < size; i++) {
+            Aircleaner aircleaner = aircleaners.getContent().get(i);
+            Optional<AircleanerPerformance> aircleanerPerformance = aircleanerPerformanceRepository.findById(aircleaner.getPcode());
+            aircleanerPerformance.ifPresent(performance -> aircleanerGetResList.add(AircleanerGetRes.from(aircleaner, performance)));
+        }
+
+        return aircleanerGetResList;
     }
 }
