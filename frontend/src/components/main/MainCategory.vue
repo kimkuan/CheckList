@@ -40,31 +40,31 @@ export default {
         return [
           {
             name: "모니터",
-            id: "Monitor",
+            id: "monitor",
             img: require("@/assets/images/category/monitor.png"),
             visible: props.visible[0],
           },
           {
             name: "에어프라이어",
-            id: "Airfryer",
+            id: "airfryer",
             img: require("../../assets/images/category/airfryer.png"),
             visible: props.visible[1],
           },
           {
             name: "공기청정기",
-            id: "Aircleaner",
+            id: "aircleaner",
             img: require("../../assets/images/category/air-cleaner.png"),
             visible: props.visible[2],
           },
           {
             name: "커피머신",
-            id: "Coffeemachine",
+            id: "coffeemachine",
             img: require("../../assets/images/category/coffee-machine.png"),
             visible: props.visible[3],
           },
           {
             name: "음식물처리기",
-            id: "Foodprocessor",
+            id: "foodprocessor",
             img: require("../../assets/images/category/food-processor.png"),
             visible: props.visible[4],
           },

@@ -1,16 +1,28 @@
 <template>
     <div class="searchPick">
         <div class="description">
-          <p>체크리스트에서 분석한 내용을 바탕으로</p>
-          <p>상품을 추천 받으세요</p>
+          <p>스펙을 원하는 대로 선택해서</p>
+          <p>상품을 찾을 수 있어요</p>
         </div>
 
         <div class="searchCategory">
-          <SearchCategory :categories="categories" />
+          <SearchCategory :categories="categories" @selectCategory="selectCategory" />
+        </div>
+
+        <div class="filter">
+          <SearchFilter :filters="filters" :contents="contents"/>
+        </div>
+
+        <div class="result">
+          <span style="color:#CF000F; font-size:25px;"><strong>{{totalProducts}}</strong></span><span>개의 검색 결과</span>
         </div>
 
         <div class="searchList">
-          <SearchList v-for="product in products" :product="product" :key="product.id" />
+          <SearchList v-for="product in products" :product="product" :key="product.pcode" />
+        </div>
+
+        <div class="page">
+          <SearchPaging :totalPages="totalPages" @movePage="movePage"/>
         </div>
     </div>
 </template>
@@ -19,10 +31,24 @@
 import SearchCategory from "./SearchCategory.vue";
 import SearchFilter from "./SearchFilter.vue";
 import SearchList from "./SearchList.vue";
+import SearchPaging from "./SearchPaging.vue";
 
 import { requestProducts } from "@/store/actions";
 import { useStore } from 'vuex';
 import { reactive, onMounted, toRefs } from 'vue';
+
+let filters = [
+  {"가격": '~10만, 10~20만, 20-30만, 30만~'},
+  {'사용목적': '침실용, 작은 거실용, 거실용, 큰 거실용'},
+  {'면적': '~17(5평), 17~33(5~10평), 33~50(10~15평), 50~66(15~20평), 66~83(20~25평), 83~99(25~30평)',},
+  {'필터등급': 'E11 등급, E12 등급, H13 등급, H14 등급',}
+]
+let contents = [
+  {"가격": '~10만, 10~20만, 20-30만, 30만~'},
+  {'사용목적': '침실용, 작은 거실용, 거실용, 큰 거실용'},
+  {'면적': '~17(5평), 17~33(5~10평), 33~50(10~15평), 50~66(15~20평), 66~83(20~25평), 83~99(25~30평)',},
+  {'필터등급': 'E11 등급, E12 등급, H13 등급, H14 등급',}
+]
 
 export default {
   name: 'Search',
@@ -30,10 +56,13 @@ export default {
     SearchCategory,
     SearchFilter,
     SearchList,
+    SearchPaging,
   },
   setup(){
     const store = useStore();
     const state = reactive({
+      filters,
+      contents,
       totalPages: 0,
       totalProducts: 0,
       pageSize: 0,
@@ -46,12 +75,18 @@ export default {
           console.log(res);
           state.products = res.data.content;
           state.totalPages = res.data.totalPages;
-          state.totalProducts = res.data.totalProducts;
+          state.totalProducts = res.data.totalElements;
         })
         .catch(err => {
           console.log(err);
       });
     }
+    
+    const movePage = (page) => {
+      this.getProductInfo(page+1);
+      console.log("moving page: " + page+1);
+    }
+
 
     onMounted(() => {
       getProductInfo(1);
@@ -82,6 +117,7 @@ export default {
         },
       ],
       
+      movePage,
       getProductInfo,
       ...toRefs(state),
     };
