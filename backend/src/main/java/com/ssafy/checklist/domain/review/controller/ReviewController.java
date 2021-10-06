@@ -39,10 +39,10 @@ public class ReviewController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{pcode}")
-    public ResponseEntity<ReviewListGetRes> findAllReview(Long pcode, @PageableDefault(size = 10, sort = "pcode", direction = Sort.Direction.DESC) Pageable pageable){
+    @GetMapping("/{pcode}/{page}")
+    public ResponseEntity<ReviewListGetRes> findAllReview(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "page") int page){
 
-        ReviewListGetRes reviewListGetRes = reviewService.findAll(pcode, pageable);
+        ReviewListGetRes reviewListGetRes = reviewService.findAll(pcode, page);
         return new ResponseEntity<>(reviewListGetRes, HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class ReviewController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @GetMapping("/wordcloud/{pcode}")
-    public ResponseEntity<ReviewWordCloud> findWordCloudByKeyword(Long pcode){
+    public ResponseEntity<ReviewWordCloud> findWordCloudByKeyword(@PathVariable(name = "pcode") Long pcode){
         ReviewWordCloud reviewWordCloud = reviewService.findById(pcode);
         return new ResponseEntity<>(reviewWordCloud, HttpStatus.OK);
     }
@@ -66,9 +66,11 @@ public class ReviewController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{pcode}/{keyword}")
-    public ResponseEntity<Page<Review>> findAllReviewByKeyword(Long pcode, String keyword, @PageableDefault(size = 10, sort = "pcode", direction = Sort.Direction.DESC) Pageable pageable, String keyword){
-        Page<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword, pageable);
+    @GetMapping("/{pcode}/{keyword}/{page}")
+    public ResponseEntity<Page<Review>> findAllReviewByKeyword(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "keyword") String keyword, @PathVariable(name = "page") int page){
+        System.out.println("키워드 >> " + keyword);
+        Page<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword, page);
+
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
 

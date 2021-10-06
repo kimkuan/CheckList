@@ -26,11 +26,11 @@ public class ReviewListGetRes {
     @ApiModelProperty
     private Page<Review> reviewList;
 
-    public static ReviewListGetRes of(Long pcode, String category, Long avgScore, Page<Review> reviewList) {
+    public static ReviewListGetRes of(Long pcode, Long avgScore, Page<Review> reviewList) {
         ReviewListGetRes res = new ReviewListGetRes();
 
         res.setPcode(pcode);
-        res.setCategory(category);
+        res.setCategory(reviewList.getContent().get(0).getCategory());
         res.setAvgScore(avgScore);
         res.setReviewList(reviewList);
         return res;

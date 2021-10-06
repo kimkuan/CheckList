@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,15 +24,30 @@ public class ReviewService {
     @Autowired
     ReviewWordCloudRepository reviewWordCloudRepository;
 
-    public ReviewListGetRes findAll(Long pcode, Pageable pageable) {
+    public ReviewListGetRes findAll(Long pcode, int page) {
+        PageRequest pageRequest = PageRequest.of(page,10, Sort.Direction.DESC, "id");
+        Optional<Page<Review>> reviews = reviewRepository.findAllByPcode(pcode, pageRequest);
+        long avgScore = (long) reviewRepository.getAvgScoreByPcode(pcode);
+        if(reviews.isPresent()) {
+            return ReviewListGetRes.of(pcode, Long.valueOf(avgScore), reviews.get());
+        }
         return null;
     }
 
     public ReviewWordCloud findById(Long pcode) {
         Optional<ReviewWordCloud> reviewWordCloud = reviewWordCloudRepository.findById(pcode);
+        if(reviewWordCloud.isPresent()) {
+            return reviewWordCloud.get();
+        }
+        return null;
     }
 
-    public Page<Review> findReviewByKeyword(Long pcode, String keyword, Pageable pageable) {
+    public Page<Review> findReviewByKeyword(Long pcode, String keyword, int page) {
+        PageRequest pageRequest = PageRequest.of(page,10, Sort.Direction.DESC, "id");
+        Optional<Page<Review>> reviews = reviewRepository.findAllByPcodeAndAndContentContaining(pcode, keyword, pageRequest);
+        if(reviews.isPresent()) {
+            return reviews.get();
+        }
         return null;
     }
 }
