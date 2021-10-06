@@ -1,7 +1,11 @@
 package com.ssafy.checklist.domain.monitor.service;
 
+import com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes;
+import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
+import com.ssafy.checklist.domain.coffeemachine.entity.CoffeemachinePerformance;
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
+import com.ssafy.checklist.domain.monitor.controller.response.MonitorGetRes;
 import com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
 import com.ssafy.checklist.domain.monitor.entity.MonitorPerformance;
@@ -9,17 +13,16 @@ import com.ssafy.checklist.domain.monitor.repository.MonitorPerformanceRepositor
 import com.ssafy.checklist.domain.monitor.repository.MonitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class MonitorService {
@@ -167,4 +170,31 @@ public class MonitorService {
     }
 
 
+    public List<MonitorGetRes> findCheckPick() {
+        List<MonitorGetRes> monitorGetResList = new ArrayList<>();
+        List<MonitorPerformance> monitorPerformances = monitorPerformanceRepository.findCheckPick();
+
+        for(MonitorPerformance monitorPerformance : monitorPerformances) {
+            Monitor monitor = monitorRepository.findMonitorByPcode(monitorPerformance.getPcode()).get();
+            monitorGetResList.add(MonitorGetRes.of(monitor, monitorPerformance, null));
+        }
+        return monitorGetResList;
+    }
+
+    public List<MonitorGetRes> findAllByKeyword(int page, String keyword) {
+        PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
+        Page<Monitor> monitors = monitorRepository.findAllByNameContaining(keyword, pageRequest);
+
+        List<MonitorGetRes> monitorGetResList = new ArrayList<>();
+        int size = monitors.getSize();
+        for(int i = 0; i < size; i++) {
+            Monitor monitor = monitors.getContent().get(i);
+            Optional<MonitorPerformance> monitorPerformance = monitorPerformanceRepository.findById(monitor.getPcode());
+            if(monitorPerformance.isPresent()) {
+                monitorGetResList.add(MonitorGetRes.of(monitor, monitorPerformance.get(), null));
+            }
+        }
+
+        return monitorGetResList;
+    }
 }
