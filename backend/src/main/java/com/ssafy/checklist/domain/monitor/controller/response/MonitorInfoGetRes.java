@@ -64,11 +64,20 @@ public class MonitorInfoGetRes {
             monitorInfoGetRes.setPrice(monitorList.get(i).getPrice());
             monitorInfoGetRes.setBrand(monitorList.get(i).getBrand());
             monitorInfoGetRes.setImg(monitorList.get(i).getImg());
-            monitorInfoGetRes.setPricePoint(mpList.get(i).getPrice());
-            monitorInfoGetRes.setSizePoint(mpList.get(i).getSize());
-            monitorInfoGetRes.setPixelPoint(mpList.get(i).getPixel());
-            monitorInfoGetRes.setScreenChangePoint(mpList.get(i).getScreenChange());
-            monitorInfoGetRes.setConveniencePoint(mpList.get(i).getConvenience());
+
+            if(mpList.get(i)==null) {
+                monitorInfoGetRes.setPricePoint(-1);
+                monitorInfoGetRes.setSizePoint(-1);
+                monitorInfoGetRes.setPixelPoint(-1);
+                monitorInfoGetRes.setScreenChangePoint(-1);
+                monitorInfoGetRes.setConveniencePoint(-1);
+            } else {
+                monitorInfoGetRes.setPricePoint(mpList.get(i).getPrice());
+                monitorInfoGetRes.setSizePoint(mpList.get(i).getSize());
+                monitorInfoGetRes.setPixelPoint(mpList.get(i).getPixel());
+                monitorInfoGetRes.setScreenChangePoint(mpList.get(i).getScreenChange());
+                monitorInfoGetRes.setConveniencePoint(mpList.get(i).getConvenience());
+            }
 
             monitorInfoGetResList.add(monitorInfoGetRes);
         }

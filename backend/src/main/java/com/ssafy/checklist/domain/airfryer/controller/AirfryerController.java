@@ -70,9 +70,6 @@ public class AirfryerController {
         AirfryerPerformance airfryerPerformance = airfryerService.findAirfryerPerformanceByPcode(pcode);
         List<LowPriceInfo> lowPriceInfoList = airfryerService.findLowPriceInfoByPcode(pcode);
 
-        // 에어프라이기의 상세 정보
-        AirfryerGetRes airfryerGetRes = AirfryerGetRes.of(airfryer, airfryerPerformance);
-
-        return new ResponseEntity<>(AirfryerInfoGetRes.of(airfryerGetRes, lowPriceInfoList), HttpStatus.OK);
+        return new ResponseEntity<>(AirfryerInfoGetRes.of(airfryer, airfryerPerformance, lowPriceInfoList), HttpStatus.OK);
     }
 }

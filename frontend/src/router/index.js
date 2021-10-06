@@ -25,8 +25,9 @@ const routes = [
     component: AboutService,
   },
   {
-    path: "/product",
+    path: "/product/:category/:pcode",
     name: "Product",
+    props: true,
     component: () => import("../views/Product.vue"),
   },
   {

@@ -5,22 +5,21 @@
       <div class="productHead">
         <div class="p-img">
           <!-- 이미지 -->
-          <img alt="product sample img" src="@/assets/product_sample.jpg" />
+          <img alt="product sample img" :src="state.productInfo.img" />
         </div>
         <div class="p-info">
           <!-- 제품 내용 -->
-          건조기
-          <br />
           <div class="title">
             <div style="width: 75%">
-              <h4>삼성전자</h4>
-              <h2>제품코드 DV14T8520BV</h2>
+              <h5>{{ categoryName }}</h5>
+              <h4>{{ state.productInfo.brand }}</h4>
+              <h2>{{ state.productInfo.name }}</h2>
             </div>
           </div>
           <br />
           <div>
-            <div style="display: inline-block; width: 75%">
-              <h1>최저가 1,200,000원</h1>
+            <div style="display: inline-block; width: 75%;  padding-left: 15px; color: #cf000f">
+              <h1>최저가 {{ $filters.convertPrice(state.productInfo.price) }}원</h1>
             </div>
             <div style="display: inline-block; width: 25%; text-align: right">
               <button>사러가기</button>
@@ -35,8 +34,6 @@
       </div>
     </div>
 
-    <!-- <hr class="division-line" /> -->
-
     <div class="category" style="margin-top: 50px;">
       <nav>
         <div class="nav nav-tabs nav-fill" id="detail-menu" role="tablist">
@@ -49,102 +46,8 @@
       </nav>
     </div>
 
-    <div class="section" id="core-spec" tabindex="-1">
-      <div class="core-spec">
-        <div class="title">
-          <div><h2 style="width: 50%">주요 스펙</h2></div>
-          <div style="text-align: right"><button data-bs-toggle="modal" data-bs-target="#productSpecModal">스펙전체보기</button></div>
-        </div>
-
-        <div class="content">
-          <div class="spec-item"><div><p style="color: #7E7E7E;">가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-          <div class="spec-item"><div><p>가격대</p><p>데이터</p></div></div>
-        </div>
-      </div>
-    </div>
-
-    <hr class="division-line" />
-
-    <div class="section" id="score">
-      <div class="score">
-        <h2>상품 점수</h2>
-        <div class="score-chart">
-          <div class="score-group">
-            <h3 class="title">가격</h3>
-            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-            <div class="chart">
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle" />
-              <div class="circle" />
-            </div>
-            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
-          </div>
-          <div class="score-group">
-            <h3 class="title">용량</h3>
-            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-            <div class="chart">
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle-high" />
-              <div class="circle" />
-            </div>
-            <h3 class="content">4.5점 <span style="color: #C7C7C7;">|</span> 875리터</h3>
-          </div>
-          <div class="score-group">
-            <h3 class="title">가격</h3>
-            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-            <div class="chart">
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle" />
-              <div class="circle" />
-            </div>
-            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
-          </div>
-          <div class="score-group">
-            <h3 class="title">냉각성능</h3>
-            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-            <div class="chart">
-              <div class="circle-highest" />
-              <div class="circle-highest" />
-              <div class="circle-highest" />
-              <div class="circle-highest" />
-              <div class="circle-highest" />
-            </div>
-            <h3 class="content">5점 <span style="color: #C7C7C7;">|</span> 다양한편</h3>
-          </div>
-          <div class="score-group">
-            <h3 class="title">가격</h3>
-            <!-- 실 구현할 때는 circle 색 때문에 script에서 데이터 받아오면서 직접 추가해줘야할듯 -->
-            <div class="chart">
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle-middle" />
-              <div class="circle" />
-              <div class="circle" />
-            </div>
-            <h3 class="content">3점 <span style="color: #C7C7C7;">|</span> 100~120만원</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr class="division-line" />
-
-    <div class="section" id="detail-spec">
-      <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
-      <!-- <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner> -->
-      <product-detail-spec-coffee-machine />
-    </div>
+    <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
+    <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
 
     <hr class="division-line" />
 
@@ -164,11 +67,13 @@
 <script>
 import { reactive, computed, onMounted } from 'vue'
 import { useStore } from "vuex";
+import { useRoute } from 'vue-router';
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
-// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 // import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
@@ -178,18 +83,19 @@ export default {
     ProductDetailChart,
     ProductDetailReivew,
     ProductDetailLowPrice,
-    // ProductDetailSpecAirFryer,
+    ProductDetailSpecAirFryer,
     // ProductDetailSpecAirCleaner,
     ProductDetailSpecCoffeeMachine,
     ProductAllSpecModal,
   },
   setup() {
-    const store = useStore();
+    const route = useRoute()
+    const store = useStore()
     const state = reactive({
-      scrollValue: 0,
-      product: computed(() => {
-        return store.getters["root/getProductDetail"];
+      productInfo : computed(() => {
+        return store.getters["root/getProductInfo"];
       }),
+      scrollValue: 0,
     })
 
     const onScroll = function() {
@@ -205,11 +111,41 @@ export default {
       }
     }
 
+    const getCategory = function(category) {
+      if(category == "airfryer")
+        return "에어프라이기"
+      else if(category == "aircleaner")
+        return "공기청정기"
+      else if(category == "moniter")
+        return "모니터"
+      else if(category == "foodprocessor")
+        return "음식물처리기"
+      else if(category == "coffeemachine")
+        return "커피머신"
+    }
+
+    var category = route.params.category;
+    var pcode = route.params.pcode;
+    var categoryName = getCategory(category);
+
+    // 상품 정보 가져오기
+    store.dispatch("root/requestProductInfo", {
+      category: category,
+      pcode: pcode
+    })
+    .then(function(result){
+      console.log(result.data)
+      store.commit("root/setProductInfo", result.data);
+    })
+    .catch(function(err){
+      console.log(err)
+    })
+
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { store, state, onScroll, onMounted }
+    return { store, state, categoryName, onScroll, onMounted }
   },
 };
 
@@ -220,7 +156,7 @@ export default {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 hr.division-line {
@@ -304,6 +240,8 @@ hr.division-line {
 
 .p-info .title {
   line-height: 250%;
+  padding-top: 25px;
+  padding-left: 15px;
 }
 
 .p-info .title div {
@@ -334,163 +272,6 @@ hr.division-line {
   margin: 50px auto;
 }
 
-.core-spec {
-  /* display: inline-block; */
-  /* position: absolute; */
-  /* width: 55%; */
-  width: 1048px;
-  height: 292px;
-  /* left: 437px; */
-  /* margin: 0px auto; */
-  /* top: 733px; */
-  /* background-color: lightgray; */
-  text-align: center;
-  justify-content: left;
-}
-
-.core-spec .title {
-  margin: 10px 10px;
-  line-height: 15%;
-}
-
-.core-spec .title div {
-  width: 50%;
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-}
-
-.core-spec .title button {
-  width: 25%;
-  height: 40px;
-  border-radius: 15px;
-  /* margin-right: 5px; */
-  background-color: #FFFFFF;
-  border: 0.5px solid #000000;
-}
-
-.core-spec .content {
-  display: inline-block;
-  text-align: left;
-  width: 100%;
-}
-
-.spec-item {
-  display: inline-block;
-  width: 18%;
-  height: 89px;
-  background-color: #fff3f3;
-  border-radius: 15px;
-  margin: 10px 10px;
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
-  text-align: center;
-  vertical-align: middle;
-  justify-content: center;
-  /* margin-left: 3%; */
-}
-
-.spec-item div {
-  width: 100%;
-  vertical-align: middle;
-  margin-top: 10%;
-  align-items: center;
-}
-
-.spec-item p {
-  width: 100%;
-  margin: 5px auto;
-}
-
-.score {
-  /* position: absolute; */
-  /* width: 40%; */
-  width: 646px;
-  height: 487px;
-  /* left: 637px; */
-  /* top: 1115px; */
-  text-align: center;
-}
-
-.score-chart {
-  margin: 57px auto;
-}
-
-.score-group {
-  margin: 15px auto;
-}
-
-.score-chart h3 {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.score-chart .score-group h3 {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-h3.title {
-  text-align: right;
-  width: 15%;
-  font-size: 20px;
-}
-
-h3.content {
-  text-align: left;
-  width: 40%;
-  font-size: 20px;
-}
-
-.score-chart .score-group .chart {
-  display: inline-block;
-  width: 30%;
-}
-
-.circle {
-  display: inline-block;
-  margin-left: 10px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #ECECEC;
-}
-
-.circle-low {
-  display: inline-block;
-  margin-left: 10px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #FF8946;
-}
-
-.circle-middle {
-  display: inline-block;
-  margin-left: 10px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #FFD480;
-}
-
-.circle-high {
-  display: inline-block;
-  margin-left: 10px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #9EED9C;
-}
-
-.circle-highest {
-  display: inline-block;
-  margin-left: 10px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #7BD8FF;
-}
-
 h1 {
   font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
@@ -507,5 +288,11 @@ h4 {
   font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
 }
+
+h5 {
+  font-family: "SpoqaHanSansNeo-Bold";
+  margin: 0px 0px;
+}
+
 
 </style>

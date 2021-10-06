@@ -1,15 +1,12 @@
 package com.ssafy.checklist.domain.coffeemachine.service;
 
 import com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineGetRes;
-import com.ssafy.checklist.domain.coffeemachine.controller.response.CoffeemachineInfoGetRes;
 import com.ssafy.checklist.domain.coffeemachine.entity.Coffeemachine;
 import com.ssafy.checklist.domain.coffeemachine.entity.CoffeemachinePerformance;
 import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachinePerformanceRepository;
 import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachineRepository;
-import com.ssafy.checklist.domain.coffeemachine.repository.CoffeemachineSpecification;
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
-import org.checkerframework.checker.nullness.Opt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -221,5 +218,42 @@ public class CoffeemachineService {
             return lowPriceInfo.get();
         }
         return null;
+    }
+
+    /**
+     * @Method Name : findCheckPick
+     * @작성자 : 이영주
+     * @Method 설명 : 커피머신 체크픽 제공
+     */
+    public List<CoffeemachineGetRes> findCheckPick() {
+        List<CoffeemachineGetRes> coffeemachineGetResList = new ArrayList<>();
+        List<CoffeemachinePerformance> coffeemachinePerformances = coffeemachinePerformanceRepository.findCheckPick();
+        for(CoffeemachinePerformance coffeemachinePerformance : coffeemachinePerformances) {
+            Coffeemachine coffeemachine = coffeemachineRepository.getById(coffeemachinePerformance.getPcode());
+            coffeemachineGetResList.add(CoffeemachineGetRes.of(coffeemachine, coffeemachinePerformance));
+        }
+        return coffeemachineGetResList;
+    }
+
+    /**
+     * @Method Name : findAllByKeyword
+     * @작성자 : 이영주
+     * @Method 설명 : keyword를 포함하는 커피머신 제공
+     */
+    public List<CoffeemachineGetRes> findAllByKeyword(int page, String keyword) {
+        PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
+        Page<Coffeemachine> coffeemachines = coffeemachineRepository.findAllByNameContaining(keyword, pageRequest);
+
+        List<CoffeemachineGetRes> coffeemachineGetResList = new ArrayList<>();
+        int size = coffeemachines.getSize();
+        for(int i = 0; i < size; i++) {
+            Coffeemachine coffeemachine = coffeemachines.getContent().get(i);
+            Optional<CoffeemachinePerformance> coffeemachinePerformance = coffeemachinePerformanceRepository.findById(coffeemachine.getPcode());
+            if(coffeemachinePerformance.isPresent()) {
+                coffeemachineGetResList.add(CoffeemachineGetRes.of(coffeemachine, coffeemachinePerformance.get()));
+            }
+        }
+
+        return coffeemachineGetResList;
     }
 }

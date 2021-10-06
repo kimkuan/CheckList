@@ -14,4 +14,5 @@ public interface CoffeemachineRepository extends JpaRepository<Coffeemachine, Lo
 
     Page<Coffeemachine> findAll(Specification<Coffeemachine> filter, Pageable page);
 
+    Page<Coffeemachine> findAllByNameContaining(String keyword, Pageable page);
 }
