@@ -68,7 +68,7 @@ spring:
 
   web:
     resources:
-      add-mappings: false
+#      add-mappings: false
       static-locations: classpath:/dist/
 
   devtools:

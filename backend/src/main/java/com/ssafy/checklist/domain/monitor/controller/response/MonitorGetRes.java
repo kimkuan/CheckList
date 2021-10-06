@@ -60,4 +60,16 @@ public class MonitorGetRes {
 
         return monitorGetRes;
     }
+
+    public static MonitorGetRes of(Monitor monitor) {
+        MonitorGetRes monitorGetRes = new MonitorGetRes();
+        monitorGetRes.setPcode(monitor.getPcode());
+        monitorGetRes.setName(monitor.getName());
+        monitorGetRes.setBrand(monitor.getBrand());
+        monitorGetRes.setPrice(monitor.getPrice());
+        monitorGetRes.setImg(monitor.getImg());
+        monitorGetRes.setSpec(monitor.getSpec());
+
+        return monitorGetRes;
+    }
 }
