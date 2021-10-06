@@ -68,11 +68,11 @@ export default {
     this.renderChart(this.datacollection, this.options);
 
     // https://ohgyun.com/323
-    var canvas = document.querySelector('canvas');
-    canvas.height = 250;
-    canvas.width = 600;
-    canvas.style.height = '250px';
-    canvas.style.width = '600px';
+    // var canvas = document.querySelector('canvas');
+    // canvas.height = 250;
+    // canvas.width = 600;
+    // canvas.style.height = '250px';
+    // canvas.style.width = '600px';
   },
 };
 </script>

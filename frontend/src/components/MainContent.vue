@@ -95,42 +95,60 @@
     <div class="check-category">
       <nav>
         <div class="nav nav-tabs justify-content-center checkp" id="nav-checkpick-tab" role="tablist">
-          <button class="nav-link active checkpick-button" id="nav-airflyer-tab" data-bs-toggle="tab" data-bs-target="#nav-airflyer" type="button" role="tab" aria-controls="nav-airflyer" aria-selected="true">에어프라이어</button>
-          <button class="nav-link checkpick-button" id="nav-foodprocessor-tab" data-bs-toggle="tab" data-bs-target="#nav-foodprocessor" type="button" role="tab" aria-controls="nav-foodprocessor" aria-selected="false">음식물처리기</button>
-          <button class="nav-link checkpick-button" id="nav-monitor-tab" data-bs-toggle="tab" data-bs-target="#nav-monitor" type="button" role="tab" aria-controls="nav-monitor" aria-selected="false">모니터</button>
-          <button class="nav-link checkpick-button" id="nav-aircleaner-tab" data-bs-toggle="tab" data-bs-target="#nav-aircleaner" type="button" role="tab" aria-controls="nav-aircleaner" aria-selected="false">공기청정기</button>
-          <button class="nav-link checkpick-button" id="nav-coffeemachine-tab" data-bs-toggle="tab" data-bs-target="#nav-coffeemachine" type="button" role="tab" aria-controls="nav-coffeemachine" aria-selected="false">캡슐커피머신</button>
+          <button class="nav-link active checkpick-button" id="nav-airflyer-tab" data-bs-toggle="tab" data-bs-target="#nav-airflyer" type="button" role="tab" aria-controls="nav-airflyer" aria-selected="true" @click="selectCheckPick('airfryer')">에어프라이어</button>
+          <button class="nav-link checkpick-button" id="nav-foodprocessor-tab" data-bs-toggle="tab" data-bs-target="#nav-foodprocessor" type="button" role="tab" aria-controls="nav-foodprocessor" aria-selected="false" @click="selectCheckPick('foodprocessor')">음식물처리기</button>
+          <button class="nav-link checkpick-button" id="nav-monitor-tab" data-bs-toggle="tab" data-bs-target="#nav-monitor" type="button" role="tab" aria-controls="nav-monitor" aria-selected="false" @click="selectCheckPick('monitor')">모니터</button>
+          <button class="nav-link checkpick-button" id="nav-aircleaner-tab" data-bs-toggle="tab" data-bs-target="#nav-aircleaner" type="button" role="tab" aria-controls="nav-aircleaner" aria-selected="false" @click="selectCheckPick('aircleaner')">공기청정기</button>
+          <button class="nav-link checkpick-button" id="nav-coffeemachine-tab" data-bs-toggle="tab" data-bs-target="#nav-coffeemachine" type="button" role="tab" aria-controls="nav-coffeemachine" aria-selected="false" @click="selectCheckPick('coffeemachine')">캡슐커피머신</button>
         </div>
       </nav>
     </div>
     <div class="tab-content" id="check-nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-airflyer" role="tabpanel" aria-labelledby="nav-airflyer-tab">에어에어</div>
-      <div class="tab-pane fade" id="nav-foodprocessor" role="tabpanel" aria-labelledby="nav-foodprocessor-tab">계절가전</div>
-      <div class="tab-pane fade" id="nav-monitor" role="tabpanel" aria-labelledby="nav-monitor-tab">...</div>
-      <div class="tab-pane fade" id="nav-aircleaner" role="tabpanel" aria-labelledby="nav-aircleaner-tab">...</div>
-      <div class="tab-pane fade" id="nav-coffeemachine" role="tabpanel" aria-labelledby="nav-coffeemachine-tab">...</div>
+      <div class="tab-pane fade show active" id="nav-airflyer" role="tabpanel" aria-labelledby="nav-airflyer-tab">
+        <MainCheckPick :categoryName="airfryer" />
+      </div>
+      <div class="tab-pane fade" id="nav-foodprocessor" role="tabpanel" aria-labelledby="nav-foodprocessor-tab">
+        <MainCheckPick :categoryName="foodprocessor" />
+      </div>
+      <div class="tab-pane fade" id="nav-monitor" role="tabpanel" aria-labelledby="nav-monitor-tab">
+        <MainCheckPick :categoryName="monitor" />
+      </div>
+      <div class="tab-pane fade" id="nav-aircleaner" role="tabpanel" aria-labelledby="nav-aircleaner-tab">
+          <MainCheckPick :categoryName="aircleaner" />
+      </div>
+      <div class="tab-pane fade" id="nav-coffeemachine" role="tabpanel" aria-labelledby="nav-coffeemachine-tab">
+          <MainCheckPick :categoryName="coffeemachine" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 import MainCategory from "./main/MainCategory.vue";
+import MainCheckPick from "./main/MainCheckPick.vue";
 // import ProductCard from "./product/ProductCard.vue";
 
 export default {
   name : "MainContent",
   components : {
     MainCategory,
+    MainCheckPick,
     // ProductCard
   },
   setup() {
     const router = useRouter();
+    const store = useStore();
     const clickMoreButton = function () {
       router.push({ name: "AboutService" });
     };
 
-    return { router, clickMoreButton };
+    const selectCheckPick = function (name) {
+      console.log("변경");
+      store.commit("root/setMainCheckPickCategory", name);
+    }
+    return { router, store, clickMoreButton, selectCheckPick };
   },
 };
 </script>

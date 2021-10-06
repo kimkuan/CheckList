@@ -34,3 +34,19 @@ export function getSelectCategoryName(state) {
 export function getProductInfo(state) {
   return state.productInfo;
 }
+
+// 최근 본 상품 목록 가져오기
+export function getProductHistory(state){
+  // 최근 본 상품 배열 앞에 추가
+  return state.productHistory;
+}
+
+// 검색한 상품 목록 가져오기
+export function getSearchProductListInfo(state) {
+  return state.searchProductList;
+}
+
+// 선택한 체크픽 카테고리 이름 가져오기
+export function getMainCheckPickCategory(state) {
+  return state.mainCheckPickCategory;
+}

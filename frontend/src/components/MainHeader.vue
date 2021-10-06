@@ -12,7 +12,7 @@
           class="search-txt"
           name=""
           placeholder="Search"
-          v-model="state.searchWord"
+          v-model.trim="state.searchWord"
           @keyup.enter="clickSearchBtn"
           @click="clickSearchBar"
         />
@@ -62,18 +62,26 @@ export default {
     const clickLogo = function () {
       router.push({ name: "Main" }); // vue-router.js 밑에 정의해둔 메인페이지 경로로 이동
     };
+    
 
     // 돋보기 버튼 or 엔터키 입력
     const clickSearchBtn = function () {
-      if (!state.searchWord) return;
-      console.log(state.searchWord);
-
+      if (!state.searchWord) {
+        alert("검색어를 입력하세요.")
+        return;
+      }
+      console.log("*검색한 단어 로그*"+state.searchWord);
+      let keyword = state.searchWord;
       store.commit("root/setSearchWord", state.searchWord);
       console.log(store.getters["root/getSearchHistory"]);
       state.searchWord = "";
       state.searchHistoryView = false;
+
+      // 검색상품 리스트 초기화
+      store.commit("root/setSearchProductListInfo");
+      
       // 검색 결과 화면으로 이동
-      router.push({ name: "SearchProduct" });
+      router.push({ name: "SearchProduct", params: {keyword : keyword}});
     };
 
     // 검색바 클릭

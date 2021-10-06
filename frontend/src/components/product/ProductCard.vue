@@ -1,6 +1,6 @@
 <template>
     <div class="productCard card p-2 m-2 mt-3 rounded-3" @click="clickProductDetail">
-        <img :src="product.url" class="card-img-top p-3" alt="상품이미지">
+        <img :src="product.img" class="card-img-top p-3" alt="상품이미지">
         <div class="card-body p-2 mt-3 mb-4">
             <p class="card-text mb-1">
                 <small class="text-muted">{{product.brand}}</small><br />
@@ -16,15 +16,22 @@
 </template>
 
 <script>
+import { reactive } from 'vue';
+import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 
 export default {
     name : "ProductCard",
     props : ['product'],
-    setup(){
+    setup(props){
+        const store = useStore();
         const router = useRouter();
+        const state = reactive({
+            product : props.product,
+        });
         const clickProductDetail = function () {
-            router.push({ name: "Product" });
+            store.commit("root/setProductId", state.product.pcode);
+            router.push({ name: "Product", params: {category : 'aircleaner', pcode : state.product.pcode} });
         };
 
         return { router, clickProductDetail };
