@@ -45,4 +45,6 @@ export default {
   // 최근 본 상품 목록
   productHistory: [],
 
+   // 선택한 체크픽 카테고리 이름
+   mainCheckPickCategory:"",
 };

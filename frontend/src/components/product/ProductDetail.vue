@@ -47,7 +47,9 @@
     </div>
 
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
-    <product-detail-spec-air-fryer :productInfo="state.productInfo"></product-detail-spec-air-fryer>
+
+    <product-detail-spec-air-fryer v-if="category == 'airfryer'" :productInfo="state.productInfo"></product-detail-spec-air-fryer>
+    <product-detail-spec-coffee-machine  v-else-if="category == 'coffeemachine'"></product-detail-spec-coffee-machine>
 
     <hr class="division-line" />
 
@@ -153,7 +155,7 @@ export default {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { store, state, categoryName, onScroll, onMounted }
+    return { store, state, category, categoryName, onScroll, onMounted }
   },
 };
 

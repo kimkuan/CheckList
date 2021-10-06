@@ -40,3 +40,8 @@ export function getProductHistory(state){
   // 최근 본 상품 배열 앞에 추가
   return state.productHistory;
 }
+
+// 선택한 체크픽 카테고리 이름 가져오기
+export function getMainCheckPickCategory(state) {
+  return state.mainCheckPickCategory;
+}

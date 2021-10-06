@@ -113,6 +113,7 @@ export default {
   text-align: center;
   width: 180px;
   height: 170px;
+  cursor: pointer;
 }
 
 .category-img-div {

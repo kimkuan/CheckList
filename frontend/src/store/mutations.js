@@ -50,5 +50,9 @@ export function setProductInfo(state, productInfo) {
 export function setProductHistory(state, history){
   // 가장 최근에 본 상품과 다를 때만, 최근 본 상품 배열 앞에 추가
   state.productHistory.unshift(history);
+}
 
+// 메인 체크픽 카테고리 저장
+export function setMainCheckPickCategory(state, name) {
+  state.mainCheckPickCategory = name;
 }
