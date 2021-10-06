@@ -34,7 +34,11 @@ public class MainController {
     @GetMapping("/category")
     public ResponseEntity<List<ProductGetRes>> findAllRankByCategory(String category){
 
-        // 아마 각 도메인..? 여기서 해도 상관없을듯 베스트상품때매
+        /**
+         * @Method Name : findAllProductByKeyword
+         * @작성자 : 김윤주
+         * @Method 설명 : 각 도메인에서 따로 구현
+         */
 
         return null;
     }
@@ -49,8 +53,11 @@ public class MainController {
     public ResponseEntity<List<ProductGetRes>> findAllProductByKeyword(String keyword){
         // keyword에는 상품명, 상품모델명, 브랜드가 올 수 있다.
 
-        // !!!!!!!!!!!!!!각 도메인에서 구현!!!!!!!!!!!!!
-        // List<?> list = mainService.findByKeyword(keyword);
+        /**
+        * @Method Name : findAllProductByKeyword
+        * @작성자 : 김윤주
+        * @Method 설명 : 각 도메인에서 따로 구현
+        */
 
         return null;
     }
@@ -70,6 +77,7 @@ public class MainController {
         */
 
         mainService.updateProductHit(pcode);
+
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -82,9 +90,15 @@ public class MainController {
     @GetMapping("/best")
     public ResponseEntity<List<ProductGetRes>> findAllBestProduct(){
 
+        /**
+        * @Method Name : findAllBestProduct
+        * @작성자 : 김윤주
+        * @Method 설명 : 조회수 상위 3개 상품의 정보를 가져와서 반환함.
+        */
 
+        List<ProductGetRes> list = mainService.findBestProduct();
 
-        return null;
+        return new ResponseEntity<List<ProductGetRes>>(list, HttpStatus.OK);
     }
 
     @ApiOperation(value = "카테고리 필터 옵션 조회", notes = "카테고리에 맞는 옵션 목록을 조회한다.")
@@ -102,6 +116,7 @@ public class MainController {
         */
 
         Filter filter = mainService.findFilterByCategory(keyword);
+
         return new ResponseEntity<Filter>(filter, HttpStatus.OK);
     }
 }
