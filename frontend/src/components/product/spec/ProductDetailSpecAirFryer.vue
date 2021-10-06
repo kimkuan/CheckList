@@ -88,6 +88,7 @@
       </div>
     </div>
 
+    <!-- 동일한 구조로 카테고리에 맞게 작성하시면 됩니다! -->
     <hr class="division-line" />
     <div class="section" id="detail-spec">
       <div class="spec-info">
@@ -95,6 +96,7 @@
           <h2>스펙 분석</h2>
         </div>
         <div class="body">
+          <!-- 가격 -->
           <div class="price spec">
             <div class="sub-title">
               <div class="circle circle-margin">1</div>
@@ -118,22 +120,27 @@
             <div class="content">
                해당 상품의 최저가는 {{ state.productLowPrice }}만원으로
                {{ state.priceWord.content }} 수준입니다.<br />
-              <div class="content-func">
-                <h4>10만원</h4>
-                <div>현재 온라인 최저가는 10만원으로 에어프라이어 전체에서는 저렴한 편에 속하며, 바스켓형 에어프라이어 중에서 보통 정도인 제품입니다.</div>
-              </div>
             </div>
           </div>
-
+          <!-- 용량 -->
           <div class="size spec">
             <div class="sub-title">
               <div class="circle circle-margin">2</div>
-              <h3>용량 | 좋음</h3>
+              <h3>용량 | {{ state.brewingWord.word }}</h3>
             </div>
             <hr>
             <div class="chart">
               <div class="chart-back">&nbsp;</div>
-              <div class="chart-middle">&nbsp;</div>
+              <div
+                :class="state.brewingWord.class"
+                :style="{ width: state.brewingWord.width + '%' }">&nbsp;</div>
+              <ul class="chart-desc">
+                <li class="desc">매우 부족</li>
+                <li class="desc">부족</li>
+                <li class="desc">보통</li>
+                <li class="desc">우수</li>
+                <li class="desc">매우 우수</li>
+              </ul>
             </div>
             <div class="content">
               <div class="content-func">
@@ -148,6 +155,7 @@
             <product-detail-spec-air-fryer-modal id="exampleModal"></product-detail-spec-air-fryer-modal>
           </div>
 
+          <!-- 조리 성능 -->
           <div class="cook spec">
             <div class="sub-title">
               <div class="circle circle-margin">3</div>
@@ -174,6 +182,7 @@
             <product-detail-spec-air-fryer-modal desc="cook" id="exampleModal"></product-detail-spec-air-fryer-modal>
           </div>
 
+          <!-- 세척 편의 -->
           <div class="cook spec">
             <div class="sub-title">
               <div class="circle circle-margin">4</div>
@@ -204,33 +213,30 @@
 <style scoped>
 /* 공통 CSS */
 h2 {
+  margin: 0px 0px;
   font-family: SpoqaHanSansNeo-Bold;
 }
 h3 {
   display: inline-block;
-}
-h4 {
-  color: #000000;
 }
 .title {
   text-align: center;
   margin: 10px 0px 10px 0px;
 }
 .body {
-  width: 60%;
+  width: 70%; /* 변경 가능 */
   margin: 0 auto;
   margin-top: 30px;
 }
 .spec {
-  position: relative;
   margin-bottom: 100px;
+  width: 100%;
 }
-
 .section {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 /* ProductDetail에서 가져온 CSS */
@@ -312,7 +318,8 @@ hr.division-line {
   /* position: absolute; */
   /* width: 40%; */
   width: 646px;
-  height: 487px;
+  min-height: 200px;
+  /* height: 487px; */
   /* left: 637px; */
   /* top: 1115px; */
   text-align: center;
@@ -477,6 +484,7 @@ h4 {
 .chart-desc {
   position: relative;
   display: table;
+  width: inherit;
   table-layout: fixed;
 }
 .chart-desc > desc {
@@ -485,7 +493,7 @@ h4 {
 .chart-desc > li {
   display: inline-block;
   list-style: none;
-  width: 130px;  /* 이게 맞는지는 모르겠음 */
+  width: 20%;/* 이게 맞는지는 모르겠음 */
   text-align: right;
   padding-top: 40px;
   opacity: 0.5; /* 텍스트 투명도 조절 */
@@ -523,6 +531,7 @@ h4 {
 
 <script>
 import ProductDetailSpecAirFryerModal from './ProductDetailSpecAirFryerModal.vue';
+import { reactive, computed } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -530,12 +539,8 @@ export default {
   components: {
     ProductDetailSpecAirFryerModal,
   },
-  props: {
-    product: Object,
-  },
   setup(){
     const store = useStore();
-
     const state = reactive({
       product: computed(() => {
         return store.getters["root/getProdctSpec"];

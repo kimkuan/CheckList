@@ -18,7 +18,7 @@
 <style scoped>
 .low-price {
   width: 100%;
-  min-height: 300px;
+  min-height: 150px;
 }
 .low-price .title {
   margin: 10px 10px;

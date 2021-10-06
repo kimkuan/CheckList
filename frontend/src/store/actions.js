@@ -2,7 +2,7 @@
 import $axios from "axios";
 
 const axiosService = $axios.create({
-  baseURL: 'http://localhost:8082/api/',
+  baseURL: 'http://j5checklist.p.ssafy.io:8082/api/',
 });
 
 // 카테고리별 전체 상품 목록 가져오기

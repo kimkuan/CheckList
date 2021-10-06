@@ -9,17 +9,16 @@
         </div>
         <div class="p-info">
           <!-- 제품 내용 -->
-          {{ category }}
-          <br />
           <div class="title">
             <div style="width: 75%">
+              <h5>{{ categoryName }}</h5>
               <h4>{{ state.productInfo.brand }}</h4>
               <h2>{{ state.productInfo.name }}</h2>
             </div>
           </div>
           <br />
           <div>
-            <div style="display: inline-block; width: 75%">
+            <div style="display: inline-block; width: 75%;  padding-left: 15px; color: #cf000f">
               <h1>최저가 {{ $filters.convertPrice(state.productInfo.price) }}원</h1>
             </div>
             <div style="display: inline-block; width: 25%; text-align: right">
@@ -35,8 +34,6 @@
       </div>
     </div>
 
-    <!-- <hr class="division-line" /> -->
-
     <div class="category" style="margin-top: 50px;">
       <nav>
         <div class="nav nav-tabs nav-fill" id="detail-menu" role="tablist">
@@ -49,9 +46,10 @@
       </nav>
     </div>
 
-    <hr class="division-line" />
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
     <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+
+    <hr class="division-line" />
 
     <div class="section" id="detail-review">
       <product-detail-reivew style="width:100%"></product-detail-reivew>
@@ -67,16 +65,17 @@
 </template>
 
 <script>
-import { reactive, onMounted } from 'vue'
-
+import { reactive, computed, onMounted } from 'vue'
+import { useStore } from "vuex";
+import { useRoute } from 'vue-router';
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 // import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
-import { useStore } from 'vuex';
-import { useRoute } from 'vue-router';
 
 export default {
   name: "ProductDetail",
@@ -86,6 +85,7 @@ export default {
     ProductDetailLowPrice,
     ProductDetailSpecAirFryer,
     // ProductDetailSpecAirCleaner,
+    ProductDetailSpecCoffeeMachine,
     ProductAllSpecModal,
   },
   setup() {
@@ -98,6 +98,9 @@ export default {
         price : 0,
       },
       scrollValue: 0,
+      product: computed(() => {
+        return store.getters["root/getProductDetail"];
+      }),
     })
 
     const onScroll = function() {
@@ -113,8 +116,22 @@ export default {
       }
     }
 
+    const getCategory = function(category) {
+      if(category == "airfryer")
+        return "에어프라이기"
+      else if(category == "aircleaner")
+        return "공기청정기"
+      else if(category == "moniter")
+        return "모니터"
+      else if(category == "foodprocessor")
+        return "음식물처리기"
+      else if(category == "coffeemachine")
+        return "커피머신"
+    }
+
     var category = route.params.category;
     var pcode = route.params.pcode;
+    var categoryName = getCategory(category);
 
     // 상품 정보 가져오기
     store.dispatch("root/requestProductInfo", {
@@ -136,12 +153,11 @@ export default {
       console.log(err)
     })
 
-
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { state, category, onScroll, onMounted }
+    return { store, state, categoryName, onScroll, onMounted }
   },
 };
 
@@ -152,7 +168,7 @@ export default {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 hr.division-line {
@@ -234,9 +250,10 @@ hr.division-line {
   margin: auto 0px;
 }
 
-
 .p-info .title {
   line-height: 250%;
+  padding-top: 25px;
+  padding-left: 15px;
 }
 
 .p-info .title div {
@@ -280,6 +297,11 @@ h2 {
 }
 
 h4 {
+  font-family: "SpoqaHanSansNeo-Bold";
+  margin: 0px 0px;
+}
+
+h5 {
   font-family: "SpoqaHanSansNeo-Bold";
   margin: 0px 0px;
 }

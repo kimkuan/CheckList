@@ -10,5 +10,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CoffeemachineRepository extends JpaRepository<Coffeemachine, Long> {
 
-    Page<Coffeemachine> findAll(Specification<Coffeemachine> filter, Pageable pageable);
+    Page<Coffeemachine> findAll(Pageable paging);
+
+    Page<Coffeemachine> findAll(Specification<Coffeemachine> filter, Pageable page);
+
 }
