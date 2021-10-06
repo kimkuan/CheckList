@@ -47,7 +47,8 @@
     </div>
 
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
-    <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+    <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
+    <product-detail-spec-monitor></product-detail-spec-monitor>
 
     <hr class="division-line" />
 
@@ -71,10 +72,11 @@ import { useRoute } from 'vue-router';
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
-import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 // import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
 // import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 // import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
+import ProductDetailSpecMonitor from './spec/ProductDetailSpecMonitor.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -83,9 +85,10 @@ export default {
     ProductDetailChart,
     ProductDetailReivew,
     ProductDetailLowPrice,
-    ProductDetailSpecAirFryer,
+    // ProductDetailSpecAirFryer,
     // ProductDetailSpecAirCleaner,
     // ProductDetailSpecCoffeeMachine,
+    ProductDetailSpecMonitor,
     ProductAllSpecModal,
   },
   setup() {
@@ -136,6 +139,7 @@ export default {
     .then(function(result){
       console.log(result.data)
       store.commit("root/setProductInfo", result.data);
+      console.log(state.productInfo);
     })
     .catch(function(err){
       console.log(err)
