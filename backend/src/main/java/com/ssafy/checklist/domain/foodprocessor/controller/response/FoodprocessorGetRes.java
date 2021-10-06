@@ -1,5 +1,6 @@
 package com.ssafy.checklist.domain.foodprocessor.controller.response;
 
+import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.foodprocessor.entity.Foodprocessor;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Id;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,7 +37,9 @@ public class FoodprocessorGetRes {
 
     String spec;
 
-    public static FoodprocessorGetRes of(Foodprocessor foodprocessor) {
+    List<LowPriceInfo> lowPriceInfoList;
+
+    public static FoodprocessorGetRes of(Foodprocessor foodprocessor, List<LowPriceInfo> lowPriceInfoList) {
         return FoodprocessorGetRes.builder()
                 .pcode(foodprocessor.getPcode())
                 .name(foodprocessor.getName())
@@ -48,6 +52,7 @@ public class FoodprocessorGetRes {
                 .size(foodprocessor.getSize())
                 .sound(foodprocessor.getSound())
                 .spec(foodprocessor.getSpec())
+                .lowPriceInfoList(lowPriceInfoList)
                 .build();
     }
 
