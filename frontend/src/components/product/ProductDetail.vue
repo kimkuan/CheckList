@@ -142,8 +142,8 @@
 
     <div class="section" id="detail-spec">
       <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
-      <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner>
-
+      <!-- <product-detail-spec-air-cleaner></product-detail-spec-air-cleaner> -->
+      <product-detail-spec-monitor></product-detail-spec-monitor>
     </div>
 
     <hr class="division-line" />
@@ -168,7 +168,8 @@ import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 // import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
-import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+// import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
+import ProductDetailSpecMonitor from './spec/ProductDetailSpecMonitor.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -178,7 +179,8 @@ export default {
     ProductDetailReivew,
     ProductDetailLowPrice,
     // ProductDetailSpecAirFryer,
-    ProductDetailSpecAirCleaner,
+    // ProductDetailSpecAirCleaner,
+    ProductDetailSpecMonitor,
     ProductAllSpecModal,
   },
   setup() {
