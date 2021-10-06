@@ -48,3 +48,8 @@ export function setProductInfo(state, productInfo) {
 export function setSearchProductListInfo(state, searchProductList) {
   state.searchProductList = searchProductList;
 }
+
+// 메인 체크픽 카테고리 저장
+export function setMainCheckPickCategory(state, name) {
+  state.mainCheckPickCategory = name;
+}

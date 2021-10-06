@@ -26,4 +26,7 @@ export default {
    
   // 검색한 상품 리스트
   searchProductList: [],
+
+   // 선택한 체크픽 카테고리 이름
+   mainCheckPickCategory:"",
 };

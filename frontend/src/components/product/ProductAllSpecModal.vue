@@ -68,7 +68,6 @@
 </template>
 
 <script>
-
 export default {
   name: "ProductAllSpecModal",
   props: {

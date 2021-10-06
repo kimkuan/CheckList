@@ -245,7 +245,7 @@ public class CoffeemachineService {
         Page<Coffeemachine> coffeemachines = coffeemachineRepository.findAllByNameContaining(keyword, pageRequest);
 
         List<CoffeemachineGetRes> coffeemachineGetResList = new ArrayList<>();
-        int size = coffeemachines.getSize();
+        int size = coffeemachines.getContent().size();
         for(int i = 0; i < size; i++) {
             Coffeemachine coffeemachine = coffeemachines.getContent().get(i);
             Optional<CoffeemachinePerformance> coffeemachinePerformance = coffeemachinePerformanceRepository.findById(coffeemachine.getPcode());
