@@ -21,15 +21,23 @@ public class QAirfryer extends EntityPathBase<Airfryer> {
 
     public final StringPath brand = createString("brand");
 
-    public final StringPath id = createString("id");
-
-    public final StringPath imageUrl = createString("imageUrl");
-
-    public final StringPath modelName = createString("modelName");
+    public final StringPath img = createString("img");
 
     public final StringPath name = createString("name");
 
-    public final NumberPath<Integer> price = createNumber("price", Integer.class);
+    public final NumberPath<Long> pcode = createNumber("pcode", Long.class);
+
+    public final StringPath power = createString("power");
+
+    public final NumberPath<Long> price = createNumber("price", Long.class);
+
+    public final StringPath size = createString("size");
+
+    public final StringPath spec = createString("spec");
+
+    public final StringPath type = createString("type");
+
+    public final StringPath volume = createString("volume");
 
     public QAirfryer(String variable) {
         super(Airfryer.class, forVariable(variable));
