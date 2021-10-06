@@ -78,8 +78,8 @@ spring:
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306/checklist?serverTimezone=Asia/Seoul
+      jdbc-url: jdbc:mysql://j5checklist.p.ssafy.io:3306/checklist?serverTimezone=Asia/Seoul
       username: root
-      password: 1234
+      password: ssafy406!@!@
 
 
