@@ -1,11 +1,11 @@
 <template>
     <div class="filter">
         <div class="row g-0">
-            <div class="line" v-for="(filter, i) in filters" :key=i>
-                <div class="name col-md-2">가격</div>
-                <div class="contents" v-for="(content, j) in contents" :key=j>
+            <div class="line" v-for="(title, i) in filterTitles" :key=i>
+                <div class="name col-md-2">{{title}}</div>
+                <div class="contents" v-for="(filter, j) in filters[i]" :key=j>
                     <input type="checkbox" :id="'check'+i+j" class="check">
-                    <label :for="'check'+i+j" class="check-label"><span>100</span></label>
+                    <label :for="'check'+i+j" class="check-label"><span>{{filter}}</span></label>
                 </div>
             </div>
         </div>
@@ -15,11 +15,10 @@
 <script>
 export default {
     name : "Filter",
-    props : ['filters', 'contents'],
+    props : ['filterTitles', "filters"],
     components: {
     },
     setup(){
-        // console.log(this.filters);
     },
     methods : {
     }
@@ -52,9 +51,9 @@ export default {
 
 .check-label {
     display: inline-block;
-    width: 55px;
+    min-width: 55px;
     height: 30px;
-    margin-left: 6px;
+    margin-left: 10px;
     border-radius: 50px;
     padding: 3px;
 }
