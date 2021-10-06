@@ -4,22 +4,10 @@
      <div class="title">
         <div><h2>최저가 사러가기</h2></div>
       </div>
-      <div class="site-list">
+      <div class="site-list" v-for="(item, index) in state.lowPriceInfoList" v-bind:key="index">
         <div class="site">
-          <span class="name">쿠팡</span>
-          <span class="price">{{ $filters.convertPrice(20000000) }}원</span>
-          <span class="fee">무료배송</span>
-          <button>사러가기</button>
-        </div>
-        <div class="site">
-          <span class="name">11번가</span>
-          <span class="price">{{ $filters.convertPrice(20000000) }}원</span>
-          <span class="fee">무료배송</span>
-          <button>사러가기</button>
-        </div>
-        <div class="site">
-          <span class="name">이마트</span>
-          <span class="price">{{ $filters.convertPrice(20000000) }}원</span>
+          <span class="name">{{ item.site }}</span>
+          <span class="price">{{ $filters.convertPrice(item.price) }}원</span>
           <span class="fee">무료배송</span>
           <button>사러가기</button>
         </div>
@@ -30,7 +18,7 @@
 <style scoped>
 .low-price {
   width: 100%;
-  min-height: 300px;
+  min-height: 150px;
 }
 .low-price .title {
   margin: 10px 10px;
@@ -77,13 +65,22 @@
 </style>
 
 <script>
-// import { useStore } from "vuex";
+import { computed, reactive } from '@vue/reactivity';
+import { useStore } from "vuex";
 
 export default {
   name: 'ProductLowPrice',
-  setup(){
+  props:{
 
-    return { }
+  },
+  setup(){
+    const store = useStore()
+
+    const state = reactive({
+      lowPriceInfoList : computed(() => store.getters["root/getProductInfo"].lowPriceInfoList),
+    })
+
+    return { state }
   }
 }
 </script>

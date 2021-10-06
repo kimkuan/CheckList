@@ -44,7 +44,7 @@ public class DBConfig extends HikariConfig {
         factory.setDataSource(this.dataSource());
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setJpaPropertyMap(ImmutableMap.of(
-                "hibernate.hbm2ddl.auto", "update",
+                "hibernate.hbm2ddl.auto", "none",
                 "hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect",
                 "hibernate.show_sql", "true"
         ));
