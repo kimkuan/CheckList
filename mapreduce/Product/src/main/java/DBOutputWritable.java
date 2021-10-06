@@ -15,29 +15,31 @@ public class DBOutputWritable implements Writable, DBWritable{
 	private long pcode;
 	private String name;
 	private String brand;
-	private long price;
 	private String img;
-	private String type;
-	private String volume;
+	private long price;
+	private String process_type;
+	private String process_time;
+	private String decrease;
 	private String size;
-	private String power;
+	private String sound;
 	private String spec;
 
 	// new String[] {"pcode", "name", "brand", "price", "img", "type", "volume", "size", "power", "spec"} //table columns
 
 	public DBOutputWritable(){}
-	public DBOutputWritable(long pcode, String name, String brand, long price, String img, String type, String volume,
-							String size, String power, String spec)
+	public DBOutputWritable(long pcode, String name, String brand, String img, long price, String process_type, String process_time,
+							String decrease, String size, String sound, String spec)
 	{
 		this.pcode = pcode;
 		this.name = name;
 		this.brand = brand;
-		this.price = price;
 		this.img = img;
-		this.type = type;
-		this.volume = volume;
+		this.price = price;
+		this.process_type = process_type;
+		this.process_time = process_time;
+		this.decrease = decrease;
 		this.size = size;
-		this.power = power;
+		this.sound = sound;
 		this.spec = spec;
 	}
 
@@ -46,13 +48,14 @@ public class DBOutputWritable implements Writable, DBWritable{
 		statement.setLong(1, pcode);
 		statement.setString(2, name);
 		statement.setString(3, brand);
-		statement.setLong(4, price);
-		statement.setString(5, img);
-		statement.setString(6, type);
-		statement.setString(7, volume);
-		statement.setString(8, volume);
-		statement.setString(9, power);
-		statement.setString(10, spec);
+		statement.setString(4, img);
+		statement.setLong(5, price);
+		statement.setString(6, process_type);
+		statement.setString(7, process_time);
+		statement.setString(8, decrease);
+		statement.setString(9, size);
+		statement.setString(10, sound);
+		statement.setString(11, spec);
 	}
 
 	public void readFields(ResultSet resultSet) throws SQLException {
@@ -60,13 +63,14 @@ public class DBOutputWritable implements Writable, DBWritable{
 		this.pcode = resultSet.getLong(1);
 		this.name = resultSet.getString(2);
 		this.brand = resultSet.getString(3);
-		this.price =resultSet.getLong(4);
-		this.img = resultSet.getString(5);
-		this.type = resultSet.getString(6);
-		this.volume = resultSet.getString(7);
-		this.volume = resultSet.getString(8);
-		this.power = resultSet.getString(9);
-		this.spec = resultSet.getString(10);
+		this.img = resultSet.getString(4);
+		this.price =resultSet.getLong(5);
+		this.process_type = resultSet.getString(6);
+		this.process_time = resultSet.getString(7);
+		this.decrease = resultSet.getString(8);
+		this.size = resultSet.getString(9);
+		this.sound = resultSet.getString(10);
+		this.spec = resultSet.getString(11);
 	}
 
 	public void write(DataOutput out) throws IOException {

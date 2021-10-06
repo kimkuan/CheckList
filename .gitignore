@@ -1,0 +1,5 @@
+*.gz
+<<<<<<< HEAD
+=======
+backend/checklist.log
+>>>>>>> 228f7a83f2093d9cb37c1c2201e244145919a6c4
