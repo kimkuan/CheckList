@@ -89,4 +89,38 @@ public class MonitorController {
         return new ResponseEntity<List<MonitorInfoGetRes>>(list, HttpStatus.OK);
     }
 
+
+    @ApiOperation(value = "모니터 체크픽 조회", notes = "모니터 체크픽을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/checkpick")
+    public ResponseEntity<List<MonitorGetRes>> findCheckPick() {
+        /**
+         * @Method Name : findCheckPick
+         * @작성자 : 이영주
+         * @Method 설명 : 체크리스트에서 선정한 상위 10개 상품 목록 해당하는 상품 조회 (상품 정보, 성능 분석, 최저가 정보)
+         */
+        List<MonitorGetRes> monitorGetResList = monitorService.findCheckPick();
+        return new ResponseEntity<List<MonitorGetRes>>(monitorGetResList, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "키워드에 해당하는 모니터 조회", notes = "키워드에 해당하는 상품을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/search/{page}/{keyword}")
+    public ResponseEntity<List<MonitorGetRes>> findAllByKeyword(@PathVariable(name = "page") int page, @PathVariable(name = "keyword") String keyword) {
+        /**
+         * @Method Name : findAllByKeyword
+         * @작성자 : 이영주
+         * @Method 설명 : 키워드를 포함하는 상품 목록 조회
+         */
+        List<MonitorGetRes> monitorGetResList = monitorService.findAllByKeyword(page, keyword);
+        return new ResponseEntity<List<MonitorGetRes>>(monitorGetResList, HttpStatus.OK);
+    }
 }

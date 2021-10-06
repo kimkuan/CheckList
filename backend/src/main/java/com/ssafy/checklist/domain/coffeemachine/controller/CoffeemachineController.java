@@ -67,4 +67,38 @@ public class CoffeemachineController {
         List<LowPriceInfo> lowPriceInfoList = coffeemachineService.findLowPriceInfoByPcode(pcode);
         return new ResponseEntity<>(CoffeemachineInfoGetRes.of(coffeemachine, coffeemachinePerformance, lowPriceInfoList), HttpStatus.OK);
     }
+
+    @ApiOperation(value = "커피머신 체크픽 조회", notes = "커피머신 체크픽을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/checkpick")
+    /**
+     * @Method Name : findCheckPick
+     * @작성자 : 이영주
+     * @Method 설명 : 체크리스트에서 선정한 상위 10개 상품 목록 해당하는 상품 조회 (상품 정보, 성능 분석, 최저가 정보)
+     */
+    public ResponseEntity<List<CoffeemachineGetRes>> findCheckPick() {
+        List<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCheckPick();
+        return new ResponseEntity<>(coffeemachineGetResList, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "키워드에 해당하는 커피머신 조회", notes = "키워드에 해당하는 상품을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/search/{page}/{keyword}")
+    /**
+     * @Method Name : findAllByKeyword
+     * @작성자 : 이영주
+     * @Method 설명 : 키워드를 포함하는 상품 목록 조회
+     */
+    public ResponseEntity<List<CoffeemachineGetRes>> findAllByKeyword(@PathVariable(name = "page") int page, @PathVariable(name = "keyword") String keyword) {
+        List<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findAllByKeyword(page, keyword);
+        return new ResponseEntity<>(coffeemachineGetResList, HttpStatus.OK);
+    }
 }
