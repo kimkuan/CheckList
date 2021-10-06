@@ -2,8 +2,10 @@ package com.ssafy.checklist.domain.foodprocessor.controller;
 
 import com.ssafy.checklist.domain.aircleaner.controller.response.AircleanerGetRes;
 import com.ssafy.checklist.domain.foodprocessor.controller.response.FoodprocessorGetRes;
+import com.ssafy.checklist.domain.foodprocessor.controller.response.FoodprocessorInfoGetRes;
 import com.ssafy.checklist.domain.foodprocessor.entity.Foodprocessor;
 import com.ssafy.checklist.domain.foodprocessor.service.FoodprocessorService;
+import com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -76,8 +78,8 @@ public class FoodprocessorController {
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
     @PostMapping("/filters")
-    public ResponseEntity<Page<Foodprocessor>> findFoodprocessorList(
-            @PageableDefault(size=10, sort="name", direction = Sort.Direction.DESC) Pageable pageRequest,
+    public ResponseEntity<List<FoodprocessorInfoGetRes>> findFoodprocessorList(
+            @PageableDefault(size=10, sort="pcode", direction = Sort.Direction.DESC) Pageable pageRequest,
             @RequestBody Map<String, Object> filters) {
         /**
          * @methodName : findFoodprocessorList
@@ -85,10 +87,10 @@ public class FoodprocessorController {
          * @Class 설명 : 필터링 정보를 반환받고 해당 조건에 해당하는 상품리스트를 반환한다.
          */
 
-        Page<Foodprocessor> list = foodprocessorService.findFoodprocessorByFilters(filters, pageRequest);
+        List<FoodprocessorInfoGetRes> list = foodprocessorService.findFoodprocessorByFilters(filters, pageRequest);
 
 
-        return null;
+        return new ResponseEntity<List<FoodprocessorInfoGetRes>>(list, HttpStatus.OK);
     }
 
 }

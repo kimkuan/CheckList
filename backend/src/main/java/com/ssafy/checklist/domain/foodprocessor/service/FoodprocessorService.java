@@ -3,9 +3,14 @@ package com.ssafy.checklist.domain.foodprocessor.service;
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
 import com.ssafy.checklist.domain.foodprocessor.controller.response.FoodprocessorGetRes;
+import com.ssafy.checklist.domain.foodprocessor.controller.response.FoodprocessorInfoGetRes;
 import com.ssafy.checklist.domain.foodprocessor.entity.Foodprocessor;
+import com.ssafy.checklist.domain.foodprocessor.entity.FoodprocessorPerformance;
+import com.ssafy.checklist.domain.foodprocessor.repository.FoodprocessorPerformanceRepository;
 import com.ssafy.checklist.domain.foodprocessor.repository.FoodprocessorRepository;
+import com.ssafy.checklist.domain.monitor.controller.response.MonitorInfoGetRes;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
+import com.ssafy.checklist.domain.monitor.entity.MonitorPerformance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,10 +20,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,6 +28,9 @@ public class FoodprocessorService {
 
     @Autowired
     FoodprocessorRepository foodprocessorRepository;
+
+    @Autowired
+    FoodprocessorPerformanceRepository foodprocessorPerformanceRepository;
 
     @Autowired
     LowPriceInfoRepository lowPriceInfoRepository;
@@ -39,16 +44,40 @@ public class FoodprocessorService {
 //    }
 
     public FoodprocessorGetRes findFoodprocessorById(Long pcode) {
+        /**
+         * @Method Name : findFoodprocessorById
+         * @작성자 : 권영린
+         * @Method 설명 : pcode로 해당 상품의 가격리스트를 포함한 상세정보를 반환.
+         */
+
         List<LowPriceInfo> lowPriceInfolist = lowPriceInfoRepository.findAllByPcode(pcode).orElse(null);
         return foodprocessorRepository.findById(pcode)
                 .map(foodprocessor -> FoodprocessorGetRes.of(foodprocessor, lowPriceInfolist))
                 .orElse(null);
     }
 
-    public Page<Foodprocessor> findFoodprocessorByFilters(Map<String, Object> map, Pageable pageRequest) {
+    public List<FoodprocessorInfoGetRes> findFoodprocessorByFilters(Map<String, Object> map, Pageable pageRequest) {
+        /**
+         * @Method Name : findFoodprocessorByFilters
+         * @작성자 : 권영린
+         * @Method 설명 : 필터링 검색 결과를 페이징 처리하여 가져오는 메소드 호출.
+         *               해당하는 상품들의 성능 분석 정보를 가져오는 메소드를 호출.
+         *               두 메소드 호출의 결과를 FoodprocessorInfoGetRes 타입으로 묶어 반환함.
+         */
+
         Specification<Foodprocessor> spec = getMultiFilter(map);
 
-        return foodprocessorRepository.findAll(spec, pageRequest);
+        // 필터링 검색 결과 목록
+        Page<Foodprocessor> fp = foodprocessorRepository.findAll(spec, pageRequest);
+        List<Foodprocessor> fList = fp.getContent();
+
+        // 성능분석 정보
+        List<FoodprocessorPerformance> fpList = new LinkedList<>();
+        for(int i=0; i< fList.size(); i++) {
+            fpList.add(foodprocessorPerformanceRepository.findById(fList.get(i).getPcode()).orElse(null));
+        }
+
+        return FoodprocessorInfoGetRes.of(fList, fpList);
     }
 
     @SuppressWarnings({"unused", "unchecked"})
