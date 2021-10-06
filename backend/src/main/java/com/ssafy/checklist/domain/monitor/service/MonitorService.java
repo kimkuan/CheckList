@@ -111,18 +111,35 @@ public class MonitorService {
                     // 전체가 들어간 경우는 필터링 필요없기 때문에 아무 조건도 넣지 않고 다음 필터로 이동
                     if(!values.contains("전체")) {
                         String[] prices = values.get(0).split("~");
-                        long minPrice = Long.parseLong(prices[0]+"0000");
-                        long maxPrice = Long.parseLong(prices[1]+"0000");
 
                         // 첫번째 조건은 and로 이어줘야 다른 필터구분과 같이 검색됨
-                        p = cb.and(p, cb.between(root.get("price"), minPrice, maxPrice));
+                        if (prices[0].equals("")) {
+                            long maxPrice = Long.parseLong(prices[1]+"0000");
+                            p = cb.and(p, cb.lessThanOrEqualTo(root.get("price"), maxPrice));
+                        } else if(prices[1].equals("")) {
+                            long minPrice = Long.parseLong(prices[0]+"0000");
+                            p = cb.and(p, cb.greaterThanOrEqualTo(root.get("price"), minPrice));
+                        } else {
+                            long maxPrice = Long.parseLong(prices[1]+"0000");
+                            long minPrice = Long.parseLong(prices[0]+"0000");
+                            p = cb.and(p, cb.between(root.get("price"), minPrice, maxPrice));
+                        }
+
+                        // 같은 필터구분 내에서는 or로 이어줘야 해당하는 조건 모두 만족하는 값을 가져옴
                         for(int i=1, n=values.size(); i<n; i++) {
                             String[] prices2 = values.get(i).split("~");
-                            long minPrice2 = Long.parseLong(prices2[0]+"0000");
-                            long maxPrice2 = Long.parseLong(prices2[1]+"0000");
 
-                            // 같은 필터구분 내에서는 or로 이어줘야 해당하는 조건 모두 만족하는 값을 가져옴
-                            p = cb.or(p, cb.between(root.get("price"), minPrice2, maxPrice2));
+                            if (prices2[0].equals("")) {
+                                long maxPrice2 = Long.parseLong(prices2[1]+"0000");
+                                p = cb.or(p, cb.lessThanOrEqualTo(root.get("price"), maxPrice2));
+                            } else if(prices2[1].equals("")) {
+                                long minPrice2 = Long.parseLong(prices2[0]+"0000");
+                                p = cb.or(p, cb.greaterThanOrEqualTo(root.get("price"), minPrice2));
+                            } else {
+                                long maxPrice2 = Long.parseLong(prices2[1]+"0000");
+                                long minPrice2 = Long.parseLong(prices2[0]+"0000");
+                                p = cb.or(p, cb.between(root.get("price"), minPrice2, maxPrice2));
+                            }
                         }
                     }
 
