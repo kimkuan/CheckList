@@ -6,17 +6,18 @@ const axiosService = $axios.create({
 });
 
 // 카테고리별 전체 상품 목록 가져오기
-function requestProducts(category) {
+export function requestProducts(category) {
   return axiosService.get(category);
 }
 
 // 카테고리별 체크픽 가져오기
-function requestCheckPick(category) {
+export function requestCheckPick(category) {
   const url = "/api/main/rank/" + category;
   return $axios.get(url);
 }
 
-export {
-  requestProducts,
-  requestCheckPick
+// 상품의 상세 정보 가져오기
+export function requestProductInfo({ state }, payload) {
+  const url = payload.category + "/" + payload.pcode;
+  return $axios.get(url);
 }
