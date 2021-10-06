@@ -245,7 +245,7 @@
 
           <div class="content-func" v-if="isNTSC().includes(`sRGB`)">
             <h4>색재현율 | sRGB</h4>
-            <div>색재현율 중 sRGB가 {{ state.spec[`색재현율`][`sRGB`] }} 인 제품입니다.</div>
+            <div>색재현율 중 sRGB가 {{ spec[`색재현율`][`sRGB`] }} 인 제품입니다.</div>
           </div>
 
           <div class="content-func" v-if="isSpeaker().includes(`○`)">
@@ -265,7 +265,7 @@
 
           <div class="content-func" v-if="isStand().includes(`월마운트`)">
             <h4>월마운트</h4>
-            <div>벽에 부착할 수 있는 {{ state.spec[`스탠드 기능`][`월마운트(VESA)`] }} 크기의 모니터 월마운트 기능이 제공되는 제품입니다.</div>
+            <div>벽에 부착할 수 있는 {{ spec[`스탠드 기능`][`월마운트(VESA)`] }} 크기의 모니터 월마운트 기능이 제공되는 제품입니다.</div>
           </div>
 
         </div>
@@ -746,6 +746,8 @@ export default {
       }),
     })
 
+    console.log("오긴하냐?")
+
     function clickModal(desc) {
       // console.log("클릭 모달" + desc)
       store.commit("root/setModal", desc)
@@ -801,7 +803,7 @@ export default {
       if(state.spec[`전력량`]==null) return "-";
       else {
         if(state.spec[`전력량`][`무게`] == null) return "-";
-        return "O";
+        return "○";
       }
     }
 
@@ -809,7 +811,7 @@ export default {
       if(state.spec[`부가 기능`]==null) return "X";
       else {
         if(state.spec[`부가 기능`][`스피커`] == null) return "X";
-        return "○";
+        return "";
       }
     }
 
@@ -817,7 +819,7 @@ export default {
       if(state.spec[`색재현율`]==null) return "-";
       else {
         var tmp;
-        if(state.spec[`색재현율`][`NTSC`] != null) tmp = tmp + "NTSC: " + state.spec[`색재현율`][`NTSC`];
+        if(state.spec[`색재현율`][`NTSC`] != null) tmp = "NTSC: " + state.spec[`색재현율`][`NTSC`];
         if(state.spec[`색재현율`][`sRGB`] != null) tmp = tmp + "\n" + "sRGB: " + state.spec[`색재현율`][`sRGB`];
 
         return tmp.size==0 ? "-" : tmp;
