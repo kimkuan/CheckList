@@ -63,7 +63,7 @@ public class MainService {
         * @Method 설명 : 카테고리명을 통해 filter 구분 항목을 가져옴.
         */
 
-        return filterRepository.findByCategory(category).orElse(null);
+        return filterRepository.findById(category).orElse(null);
     }
 
     public void updateProductHit(String pcode) {
@@ -74,7 +74,7 @@ public class MainService {
         * @Method 설명 : click_count 테이블에 해당 pcode의 count횟수를 가져와 +1하여 저장.
         */
 
-        ClickCount count = clickCountRepository.findByPcode(Long.parseLong(pcode)).get();
+        ClickCount count = clickCountRepository.findById(Long.parseLong(pcode)).get();
         count.setCount(count.getCount()+1);
         clickCountRepository.save(count);
     }
