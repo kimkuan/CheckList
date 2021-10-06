@@ -9,9 +9,12 @@ import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.common.repository.LowPriceInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,4 +66,43 @@ public class AirfryerService {
         List<LowPriceInfo> lowPriceInfoList = lowPriceInfoRepository.findAllByPcode(pcode).orElse(null);
         return lowPriceInfoList;
     }
+
+    /**
+     * @Method Name : findCheckPick
+     * @작성자 : 이상현
+     * @Method 설명 : 에어프라이기 카테고리에서 성능이 좋은 순으로 10개 목록 조회
+     */
+    public List<AirfryerGetRes> findCheckPick() {
+        List<AirfryerGetRes> airfryerGetResList = new ArrayList<>();
+        List<AirfryerPerformance> airfryerPerformanceGetResList = airfryerPerformanceRepository.findCheckPick();
+
+        for(AirfryerPerformance airfryerPerformance : airfryerPerformanceGetResList) {
+            Airfryer airfryer = airfryerRepository.findById(airfryerPerformance.getPcode()).orElseGet(null);
+            airfryerGetResList.add(AirfryerGetRes.of(airfryer, airfryerPerformance));
+        }
+        return airfryerGetResList;
+    }
+
+    /**
+     * @Method Name : findAllByKeyword
+     * @작성자 : 이상현
+     * @Method 설명 : keyword를 포함하는 에어프라이기 목록 제공
+     */
+    public List<AirfryerGetRes> findAllByKeyword(int page, String keyword) {
+        PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
+        Page<Airfryer> airfryers = airfryerRepository.findAllByNameContaining(keyword, pageRequest);
+
+        List<AirfryerGetRes> airfryerGetResList = new ArrayList<>();
+        int size = airfryers.getContent().size();
+        for(int i = 0; i < size; i++) {
+            Airfryer airfryer = airfryers.getContent().get(i);
+            Optional<AirfryerPerformance> airfryerPerformance = airfryerPerformanceRepository.findById(airfryer.getPcode());
+            if(airfryerPerformance.isPresent()) {
+                airfryerGetResList.add(AirfryerGetRes.of(airfryer, airfryerPerformance.get()));
+            }
+        }
+
+        return airfryerGetResList;
+    }
+
 }
