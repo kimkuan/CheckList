@@ -2,8 +2,8 @@ build:
   date: '@build.date@'
 
 logging:
-  file:
-    name: ./checklist.log
+#  file:
+#    name: ./checklist.log
   level:
     org:
       apache:

@@ -65,7 +65,9 @@ public class AirfryerGetRes {
     public static AirfryerGetRes of (Airfryer airfryer, AirfryerPerformance airfryerPerformance){
         AirfryerGetRes res = new AirfryerGetRes();
         res.setPcode(airfryer.getPcode());
+        res.setName(airfryer.getName());
         res.setBrand(airfryer.getBrand());
+        res.setPrice(airfryer.getPrice());
         res.setImg(airfryer.getImg());
         res.setType(airfryer.getType());
         res.setVolume(airfryer.getVolume());
