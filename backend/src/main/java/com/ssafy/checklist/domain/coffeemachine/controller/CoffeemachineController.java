@@ -12,13 +12,15 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/coffeemachine")
@@ -35,16 +37,14 @@ public class CoffeemachineController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/")
+    @PostMapping("/filters")
     /**
      * @Method Name : findCoffeemachineByFilter
      * @작성자 : 이영주
      * @Method 설명 : 필터조건에 맞는 카테고리가 커피머신인 상품 목록 조회, 상품정보와 상품성능분석점수가 포함된다.
      */
-    public ResponseEntity<Page<CoffeemachineGetRes>> findCoffeemachineByFilter(@PageableDefault(size = 15) Pageable pageable,
-        List<String> priceFilter, List<String> pressureFilter, List<String> heatFilter, List<String> waterFilter
-    ){
-        Page<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCoffeemachineListByFilter(pageable, priceFilter, pressureFilter, heatFilter, waterFilter);
+    public ResponseEntity<List<CoffeemachineGetRes>> findCoffeemachineByFilter(@PageableDefault(size = 10, sort = "name", direction = Sort.Direction.DESC) Pageable pageable, @RequestBody Map<String, Object> filters){
+        List<CoffeemachineGetRes> coffeemachineGetResList = coffeemachineService.findCoffeemachineListByFilter(pageable, filters);
         return new ResponseEntity<>(coffeemachineGetResList, HttpStatus.OK);
     }
 

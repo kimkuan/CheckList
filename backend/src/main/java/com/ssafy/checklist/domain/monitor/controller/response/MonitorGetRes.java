@@ -2,6 +2,7 @@ package com.ssafy.checklist.domain.monitor.controller.response;
 
 import com.ssafy.checklist.domain.common.entity.LowPriceInfo;
 import com.ssafy.checklist.domain.monitor.entity.Monitor;
+import com.ssafy.checklist.domain.monitor.entity.MonitorPerformance;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -43,9 +44,25 @@ public class MonitorGetRes {
     @ApiModelProperty
     String spec;
 
+    @ApiModelProperty
+    int pricePoint;
+
+    @ApiModelProperty
+    int sizePoint;
+
+    @ApiModelProperty
+    int pixelPoint;
+
+    @ApiModelProperty
+    int screenChangePoint;
+
+    @ApiModelProperty
+    int conveniencePoint;
+
+    @ApiModelProperty
     List<LowPriceInfo> lowPriceInfos;
 
-    public static MonitorGetRes of(Monitor monitor, List<LowPriceInfo> list) {
+    public static MonitorGetRes of(Monitor monitor, MonitorPerformance mp, List<LowPriceInfo> list) {
         MonitorGetRes monitorGetRes = new MonitorGetRes();
         monitorGetRes.setPcode(monitor.getPcode());
         monitorGetRes.setName(monitor.getName());
@@ -56,6 +73,22 @@ public class MonitorGetRes {
         monitorGetRes.setPixel(monitor.getPixel());
         monitorGetRes.setHz(monitor.getHz());
         monitorGetRes.setSpec(monitor.getSpec());
+
+        if(mp==null) {
+            monitorGetRes.setPricePoint(mp.getPrice());
+            monitorGetRes.setSizePoint(mp.getSize());
+            monitorGetRes.setPixelPoint(mp.getPixel());
+            monitorGetRes.setScreenChangePoint(mp.getScreenChange());
+            monitorGetRes.setConveniencePoint(mp.getConvenience());
+        } else {
+            // 성능 분석 X
+            monitorGetRes.setPricePoint(-1);
+            monitorGetRes.setSizePoint(-1);
+            monitorGetRes.setPixelPoint(-1);
+            monitorGetRes.setScreenChangePoint(-1);
+            monitorGetRes.setConveniencePoint(-1);
+        }
+
         monitorGetRes.setLowPriceInfos(list);
 
         return monitorGetRes;
