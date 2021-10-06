@@ -34,3 +34,9 @@ export function getSelectCategoryName(state) {
 export function getProductInfo(state) {
   return state.productInfo;
 }
+
+// 최근 본 상품 목록 가져오기
+export function getProductHistory(state){
+  // 최근 본 상품 배열 앞에 추가
+  return state.productHistory;
+}

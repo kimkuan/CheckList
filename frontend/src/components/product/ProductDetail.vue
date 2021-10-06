@@ -47,7 +47,7 @@
     </div>
 
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
-    <product-detail-spec-air-fryer></product-detail-spec-air-fryer>
+    <product-detail-spec-air-fryer :productInfo="state.productInfo"></product-detail-spec-air-fryer>
 
     <hr class="division-line" />
 
@@ -65,7 +65,7 @@
 </template>
 
 <script>
-import { reactive, computed, onMounted } from 'vue'
+import { reactive, computed, onMounted, watch, watchEffect } from 'vue'
 import { useStore } from "vuex";
 import { useRoute } from 'vue-router';
 import ProductDetailChart from './detail/ProductDetailChart.vue';
@@ -91,8 +91,8 @@ export default {
   setup() {
     const route = useRoute()
     const store = useStore()
-    const state = reactive({
-      productInfo : computed(() => {
+    let state = reactive({
+      productInfo : computed(()=>{
         return store.getters["root/getProductInfo"];
       }),
       scrollValue: 0,
@@ -133,13 +133,21 @@ export default {
       category: category,
       pcode: pcode
     })
-    .then(function(result){
-      console.log(result.data)
+    .then((result) => {
+      state.productInfo = result.data
       store.commit("root/setProductInfo", result.data);
+
+      // 현재 가져온 상품을 최근 본 상품에 등록
+      store.commit("root/setProductHistory", {
+        category: category,
+        productInfo: result.data,
+      });
     })
-    .catch(function(err){
+    .catch((err) => {
       console.log(err)
     })
+
+    watchEffect(() => console.log(state.productInfo))
 
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
