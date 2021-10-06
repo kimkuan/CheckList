@@ -67,6 +67,7 @@ public class MonitorService {
         List<MonitorPerformance> mpList = new LinkedList<>();
         for(int i=0; i< mList.size(); i++) {
             mpList.add(monitorPerformanceRepository.findById(mList.get(i).getPcode()).orElse(null));
+            System.out.println("가져온 성능 >>> " + mpList.get(i));
         }
 
         return MonitorInfoGetRes.of(mList, mpList);
