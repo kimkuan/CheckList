@@ -158,7 +158,7 @@ public class CoffeemachineService {
                         for(int i = 1; i < values.size(); i++) {
                             String water = values.get(i);
                             System.out.println(water);
-                            water = water.replace("만원","");      // L 붙은거 제거
+                            water = water.replace("L","");      // L 붙은거 제거
                             String[] range = water.split("~");
 
                             if(range[0].equals("")) {

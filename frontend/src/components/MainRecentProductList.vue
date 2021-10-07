@@ -2,8 +2,7 @@
   <div class="recent-product-list-wrapper">
       <h4>최근 본 상품</h4>
       <div class="recent-product" v-for="(item, index) in state.productHistory" :key = index>
-        <img class="recent-image" :src="item.productInfo.img" @click="showRecentProduct(item)"  />
-        {{ item.pcode }}
+        <img class="recent-image" @mouseover="turnColor" :src="item.productInfo.img" @click="showRecentProduct(item)"  />
       </div>
   </div>
 </template>
@@ -27,8 +26,7 @@ export default {
 
 
     const showRecentProduct = function(item){
-      console.log("선택한 상품 >> ")
-      console.log(item)
+       console.log(item)
       store.commit("root/setProductInfo", item.productInfo);
       route.push({ name: "Product", params: { category : item.category, pcode: item.productInfo.pcode }});
     };
