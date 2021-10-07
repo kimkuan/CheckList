@@ -54,3 +54,13 @@ export function requestGetSearchProducts({ state }, payload) {
   const url = category + "/search/" + pageValue + "/" + keywordValue
   return $axios.get(url);
 }
+
+// 필터링 검색 결과 가져오기
+export function requestPostFilteringProducts({ state }, payload) {
+  const category = payload.category;
+  const filters = payload.filters;
+  const pageValue = payload.pageValue;
+  const url = category + "/filters?page=" + pageValue;
+  console.log("category:filter:pageValue: " + category + " : "+ filters + " : " + pageValue);
+  return axiosService.post(url, filters);
+}
