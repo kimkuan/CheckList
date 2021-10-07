@@ -2,7 +2,12 @@
   <div id="searchProduct">
     <div class="productList">
       <div class="result">
-        <span>검색 결과 </span> 
+        <h3 style="display:inline-block">
+          <strong>
+          '{{ state.searchWord.word }}'
+          </strong>
+        </h3>
+        <span> 검색 결과 </span> 
         <span style="color:#CF000F; font-size:25px;">
           <strong v-if="state.products.length>0">
             {{ state.products[0].totalResultCount }}
@@ -14,9 +19,6 @@
         <span>
           건
         </span>
-        <h3>
-          카테고리 : {{ state.searchWord.category.word }} <br>검색어 : {{ state.searchWord.word }}
-        </h3>
       </div>
       <ProductCard v-for="product in state.products" :product="product" :category="state.category" :key="product.id"/>
       <InfiniteLoading @infinite="infiniteHandler"/>

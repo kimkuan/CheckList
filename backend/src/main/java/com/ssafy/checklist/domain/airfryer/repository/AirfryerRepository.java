@@ -14,4 +14,6 @@ public interface AirfryerRepository extends JpaRepository<Airfryer, Long> {
     Page<Airfryer> findAll(Specification<Airfryer> filter, Pageable page);
 
     Page<Airfryer> findAllByNameContaining(String keyword, Pageable page);
+
+    long countByNameContaining(String keyword);
 }

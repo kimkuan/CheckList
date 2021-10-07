@@ -154,7 +154,7 @@ export default {
         console.log("워드클라우드 가져오기 성공")
         let wordcloud = JSON.parse(result.data.wordcloud);
         for(let key in wordcloud) {
-          if (parseInt(wordcloud[key]) < 5) continue;
+          if (parseInt(wordcloud[key]) < 3) continue;
           state.chartData.push({x : key, value : parseInt(wordcloud[key])})
         }
         setWordcloud();

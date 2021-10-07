@@ -258,14 +258,14 @@ public class AirfryerService {
     public List<AirfryerGetRes> findAllByKeyword(int page, String keyword) {
         PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
         Page<Airfryer> airfryers = airfryerRepository.findAllByNameContaining(keyword, pageRequest);
-
+        long totalResultCount= airfryerRepository.countByNameContaining(keyword); // 총 검색결과 가져오기 위함
         List<AirfryerGetRes> airfryerGetResList = new ArrayList<>();
         int size = airfryers.getContent().size();
         for(int i = 0; i < size; i++) {
             Airfryer airfryer = airfryers.getContent().get(i);
             Optional<AirfryerPerformance> airfryerPerformance = airfryerPerformanceRepository.findById(airfryer.getPcode());
             if(airfryerPerformance.isPresent()) {
-                airfryerGetResList.add(AirfryerGetRes.of(airfryer, airfryerPerformance.get()));
+                airfryerGetResList.add(AirfryerGetRes.ofWithTotalResultCount(airfryer, airfryerPerformance.get(), totalResultCount));
             }
         }
 

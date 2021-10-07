@@ -15,4 +15,6 @@ public interface MonitorRepository extends PagingAndSortingRepository<Monitor, L
     Optional<Monitor> findMonitorByPcode(long pcode);
 
     Page<Monitor> findAllByNameContaining(String keyword, Pageable page);
+
+    long countByNameContaining(String keyword);
 }

@@ -189,13 +189,13 @@ public class AircleanerService {
     public List<AircleanerGetRes> findAllByKeyword(int page, String keyword) {
         PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
         Page<Aircleaner> aircleaners = aircleanerRepository.findAllByNameContaining(keyword, pageRequest);
-
+        long totalResultCount= aircleanerRepository.countByNameContaining(keyword); // 총 검색결과 가져오기 위함
         List<AircleanerGetRes> aircleanerGetResList = new ArrayList<>();
         int size = aircleaners.getContent().size();
         for(int i = 0; i < size; i++) {
             Aircleaner aircleaner = aircleaners.getContent().get(i);
             Optional<AircleanerPerformance> aircleanerPerformance = aircleanerPerformanceRepository.findById(aircleaner.getPcode());
-            aircleanerPerformance.ifPresent(performance -> aircleanerGetResList.add(AircleanerGetRes.from(aircleaner, performance)));
+            aircleanerPerformance.ifPresent(performance -> aircleanerGetResList.add(AircleanerGetRes.fromWithTotalResultCount(aircleaner, performance, totalResultCount)));
         }
 
         return aircleanerGetResList;

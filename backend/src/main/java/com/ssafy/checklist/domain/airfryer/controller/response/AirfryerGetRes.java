@@ -62,6 +62,9 @@ public class AirfryerGetRes {
     @ApiModelProperty
     long conveniencePoint;
 
+    @ApiModelProperty
+    long totalResultCount;
+
     public static AirfryerGetRes of (Airfryer airfryer, AirfryerPerformance airfryerPerformance){
         AirfryerGetRes res = new AirfryerGetRes();
         res.setPcode(airfryer.getPcode());
@@ -81,6 +84,31 @@ public class AirfryerGetRes {
         res.setControlPoint(airfryerPerformance.getControl());
         res.setManagementPoint(airfryerPerformance.getManagement());
         res.setConveniencePoint(airfryerPerformance.getConvenience());
+
+        return res;
+    }
+
+    public static AirfryerGetRes ofWithTotalResultCount (Airfryer airfryer, AirfryerPerformance airfryerPerformance, long totalResultCount){
+        AirfryerGetRes res = new AirfryerGetRes();
+        res.setPcode(airfryer.getPcode());
+        res.setName(airfryer.getName());
+        res.setBrand(airfryer.getBrand());
+        res.setPrice(airfryer.getPrice());
+        res.setImg(airfryer.getImg());
+        res.setType(airfryer.getType());
+        res.setVolume(airfryer.getVolume());
+        res.setPower(airfryer.getPower());
+        res.setSize(airfryer.getSize());
+        res.setSpec(airfryer.getSpec());
+
+        res.setPricePoint(airfryerPerformance.getPrice());
+        res.setVolumePoint(airfryerPerformance.getVolume());
+        res.setCookPoint(airfryerPerformance.getCook());
+        res.setControlPoint(airfryerPerformance.getControl());
+        res.setManagementPoint(airfryerPerformance.getManagement());
+        res.setConveniencePoint(airfryerPerformance.getConvenience());
+
+        res.setTotalResultCount(totalResultCount);
 
         return res;
     }

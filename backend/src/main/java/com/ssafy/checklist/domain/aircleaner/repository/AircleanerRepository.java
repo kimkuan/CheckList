@@ -10,4 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AircleanerRepository extends JpaRepository<Aircleaner, Long>, JpaSpecificationExecutor<Aircleaner> {
     Page<Aircleaner> findAllByNameContaining(String keyword, Pageable page);
+    long countByNameContaining(String keyword);
 }

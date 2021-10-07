@@ -5,7 +5,7 @@
             <div class="card-text mb-1">
                 <small class="text-muted">{{product.brand}}</small><br />
                 <div class="text-name"><strong>{{product.name}}</strong></div><br />
-                {{avgScore == undefined ? `리뷰가 없어요 😥` : "⭐️"+avgScore + "점"}}
+                <!-- {{avgScore == undefined ? `리뷰가 없어요 😥` : "⭐️"+avgScore + "점"}} -->
             </div>
             <p class="card-text">
                 <span class="lowest-price fw-bold">최저가  </span>

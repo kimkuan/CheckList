@@ -52,6 +52,9 @@ public class AircleanerGetRes {
     @ApiModelProperty
     long conveniencePoint;
 
+    @ApiModelProperty
+    long totalResultCount;
+
     public static AircleanerGetRes from(Aircleaner aircleaner, AircleanerPerformance aircleanerPerformance) {
         return builder()
                 .pcode(aircleaner.getPcode())
@@ -66,6 +69,24 @@ public class AircleanerGetRes {
                 .areaPoint(aircleanerPerformance.getArea())
                 .sensorPoint(aircleanerPerformance.getSensor())
                 .conveniencePoint(aircleanerPerformance.getConvenience())
+                .build();
+    }
+
+    public static AircleanerGetRes fromWithTotalResultCount(Aircleaner aircleaner, AircleanerPerformance aircleanerPerformance, long totalResultCount) {
+        return builder()
+                .pcode(aircleaner.getPcode())
+                .name(aircleaner.getName())
+                .brand(aircleaner.getBrand())
+                .price(aircleaner.getPrice())
+                .img(aircleaner.getImg())
+                .type(aircleaner.getType())
+                .area(aircleaner.getArea())
+                .dust(aircleaner.getDust())
+                .spec(aircleaner.getSpec())
+                .areaPoint(aircleanerPerformance.getArea())
+                .sensorPoint(aircleanerPerformance.getSensor())
+                .conveniencePoint(aircleanerPerformance.getConvenience())
+                .totalResultCount(totalResultCount)
                 .build();
     }
 }

@@ -202,14 +202,14 @@ public class MonitorService {
     public List<MonitorGetRes> findAllByKeyword(int page, String keyword) {
         PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
         Page<Monitor> monitors = monitorRepository.findAllByNameContaining(keyword, pageRequest);
-
+        long totalResultCount= monitorRepository.countByNameContaining(keyword); // 총 검색결과 가져오기 위함
         List<MonitorGetRes> monitorGetResList = new ArrayList<>();
         int size = monitors.getContent().size();
         for(int i = 0; i < size; i++) {
             Monitor monitor = monitors.getContent().get(i);
             Optional<MonitorPerformance> monitorPerformance = monitorPerformanceRepository.findById(monitor.getPcode());
             if(monitorPerformance.isPresent()) {
-                monitorGetResList.add(MonitorGetRes.of(monitor, monitorPerformance.get(), null));
+                monitorGetResList.add(MonitorGetRes.ofWithTotalResultCount(monitor, monitorPerformance.get(), null, totalResultCount));
             }
         }
 
