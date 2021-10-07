@@ -1,15 +1,15 @@
 <template>
     <div class="productCard card p-2 m-2 mt-3 rounded-3" @click="clickProductDetail">
-        <img :src="product.url" class="card-img-top p-3" alt="상품이미지">
+        <img :src="product.img" class="card-img-top p-3" alt="상품이미지">
         <div class="card-body p-2 mt-3 mb-4">
-            <p class="card-text mb-1">
+            <div class="card-text mb-1">
                 <small class="text-muted">{{product.brand}}</small><br />
-                <strong>{{product.name}}</strong><br />
-                ⭐️{{product.score}}점
-            </p>
+                <div class="text-name"><strong>{{product.name}}</strong></div><br />
+                {{avgScore == undefined ? `리뷰가 없어요 😥` : "⭐️"+avgScore + "점"}}
+            </div>
             <p class="card-text">
-                <span class="lowest-price fw-bold">최저가 </span>
-                <span class="price fw-bold">{{product.price}}원</span>
+                <span class="lowest-price fw-bold">최저가  </span>
+                <span class="price fw-bold"> {{  $filters.convertPriceVer2(product.price)}}만원</span>
             </p>
         </div>
     </div>
@@ -20,7 +20,7 @@ import { useRouter } from "vue-router";
 
 export default {
     name : "ProductCard",
-    props : ['product'],
+    props : ['product', 'avgScore'],
     setup(){
         const router = useRouter();
         const clickProductDetail = function () {
@@ -33,16 +33,29 @@ export default {
 </script>
 
 <style scoped>
+img{
+  display: block; margin: 0px auto;
+  width:60%;
+}
 .productCard {
     display: inline;
-    width: 230px;
-    height: 400px;
+    width: 300px;
+    height: 350px;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border: none;
     display: inline-block;
     text-align: left;
 }
+
+.text-name {
+  width:100%;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+
+}
+
 .lowest-price {
     color: red;
     font-size: small;

@@ -7,6 +7,14 @@
       </a>
       <!-- 검색바 -->
       <div id="searchBar" class="search-box two">
+          <select class="category-select" id="selectCategory" v-model="state.searchCategory">
+            <option selected disabled>카테고리</option>
+            <option class="option-category" id="monitor" value="monitor">모니터</option>
+            <option class="option-category" id="coffeemachine" value="coffeemachine">커피머신</option>
+            <option class="option-category" id="aircleaner" value="aircleaner">공기청정기</option>
+            <option class="option-category" id="airfryer" value="airfryer">에어프라이어</option>
+            <option class="option-category" id="foodprocessor" value="foodprocessor">음식물처리기</option>
+          </select>
         <input
           type="text"
           class="search-txt"
@@ -32,7 +40,7 @@
 <script>
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
-import { reactive, onMounted } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import MainHeaderSearchHistory from "./header/MainHeaderSearchHistory.vue";
 
 export default {
@@ -52,7 +60,10 @@ export default {
     const state = reactive({
       searchWord: "",
       searchWordList: [],
-      searchHistoryView: false,
+      searchHistoryView: computed(() => {
+        return store.getters["root/getSearchHistoryView"];
+      }),
+      searchCategory: "카테고리",
     });
 
     onMounted({
@@ -67,10 +78,34 @@ export default {
     const clickSearchBtn = function () {
       if (!state.searchWord) return;
       console.log(state.searchWord);
-
+      console.log(state.searchCategory);
+      if(state.searchCategory == "카테고리") {
+        alert("카테고리 입력해");
+        return;
+      }
+      var obj = {};
+      if(state.searchCategory == "airfryer") {
+        obj.key = "airfryer";
+        obj.word = "에어프라이어";
+      } else if(state.searchCategory == "aircleaner") {
+        obj.key = "aircleaner";
+        obj.word = "공기청정기";
+      } else if(state.searchCategory == "coffeemachine") {
+        obj.key = "coffeemachine";
+        obj.word = "커피머신";
+      } else if(state.searchCategory == "monitor") {
+        obj.key = "monitor";
+        obj.word = "모니터";
+      } else {
+        obj.key = "foodprocessor";
+        obj.word = "음식물처리기";
+      }
+      store.commit("root/setSearchCategory", obj);
       store.commit("root/setSearchWord", state.searchWord);
+
       console.log(store.getters["root/getSearchHistory"]);
       state.searchWord = "";
+      state.searchCategory = "카테고리";
       state.searchHistoryView = false;
       // 검색 결과 화면으로 이동
       router.push({ name: "SearchProduct" });
@@ -78,20 +113,20 @@ export default {
 
     // 검색바 클릭
     const clickSearchBar = function () {
-      state.searchHistoryView = !state.searchHistoryView;
+      store.commit("root/setSearchHistoryView", !state.searchHistoryView);
       console.log(state.searchHistoryView)
     };
 
-    // 검색바에서 마우스 떠날 때
-    const changeDisplay  = function (status) {
-      console.log(status)
-      if (status == "over")
-        state.searchHistoryView = true;
-      else
-        state.searchHistoryView = false;
-    }
+    // // 검색바에서 마우스 떠날 때
+    // const changeDisplay  = function (status) {
+    //   console.log(status)
+    //   if (status == "over")
+    //     state.searchHistoryView = true;
+    //   else
+    //     state.searchHistoryView = false;
+    // }
 
-    return { router, store, state, onMounted, clickLogo, clickSearchBtn, clickSearchBar, changeDisplay };
+    return { router, store, state, onMounted, clickLogo, clickSearchBtn, clickSearchBar };
   },
   data() {
     return {
@@ -119,7 +154,18 @@ export default {
 a {
   cursor: pointer;
 }
+.category-select {
+  border: none;
+  outline:none;
+  background-color: #fff3f3;
+}
 
+option:disabled {
+}
+
+.option-category:hover {
+  background-color: #ff5757;
+}
 .search-box {
   padding-left: 10px;
   height: 40px;
@@ -142,14 +188,12 @@ a {
   color: #ff5757;
 }
 .search-txt {
-  width: calc(100% - 45px);
-  margin-left: 5px;
+  margin-left: 3px;
+  width: calc(100% - 165px);
   align-self: center;
-  display: flex;
   border: none;
   background: none;
   outline: none;
-  float: left;
   line-height: 40px;
 }
 

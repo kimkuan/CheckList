@@ -18,10 +18,13 @@ export function setModal(state, modal) {
 
 // 상단 검색어 저장
 export function setSearchWord(state, searchWord) {
-  console.log(searchWord)
   state.searchWord = searchWord;
+  var object = {
+    category: state.searchCategory,
+    word: state.searchWord,
+  }
   // 최근 검색 히스토리 배열 앞에 추가
-  state.searchHistory.unshift(searchWord);
+  state.searchHistory.unshift(object);
 }
 
 // 검색어 리스트 전체 삭제
@@ -47,4 +50,14 @@ export function setProductInfo(state, productInfo) {
 // 메인 체크픽 카테고리 저장
 export function setMainCheckPickCategory(state, name) {
   state.mainCheckPickCategory = name;
+}
+
+// 검색바 카테고리 저장
+export function setSearchCategory(state, name) {
+  state.searchCategory = name;
+}
+
+// 최근검색어창 변수 저장
+export function setSearchHistoryView(state, history) {
+  state.searchHistoryView = history;
 }
