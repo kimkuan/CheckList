@@ -75,18 +75,18 @@ public class MonitorGetRes {
         monitorGetRes.setSpec(monitor.getSpec());
 
         if(mp==null) {
-            monitorGetRes.setPricePoint(mp.getPrice());
-            monitorGetRes.setSizePoint(mp.getSize());
-            monitorGetRes.setPixelPoint(mp.getPixel());
-            monitorGetRes.setScreenChangePoint(mp.getScreenChange());
-            monitorGetRes.setConveniencePoint(mp.getConvenience());
-        } else {
             // 성능 분석 X
             monitorGetRes.setPricePoint(-1);
             monitorGetRes.setSizePoint(-1);
             monitorGetRes.setPixelPoint(-1);
             monitorGetRes.setScreenChangePoint(-1);
             monitorGetRes.setConveniencePoint(-1);
+        } else {
+            monitorGetRes.setPricePoint(mp.getPrice());
+            monitorGetRes.setSizePoint(mp.getSize());
+            monitorGetRes.setPixelPoint(mp.getPixel());
+            monitorGetRes.setScreenChangePoint(mp.getScreenChange());
+            monitorGetRes.setConveniencePoint(mp.getConvenience());
         }
 
         monitorGetRes.setLowPriceInfos(list);
