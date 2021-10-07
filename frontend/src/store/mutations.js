@@ -46,6 +46,11 @@ export function setProductInfo(state, productInfo) {
   state.productInfo = productInfo;
 }
 
+// 리뷰 정보 저장
+export function setReviewInfo(state, reviewInfo) {
+  state.reviewInfo = reviewInfo;
+}
+
 // 최근 본 상품 저장
 export function setProductHistory(state, history){
   // 가장 최근에 본 상품과 다를 때만, 최근 본 상품 배열 앞에 추가

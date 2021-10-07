@@ -34,6 +34,12 @@ export function requestProductInfo({ state }, payload) {
   return $axios.get(url);
 }
 
+// 상품의 리뷰 정보 가져오기
+export function requestProductReview({ state }, payload) {
+  const url = "/review/" + payload.pcode + "/" + payload.page;
+  return $axios.get(url);
+}
+
 // 키워드 검색 결과 가져오기
 export function requestGetSearchProducts({ state }, payload) {
   const category = payload.category
