@@ -22,10 +22,10 @@
         </div>
 
         <div class="result">
-          <span style="color:#CF000F; font-size:25px;"><strong>{{totalProducts}}</strong></span><span>개의 검색 결과</span>
+          <span style="color:#CF000F; font-size:25px;"><strong>{{state.totalProducts}}</strong></span><span>개의 검색 결과</span>
         </div>
 
-        <div class="searchList">
+        <div class="searchList" id="searchList">
           <SearchList v-for="product in state.products" :product="product" :key="product.pcode" />
           <InfiniteLoading @infinite="infiniteHandler"/>
         </div>
@@ -41,7 +41,7 @@ import "v3-infinite-loading/lib/style.css";
 
 import { requestFilteringInfo } from "@/store/actions";
 import { useStore } from 'vuex';
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, computed } from 'vue';
 
 export default {
   name: 'Search',
@@ -61,6 +61,9 @@ export default {
       totalProducts: 0,
       products: [],
       json: {},
+      selectedFilter: computed(() => {
+        return store.getters["root/getSelectedFilter"];
+      }),
     });
     
     const getFilterInfo = () => {
@@ -82,6 +85,8 @@ export default {
         console.log(err);
       })
     }
+
+
     function getCheckboxValue()  {
       // 선택된 목록 가져오기
       const check = 'input[type="checkbox"]:checked';
@@ -93,7 +98,6 @@ export default {
       selectedEls.forEach((el) => {
         // 선택된 필터 목록 저장
         filterList.push(el.id);
-        
         // 만원 붙은 경우 카테고리별로 검색이 안되는 경우가 있음..! => 만원 제거, key, value 분리
         let map = el.id.replace('만원', '').split(':');
         let key = map[0];
@@ -109,14 +113,15 @@ export default {
         store.commit("root/setSelectedFilter", filterList);
       });
       console.log(filterList);
-      infiniteHandler;
+      state.selectedFilter = filterList;
+      infiniteHandler();
     }
 
     onMounted(() => {
       getFilterInfo();
     })
 
-    const infiniteHandler = function($state){
+    const infiniteHandler = ($state) => {
       console.log('Call infiniteHandler Method');
       store.dispatch("root/requestPostFilteringProducts", {
         category : store.getters["root/getSelectCategoryName"],
@@ -126,7 +131,7 @@ export default {
       .then(function(result){
         setTimeout(() => {
           console.log(result.data);
-          if(result.data.length < 11) {
+          if(result.data.length < 10) {
             console.log("인피니티스크롤 끝")
             $state.complete()
           }
