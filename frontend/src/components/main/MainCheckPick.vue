@@ -45,6 +45,7 @@ export default {
     const store = useStore();
     const state = reactive({
       category: computed(() => {
+        console.log("체크픽 카테고리")
         console.log(store.getters["root/getMainCheckPickCategory"]);
         return store.getters["root/getMainCheckPickCategory"];
       }),

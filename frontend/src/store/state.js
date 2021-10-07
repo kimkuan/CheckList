@@ -107,14 +107,14 @@ export default {
   searchProductList: [],
 
   // 선택한 체크픽 카테고리 이름
-  mainCheckPickCategory: "",
+  mainCheckPickCategory: "airfryer",
 
   // 선택한 탭 이름
   searchTab: "",
 
   // 선택한 필터링
   SelectedFilter: [],
-   
+
   // 워드클라우드 단어 클릭시 저장될 단어, 피코드
   wordCloudInfo: {
     pcode: '',

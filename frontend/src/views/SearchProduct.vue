@@ -29,7 +29,7 @@
 <script>
 import { computed, reactive, watch, watchEffect } from 'vue';
 import { useStore } from "vuex";
-import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 import ProductCard from "../components/product/ProductCard.vue";
 import InfiniteLoading from "v3-infinite-loading";
 import "v3-infinite-loading/lib/style.css";
@@ -41,7 +41,7 @@ export default {
     InfiniteLoading,
   },
   setup(){
-    const router = useRoute();
+    const router = useRouter();
     const store = useStore();
     const state = reactive({
       searchWord: computed(() => {

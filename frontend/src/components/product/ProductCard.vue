@@ -49,6 +49,9 @@ img{
     display: inline-block;
     text-align: left;
 }
+.productCard:hover{
+  cursor: pointer;
+}
 
 .text-name {
   width:100%;

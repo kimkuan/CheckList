@@ -145,6 +145,7 @@ export default {
     const store = useStore();
     const state = reactive({
       bestProductList: [Object],
+      first : true,
     });
 
     store
@@ -194,6 +195,12 @@ export default {
         .catch(function(err){
           console.log(err)
         });
+    }
+
+    // 처음 메인 열렸을 때 에어프라이기
+    if(state.first){
+      selectCheckPick("airfryer");
+      state.first = false;
     }
 
 
