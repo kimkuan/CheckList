@@ -4,8 +4,8 @@
             <div class="line" v-for="(title, i) in filterTitles" :key=i>
                 <div class="name col-md-2">{{title}}</div>
                 <div class="contents" v-for="(filter, j) in filters[i]" :key=j>
-                    <input type="checkbox" :id="'check'+i+j" class="check">
-                    <label :for="'check'+i+j" class="check-label"><span>{{filter}}</span></label>
+                    <input type="checkbox" :id="title+':'+filter" class="check" @click="getCheckboxValue">
+                    <label :for="title+':'+filter" class="check-label"><span>{{filter}}</span></label>
                 </div>
             </div>
         </div>
@@ -13,15 +13,56 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { useStore } from 'vuex';
+
+
 export default {
     name : "Filter",
-    props : ['filterTitles', "filters"],
+    props : {filterTitles: Object, filters: Object},
     components: {
     },
     setup(){
+        const store = useStore();
+        let json = {};
+        onMounted(() => {
+            json = {};
+            getCheckboxValue();
+        })
+
+        function getCheckboxValue()  {
+            // 선택된 목록 가져오기
+            const check = 'input[type="checkbox"]:checked';
+            const selectedEls = document.querySelectorAll(check);
+
+            // 선택된 목록에서 value 찾기
+            let filterList = [];
+            json = {};
+            selectedEls.forEach((el) => {
+                // 선택된 필터 목록 저장
+                filterList.push(el.id);
+                
+                // 만원 붙은 경우 카테고리별로 검색이 안되는 경우가 있음..! => 만원 제거, key, value 분리
+                let map = el.id.replace('만원', '').split(':');
+                let key = map[0];
+                let value = map[1];
+
+
+                // 키가 있는 경우 기존 배열에 값 추가후 key에 넣어줌
+                if (!json.hasOwnProperty(key)) {
+                    json[key] = [];
+                }
+                json[key].push(value);
+                console.log(json[key]);
+                store.commit("root/setSelectedFilter", filterList);
+            });
+            console.log(filterList);
+            // $emit('infiniteHandler', json);
+        }
+        return {
+            getCheckboxValue, json
+        }
     },
-    methods : {
-    }
 }
 </script>
 <style scoped>
