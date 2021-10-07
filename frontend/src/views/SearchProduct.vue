@@ -7,7 +7,7 @@
           '{{ state.searchWord.word }}'
           </strong>
         </h3>
-        <span> 검색 결과 </span> 
+        <span> 검색 결과 </span>
         <span style="color:#CF000F; font-size:25px;">
           <strong v-if="state.products.length>0">
             {{ state.products[0].totalResultCount }}
@@ -20,7 +20,7 @@
           건
         </span>
       </div>
-      <ProductCard v-for="product in state.products" :product="product" :category="state.category" :key="product.id"/>
+      <ProductCard v-for="product in state.products" :product="product" :category="state.category" :key="product.pcode" @click="clickProduct(product)"/>
       <InfiniteLoading @infinite="infiniteHandler"/>
     </div>
   </div>
@@ -107,6 +107,27 @@ export default {
       })
     }
 
+    const clickProduct = function(product){
+      console.log("click!")
+       store
+        .dispatch("root/requestProductInfo", {
+          category: state.category,
+          pcode: product.pcode,
+        })
+        .then(function(result) {
+          console.log(result.data)
+          store.commit("root/setProductInfo", result.data);
+          store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+          store.commit("root/setMainCheckPickCategory", "airfryer");
+
+          console.log(result.data.pcode)
+          router.push({name: "Product", params: {category: state.category, pcode:result.data.pcode}});
+        })
+        .catch(function(err) {
+          console.log(err)
+        });
+    }
+
     setProducts(state.category, state.searchWord.word, state.pageValue);
 
     watch(() => state.searchWord,
@@ -117,7 +138,7 @@ export default {
     )
 
     return {
-      store, state, setProducts, infiniteHandler, 
+      store, state, setProducts, infiniteHandler, clickProduct
     };
   },
 }
@@ -128,7 +149,7 @@ export default {
   margin-left: 20px;
 }
 
-.container { 
+.container {
   text-align: -webkit-center;
 }
 </style>

@@ -26,7 +26,7 @@ export default {
         const clickProductDetail = function () {
             console.log("프로덕트 확인")
             console.log(props.category)
-            router.push({ name: "Product" , params: {category : props.category, pcode : props.product.pcode}});
+            // router.push({ name: "Product" , params: {category : props.category, pcode : props.product.pcode}});
         };
 
         return { router, clickProductDetail };
