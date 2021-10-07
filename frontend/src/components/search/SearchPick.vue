@@ -4,13 +4,18 @@
           <p>체크리스트에서 분석한 내용을 바탕으로</p>
           <p>상품을 추천 받으세요</p>
         </div>
-
-        <div class="searchCategory">
-          <SearchCategory :categories="categories" />
+        <div class = "searchCategory">
+          <select class="category-select round-3" id="selectCategory" v-model="state.curCategory" @change="changeCategory">
+            <option selected disabled>카테고리</option>
+            <option class="option-category" id="monitor" value="monitor">모니터</option>
+            <option class="option-category" id="coffeemachine" value="coffeemachine">커피머신</option>
+            <option class="option-category" id="aircleaner" value="aircleaner">공기청정기</option>
+            <option class="option-category" id="airfryer" value="airfryer">에어프라이어</option>
+            <option class="option-category" id="foodprocessor" value="foodprocessor">음식물처리기</option>
+          </select>
         </div>
-
         <div class="searchList">
-          <SearchList v-for="product in checkPickproducts" :product="product" :key="product.id" @click="clickProductDetail(product)" />
+          <SearchList v-for="product in state.checkPickproducts" :product="product" :key="product.id" @click="clickProductDetail(product)" />
         </div>
     </div>
 </template>
@@ -22,7 +27,7 @@ import SearchList from "./SearchList.vue";
 
 import { requestCheckPickProducts } from "@/store/actions";
 import { useStore } from 'vuex';
-import { reactive, onMounted, toRefs } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
@@ -47,6 +52,7 @@ export default {
     };
 
     const getCheckPickInfo = () => {
+      console.log(getCheckPickInfo);
       requestCheckPickProducts(store.getters["root/getSelectCategoryName"] + "/checkpick")
         .then( res => {
           console.log(res.data);
@@ -58,38 +64,20 @@ export default {
       });
     }
 
+    const changeCategory = function () {
+      store.commit("root/setSelectCategoryName", state.curCategory);
+      route.go({ name: "Search" });
+    };
+
     onMounted(() => {
         getCheckPickInfo();
-        console.log(state.checkPickproducts);
     })
 
     return {
-      categories : [
-        {
-          id : 'aircleaner',
-          name : "공기청정기"
-        },
-        {
-          id : 'monitor',
-          name : "모니터"
-        },
-        {
-          id : 'airfryer',
-          name : "에어프라이어"
-        },
-        {
-          id : 'foodprocessor',
-          name : "음식물처리기"
-        },
-        {
-          id : 'coffeemachine',
-          name : "커피머신"
-        },
-      ],
-
+      changeCategory,
       clickProductDetail,
       getCheckPickInfo,
-      ...toRefs(state),
+      route, store, state
     };
   },
 }
@@ -98,7 +86,7 @@ export default {
 <style scoped>
 .description {
   background-color: #FFF5F5;
-  height: 100px;
+  height: 110px;
   line-height: 40px;
   margin: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -109,12 +97,24 @@ export default {
 .searchList {
   margin-top: 20px;
 }
+.searchCategory {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+#selectCategory{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
 p {
   margin:0px;
   height: 25px;
 }
-.searchCategory {
-  margin-top: 10px;
+.category-select {
+  border: none;
+  outline:none;
+  background-color: #fff3f3;
+  padding: 5px;
 }
 
 .result {

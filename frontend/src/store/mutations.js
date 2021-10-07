@@ -108,3 +108,8 @@ export function setSearchHistoryView(state, history) {
 export function setWordCloudInfo(state, wordCloudInfo) {
   state.wordCloudInfo = wordCloudInfo;
 }
+
+// 체크픽 상품 10개 저장
+export function setCheckPickList(state, list) {
+  state.checkPickList = list;
+}

@@ -187,7 +187,7 @@ export default {
 <style scoped>
 .description {
   background-color: #FFF5F5;
-  height: 100px;
+  height: 110px;
   line-height: 40px;
   margin: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
