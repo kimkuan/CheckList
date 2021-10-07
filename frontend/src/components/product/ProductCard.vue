@@ -9,7 +9,7 @@
             </p>
             <p class="card-text">
                 <span class="lowest-price fw-bold">최저가 </span>
-                <span class="price fw-bold">{{product.price}}원</span>
+                <span class="price fw-bold">{{ $filters.convertPrice(product.price) }}원</span>
             </p>
         </div>
     </div>
@@ -31,7 +31,7 @@ export default {
         });
         const clickProductDetail = function () {
             store.commit("root/setProductId", state.product.pcode);
-            router.push({ name: "Product", params: {category : 'aircleaner', pcode : state.product.pcode} });
+            router.push({ name: "Product", params: {category : 'coffeemachine', pcode : state.product.pcode} });
         };
 
         return { router, clickProductDetail };
@@ -49,6 +49,7 @@ export default {
     border: none;
     display: inline-block;
     text-align: left;
+    vertical-align: middle;
 }
 .lowest-price {
     color: red;
