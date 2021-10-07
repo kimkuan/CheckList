@@ -9,7 +9,9 @@
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content" style="height: 750px">
         <div class="modal-header">
-          <div class="modal-title" style="width: 80%; text-align: left; margin-left: 30px; margin-top: 30px"><h1>'{{ word }}'에 대한 리뷰</h1></div>
+          <div class="modal-title" style="width: 80%; text-align: left; margin-left: 30px; margin-top: 30px">
+            <h1>'{{ state.wordCloudInfo.word }}'에 대한 리뷰</h1>
+          </div>
           <div style="width: 20%; margin-right: 30px; text-align: right;"><button
             type="button"
             class="btn-close"
@@ -21,9 +23,7 @@
         </div>
         <div class="modal-body p-5 align-items-center">
           <div id="keyword-review" style="margin-left: 15px;">
-            <div v-for="item in 20" :key="item.id">
-              <product-detail-reivew-card></product-detail-reivew-card>
-            </div>
+            <product-detail-reivew-card v-for="review in state.reviewList" :key="review.pcode" :review="review"></product-detail-reivew-card>
           </div>
         </div>
       </div>
@@ -33,12 +33,11 @@
 
 <script>
 import ProductDetailReivewCard from "../review/ProductDetailReviewCard.vue";
+import { computed, reactive, watch } from 'vue'
+import { useStore } from "vuex";
 
 export default {
   name: "ProductDetailReviewModal",
-  props: {
-    word: String,
-  },
   components: {
     ProductDetailReivewCard,
   },
@@ -49,6 +48,14 @@ export default {
     };
   },
   setup() {
+    const store = useStore()
+    const state = reactive({
+      wordCloudInfo: computed(()=> {
+        return store.getters["root/getWordCloudInfo"];
+      }),
+      page : 0,
+      reviewList : [],
+    })
     const goParent = () => {
       document.getElementById('productDetailReviewModal').classList.toggle('show');
       document.getElementById('productDetailReviewModal').style.display = 'none';
@@ -59,8 +66,28 @@ export default {
       document.body.removeAttribute('style');
       // emit("call-parent");
     };
+    const getReviewList = function() {
+      store.dispatch('root/requestReviewListByWord',{
+        pcode: state.wordCloudInfo.pcode, 
+        word:state.wordCloudInfo.word, 
+        page : state.page
+      })
+      .then(function(result){
+        console.log("리뷰 불러오기 성공-============================")
+        console.log(result.data)
+        state.reviewList = result.data;
+      })
+    }
+    
 
-    return { goParent };
+    watch(() => state.wordCloudInfo,
+      (after, before) => {
+        state.wordCloudInfo.page = 0;
+        getReviewList();
+      }
+    )
+
+    return { store, state, goParent, getReviewList };
   },
 };
 </script>

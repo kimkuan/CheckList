@@ -41,7 +41,8 @@ public class ReviewController {
     })
     @GetMapping("/{pcode}/{page}")
     public ResponseEntity<ReviewListGetRes> findAllReview(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "page") int page){
-
+        System.out.println(">>>>>>>>pcode : "+pcode);
+        System.out.println(">>>>>>>>page : "+page);
         ReviewListGetRes reviewListGetRes = reviewService.findAll(pcode, page);
         return new ResponseEntity<>(reviewListGetRes, HttpStatus.OK);
     }
@@ -61,20 +62,32 @@ public class ReviewController {
     }
 
 
+//    @ApiOperation(value = "특정 키워드를 갖는 모든 리뷰 조회", notes = "제품에 대한 리뷰 중, 특정 키워드에 갖는 리뷰 목록을 조회한다.")
+//    @ApiResponses({
+//            @ApiResponse(code = 200, message = "조회 성공"),
+//            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+//            @ApiResponse(code = 500, message = "서버 에러 발생")
+//    })
+//    @GetMapping("/{pcode}/{keyword}/{page}")
+//    public ResponseEntity<Page<Review>> findAllReviewByKeyword(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "keyword") String keyword, @PathVariable(name = "page") int page){
+//        System.out.println("키워드 >> " + keyword);
+//        Page<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword, page);
+//
+//        return new ResponseEntity<>(reviews, HttpStatus.OK);
+//    }
+
     @ApiOperation(value = "특정 키워드를 갖는 모든 리뷰 조회", notes = "제품에 대한 리뷰 중, 특정 키워드에 갖는 리뷰 목록을 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "조회 성공"),
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/{pcode}/{keyword}/{page}")
-    public ResponseEntity<Page<Review>> findAllReviewByKeyword(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "keyword") String keyword, @PathVariable(name = "page") int page){
+    @GetMapping("/list/{pcode}/{keyword}")
+    public ResponseEntity<List<Review>> findAllReviewByKeyword(@PathVariable(name = "pcode") Long pcode, @PathVariable(name = "keyword") String keyword){
         System.out.println("키워드 >> " + keyword);
-        Page<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword, page);
+        List<Review> reviews = reviewService.findReviewByKeyword(pcode, keyword);
 
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
-
-
 
 }

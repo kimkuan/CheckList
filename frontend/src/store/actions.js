@@ -71,3 +71,11 @@ export function requestPostFilteringProducts({ state }, payload) {
   console.log("category:filter:pageValue: " + category + " : "+ filters + " : " + pageValue);
   return axiosService.post(url, filters);
 }
+
+// word를 포함한 리뷰 리스트 가져오기
+export function requestReviewListByWord({ state }, payload) {
+  console.log("payload 정보 :")
+  console.log(payload)
+  const url = "/review/list/" + payload.pcode + "/" + payload.word
+  return $axios.get(url);
+}

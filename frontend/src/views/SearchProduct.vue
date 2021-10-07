@@ -130,3 +130,4 @@ export default {
   text-align: -webkit-center;
 }
 </style>
+

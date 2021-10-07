@@ -21,20 +21,20 @@ export default {
   // 클릭한 상품 설명 모달창
   modal: "",
 
-   // 선택한 체크픽 카테고리 이름
+  // 선택한 체크픽 카테고리 이름
   mainCheckPickCategory: "airfryer",
 
-   // 검색바 카테고리 이름
-   searchCategory: {},
+  // 검색바 카테고리 이름
+  searchCategory: {},
 
-   // 최근검색어 창 보여주는 변수
-   searchHistoryView: false,
+  // 최근검색어 창 보여주는 변수
+  searchHistoryView: false,
 
-   // 조회수 베스트 상품 3개
-   bestProductList: [],
+  // 조회수 베스트 상품 3개
+  bestProductList: [],
 
-   // 체크픽 10개
-   checkPickList: [],
+  // 체크픽 10개
+  checkPickList: [],
   // 리뷰 정보 (pcode, category, avgScore, reviewList<content>)
   reviewInfo: {
     pcode: 0,
@@ -106,12 +106,18 @@ export default {
   // 검색한 상품 리스트
   searchProductList: [],
 
-   // 선택한 체크픽 카테고리 이름
-   mainCheckPickCategory:"",
+  // 선택한 체크픽 카테고리 이름
+  mainCheckPickCategory: "",
 
-   // 선택한 탭 이름
-   searchTab: "",
+  // 선택한 탭 이름
+  searchTab: "",
 
-   // 선택한 필터링
-   SelectedFilter: [],
+  // 선택한 필터링
+  SelectedFilter: [],
+   
+  // 워드클라우드 단어 클릭시 저장될 단어, 피코드
+  wordCloudInfo: {
+    pcode: '',
+    word: '',
+  },
 };

@@ -103,3 +103,8 @@ export function setSearchCategory(state, name) {
 export function setSearchHistoryView(state, history) {
   state.searchHistoryView = history;
 }
+
+// 워드클라우드 단어정보 저장
+export function setWordCloudInfo(state, wordCloudInfo) {
+  state.wordCloudInfo = wordCloudInfo;
+}

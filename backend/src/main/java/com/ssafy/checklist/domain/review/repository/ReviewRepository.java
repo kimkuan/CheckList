@@ -22,5 +22,7 @@ public interface ReviewRepository extends JpaRepository<Review, String> {
 
     Optional<Page<Review>> findAllByPcodeAndAndContentContaining(Long pcode, String keyword, Pageable pageable);
 
+    Optional<List<Review>> findAllByPcodeAndContentContaining(Long pcode, String keyword);
+
     Optional<Page<Review>> findAllByPcode(Long pcode, Pageable pageable);
 }

@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-    <product-detail-review-modal v-bind:word="word" @call-parent="hideModal"></product-detail-review-modal>
+    <product-detail-review-modal @call-parent="hideModal"></product-detail-review-modal>
   </div>
 </template>
 
@@ -150,12 +150,11 @@ export default {
       pcode: pcode,
     })
     .then(function(result) {
-      console.log(result.data);
       if(result.data.pcode) {
-        console.log(result.data.wordcloud);
+        console.log("워드클라우드 가져오기 성공")
         let wordcloud = JSON.parse(result.data.wordcloud);
         for(let key in wordcloud) {
-          console.log('key:' + key + ' / ' + 'value:' + wordcloud[key]);
+          if (parseInt(wordcloud[key]) < 5) continue;
           state.chartData.push({x : key, value : parseInt(wordcloud[key])})
         }
         setWordcloud();
@@ -174,9 +173,13 @@ export default {
       chart.tooltip(false); // data 설명창? 안뜨게 수정
       chart.draw();
       chart.listen("pointClick", function() {
+        state.word = chart.getPoint(chart.getSelectedPoints()[0].index).get('x');
+        let obj = {pcode: pcode, word: state.word}
+        console.log("obj.pcode!!!!"+obj.pcode);
+        console.log("obj.word!!!!"+obj.word);
+        store.commit("root/setWordCloudInfo", obj);
         // console.log(chart.getSelectedPoints()[0].index);
         // console.log(chart.getPoint(chart.getSelectedPoints()[0].index).get('x'))
-        state.word = chart.getPoint(chart.getSelectedPoints()[0].index).get('x');
         document.getElementById('productDetailReviewModal').classList.toggle('show');
         document.getElementById('productDetailReviewModal').style.display = 'block';
         document.getElementById('productDetailReviewModal').setAttribute('aria-modal', true);

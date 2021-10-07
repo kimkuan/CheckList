@@ -86,3 +86,8 @@ export function getBestProductList(state) {
 export function getCheckPickList(state) {
   return state.checkPickList;
 }
+
+// 워드클라우드 단어정보 가져오기
+export function getWordCloudInfo(state) {
+  return state.wordCloudInfo;
+}
