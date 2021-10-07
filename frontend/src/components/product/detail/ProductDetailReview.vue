@@ -6,14 +6,11 @@
         <div id="review-score">
           <h3>사용자 총 평점</h3>
           <div id="star">
-            <img src="@/assets/star-yellow.png" alt="star-yellow" />
-            <img src="@/assets/star-yellow.png" alt="star-yellow" />
-            <img src="@/assets/star-yellow.png" alt="star-yellow" />
-            <img src="@/assets/star-yellow.png" alt="star-yellow" />
-            <img src="@/assets/star-grey.png" alt="star-grey" />
+            <img src="@/assets/star-yellow.png" alt="star-yellow" v-for="i in (reviewInfo.avgScore/20)" v-bind:key="i">
+            <img src="@/assets/star-grey.png" alt="star-grey" v-for="i in 5-(reviewInfo.avgScore/20)" v-bind:key="i">
           </div>
           <!-- 총 평점 계산해서 h4 태그 안에 넣기 -->
-          <h4 style="margin-top: 10px">4 / 5</h4>
+          <h4 style="margin-top: 10px">{{ reviewInfo.avgScore/20 }} / 5</h4>
         </div>
         <div id="review-count">
           <h3>전체 리뷰 수</h3>
@@ -62,25 +59,24 @@
         <div id="cloud" ref="cloud" style="width: 100%; height: 100%"></div>
       </div>
       <div id="review-data">
-        <div v-for="item in 5" :key="item.id">
-          <product-detail-reivew-card></product-detail-reivew-card>
+        <div v-for="review in reviewInfo.reviewList.content" :key="review.id">
+          <product-detail-reivew-card v-bind:review="review"></product-detail-reivew-card>
         </div>
         <div style="display:flex; justify-content: center;">
           <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
+                <a class="page-link" aria-label="Previous">
+                  <span aria-hidden="true" @click="prePage()">&laquo;</span>
                 </a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item" v-for="item in cnt" :key="item.id">
+                <a class="page-link" @click="getNextReview(item+pageIdx*10)">{{ item+pageIdx*10 }}</a>
+              </li>
+              <!-- <li class="page-item" v-for="item in reviewInfo.reviewList.totalPages" :key="item.id"><a class="page-link" @click="getNextReview(item)">{{ item }}</a></li> -->
               <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
+                <a class="page-link" aria-label="Next">
+                  <span aria-hidden="true" @click="nextPage()">&raquo;</span>
                 </a>
               </li>
             </ul>
@@ -93,7 +89,9 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted } from 'vue'
+import { reactive, toRefs, onMounted, computed } from 'vue'
+import { useStore } from "vuex";
+import { useRoute } from 'vue-router';
 
 import Anychart from "anychart";
 import ProductDetailReivewCard from "../review/ProductDetailReviewCard.vue";
@@ -106,6 +104,8 @@ export default {
     ProductDetailReviewModal,
   },
   setup() {
+    const route = useRoute()
+    const store = useStore()
     const state = reactive({
       displayModal: false,
       word: "",
@@ -127,7 +127,32 @@ export default {
           value: 422000000,
         },
       ],
+      reviewInfo: computed(() => {
+        return store.getters["root/getReviewInfo"];
+      }),
+      cnt: computed(() => {
+        if(store.getters["root/getReviewInfo"].reviewList.number == store.getters["root/getReviewInfo"].reviewList.totalPages-1)
+          return state.reviewInfo.reviewList.totalPages%10;
+        return 10;
+      }),
+      pageIdx: 0,
     });
+
+    var pcode = route.params.pcode;
+
+    // 리뷰 첫페이지 가져오기
+    store.dispatch("root/requestProductReview", {
+      pcode: pcode,
+      page: 0,
+    })
+    .then(function(result){
+      console.log(result.data)
+      store.commit("root/setReviewInfo", result.data);
+      console.log(state.reviewInfo);
+    })
+    .catch(function(err){
+      console.log(err)
+    })
 
     onMounted(() => {
       const chart = Anychart.tagCloud(state.chartData);
@@ -149,11 +174,45 @@ export default {
       });
     })
 
+    console.log("페이지수", state.reviewInfo.reviewList.totalPages)
+
+
     const hideModal = () => {
       console.log("암것두안혀")
     }
 
-    return { ...toRefs(state), hideModal }
+    const getNextReview = (idx) => {
+      store.dispatch("root/requestProductReview", {
+      pcode: pcode,
+      page: idx-1,
+    })
+    .then(function(result){
+      console.log(result.data)
+      store.commit("root/setReviewInfo", result.data);
+      console.log(state.reviewInfo);
+    })
+    .catch(function(err){
+      console.log(err)
+    })
+    }
+
+    const nextPage = () => {
+      if(state.pageIdx < 1) {
+      state.pageIdx = state.pageIdx+1;
+      this.getNextRevie(state.pageIdx);
+      route.push();
+      }
+    }
+
+    const prePage = () => {
+       if (state.pageIdx<=state.reviewInfo.reviewList.totalPages){
+      state.pageIdx = state.pageIdx-1;
+      this.getNextRevie(state.pageIdx);
+      route.push("/");
+      }
+    }
+
+    return { ...toRefs(state), hideModal, getNextReview, nextPage, prePage }
   },
 };
 </script>
