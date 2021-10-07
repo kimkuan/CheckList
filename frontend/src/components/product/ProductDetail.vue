@@ -22,7 +22,7 @@
               <h1>최저가 {{ $filters.convertPrice(state.productInfo.price) }}원</h1>
             </div>
             <div style="display: inline-block; width: 25%; text-align: right">
-              <button>사러가기</button>
+              <button onclick="location.href='#low-price'">사러가기</button>
             </div>
           </div>
 
