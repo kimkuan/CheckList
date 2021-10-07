@@ -132,7 +132,7 @@
               </ul>
         </div>
         <div class="content">
-          <div class="content-func">
+          <div class="content-func" v-if="inch != undefined && inch.length > 2">
             <h4>{{ inch[1].substring(0, inch[1].length-1) }}</h4>
             <div>화면 대각선 길이가 {{ inch[0] }}인 {{ inch[1].substring(0, inch[1].length-1) }} 제품입니다. <br> 현재 판매중인 모니터 중 {{ calPricePoint(productInfo.sizePoint) }} 편입니다.</div>
             <div><br>틸트와 피벗 기능이 있어 여러 용도로 사용이 편리합니다.</div>
@@ -177,7 +177,7 @@
               </ul>
         </div>
         <div class="content">
-          <div class="content-func">
+          <div class="content-func" v-if="pixelCal != undefined && pixelCal.length > 2">
             <h4>{{ pixelCal[1].substring(0, pixelCal[1].length-1) }}</h4>
             <div>화면 사이즈가 {{ pixelCal[0] }} 이며 전체 모니터 화질 중에서는 {{ calPixelPoint(productInfo.pixelPoint) }} 편인 제품입니다.</div>
           </div>

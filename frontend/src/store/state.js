@@ -81,6 +81,9 @@ export default {
     power: 0,
     size: "",
     spec: "",
+    pressure: "",
+    heatTime: "",
+    waterVolume: "",
 
     pricePoint: 0,
     volumePoint: 0,
@@ -88,6 +91,11 @@ export default {
     controlPoint: 0,
     managementPoint: 0,
     conveniencePoint: 0,
+    brewingPoint: 0,
+    waterVolumePoint: 0,
+    conveniencePoint: 0,
+
+
 
     lowPriceInfoList: [],
   },
