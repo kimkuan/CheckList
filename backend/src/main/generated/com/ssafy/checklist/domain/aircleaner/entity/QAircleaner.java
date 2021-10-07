@@ -1,4 +1,4 @@
-package com.ssafy.checklist.domain.airfryer.entity;
+package com.ssafy.checklist.domain.aircleaner.entity;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -10,16 +10,20 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QAirfryer is a Querydsl query type for Airfryer
+ * QAircleaner is a Querydsl query type for Aircleaner
  */
 @Generated("com.querydsl.codegen.EntitySerializer")
-public class QAirfryer extends EntityPathBase<Airfryer> {
+public class QAircleaner extends EntityPathBase<Aircleaner> {
 
-    private static final long serialVersionUID = -227058856L;
+    private static final long serialVersionUID = 176814288L;
 
-    public static final QAirfryer airfryer = new QAirfryer("airfryer");
+    public static final QAircleaner aircleaner = new QAircleaner("aircleaner");
+
+    public final StringPath area = createString("area");
 
     public final StringPath brand = createString("brand");
+
+    public final StringPath dust = createString("dust");
 
     public final StringPath img = createString("img");
 
@@ -27,28 +31,22 @@ public class QAirfryer extends EntityPathBase<Airfryer> {
 
     public final NumberPath<Long> pcode = createNumber("pcode", Long.class);
 
-    public final StringPath power = createString("power");
-
     public final NumberPath<Long> price = createNumber("price", Long.class);
-
-    public final StringPath size = createString("size");
 
     public final StringPath spec = createString("spec");
 
     public final StringPath type = createString("type");
 
-    public final StringPath volume = createString("volume");
-
-    public QAirfryer(String variable) {
-        super(Airfryer.class, forVariable(variable));
+    public QAircleaner(String variable) {
+        super(Aircleaner.class, forVariable(variable));
     }
 
-    public QAirfryer(Path<? extends Airfryer> path) {
+    public QAircleaner(Path<? extends Aircleaner> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QAirfryer(PathMetadata metadata) {
-        super(Airfryer.class, metadata);
+    public QAircleaner(PathMetadata metadata) {
+        super(Aircleaner.class, metadata);
     }
 
 }

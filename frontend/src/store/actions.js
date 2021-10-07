@@ -55,6 +55,13 @@ export function requestGetSearchProducts({ state }, payload) {
   return $axios.get(url);
 }
 
+// 워드클라우드 정보 가져오기
+export function requestWordcloud({ state }, payload) {
+  const url = "/review/wordcloud/" + payload.pcode
+  console.log("url : "+url)
+  return $axios.get(url);
+}
+
 // 필터링 검색 결과 가져오기
 export function requestPostFilteringProducts({ state }, payload) {
   const category = payload.category;

@@ -20,11 +20,13 @@ import { useRouter } from "vue-router";
 
 export default {
     name : "ProductCard",
-    props : ['product', 'avgScore'],
-    setup(){
+    props : ['product', 'avgScore', 'category'],
+    setup(props){
         const router = useRouter();
         const clickProductDetail = function () {
-            router.push({ name: "Product" });
+            console.log("프로덕트 확인")
+            console.log(props.category)
+            router.push({ name: "Product" , params: {category : props.category, pcode : props.product.pcode}});
         };
 
         return { router, clickProductDetail };

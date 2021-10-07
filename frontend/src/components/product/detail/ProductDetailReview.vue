@@ -59,6 +59,7 @@
         <div id="cloud" ref="cloud" style="width: 100%; height: 100%"></div>
       </div>
       <div id="review-data">
+        <!-- review 보여줌 -->
         <div v-for="review in reviewInfo.reviewList.content" :key="review.id">
           <product-detail-reivew-card v-bind:review="review"></product-detail-reivew-card>
         </div>
@@ -71,7 +72,7 @@
                 </a>
               </li>
               <li class="page-item" v-for="item in cnt" :key="item.id">
-                <a class="page-link" @click="getNextReview(item+pageIdx*10)">{{ item+pageIdx*10 }}</a>
+                <a class="page-link" v-if="(item+pageIdx*10) <= reviewInfo.reviewList.totalPages" @click="getNextReview(item+pageIdx*10)">{{ item+pageIdx*10 }}</a>
               </li>
               <!-- <li class="page-item" v-for="item in reviewInfo.reviewList.totalPages" :key="item.id"><a class="page-link" @click="getNextReview(item)">{{ item }}</a></li> -->
               <li class="page-item">
@@ -110,31 +111,21 @@ export default {
       displayModal: false,
       word: "",
       chartData: [
-        {
-          x: "IT",
-          value: 590000000,
-        },
-        {
-          x: "Python",
-          value: 283000000,
-        },
-        {
-          x: "JAVA",
-          value: 527000000,
-        },
-        {
-          x: "C++",
-          value: 422000000,
-        },
       ],
       reviewInfo: computed(() => {
         return store.getters["root/getReviewInfo"];
       }),
+
+      // 현재 보여줄 페이지의 개수
       cnt: computed(() => {
-        if(store.getters["root/getReviewInfo"].reviewList.number == store.getters["root/getReviewInfo"].reviewList.totalPages-1)
-          return state.reviewInfo.reviewList.totalPages%10;
-        return 10;
+        console.log(store.getters["root/getReviewInfo"].reviewList.number)
+        console.log(store.getters["root/getReviewInfo"].reviewList.totalPages);
+        if(store.getters["root/getReviewInfo"].reviewList.number >= store.getters["root/getReviewInfo"].reviewList.totalPages-1)
+          return state.reviewInfo.reviewList.totalPages % 10;
+        else
+          return 10;
       }),
+      // 현재 보여줄 리뷰들의 페이지 넘버
       pageIdx: 0,
     });
 
@@ -154,7 +145,28 @@ export default {
       console.log(err)
     })
 
-    onMounted(() => {
+    //워드클라우드 가져오기
+    store.dispatch("root/requestWordcloud", {
+      pcode: pcode,
+    })
+    .then(function(result) {
+      console.log(result.data);
+      if(result.data.pcode) {
+        console.log(result.data.wordcloud);
+        let wordcloud = JSON.parse(result.data.wordcloud);
+        for(let key in wordcloud) {
+          console.log('key:' + key + ' / ' + 'value:' + wordcloud[key]);
+          state.chartData.push({x : key, value : parseInt(wordcloud[key])})
+        }
+        setWordcloud();
+      } else {
+        console.log("댓글이 없습니다.")
+      }
+      
+    })
+
+    const setWordcloud = function() {
+      console.log("setWordcloud시작") 
       const chart = Anychart.tagCloud(state.chartData);
       chart.angles([0]);
       chart.selected().fill(chart.normal().fill()); // word 선택시 색상 변하지 않도록 설정
@@ -172,7 +184,8 @@ export default {
         document.body.classList.toggle('modal-open');
         document.body.style.overflow = 'hidden';
       });
-    })
+      console.log("setWordcloud끝")
+    }
 
     console.log("페이지수", state.reviewInfo.reviewList.totalPages)
 
@@ -181,6 +194,7 @@ export default {
       console.log("암것두안혀")
     }
 
+    // 특정 페이지로 뛰어넘기
     const getNextReview = (idx) => {
       store.dispatch("root/requestProductReview", {
       pcode: pcode,
@@ -196,23 +210,25 @@ export default {
     })
     }
 
+    // 10페이지 다음으로
     const nextPage = () => {
-      if(state.pageIdx < 1) {
-      state.pageIdx = state.pageIdx+1;
-      this.getNextRevie(state.pageIdx);
-      route.push();
+      if((state.pageIdx+1)*10 < state.reviewInfo.reviewList.totalPages) {
+        state.pageIdx = state.pageIdx+1;
+        this.getNextReview(state.pageIdx);
+        route.push();
       }
     }
 
+    // 10페이지 이전으로
     const prePage = () => {
-       if (state.pageIdx<=state.reviewInfo.reviewList.totalPages){
-      state.pageIdx = state.pageIdx-1;
-      this.getNextRevie(state.pageIdx);
-      route.push("/");
+       if (state.pageIdx > 0){
+        state.pageIdx = state.pageIdx-1;
+        this.getNextReview(state.pageIdx);
+        route.push();
       }
     }
 
-    return { ...toRefs(state), hideModal, getNextReview, nextPage, prePage }
+    return { ...toRefs(state), hideModal, getNextReview, nextPage, prePage, setWordcloud }
   },
 };
 </script>
@@ -326,6 +342,10 @@ export default {
 
 #review-data nav {
   margin-top: 30px;
+}
+
+.page-item {
+  cursor: pointer;
 }
 
 .page-link {
