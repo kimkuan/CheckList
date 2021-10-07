@@ -55,3 +55,23 @@ export function getSearchProductListInfo(state) {
 export function getMainCheckPickCategory(state) {
   return state.mainCheckPickCategory;
 }
+
+// 검색바 카테고리 이름 가져오기
+export function getSearchCategory(state) {
+  return state.searchCategory;
+}
+
+// 최근검색어창 변수 가져오기
+export function getSearchHistoryView(state) {
+  return state.searchHistoryView;
+}
+
+// 베스트상품 3개
+export function getBestProductList(state) {
+  return state.bestProductList;
+}
+
+// 체크픽 선정 상품 10개
+export function getCheckPickList(state) {
+  return state.checkPickList;
+}
