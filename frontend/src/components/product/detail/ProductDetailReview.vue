@@ -111,22 +111,6 @@ export default {
       displayModal: false,
       word: "",
       chartData: [
-        {
-          x: "IT",
-          value: 590000000,
-        },
-        {
-          x: "Python",
-          value: 283000000,
-        },
-        {
-          x: "JAVA",
-          value: 527000000,
-        },
-        {
-          x: "C++",
-          value: 422000000,
-        },
       ],
       reviewInfo: computed(() => {
         return store.getters["root/getReviewInfo"];
@@ -161,7 +145,28 @@ export default {
       console.log(err)
     })
 
-    onMounted(() => {
+    //워드클라우드 가져오기
+    store.dispatch("root/requestWordcloud", {
+      pcode: pcode,
+    })
+    .then(function(result) {
+      console.log(result.data);
+      if(result.data.pcode) {
+        console.log(result.data.wordcloud);
+        let wordcloud = JSON.parse(result.data.wordcloud);
+        for(let key in wordcloud) {
+          console.log('key:' + key + ' / ' + 'value:' + wordcloud[key]);
+          state.chartData.push({x : key, value : parseInt(wordcloud[key])})
+        }
+        setWordcloud();
+      } else {
+        console.log("댓글이 없습니다.")
+      }
+      
+    })
+
+    const setWordcloud = function() {
+      console.log("setWordcloud시작") 
       const chart = Anychart.tagCloud(state.chartData);
       chart.angles([0]);
       chart.selected().fill(chart.normal().fill()); // word 선택시 색상 변하지 않도록 설정
@@ -179,7 +184,8 @@ export default {
         document.body.classList.toggle('modal-open');
         document.body.style.overflow = 'hidden';
       });
-    })
+      console.log("setWordcloud끝")
+    }
 
     console.log("페이지수", state.reviewInfo.reviewList.totalPages)
 
@@ -222,7 +228,7 @@ export default {
       }
     }
 
-    return { ...toRefs(state), hideModal, getNextReview, nextPage, prePage }
+    return { ...toRefs(state), hideModal, getNextReview, nextPage, prePage, setWordcloud }
   },
 };
 </script>

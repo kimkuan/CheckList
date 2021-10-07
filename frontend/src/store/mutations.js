@@ -84,6 +84,14 @@ export function setMainCheckPickCategory(state, name) {
   state.mainCheckPickCategory = name;
 }
 
+export function setSearchTap(state, name) {
+  state.searchTab = name;
+}
+
+export function setSelectedFilter(state, selectedFilter) {
+  state.selectedFilter = selectedFilter;
+}
+
 // 검색바 카테고리 저장
 export function setSearchCategory(state, name) {
   state.searchCategory = name;

@@ -105,4 +105,13 @@ export default {
 
   // 검색한 상품 리스트
   searchProductList: [],
+
+   // 선택한 체크픽 카테고리 이름
+   mainCheckPickCategory:"",
+
+   // 선택한 탭 이름
+   searchTab: "",
+
+   // 선택한 필터링
+   SelectedFilter: [],
 };
