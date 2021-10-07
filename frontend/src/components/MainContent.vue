@@ -81,9 +81,11 @@
   </div>
 
   <!-- 베스트 상품 -->
-  <div class="best">
+  <div class="card best">
     <h4>🏅 베스트</h4>
-    <!-- <product-card></product-card> -->
+    <div class="best-product card-body">
+      <ProductCard v-for="product in state.bestProductList" :product="product" :key="product.pcode" :avgScore="product.avgScore" style="display=inline-block; vertical-align:middle;" @click="readDetail(product.pcode)">🥇</ProductCard>
+    </div>
   </div>
 
   <!-- 체크픽 -->
@@ -105,9 +107,9 @@
     </div>
     <div class="tab-content" id="check-nav-tabContent">
       <div class="tab-pane fade show active" id="nav-airflyer" role="tabpanel" aria-labelledby="nav-airflyer-tab">
-        <MainCheckPick :categoryName="airfryer" />
+        <MainCheckPick />
       </div>
-      <div class="tab-pane fade" id="nav-foodprocessor" role="tabpanel" aria-labelledby="nav-foodprocessor-tab">
+      <!-- <div class="tab-pane fade" id="nav-foodprocessor" role="tabpanel" aria-labelledby="nav-foodprocessor-tab">
         <MainCheckPick :categoryName="foodprocessor" />
       </div>
       <div class="tab-pane fade" id="nav-monitor" role="tabpanel" aria-labelledby="nav-monitor-tab">
@@ -118,7 +120,7 @@
       </div>
       <div class="tab-pane fade" id="nav-coffeemachine" role="tabpanel" aria-labelledby="nav-coffeemachine-tab">
           <MainCheckPick :categoryName="coffeemachine" />
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -126,20 +128,54 @@
 <script>
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { reactive, computed, onMounted } from "vue";
 import MainCategory from "./main/MainCategory.vue";
 import MainCheckPick from "./main/MainCheckPick.vue";
-// import ProductCard from "./product/ProductCard.vue";
+import ProductCard from "./product/ProductCard.vue";
 
 export default {
-  name : "MainContent",
-  components : {
+  name: "MainContent",
+  components: {
     MainCategory,
     MainCheckPick,
-    // ProductCard
+    ProductCard,
   },
   setup() {
     const router = useRouter();
     const store = useStore();
+    const state = reactive({
+      bestProductList: [Object],
+    });
+
+    store
+      .dispatch("root/requestBestProduct")
+      .then(function(result) {
+        console.log(result.data);
+        state.bestProductList = result.data;
+        console.log(state.bestProductList);
+
+        state.bestProductList.forEach((value, index) => {
+          console.log(value)
+          store
+          .dispatch("root/requestProductReview", {
+            pcode: value.pcode,
+            page: 0,
+          })
+          .then(function(result) {
+            console.log(result.data);
+            console.log(index);
+            state.bestProductList[index].avgScore = result.data.avgScore;
+          })
+          .catch(function(err) {
+          });
+        })
+      })
+      .catch(function(err) {
+
+      });
+
+
+
     const clickMoreButton = function () {
       router.push({ name: "AboutService" });
     };
@@ -147,9 +183,106 @@ export default {
     const selectCheckPick = function (name) {
       console.log("변경");
       store.commit("root/setMainCheckPickCategory", name);
+      console.log(store.getters["root/getMainCheckPickCategory"]);
+
+      store.dispatch("root/requestCheckPick",store.getters["root/getMainCheckPickCategory"])
+        .then(function(result) {
+          console.log(result.data);
+        })
+        .catch(function(err){
+          console.log(err)
+        });
     }
-    return { router, store, clickMoreButton, selectCheckPick };
+
+
+    // 카테고리별로 다 해봐야함 ?
+    const readDetail = function(pcode) {
+      store
+        .dispatch("root/requestProductInfo", {
+          category: 'airfryer',
+          pcode: pcode,
+        })
+        .then(function(result) {
+          console.log(result.data)
+          store.commit("root/setProductInfo", result.data);
+          store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+          store.commit("root/setMainCheckPickCategory", "airfryer");
+          router.push({name: "Product", params: {category: 'airfryer', pcode:result.data.pcode}});
+
+        })
+        .catch(function(err) {
+          store
+          .dispatch("root/requestProductInfo", {
+            category: 'aircleaner',
+            pcode: pcode,
+          })
+          .then(function(result) {
+            console.log(result.data)
+            store.commit("root/setProductInfo", result.data);
+            store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+            store.commit("root/setMainCheckPickCategory", "airfryer");
+            router.push({name: "Product", params: {category: 'aircleaner', pcode:result.data.pcode}});
+          })
+          .catch(function(err) {
+            store
+            .dispatch("root/requestProductInfo", {
+              category: 'coffeemachine',
+              pcode: pcode,
+            })
+            .then(function(result) {
+              console.log(result.data)
+              store.commit("root/setProductInfo", result.data);
+              store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+              store.commit("root/setMainCheckPickCategory", "airfryer");
+              router.push({name: "Product", params: {category: 'coffeemachine', pcode:result.data.pcode}});
+            })
+            .catch(function(err) {
+              store
+              .dispatch("root/requestProductInfo", {
+                category: 'monitor',
+                pcode: pcode,
+              })
+              .then(function(result) {
+                console.log(result.data)
+                console.log(result.data.pcode)
+                store.commit("root/setProductInfo", result.data);
+                store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+                store.commit("root/setMainCheckPickCategory", "airfryer");
+                router.push({
+                  name: "Product",
+                  params: {category: 'monitor', pcode:result.data.pcode}
+                });
+              })
+              .catch(function(err) {
+                store
+                .dispatch("root/requestProductInfo", {
+                  category: 'foodprocessor',
+                  pcode: pcode,
+                })
+                .then(function(result) {
+                  store.commit("root/setProductInfo", result.data);
+                  store.commit("root/setProductId", store.getters["root/getProductInfo"].pcode);
+                  store.commit("root/setMainCheckPickCategory", "airfryer");
+                  router.push({name: "Product", params: {category: 'foodprocessor', pcode:result.data.pcode}});
+                })
+                .catch(function(err) {
+                })
+              })
+            })
+          })
+        })
+    };
+
+    onMounted(() => {
+
+    })
+    return { router, store, state, clickMoreButton, selectCheckPick, readDetail };
   },
+  data() {
+    return {
+
+    }
+  }
 };
 </script>
 
@@ -196,6 +329,12 @@ button:focus {
   width: 20px;
 }
 
+.best-product {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
 .category {
   padding-top: 30px;
   border-bottom: 1px solid rgb(229, 229, 229);
@@ -209,6 +348,24 @@ button:focus {
   background: white;
 }
 
+.card {
+  border:none;
+}
+
+.circle {
+  z-index: 3;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+.circle-margin {
+  margin-right: 10px;
+}
 .checkpick-button {
   background: white;
   border-color: #fff #fff #fff #fff;

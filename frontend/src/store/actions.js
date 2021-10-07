@@ -21,10 +21,10 @@ export function requestProducts(category) {
 }
 
 // 카테고리별 체크픽 가져오기
-export function requestCheckPick(payload) {
+export function requestCheckPick({state}, category) {
   console.log(" 체크픽 가져오기 >>> ")
-  console.log(payload.category)
-  const url = payload.category + "/checkpick";
+  console.log(category)
+  const url = category + "/checkpick";
   return $axios.get(url);
 }
 
@@ -34,9 +34,15 @@ export function requestProductInfo({ state }, payload) {
   return $axios.get(url);
 }
 
+// 베스트 상품 3개 가져오기
+export function requestBestProduct() {
+  const url = "main/best";
+  return $axios.get(url);
+}
+
 // 상품의 리뷰 정보 가져오기
 export function requestProductReview({ state }, payload) {
-  const url = "/review/" + payload.pcode + "/" + payload.page;
+  const url = "review/" + payload.pcode + "/" + payload.page;
   return $axios.get(url);
 }
 
