@@ -7,6 +7,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CoffeemachineRepository extends JpaRepository<Coffeemachine, Long> {
 
@@ -15,4 +17,6 @@ public interface CoffeemachineRepository extends JpaRepository<Coffeemachine, Lo
     Page<Coffeemachine> findAll(Specification<Coffeemachine> filter, Pageable page);
 
     Page<Coffeemachine> findAllByNameContaining(String keyword, Pageable page);
+
+    long countByNameContaining(String keyword);
 }

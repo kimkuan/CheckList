@@ -243,14 +243,15 @@ public class CoffeemachineService {
     public List<CoffeemachineGetRes> findAllByKeyword(int page, String keyword) {
         PageRequest pageRequest = PageRequest.of(page, 30, Sort.Direction.DESC, "pcode");
         Page<Coffeemachine> coffeemachines = coffeemachineRepository.findAllByNameContaining(keyword, pageRequest);
-
+        long totalResultCount= coffeemachineRepository.countByNameContaining(keyword); // 총 검색결과 가져오기 위함
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> coutn : "+totalResultCount);
         List<CoffeemachineGetRes> coffeemachineGetResList = new ArrayList<>();
         int size = coffeemachines.getContent().size();
         for(int i = 0; i < size; i++) {
             Coffeemachine coffeemachine = coffeemachines.getContent().get(i);
             Optional<CoffeemachinePerformance> coffeemachinePerformance = coffeemachinePerformanceRepository.findById(coffeemachine.getPcode());
             if(coffeemachinePerformance.isPresent()) {
-                coffeemachineGetResList.add(CoffeemachineGetRes.of(coffeemachine, coffeemachinePerformance.get()));
+                coffeemachineGetResList.add(CoffeemachineGetRes.ofWithTotalResultCount(coffeemachine, coffeemachinePerformance.get(), totalResultCount));
             }
         }
 
