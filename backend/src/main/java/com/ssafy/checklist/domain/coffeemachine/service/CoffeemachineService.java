@@ -132,7 +132,7 @@ public class CoffeemachineService {
 
                         for(int i = 1; i < values.size(); i++) {
                             int heat = Integer.parseInt(values.get(i).substring(1,3));
-                            p = criteriaBuilder.or(p, criteriaBuilder.between(root.get("heatTime"), 3, heatTime));
+                            p = criteriaBuilder.or(p, criteriaBuilder.between(root.get("heatTime"), 3, heat));
                         }
 
                     }
