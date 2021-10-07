@@ -66,4 +66,38 @@ public class AircleanerController {
         List<LowPriceInfo> lowPriceInfoList = aircleanerService.findLowPriceByPcode(pcode);
         return new ResponseEntity<>(AircleanerInfoGetRes.from(aircleaner, aircleanerPerformance, lowPriceInfoList), HttpStatus.OK);
     }
+
+    @ApiOperation(value = "공기청정기 체크픽 조회", notes = "공기청정기 체크픽을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/checkpick")
+    /**
+     * @Method Name : findCheckPick
+     * @작성자 : 김선혜
+     * @Method 설명 : 체크리스트에서 선정한 상위 10개 상품 목록 해당하는 상품 조회 (상품 정보, 성능 분석, 최저가 정보)
+     */
+    public ResponseEntity<List<AircleanerGetRes>> findCheckPick() {
+        List<AircleanerGetRes> aircleanerGetResList = aircleanerService.findCheckPick();
+        return new ResponseEntity<>(aircleanerGetResList, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "키워드에 해당하는 공기청정기 조회", notes = "키워드에 해당하는 상품을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/search/{page}/{keyword}")
+    /**
+     * @Method Name : findAllByKeyword
+     * @작성자 : 김선혜
+     * @Method 설명 : 키워드를 포함하는 상품 목록 조회
+     */
+    public ResponseEntity<List<AircleanerGetRes>> findAllByKeyword(@PathVariable(name = "page") int page, @PathVariable(name = "keyword") String keyword) {
+        List<AircleanerGetRes> aircleanerGetResList = aircleanerService.findAllByKeyword(page, keyword);
+        return new ResponseEntity<>(aircleanerGetResList, HttpStatus.OK);
+    }
 }

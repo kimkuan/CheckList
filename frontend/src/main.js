@@ -17,12 +17,18 @@ app.use(router);
 app.config.globalProperties.$filters = {
   // 100000 -> 100,000
   convertPrice(price) {
+    if(price == undefined)
+      return 0;
+
     var result = price.toLocaleString();
     return result;
   },
 
   // 만원 단위로 자르기
   convertPriceVer2(price) {
+    if(price == undefined)
+      return 0;
+
     var result = (price+0)
     if(result < 10000)
       return 1

@@ -49,6 +49,9 @@ public class CoffeemachineGetRes {
     @ApiModelProperty
     long conveniencePoint;
 
+    @ApiModelProperty
+    long totalResultCount;
+
     public static CoffeemachineGetRes of(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance) {
         CoffeemachineGetRes res = new CoffeemachineGetRes();
         res.setPcode(coffeemachine.getPcode());
@@ -64,6 +67,26 @@ public class CoffeemachineGetRes {
         res.setBrewingPoint(coffeemachinePerformance.getBrewing());
         res.setWaterVolumePoint(coffeemachinePerformance.getWaterVolume());
         res.setConveniencePoint(coffeemachinePerformance.getConvenience());
+
+        return res;
+    }
+
+    public static CoffeemachineGetRes ofWithTotalResultCount(Coffeemachine coffeemachine, CoffeemachinePerformance coffeemachinePerformance, long totalResultCount) {
+        CoffeemachineGetRes res = new CoffeemachineGetRes();
+        res.setPcode(coffeemachine.getPcode());
+        res.setName(coffeemachine.getName());
+        res.setBrand(coffeemachine.getBrand());
+        res.setPrice(coffeemachine.getPrice());
+        res.setImg(coffeemachine.getImg());
+        res.setPressure(coffeemachine.getPressure());
+        res.setHeatTime(coffeemachine.getHeatTime());
+        res.setWaterVolume(coffeemachine.getWaterVolume());
+        res.setSpec(coffeemachine.getSpec());
+        res.setPricePoint(coffeemachinePerformance.getPrice());
+        res.setBrewingPoint(coffeemachinePerformance.getBrewing());
+        res.setWaterVolumePoint(coffeemachinePerformance.getWaterVolume());
+        res.setConveniencePoint(coffeemachinePerformance.getConvenience());
+        res.setTotalResultCount(totalResultCount);
 
         return res;
     }

@@ -8,16 +8,16 @@
 
         <div class="content">
           <!-- 주요 스펙 중 null인 값은 '-' 처리 -->
-          <div class="spec-item"><div><p>가격대</p><p>{{ $filters.convertPriceVer2(state.productInfo.price) }}만원</p></div></div>
-          <div class="spec-item"><div><p>형태</p><p>{{ state.productInfo.type  == "null" ? "-" : state.productInfo.type }}</p></div></div>
-          <div class="spec-item"><div><p>용량</p><p>{{ state.productInfo.volume  == "null" ? "-" : state.productInfo.volume }}L</p></div></div>
-          <div class="spec-item"><div><p>소비전력(W)</p><p>{{ state.productInfo.power == "null" ? "-" : state.productInfo.power }}</p></div></div>
-          <div class="spec-item"><div><p>조작방식</p><p>{{ state.control == "null" ? "-" : state.control }}</p></div></div>
-          <div class="spec-item"><div><p>시간조절</p><p>{{ state.timeControl == "null" ? "-" : state.timeControl }}</p></div></div>
-          <div class="spec-item"><div><p>온도조절</p><p>{{ state.temperatureControl == "null" ? "-" : state.temperatureControl }}</p></div></div>
-          <div class="spec-item"><div><p>내부투시창 </p><p>{{ state.showInside == "null" ? "-" : state.showInside }}</p></div></div>
-          <div class="spec-item"><div><p>디지털디스플레이</p><p>{{ state.digitalDisplay == "null" ? "-" : state.digitalDisplay }}</p></div></div>
-          <div class="spec-item"><div><p>크기(가로X세로X높이)</p><p>{{ state.productInfo.size == "null" ? "-" : state.productInfo.size }}</p></div></div>
+          <div class="spec-item"><div><p>가격대</p><p>{{ $filters.convertPriceVer2(productInfo.price) }}만원</p></div></div>
+          <div class="spec-item"><div><p>형태</p><p>{{ isNull(productInfo.type) }}</p></div></div>
+          <div class="spec-item"><div><p>용량</p><p>{{ isNull(productInfo.volume) }}L</p></div></div>
+          <div class="spec-item"><div><p>소비전력(W)</p><p>{{ isNull(productInfo.power) }}</p></div></div>
+          <div class="spec-item"><div><p>조작방식</p><p>{{ isNull(state.control) }}</p></div></div>
+          <div class="spec-item"><div><p>시간조절</p><p>{{ isNull(state.timeControl) }}</p></div></div>
+          <div class="spec-item"><div><p>온도조절</p><p>{{ isNull(state.temperatureControl) }}</p></div></div>
+          <div class="spec-item"><div><p>내부투시창 </p><p>{{ isNull(state.showInside) }}</p></div></div>
+          <div class="spec-item"><div><p>디지털디스플레이</p><p>{{ isNull(state.digitalDisplay) }}</p></div></div>
+
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
               <div class="circle" :class="state.priceWord.class" v-for="i in Math.ceil(state.priceWord.score)" v-bind:key="i" />
               <div class="circle" v-for="i in 5 - Math.ceil(state.priceWord.score)" v-bind:key="i" />
             </div>
-            <h3 class="content">{{ state.priceWord.score }}점 <span style="color: #C7C7C7;">|</span> {{ $filters.convertPriceVer2(state.productInfo.price) }}만원</h3>
+            <h3 class="content">{{ state.priceWord.score }}점 <span style="color: #C7C7C7;">|</span> {{ $filters.convertPriceVer2(productInfo.price) }}만원</h3>
           </div>
           <div class="score-group">
             <h3 class="title">용량</h3>
@@ -43,7 +43,7 @@
               <div class="circle" :class="state.volumeWord.class" v-for="i in Math.ceil(state.volumeWord.score)" v-bind:key="i" />
               <div class="circle" v-for="i in 5 - Math.ceil(state.volumeWord.score)" v-bind:key="i" />
             </div>
-            <h3 class="content">{{ state.volumeWord.score }}점 <span style="color: #C7C7C7;">|</span> {{ state.productInfo.volume == "null" ? "-" :  state.productInfo.volume }}L</h3>
+            <h3 class="content">{{ state.volumeWord.score }}점 <span style="color: #C7C7C7;">|</span> {{ productInfo.volume == "null" ? "-" :  productInfo.volume }}L</h3>
           </div>
           <div class="score-group">
             <h3 class="title">조리성능</h3>
@@ -106,7 +106,7 @@
               </ul>
             </div>
             <div class="content">
-               해당 상품의 최저가는 {{ $filters.convertPrice(state.productInfo.price) }}원으로
+               해당 상품의 최저가는 {{ $filters.convertPrice(productInfo.price) }}원으로
                {{ state.priceWord.content }} 수준입니다.<br />
             </div>
           </div>
@@ -133,9 +133,9 @@
             <div class="content">
               <!-- 용량 정보의 존재여부에 따른 설명란 -->
               <div class="content-func">
-                <h4>용량: {{ state.productInfo.volume == "null" ? "-" : state.productInfo.volume}}L</h4>
-                <div v-if="state.productInfo.volume != 'null'">
-                  스펙 상 용량은 {{ state.productInfo.volume }}L이며, 에어프라이어 중에서는 {{ state.volumeWord.word }} 정도로 {{ state.volumeWord.content }}이 사용하기에 적합한 제품입니다.
+                <h4>용량: {{ productInfo.volume == "null" ? "-" : productInfo.volume}}L</h4>
+                <div v-if="productInfo.volume != 'null'">
+                  스펙 상 용량은 {{ productInfo.volume }}L이며, 에어프라이어 중에서는 {{ state.volumeWord.word }} 정도로 {{ state.volumeWord.content }}이 사용하기에 적합한 제품입니다.
                 </div>
                 <div v-else>
                   정보가 없습니다.
@@ -172,8 +172,8 @@
             <div class="content">
               <!-- 소비전력 정보의 존재여부에 따른 설명란 -->
               <div class="content-func">
-                <h4>소비전력(W): {{ state.productInfo.power == "null" ? "-" : state.productInfo.power}}</h4>
-                <div v-if='state.productInfo.power != "null" '>소비전력이 {{ state.productInfo.power }}W이며, 온도범위/팬 구조 등을 고려하면 조리속도가 {{ state.cookWord.content }}으로 예상되는 제품입니다.</div>
+                <h4>소비전력(W): {{ productInfo.power == "null" ? "-" : productInfo.power}}</h4>
+                <div v-if='productInfo.power != "null" '>소비전력이 {{ productInfo.power }}W이며, 온도범위/팬 구조 등을 고려하면 조리속도가 {{ state.cookWord.content }}으로 예상되는 제품입니다.</div>
                 <div v-else>정보가 없습니다.</div>
               </div>
             </div>
@@ -206,8 +206,8 @@
             <div class="content">
               <!-- 조절방식 정보의 존재여부에 따른 설명란 -->
               <div class="content-func">
-                <h4>{{ state.productInfo.type == "null" ? "-" : state.productInfo.type }}</h4>
-                <div v-if="state.productInfo.type != 'null'">{{ answerOfType(state.productInfo.type) }}</div>
+                <h4>{{ productInfo.type == "null" ? "-" : productInfo.type }}</h4>
+                <div v-if="productInfo.type != 'null'">{{ answerOfType(productInfo.type) }}</div>
                 <div v-else>정보가 없습니다.</div>
               </div>
               <!-- 세척편의 관련 스펙  -->
@@ -500,28 +500,24 @@ h4 {
   width: 100%;
 }
 
-/* 1 ~ 3점 */
-.chart-llow {
+/* 1 ~ 2점 */
+.chart-low {
   background-color: #FF8946 !important;
-  width: 20%; ; /* width 값을 이용하여 그래프 조정 */
 }
 
-/* 3 ~ 4점 */
-.chart-low {
+/* 2 ~ 4점 */
+.chart-middle {
   background-color: #FFD480 !important;
-  width: 50%;
 }
 
 /* 4 ~ 5점*/
-.chart-middle {
+.chart-high {
   background-color: #9EED9C !important;
-  width: 70%;
 }
 
 /* 5점 */
-.chart-high {
+.chart-highest {
   background-color: #7BD8FF !important;
-  width: 90%
 }
 .chart-desc {
   position: relative;
@@ -573,7 +569,7 @@ h4 {
 
 <script>
 import ProductDetailSpecAirFryerModal from './ProductDetailSpecAirFryerModal.vue';
-import { reactive, computed } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -581,11 +577,14 @@ export default {
   components: {
     ProductDetailSpecAirFryerModal,
   },
-  setup(){
+  props: {
+    productInfo : Object,
+  },
+  setup(props){
     const store = useStore();
     const state = reactive({
-      productInfo: computed(() => {
-        return store.getters["root/getProductInfo"];
+      productInfo : computed(() => {
+        return props.productInfo
       }),
 
       managementList: [], // 스펙 속 세척편의
@@ -597,9 +596,15 @@ export default {
       showInside: "null",
       digitalDisplay: "null",
 
+      priceWord : { word : "", content : "", class : "", score : 0, width : 0},
+      volumeWord : { word : "", content : "", class : "", score : 0, width : 0},
+      convenienceWord: { word : "", content : "", class : "", score : 0, width : 0},
+      managementWord: { word : "", content : "", class : "", score : 0, width : 0},
+      cookWord: { word : "", content : "", class : "", score : 0, width : 0},
+
       // 가격
       priceWord: computed(() => {
-        let pricePoint = state.productInfo.pricePoint;
+        let pricePoint = props.productInfo.pricePoint;
         if (pricePoint < 20) {
           return {
             word: "매우 비쌈",
@@ -620,7 +625,7 @@ export default {
           return {
             word: "보통",
             content: "보통",
-            class: "chart-low",
+            class: "chart-middle",
             score: Math.ceil(pricePoint* 10/20) / 10,
             width: pricePoint,
           };
@@ -652,8 +657,8 @@ export default {
       }),
       // 용량
       volumeWord: computed (() => {
-        let volume = state.productInfo.volume;
-        let volumeScore = state.productInfo.volumePoint;
+        let volume = props.productInfo.volume;
+        let volumeScore = props.productInfo.volumePoint;
         if (volume < 2) {
           return {
             word: "매우 부족",
@@ -674,7 +679,7 @@ export default {
           return {
             word: "보통",
             content: "2~3인",
-            class: "chart-low",
+            class: "chart-middle",
             score: Math.ceil(volumeScore* 10/20) / 10,
             width: volumeScore,
           };
@@ -698,7 +703,9 @@ export default {
       }),
       // 조리성능
       cookWord: computed (() => {
-        let cookScore = state.productInfo.cookPoint;
+        let cookScore = props.productInfo.cookPoint;
+        console.log(cookScore)
+
         if (cookScore < 20) {
           return {
             word: "매우 미흡",
@@ -719,7 +726,7 @@ export default {
           return {
             word: "보통",
             content: "보통일 것",
-            class: "chart-low",
+            class: "chart-middle",
             score: Math.ceil(cookScore* 10/20) / 10,
             width: cookScore,
           };
@@ -745,13 +752,14 @@ export default {
             content: "빠를 것",
             class: "chart-highest",
             score: Math.ceil(cookScore* 10/20) / 10,
-            width: cookScore,
+            width: 100,
           };
         }
       }),
       // 세척편의
       managementWord: computed(() => {
-        let managementScore = state.productInfo.managementPoint;
+        let managementScore = props.productInfo.managementPoint;
+
         if (managementScore < 20) {
           return {
             word: "매우 불편",
@@ -772,7 +780,7 @@ export default {
           return {
             word: "보통",
             content: "보통인 편",
-            class: "chart-low",
+            class: "chart-middle",
             score: Math.ceil(managementScore* 10/20) / 10,
             width: managementScore,
           }
@@ -804,8 +812,8 @@ export default {
       }),
       // 편의기능
       convenienceWord: computed(() => {
-        let controlScore = state.productInfo.controlPoint;
-        let convenienceScore = state.productInfo.conveniencePoint;
+        let controlScore = props.productInfo.controlPoint;
+        let convenienceScore = props.productInfo.conveniencePoint;
         let totalScore = (controlScore + convenienceScore) / 2;
 
         if (totalScore < 20) {
@@ -828,7 +836,7 @@ export default {
           return {
             word: "보통",
             content: "보통인 편",
-            class: "chart-low",
+            class: "chart-middle",
             score: Math.ceil(totalScore* 10/20) / 10,
             width: totalScore,
           }
@@ -856,7 +864,7 @@ export default {
             score: Math.ceil(totalScore* 10/20) / 10,
             width: totalScore,
           };
-        }
+       }
       })
    });
 
@@ -915,10 +923,24 @@ export default {
 
       else
         return key + " 기능을 갖춘 제품입니다."
-   }
+    }
 
+    const isNull = function(value) {
+      if(value == undefined || value == "null")
+        return "-"
+      else
+        return value;
+    }
+
+   onMounted(()=> {
     // 스펙에서 값을 뽑아낸다.
-    const specList = JSON.parse(state.productInfo.spec)
+    let specList = [];
+    console.log(state.productInfo)
+
+    if(state.productInfo != undefined && state.productInfo != {} && state.productInfo.spec != ""){
+      specList = JSON.parse(state.productInfo.spec)
+    }
+
     for(var key in specList){
       for(var subkey in specList[key]){
         var json = new Object();
@@ -944,7 +966,9 @@ export default {
       }
     }
 
-    return { clickModal, state, answerOfType, answerOfSpec }
+   })
+
+    return { clickModal, state, answerOfType, answerOfSpec, isNull }
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div class="section-wrapper">
+    여기는 프로덕트 디테일 페이지
     <!-- <div style="display: flex; justify-content: center"> -->
     <div class="section" style="padding-top: 0px">
       <div class="productHead">
@@ -47,7 +48,10 @@
     </div>
 
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
-    <product-detail-spec-coffee-machine></product-detail-spec-coffee-machine>
+    <!-- <product-detail-spec-air-fryer></product-detail-spec-air-fryer> -->
+    <product-detail-spec-monitor v-if="category == 'monitor'"></product-detail-spec-monitor>
+    <product-detail-spec-air-fryer v-if="category == 'airfryer'" :productInfo="state.productInfo"></product-detail-spec-air-fryer>
+    <product-detail-spec-coffee-machine  v-else-if="category == 'coffeemachine'"></product-detail-spec-coffee-machine>
 
     <hr class="division-line" />
 
@@ -65,16 +69,17 @@
 </template>
 
 <script>
-import { reactive, computed, onMounted } from 'vue'
+import { reactive, computed, onMounted, watch, watchEffect } from 'vue'
 import { useStore } from "vuex";
 import { useRoute } from 'vue-router';
 import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
-import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
 // import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
 // import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
-import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
+// import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
+import ProductDetailSpecMonitor from './spec/ProductDetailSpecMonitor.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -83,16 +88,17 @@ export default {
     ProductDetailChart,
     ProductDetailReivew,
     ProductDetailLowPrice,
-    ProductDetailSpecAirFryer,
+    // ProductDetailSpecAirFryer,
     // ProductDetailSpecAirCleaner,
-    ProductDetailSpecCoffeeMachine,
+    // ProductDetailSpecCoffeeMachine,
+    ProductDetailSpecMonitor,
     ProductAllSpecModal,
   },
   setup() {
     const route = useRoute()
     const store = useStore()
-    const state = reactive({
-      productInfo : computed(() => {
+    let state = reactive({
+      productInfo : computed(()=>{
         return store.getters["root/getProductInfo"];
       }),
       scrollValue: 0,
@@ -133,19 +139,28 @@ export default {
       category: category,
       pcode: pcode
     })
-    .then(function(result){
-      console.log(result.data)
+    .then((result) => {
+      state.productInfo = result.data
       store.commit("root/setProductInfo", result.data);
+      console.log(state.productInfo);
+
+      // 현재 가져온 상품을 최근 본 상품에 등록
+      store.commit("root/setProductHistory", {
+        category: category,
+        productInfo: result.data,
+      });
     })
-    .catch(function(err){
+    .catch((err) => {
       console.log(err)
     })
+
+    watchEffect(() => console.log(state.productInfo))
 
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { store, state, categoryName, onScroll, onMounted }
+    return { store, state, category, categoryName, onScroll, onMounted }
   },
 };
 
