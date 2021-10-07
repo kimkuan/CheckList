@@ -75,6 +75,7 @@ export default {
     const clickCategory = function (id) {
       console.log("Main >> 선택한 카테고리 >> " + id);
       store.commit("root/setSelectCategoryName", id);
+      store.commit("root/setMainCheckPickCategory", "airfryer");
       // Search.vue로 이동
       router.push({ name: "Search"});
     };

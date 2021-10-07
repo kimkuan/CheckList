@@ -141,7 +141,7 @@
               <div class="content-title">
                 <h4><b>펌프압력</b></h4>
               </div>
-              <div class="content-article" v-if="state.product.pressure != 'null'">
+              <div class="content-article" v-if="state.product.pressure != (undefined && 'null')">
                 펌프 압력이 {{state.product.pressure}}로 캡슐 커피머신 중에서
                 {{
                   state.product.pressure == "8bar" ||
@@ -301,7 +301,14 @@ export default {
       case: "null",     // 캡슐수거('저장개수' -> 값 그대로 & "캡슐수거함" -> "자동저장" // 캡슐수거함 나올 때 null이면 저장 null 아니면 안저장)
       isSeperate: "null", // 물통분리여부 ('분리세척')
       milk: "null",   // ('우유' 뭐시기)
+      pressure:"null",
+      heatTime: "null",
 
+      priceWord : { word : "", content : "", class : "", score : 0, width : 0},
+      brewingWord : { word : "", content : "", class : "", score : 0, width : 0},
+      volumeWord : { word : "", content : "", class : "", score : 0, width : 0},
+      waterWord: { word : "", content : "", class : "", score : 0, width : 0},
+      conferWord: { word : "", content : "", class : "", score : 0, width : 0},
 
       priceWord: computed(() => {
         let price = store.getters["root/getProductInfo"].pricePoint;

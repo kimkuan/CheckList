@@ -1,6 +1,5 @@
 <template>
   <div class="section-wrapper">
-    여기는 프로덕트 디테일 페이지
     <!-- <div style="display: flex; justify-content: center"> -->
     <div class="section" style="padding-top: 0px">
       <div class="productHead">
@@ -12,14 +11,14 @@
           <!-- 제품 내용 -->
           <div class="title">
             <div style="width: 75%">
-              <h5>{{ categoryName }}</h5>
+              <h5>{{ state.categoryName }}</h5>
               <h4>{{ state.productInfo.brand }}</h4>
               <h2>{{ state.productInfo.name }}</h2>
             </div>
           </div>
           <br />
           <div>
-            <div style="display: inline-block; width: 75%;  padding-left: 15px; color: #cf000f">
+            <div style="display: inline-block; width: 75%;  padding-left: 30px; color: #cf000f">
               <h1>최저가 {{ $filters.convertPrice(state.productInfo.price) }}원</h1>
             </div>
             <div style="display: inline-block; width: 25%; text-align: right">
@@ -48,9 +47,9 @@
     </div>
 
     <!-- 이 부분이 각자 칵테고리에 맞게 변경됨! -->
-
-    <product-detail-spec-air-fryer v-if="category == 'airfryer'" :productInfo="state.productInfo"></product-detail-spec-air-fryer>
-    <product-detail-spec-coffee-machine  v-else-if="category == 'coffeemachine'"></product-detail-spec-coffee-machine>
+    <product-detail-spec-monitor v-if="state.category == 'monitor'"></product-detail-spec-monitor>
+    <product-detail-spec-air-fryer v-else-if="state.category == 'airfryer'" :productInfo="state.productInfo"></product-detail-spec-air-fryer>
+    <product-detail-spec-coffee-machine v-else-if="state.category == 'coffeemachine'"></product-detail-spec-coffee-machine>
 
     <hr class="division-line" />
 
@@ -75,9 +74,9 @@ import ProductDetailChart from './detail/ProductDetailChart.vue';
 import ProductDetailReivew from './detail/ProductDetailReview.vue';
 import ProductDetailLowPrice from './detail/ProductDetailLowPrice.vue';
 import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
-// import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
-// import ProductDetailSpecAirFryer from './spec/ProductDetailSpecAirFryer.vue';
+import ProductDetailSpecAirCleaner from './spec/ProductDetailSpecAirCleaner.vue';
 import ProductDetailSpecCoffeeMachine from './spec/ProductDetailSpecCoffeeMachine.vue';
+import ProductDetailSpecMonitor from './spec/ProductDetailSpecMonitor.vue';
 import ProductAllSpecModal from "./ProductAllSpecModal.vue";
 
 export default {
@@ -87,8 +86,9 @@ export default {
     ProductDetailReivew,
     ProductDetailLowPrice,
     ProductDetailSpecAirFryer,
-    // ProductDetailSpecAirCleaner,
+    ProductDetailSpecAirCleaner,
     ProductDetailSpecCoffeeMachine,
+    ProductDetailSpecMonitor,
     ProductAllSpecModal,
   },
   setup() {
@@ -99,6 +99,11 @@ export default {
         return store.getters["root/getProductInfo"];
       }),
       scrollValue: 0,
+      category : route.params.category,
+      pcode : route.params.pcode,
+      categoryName : '',
+
+      categoryLoad : computed(()=> console.log(state.category))
     })
 
     const onScroll = function() {
@@ -119,7 +124,7 @@ export default {
         return "에어프라이기"
       else if(category == "aircleaner")
         return "공기청정기"
-      else if(category == "moniter")
+      else if(category == "monitor")
         return "모니터"
       else if(category == "foodprocessor")
         return "음식물처리기"
@@ -127,14 +132,12 @@ export default {
         return "커피머신"
     }
 
-    var category = route.params.category;
-    var pcode = route.params.pcode;
-    var categoryName = getCategory(category);
+    state.categoryName = getCategory(state.category)
 
     // 상품 정보 가져오기
     store.dispatch("root/requestProductInfo", {
-      category: category,
-      pcode: pcode
+      category: route.params.category,
+      pcode: route.params.pcode
     })
     .then((result) => {
       state.productInfo = result.data
@@ -142,7 +145,7 @@ export default {
 
       // 현재 가져온 상품을 최근 본 상품에 등록
       store.commit("root/setProductHistory", {
-        category: category,
+        category: route.params.category,
         productInfo: result.data,
       });
     })
@@ -150,13 +153,24 @@ export default {
       console.log(err)
     })
 
-    watchEffect(() => console.log(state.productInfo))
+    watchEffect(() =>{
+        console.log(state.productInfo);
+        var lastHistory = store.getters["root/getProductHistory"][0]
+        if(lastHistory == undefined){
+          state.category = route.params.category
+          state.pcode = route.params.pcode
+        }
+        else{
+          state.category = store.getters["root/getProductHistory"][0].category;
+          state.pcode = route.params.pcode;
+        }
+    })
 
     onMounted(() => {
       window.addEventListener('scroll', onScroll);
     })
 
-    return { store, state, category, categoryName, onScroll, onMounted }
+    return { store, state, onScroll, onMounted }
   },
 };
 
@@ -231,9 +245,9 @@ hr.division-line {
   /* background-image: url('../../assets/product_sample.jpg'); */
   /* background-repeat: no-repeat; */
   /* background-size: contain; */
-  width: 40%;
-  height: 100%;
+  height: 380px;
   margin: auto 0px;
+  object-fit: contain;
 }
 
 .productHead .p-img img {
@@ -251,8 +265,8 @@ hr.division-line {
 
 .p-info .title {
   line-height: 250%;
-  padding-top: 25px;
-  padding-left: 15px;
+  padding-top: 60px;
+  padding-left: 30px;
 }
 
 .p-info .title div {
@@ -280,7 +294,7 @@ hr.division-line {
 }
 
 .price-chart {
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 h1 {

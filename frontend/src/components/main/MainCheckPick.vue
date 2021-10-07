@@ -8,25 +8,30 @@ import { reactive, computed, onMounted } from "vue";
 
 export default {
   name: "MainCheckPick",
+  props: {
+    categoryName: String,
+  },
   setup() {
     const store = useStore();
     const state = reactive({
       category: computed(() => {
-        console.log(store.getters["root/setMainCheckPickCategory"]);
-        return store.getters["root/setMainCheckPickCategory"];
+        console.log(store.getters["root/getMainCheckPickCategory"]);
+        return store.getters["root/getMainCheckPickCategory"];
       }),
       productList: [],
     });
 
     console.log(state.category);
 
-    store.dispatch("root/requestCheckPick", state.category)
+    store.dispatch("root/requestCheckPick",state.category)
       .then(function(result) {
         console.log(result.data);
       })
       .catch(function(err){
         console.log(err)
       });
+
+    // 가기 전에 state.selectCategory 초기화
     // console.log("과연'>>");
     // console.log(state.category);
     // onMounted(() => {

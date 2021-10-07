@@ -14,12 +14,12 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Map;
 
@@ -37,18 +37,18 @@ public class AirfryerController {
             @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
             @ApiResponse(code = 500, message = "서버 에러 발생")
     })
-    @GetMapping("/")
+    @PostMapping("/filters")
     /**
-    * @Method Name : findAllAirfryerByFilter
-    * @작성자 : 이상현
-    * @Method 설명 : 필터조건에 맞는 에어프라이기 상품 목록 조회, 상품정보와 상품성능분석점수가 포함된다.
-    */
-    public ResponseEntity<List<AirfryerGetRes>> findAllAirfryerByFilter(@PageableDefault(size=10) Pageable pageable, @RequestBody Map<String, String> filters){
+     * @Method Name : findAllAirfryerByFilter
+     * @작성자 : 이상현
+     * @Method 설명 : 필터조건에 맞는 에어프라이기 상품 목록 조회, 상품정보와 상품성능분석점수가 포함된다.
+     */
+    public ResponseEntity<List<AirfryerGetRes>> findAllAirfryerByFilter(@PageableDefault(size=10) Pageable pageable, @RequestBody Map<String, Object> filters){
 
         System.out.println(filters);
-        // List<CoffeemachineGetRes> airfryerGetResList = airfryerService.findCoffeemachineListByFilter(pageable, filters);
+        List<AirfryerGetRes> airfryerGetResList = airfryerService.findAirfryerListByFilter(pageable, filters);
 
-        return null;
+        return new ResponseEntity<>(airfryerGetResList, HttpStatus.OK);
     }
 
     @ApiOperation(value = "에어프라이어 조회", notes = "에어프라이어를 조회한다.")

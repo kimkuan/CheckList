@@ -9,15 +9,16 @@
         <div class="totalDelte" @click="deleteAll">전체 삭제</div>
       </div>
     </div>
-    <ul class="search-history" v-if="state.searchHistory.length">
+    <ul class="search-history" v-if="state.searchHistory">
       <li
         class="searchHistory__item"
         v-bind:key="index"
-        v-for="(word, index) in state.searchHistory"
+        v-for="(search, index) in state.searchHistory"
         @mouseover="turnColor"
       >
-        <button class="btnSearchWord" @click="searchWord(word)">
-          {{ word }}
+        <button class="btnSearchWord" @click="searchWord(search)">
+          <div class="category">{{ search.category.word }}</div> 💌
+          <div class="word">{{ search.word }}</div>
         </button>
         <button class="searchHistory__item-content" @click="deleteWord(index)">
           <i class="fa fa-times"></i>
@@ -28,17 +29,23 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { computed, reactive } from "vue";
 export default {
   name: "MainHeaderSearchHistory",
   setup() {
+    const router = useRouter();
     const store = useStore();
     const state = reactive({
       searchHistory: computed(() => {
         console.log(store.getters["root/getSearchHistory"]);
         return store.getters["root/getSearchHistory"];
       }),
+      // 보이냐 마냐
+      searchHistoryView: computed(() => {
+        return store.getters["root/getSearchHistoryView"];
+      })
     });
 
     const deleteAll = function () {
@@ -50,12 +57,14 @@ export default {
       store.commit("root/deleteWord", index);
     };
 
-    const searchWord = function (word) {
-      console.log(word);
-      store.commit("root/setSearchWord", word);
-      console.log(store.getters["root/getSearchWord"]);
+    const searchWord = function (search) {
+      store.commit("root/setSearchCategory", search.category);
+      store.commit("root/setSearchWord", search.word);
       state.searchHistoryView = false;
+      store.commit("root/setSearchHistoryView", false);
+
       // 검색 결과 화면으로 이동
+      router.push({ name: "SearchProduct" });
     };
 
     return { store, state, deleteAll, deleteWord, searchWord };
@@ -63,7 +72,9 @@ export default {
 };
 </script>
 <style scoped>
-a {
+a,
+div,
+select {
   cursor: pointer;
 }
 
@@ -110,7 +121,7 @@ button:focus {
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  margin-top: 50px;
+  margin-top: 10px;
   padding: 10px 0px 10px 0px;
 }
 
@@ -133,5 +144,14 @@ button:focus {
   width: 90%;
   background: white;
   border: none;
+}
+
+.btnSearchWord > div {
+  display: inline-block;
+}
+
+.category {
+  width : 120px;
+  text-align: right;
 }
 </style>

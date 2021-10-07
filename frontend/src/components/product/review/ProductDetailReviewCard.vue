@@ -2,27 +2,51 @@
   <div>
     <div class="card-top">
       <div class="star-ratio">
-        <div v-for="item in 5" :key="item.id">
+        <!-- <div v-for="star in 5" :key="star.id">
           <img src="@/assets/star-yellow.png" alt="star-yellow" />
-        </div>
+        </div> -->
       </div>
-      <span>2021. 05.21</span>
-      <span>11번가</span>
+      <span v-if="review">{{ review.title }}</span>
+      <span v-if="review">{{ review.site }}</span>
     </div>
     <div class="card-content">
-      <div style="width: 88%; margin-right: 10px;">
-        <p>약 한달전에 건조기를 구매했던 사람입니다. 구매한지 이틀만에 버튼이 부식되고 일주일이 지나자 건조기에서 연기가 나더니 지금은 비행기가 이륙하면 나는소리가 건조기에서 나고있네요. 없는 형편에 한푼이라도 아껴보려고 저렴한 제품을 구매했더니 한달만에 고장이 났습니다. 돈 더쓰더라도 좋은 제품 사세요 고객센터 대응도 엉망입니다 완전 최악이에요 </p>
-      </div>
-      <div style="width: 12%; margin-top:auto; margin-bottom: 16px"><button>펼쳐보기 ▼</button></div>
+      <p class="line-limit" v-if="review" :id="review.id">{{ review.content.substring(1, review.content.length-1) }}</p>
+      <div style="width: 12%; margin-top:auto; margin-bottom: 16px"><button @click="toggleContent(review.id)">펼쳐보기 ▼</button></div>
     </div>
   </div>
 </template>
 
 <script>
+// import { computed } from '@vue/reactivity';
+import { reactive, toRefs, computed } from 'vue'
+import { useStore } from "vuex";
+
 export default {
   name: "ProductDetailReivewCard",
+  props: {
+    review: Object,
+  },
   setup() {
+    // const store = useStore()
+    // const state = reactive({
+    //   reviewInfo: computed(() => {
+    //     return store.getters["root/getReviewInfo"].reviewList.content[props.review-1];
+    //   }),
+    //   title: computed(() => {
+    //     return store.getters["root/getReviewInfo"].reviewList.content[props.review-1].title;
+    //   }),
+    // })
 
+    // });
+
+    const toggleContent = (id) => {
+      document.getElementById(id).classList.toggle('line-limit');
+
+      // if(id.class) c.className += 'line-limit';
+    }
+
+
+    return { toggleContent }
   },
 }
 </script>
@@ -58,12 +82,18 @@ export default {
 
 .card-content {
   display: flex;
-  /* text-align: left; */
+  text-align: left;
+  width: 90%;
+}
+
+.card-content p {
+  width: 90%;
 }
 
 .card-content div {
   display: inline-block;
   text-align: left;
+  width: 90%;
 }
 
 .card-content button {
@@ -78,4 +108,15 @@ export default {
   width: 15%;
   text-align: left;
 } */
+
+.line-limit {
+  display: -webkit-box;
+  white-space: normal;
+  line-height: 20px;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 90%;
+}
 </style>

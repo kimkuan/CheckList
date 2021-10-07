@@ -37,6 +37,11 @@ export function getProductInfo(state) {
   return state.productInfo;
 }
 
+// 리뷰 정보 가져오기
+export function getReviewInfo(state) {
+  return state.reviewInfo;
+}
+
 // 최근 본 상품 목록 가져오기
 export function getProductHistory(state){
   // 최근 본 상품 배열 앞에 추가
@@ -61,4 +66,23 @@ export function getSearchTab(state) {
 // 선택한 필터링 목록 가져오기
 export function getSelectedFilter(state) {
   return state.selectedFilter;
+}
+// 검색바 카테고리 이름 가져오기
+export function getSearchCategory(state) {
+  return state.searchCategory;
+}
+
+// 최근검색어창 변수 가져오기
+export function getSearchHistoryView(state) {
+  return state.searchHistoryView;
+}
+
+// 베스트상품 3개
+export function getBestProductList(state) {
+  return state.bestProductList;
+}
+
+// 체크픽 선정 상품 10개
+export function getCheckPickList(state) {
+  return state.checkPickList;
 }

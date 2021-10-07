@@ -20,10 +20,13 @@ export function setModal(state, modal) {
 
 // 상단 검색어 저장
 export function setSearchWord(state, searchWord) {
-  console.log(searchWord)
   state.searchWord = searchWord;
+  var object = {
+    category: state.searchCategory,
+    word: state.searchWord,
+  }
   // 최근 검색 히스토리 배열 앞에 추가
-  state.searchHistory.unshift(searchWord);
+  state.searchHistory.unshift(object);
 }
 
 // 검색어 리스트 전체 삭제
@@ -46,9 +49,23 @@ export function setProductInfo(state, productInfo) {
   state.productInfo = productInfo;
 }
 
+// 리뷰 정보 저장
+export function setReviewInfo(state, reviewInfo) {
+  state.reviewInfo = reviewInfo;
+}
+
 // 최근 본 상품 저장
 export function setProductHistory(state, history){
-  // 가장 최근에 본 상품과 다를 때만, 최근 본 상품 배열 앞에 추가
+  // 가장 최근에 본 상품과 다를 때는 PASS
+  var size = state.productHistory.length;
+  if(size > 0 && state.productHistory[0].productInfo.pcode == history.productInfo.pcode)
+    return;
+
+  // 만약, 이미 4개의 상품의 저장되어있으면 가장 먼저 저장된 값 삭제
+  var deleteCnt = size < 4 ? 0 :size-3;
+  state.productHistory.splice(3, deleteCnt);
+
+  // 최근 본 상품 배열 앞에 추가
   state.productHistory.unshift(history);
 }
 
@@ -73,4 +90,14 @@ export function setSearchTap(state, name) {
 
 export function setSelectedFilter(state, selectedFilter) {
   state.selectedFilter = selectedFilter;
+}
+
+// 검색바 카테고리 저장
+export function setSearchCategory(state, name) {
+  state.searchCategory = name;
+}
+
+// 최근검색어창 변수 저장
+export function setSearchHistoryView(state, history) {
+  state.searchHistoryView = history;
 }
