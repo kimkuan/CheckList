@@ -10,7 +10,7 @@
         </div>
 
         <div class="searchList">
-          <SearchList v-for="product in checkPickproducts" :product="product" :key="product.id" />
+          <SearchList v-for="product in checkPickproducts" :product="product" :key="product.id" @click="clickProductDetail(product)" />
         </div>
     </div>
 </template>
@@ -23,6 +23,7 @@ import SearchList from "./SearchList.vue";
 import { requestCheckPickProducts } from "@/store/actions";
 import { useStore } from 'vuex';
 import { reactive, onMounted, toRefs } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   name: 'Search',
@@ -32,16 +33,25 @@ export default {
     SearchList,
   },
   setup(){
+    const route = useRouter()
     const store = useStore();
     const state = reactive({
-        checkPickproducts: [],
+      price : [],
+      checkPickproducts: [],
+      curCategory: store.getters["root/getSelectCategoryName"]
     });
+
+    const clickProductDetail = function(product){
+      console.log(product)
+      route.push({ name: "Product", params: { category : state.curCategory, pcode: product.pcode }});
+    };
 
     const getCheckPickInfo = () => {
       requestCheckPickProducts(store.getters["root/getSelectCategoryName"] + "/checkpick")
         .then( res => {
           console.log(res.data);
           state.checkPickproducts = res.data;
+          state.price = res.data.price;
         })
       .catch(err => {
         console.log(err);
@@ -76,7 +86,8 @@ export default {
           name : "커피머신"
         },
       ],
-      
+
+      clickProductDetail,
       getCheckPickInfo,
       ...toRefs(state),
     };
@@ -110,6 +121,18 @@ p {
   border-bottom: 0.5px solid rgb(196, 196, 196);
   padding: 20px;
   margin-left: 50px;
+  font-size: 20px;
+}
+
+h3.title {
+  text-align: right;
+  width: 15%;
+  font-size: 20px;
+}
+
+h3.content {
+  text-align: left;
+  width: 40%;
   font-size: 20px;
 }
 </style>

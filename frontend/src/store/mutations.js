@@ -84,10 +84,12 @@ export function setMainCheckPickCategory(state, name) {
   state.mainCheckPickCategory = name;
 }
 
+// 선택한 탭 저장
 export function setSearchTap(state, name) {
   state.searchTab = name;
 }
 
+// 선택한 필터 목록 저장
 export function setSelectedFilter(state, selectedFilter) {
   state.selectedFilter = selectedFilter;
 }
