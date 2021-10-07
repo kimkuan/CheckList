@@ -93,3 +93,8 @@ export function setSearchCategory(state, name) {
 export function setSearchHistoryView(state, history) {
   state.searchHistoryView = history;
 }
+
+// 체크픽 상품 10개 저장
+export function setCheckPickList(state, list) {
+  state.checkPickList = list;
+}

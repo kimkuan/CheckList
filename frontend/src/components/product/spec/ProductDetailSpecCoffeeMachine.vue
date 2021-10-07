@@ -276,7 +276,7 @@
 
 <script>
 import ProductDetailSpecCoffeeMachineModal from "./ProductDetailSpecCoffeeMachineModal.vue";
-import { reactive, computed } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
 export default {
@@ -557,33 +557,40 @@ export default {
       else return key + " 기능을 갖춘 제품입니다"
     }
 
-    const specList = JSON.parse(state.product.spec);
-    for (let key in specList) {
-      for (let subKey in specList[key]) {
-        let json = new Object();
-        json.key = subKey;
-        json.value = specList[key][subKey];
 
-        if (subKey.startsWith("추출량") || subKey.startsWith("우유거품"))
-          state.brewingList.push(json)
-        else if(subKey.startsWith("크기") || subKey.startsWith("무게"))
-          console.log("필요없지롱")
-        else state.convenienceList.push(json);
 
-        if (subKey.startsWith("크기"))
-          state.size = specList[key][subKey];
-        else if (subKey.startsWith("자동세척"))
-          state.auto = specList[key][subKey];
-        else if (subKey.startsWith("무게"))
-          state.weight = specList[key][subKey];
-        else if (subKey.startsWith("저장개수") || (subKey.startsWith("캡슐수거함") && state.case == "null"))
-          state.case = specList[key][subKey];
-        else if (subKey.startsWith("분리세척"))
-          state.isSeperate = specList[key][subKey];
-        else if (subKey.startsWith("우유") || subKey.startsWith("밀크"))
-          state.milk = "O";
-      }
-    }
+    onMounted(() => {
+      if (state.product.spec == undefined) return;
+
+      const specList = JSON.parse(state.product.spec);
+      for (let key in specList) {
+          for (let subKey in specList[key]) {
+            let json = new Object();
+            json.key = subKey;
+            json.value = specList[key][subKey];
+
+            if (subKey.startsWith("추출량") || subKey.startsWith("우유거품"))
+              state.brewingList.push(json)
+            else if(subKey.startsWith("크기") || subKey.startsWith("무게"))
+              console.log("필요없지롱")
+            else state.convenienceList.push(json);
+
+            if (subKey.startsWith("크기"))
+              state.size = specList[key][subKey];
+            else if (subKey.startsWith("자동세척"))
+              state.auto = specList[key][subKey];
+            else if (subKey.startsWith("무게"))
+              state.weight = specList[key][subKey];
+            else if (subKey.startsWith("저장개수") || (subKey.startsWith("캡슐수거함") && state.case == "null"))
+              state.case = specList[key][subKey];
+            else if (subKey.startsWith("분리세척"))
+              state.isSeperate = specList[key][subKey];
+            else if (subKey.startsWith("우유") || subKey.startsWith("밀크"))
+              state.milk = "O";
+          }
+        }
+    })
+
 
     return { store, state, clickModal, getVolumeWord, calculateWater, answerOfSpec };
   },

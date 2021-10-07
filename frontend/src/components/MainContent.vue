@@ -84,7 +84,7 @@
   <div class="card best">
     <h4>🏅 베스트</h4>
     <div class="best-product card-body">
-      <ProductCard v-for="product in state.bestProductList" :product="product" :key="product.pcode" :avgScore="product.avgScore" style="display=inline-block; vertical-align:middle;" @click="readDetail(product.pcode)">🥇</ProductCard>
+      <ProductCard class="card-product" v-for="product in state.bestProductList" :product="product" :key="product.pcode" :avgScore="product.avgScore" style="display=inline-block; vertical-align:middle;" @click="readDetail(product.pcode)">🥇</ProductCard>
     </div>
   </div>
 
@@ -188,6 +188,8 @@ export default {
       store.dispatch("root/requestCheckPick",store.getters["root/getMainCheckPickCategory"])
         .then(function(result) {
           console.log(result.data);
+          store.commit("root/setCheckPickList", result.data);
+          state.checkPickList = result.data;
         })
         .catch(function(err){
           console.log(err)
@@ -341,6 +343,10 @@ button:focus {
   margin-left: auto;
   margin-right: auto;
   font-size: 15px;
+}
+
+.card-product {
+  border-radius: 30px;
 }
 
 .category-button {
