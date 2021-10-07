@@ -5,7 +5,7 @@ module.exports = {
   devServer: {
     compress: true,
     disableHostCheck: true,
-    port: 80,
+    port: 8082,
     open: true,
 
     proxy: {
