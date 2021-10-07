@@ -1,6 +1,7 @@
 package com.ssafy.checklist.domain.aircleaner.controller.response;
 
 import com.ssafy.checklist.domain.aircleaner.entity.Aircleaner;
+import com.ssafy.checklist.domain.aircleaner.entity.AircleanerPerformance;
 import com.sun.istack.NotNull;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
@@ -13,7 +14,7 @@ import lombok.*;
 public class AircleanerGetRes {
     @ApiModelProperty
     @NotNull
-    Long pcode;
+    long pcode;
 
     @ApiModelProperty
     String name;
@@ -22,7 +23,7 @@ public class AircleanerGetRes {
     String brand;
 
     @ApiModelProperty
-    Long price;
+    long price;
 
     @ApiModelProperty
     String img;
@@ -39,7 +40,19 @@ public class AircleanerGetRes {
     @ApiModelProperty
     String spec;        // 전체스펙
 
-    public static AircleanerGetRes from(Aircleaner aircleaner) {
+    @ApiModelProperty
+    long pricePoint;
+
+    @ApiModelProperty
+    long areaPoint;
+
+    @ApiModelProperty
+    long sensorPoint;
+
+    @ApiModelProperty
+    long conveniencePoint;
+
+    public static AircleanerGetRes from(Aircleaner aircleaner, AircleanerPerformance aircleanerPerformance) {
         return builder()
                 .pcode(aircleaner.getPcode())
                 .name(aircleaner.getName())
@@ -50,6 +63,9 @@ public class AircleanerGetRes {
                 .area(aircleaner.getArea())
                 .dust(aircleaner.getDust())
                 .spec(aircleaner.getSpec())
+                .areaPoint(aircleanerPerformance.getArea())
+                .sensorPoint(aircleanerPerformance.getSensor())
+                .conveniencePoint(aircleanerPerformance.getConvenience())
                 .build();
     }
 }

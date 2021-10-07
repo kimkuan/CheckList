@@ -10,7 +10,7 @@
         </div>
 
         <div class="searchList">
-          <SearchList v-for="product in products" :product="product" :key="product.id" />
+          <SearchList v-for="product in checkPickproducts" :product="product" :key="product.id" />
         </div>
     </div>
 </template>
@@ -20,7 +20,7 @@ import SearchCategory from "./SearchCategory.vue";
 import SearchFilter from "./SearchFilter.vue";
 import SearchList from "./SearchList.vue";
 
-import { requestProducts } from "@/store/actions";
+import { requestCheckPickProducts } from "@/store/actions";
 import { useStore } from 'vuex';
 import { reactive, onMounted, toRefs } from 'vue';
 
@@ -34,28 +34,23 @@ export default {
   setup(){
     const store = useStore();
     const state = reactive({
-      totalPages: 0,
-      totalProducts: 0,
-      pageSize: 0,
-      products: [],
+        checkPickproducts: [],
     });
 
-    const getProductInfo = (page) => {
-      requestProducts(store.getters["root/getSelectCategoryName"] + "/?pageNumber="+page)
-        .then( res => {
-          console.log(res);
-          state.products = res.data.content;
-          state.totalPages = res.data.totalPages;
-          state.totalProducts = res.data.totalProducts;
-        })
+    const getCheckPickInfo = () => {
+        requestCheckPickProducts(store.getters["root/getSelectCategoryName"] + "/checkpick")
+            .then( res => {
+                console.log(res.data);
+                state.checkPickproducts = res.data;
+            })
         .catch(err => {
-          console.log(err);
-      });
+            console.log(err);
+        });
     }
 
     onMounted(() => {
-      getProductInfo(1);
-      console.log(state.products);
+        getCheckPickInfo();
+        console.log(state.checkPickproducts);
     })
 
     return {
@@ -82,7 +77,7 @@ export default {
         },
       ],
       
-      getProductInfo,
+      getCheckPickInfo,
       ...toRefs(state),
     };
   },

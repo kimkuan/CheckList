@@ -1,5 +1,7 @@
 // setter
 
+import { configs } from "eslint-plugin-prettier";
+
 /*
 export function setIsbookmarked(state, isbookmarked) {
   state.board.isbookmarked = isbookmarked;
@@ -47,4 +49,25 @@ export function setProductInfo(state, productInfo) {
 // 리뷰 정보 저장
 export function setReviewInfo(state, reviewInfo) {
   state.reviewInfo = reviewInfo;
+}
+
+// 최근 본 상품 저장
+export function setProductHistory(state, history){
+  // 가장 최근에 본 상품과 다를 때만, 최근 본 상품 배열 앞에 추가
+  state.productHistory.unshift(history);
+}
+
+// 검색한 상품리스트 저장
+export function setSearchProductListInfo(state, searchProductList) {
+  state.searchProductList = searchProductList;
+}
+
+// 검색 상품 리스트 초기화
+export function clearSearchProductListInfo(state) {
+  state.searchProductList = [];
+}
+
+// 메인 체크픽 카테고리 저장
+export function setMainCheckPickCategory(state, name) {
+  state.mainCheckPickCategory = name;
 }

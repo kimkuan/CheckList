@@ -46,9 +46,7 @@ public class AirfryerController {
     public ResponseEntity<List<AirfryerGetRes>> findAllAirfryerByFilter(@PageableDefault(size=10) Pageable pageable, @RequestBody Map<String, String> filters){
 
         System.out.println(filters);
-
-//        Page<AirfryerGetRes> airfryerServiceGetResList
-//                = airfryerService.findAirfryerListByFilter(pageable, priceFilter, typeFilter, volumeFilter, powerFilter, controlFilter);
+        // List<CoffeemachineGetRes> airfryerGetResList = airfryerService.findCoffeemachineListByFilter(pageable, filters);
 
         return null;
     }
@@ -72,4 +70,39 @@ public class AirfryerController {
 
         return new ResponseEntity<>(AirfryerInfoGetRes.of(airfryer, airfryerPerformance, lowPriceInfoList), HttpStatus.OK);
     }
+
+    @ApiOperation(value = "에어프라이기 체크픽 조회", notes = "에어프라이기 체크픽을 조회한다. (10개) ")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/checkpick")
+    /**
+    * @Method Name : findCheckPick
+    * @작성자 : 이상현
+    * @Method 설명 :
+    */
+    public ResponseEntity<List<AirfryerGetRes>> findCheckPick() {
+        List<AirfryerGetRes> airfryerGetResList = airfryerService.findCheckPick();
+        return new ResponseEntity<>(airfryerGetResList, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "키워드에 해당하는 에어프라이기 조회", notes = "키워드에 해당하는 상품을 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "조회 성공"),
+            @ApiResponse(code = 204, message = "조회할 데이터가 없음"),
+            @ApiResponse(code = 500, message = "서버 에러 발생")
+    })
+    @GetMapping("/search/{page}/{keyword}")
+    /**
+    * @Method Name : findAllByKeyword
+    * @작성자 : 이상현
+    * @Method 설명 :
+    */
+    public ResponseEntity<List<AirfryerGetRes>> findAllByKeyword(@PathVariable(name = "page") int page, @PathVariable(name = "keyword") String keyword) {
+        List<AirfryerGetRes> airfryerGetResList = airfryerService.findAllByKeyword(page, keyword);
+        return new ResponseEntity<>(airfryerGetResList, HttpStatus.OK);
+    }
+
 }

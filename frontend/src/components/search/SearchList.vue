@@ -1,7 +1,7 @@
 <template>
     <div class="searchList card mb-4 rounded-3" @click="clickProductDetail">
         <div class="title mt-3">
-            <h5 class="card-title fw-bold">[{{product.brand}}] {{product.name}}</h5>
+            <h4 class="card-title fw-bold">[{{product.brand}}] {{product.name}}</h4>
         </div>
         <div class="row g-0">
             <div class="col-md-3">
@@ -93,10 +93,11 @@ export default {
     name : "Product",
     props : ['product'],
 
-    setup(){
+    setup(props){
         const router = useRouter();
+
         const clickProductDetail = function () {
-            router.push({ name: "Product" });
+            router.push({ name: 'Product', params: { category: catetory, pcode: pcode }});
         };
 
         return { router, clickProductDetail };
