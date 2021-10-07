@@ -1,5 +1,7 @@
 // getter
 
+import state from "./state";
+
 // // 현재 로그인 된 UserInfo 가져오기
 // export function getLoginUserInfo(state) {
 //   return state.loginUserInfo;
@@ -49,4 +51,14 @@ export function getSearchProductListInfo(state) {
 // 선택한 체크픽 카테고리 이름 가져오기
 export function getMainCheckPickCategory(state) {
   return state.mainCheckPickCategory;
+}
+
+// 선택한 탭 이름 가져오기
+export function getSearchTab(state) {
+  return state.searchTab;
+}
+
+// 선택한 필터링 목록 가져오기
+export function getSelectedFilter(state) {
+  return state.selectedFilter;
 }

@@ -38,14 +38,14 @@ export default {
     });
 
     const getCheckPickInfo = () => {
-        requestCheckPickProducts(store.getters["root/getSelectCategoryName"] + "/checkpick")
-            .then( res => {
-                console.log(res.data);
-                state.checkPickproducts = res.data;
-            })
-        .catch(err => {
-            console.log(err);
-        });
+      requestCheckPickProducts(store.getters["root/getSelectCategoryName"] + "/checkpick")
+        .then( res => {
+          console.log(res.data);
+          state.checkPickproducts = res.data;
+        })
+      .catch(err => {
+        console.log(err);
+      });
     }
 
     onMounted(() => {

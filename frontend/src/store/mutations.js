@@ -66,3 +66,11 @@ export function clearSearchProductListInfo(state) {
 export function setMainCheckPickCategory(state, name) {
   state.mainCheckPickCategory = name;
 }
+
+export function setSearchTap(state, name) {
+  state.searchTab = name;
+}
+
+export function setSelectedFilter(state, selectedFilter) {
+  state.selectedFilter = selectedFilter;
+}
