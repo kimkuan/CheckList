@@ -55,6 +55,7 @@ public class ReviewController {
     })
     @GetMapping("/wordcloud/{pcode}")
     public ResponseEntity<ReviewWordCloud> findWordCloudByKeyword(@PathVariable(name = "pcode") Long pcode){
+        System.out.println("pcode :" +pcode);
         ReviewWordCloud reviewWordCloud = reviewService.findById(pcode);
         return new ResponseEntity<>(reviewWordCloud, HttpStatus.OK);
     }
