@@ -20,7 +20,7 @@ server:
   compression:
     enabled: true
   mime-types: application/json,application/xml,text/xml,text/plain,application/javascript,text/css,text/html,text/event-stream
-  port: 8082
+  port: 80
 #  ssl:
 #    enabled: true
 #    key-store-type: PKCS12
@@ -37,7 +37,7 @@ server:
       force: true
 http-server:
   http:
-    port: 8082
+    port: 80
 
 spa:
   default-file: /dist/index.html

@@ -2,7 +2,7 @@
 import $axios from "axios";
 
 const axiosService = $axios.create({
-  baseURL: 'http://j5checklist.p.ssafy.io:8082/api/',
+  baseURL: 'http://j5checklist.p.ssafy.io:80/api/',
 });
 
 // 카테고리별 필터링 정보 가져오기
