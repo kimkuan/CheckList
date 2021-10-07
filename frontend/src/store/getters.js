@@ -34,3 +34,8 @@ export function getSelectCategoryName(state) {
 export function getProductInfo(state) {
   return state.productInfo;
 }
+
+// 리뷰 정보 가져오기
+export function getReviewInfo(state) {
+  return state.reviewInfo;
+}

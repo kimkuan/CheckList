@@ -21,3 +21,9 @@ export function requestProductInfo({ state }, payload) {
   const url = payload.category + "/" + payload.pcode;
   return $axios.get(url);
 }
+
+// 상품의 리뷰 정보 가져오기
+export function requestProductReview({ state }, payload) {
+  const url = "/review/" + payload.pcode + "/" + payload.page;
+  return $axios.get(url);
+}

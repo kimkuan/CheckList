@@ -43,3 +43,8 @@ export function setSelectCategoryName(state, id) {
 export function setProductInfo(state, productInfo) {
   state.productInfo = productInfo;
 }
+
+// 리뷰 정보 저장
+export function setReviewInfo(state, reviewInfo) {
+  state.reviewInfo = reviewInfo;
+}

@@ -21,6 +21,41 @@ export default {
   // 클릭한 상품 설명 모달창
   modal: "",
 
-   // 상품 정보 (가격, 이름, 브랜드, 성능 정보 + 최저가 정보)
-   productInfo: {},
+  // 상품 정보 (가격, 이름, 브랜드, 성능 정보 + 최저가 정보)
+  productInfo: {},
+
+  // 리뷰 정보 (pcode, category, avgScore, reviewList<content>)
+  reviewInfo: {
+    pcode: 0,
+    category: "",
+    avgScore: 0,
+    reviewList: {
+      content: [
+        {
+          id: 0,
+          category: "",
+          pcode: "",
+          title: "",
+          content: "",
+          date: "",
+          score: 0,
+          site: "",
+          userId: "",
+          name: "",
+          image: "",
+        },
+      ],
+      pageable: [],
+      totalPages: 0,
+      totalElements: 0,
+      last: false,
+      number: 0,
+      size: 0,
+      sort: [],
+      numberOfElements: 0,
+      first: false,
+      empty: false,
+    },
+  },
+
 };
