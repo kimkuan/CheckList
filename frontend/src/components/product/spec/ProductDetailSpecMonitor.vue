@@ -93,7 +93,7 @@
           <div class="chart-back">&nbsp;</div>
           <div class="chart-low"
               :class="priceSum.class"
-              :style="{ width: priceSum.score*10 + '%' }"
+              :style="{ width: priceSum.score*20 + '%' }"
               >&nbsp;</div>
               <ul class="chart-desc">
                 <li class="desc">비쌈</li>
@@ -121,7 +121,7 @@
           <div class="chart-back">&nbsp;</div>
           <div class="chart-low"
               :class="sizeSum.class"
-              :style="{ width: sizeSum.score*10 + '%' }"
+              :style="{ width: sizeSum.score*20 + '%' }"
               >&nbsp;</div>
               <ul class="chart-desc">
                 <li class="desc">아주 작음</li>
@@ -166,7 +166,7 @@
           <div class="chart-back">&nbsp;</div>
           <div class="chart-low"
               :class="pixelSum.class"
-              :style="{ width: pixelSum.score*10 + '%' }"
+              :style="{ width: pixelSum.score*20 + '%' }"
               >&nbsp;</div>
               <ul class="chart-desc">
                 <li class="desc">조금 부족함</li>
@@ -198,7 +198,7 @@
           <div class="chart-back">&nbsp;</div>
           <div class="chart-low"
               :class="hzSum.class"
-              :style="{ width: hzSum.score*10 + '%' }"
+              :style="{ width: hzSum.score*20 + '%' }"
               >&nbsp;</div>
               <ul class="chart-desc">
                 <li class="desc">조금 부족함</li>
@@ -227,7 +227,7 @@
           <div class="chart-back">&nbsp;</div>
           <div class="chart-low"
               :class="conSum.class"
-              :style="{ width: conSum.score*10 + '%' }"
+              :style="{ width: conSum.score*20 + '%' }"
               >&nbsp;</div>
               <ul class="chart-desc">
                 <li class="desc">아주 적음</li>
