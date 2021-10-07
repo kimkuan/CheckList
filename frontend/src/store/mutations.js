@@ -53,11 +53,16 @@ export function setReviewInfo(state, reviewInfo) {
 
 // 최근 본 상품 저장
 export function setProductHistory(state, history){
-  // 만약, 이미 4개의 상품의 저장되어있으면 가장 먼저 저장된 값 삭제
-  if(state.productHistory.length >= 4)
-    state.productHistory.splice(4, 1);
+  // 가장 최근에 본 상품과 다를 때는 PASS
+  var size = state.productHistory.length;
+  if(size > 0 && state.productHistory[0].productInfo.pcode == history.productInfo.pcode)
+    return;
 
-  // 가장 최근에 본 상품과 다를 때만, 최근 본 상품 배열 앞에 추가
+  // 만약, 이미 4개의 상품의 저장되어있으면 가장 먼저 저장된 값 삭제
+  var deleteCnt = size < 4 ? 0 :size-3;
+  state.productHistory.splice(3, deleteCnt);
+
+  // 최근 본 상품 배열 앞에 추가
   state.productHistory.unshift(history);
 }
 
