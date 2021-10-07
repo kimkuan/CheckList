@@ -59,6 +59,7 @@
         <div id="cloud" ref="cloud" style="width: 100%; height: 100%"></div>
       </div>
       <div id="review-data">
+        <!-- review 보여줌 -->
         <div v-for="review in reviewInfo.reviewList.content" :key="review.id">
           <product-detail-reivew-card v-bind:review="review"></product-detail-reivew-card>
         </div>
@@ -71,7 +72,7 @@
                 </a>
               </li>
               <li class="page-item" v-for="item in cnt" :key="item.id">
-                <a class="page-link" @click="getNextReview(item+pageIdx*10)">{{ item+pageIdx*10 }}</a>
+                <a class="page-link" v-if="(item+pageIdx*10) <= reviewInfo.reviewList.totalPages" @click="getNextReview(item+pageIdx*10)">{{ item+pageIdx*10 }}</a>
               </li>
               <!-- <li class="page-item" v-for="item in reviewInfo.reviewList.totalPages" :key="item.id"><a class="page-link" @click="getNextReview(item)">{{ item }}</a></li> -->
               <li class="page-item">
@@ -130,11 +131,17 @@ export default {
       reviewInfo: computed(() => {
         return store.getters["root/getReviewInfo"];
       }),
+
+      // 현재 보여줄 페이지의 개수
       cnt: computed(() => {
-        if(store.getters["root/getReviewInfo"].reviewList.number == store.getters["root/getReviewInfo"].reviewList.totalPages-1)
-          return state.reviewInfo.reviewList.totalPages%10;
-        return 10;
+        console.log(store.getters["root/getReviewInfo"].reviewList.number)
+        console.log(store.getters["root/getReviewInfo"].reviewList.totalPages);
+        if(store.getters["root/getReviewInfo"].reviewList.number >= store.getters["root/getReviewInfo"].reviewList.totalPages-1)
+          return state.reviewInfo.reviewList.totalPages % 10;
+        else
+          return 10;
       }),
+      // 현재 보여줄 리뷰들의 페이지 넘버
       pageIdx: 0,
     });
 
@@ -181,6 +188,7 @@ export default {
       console.log("암것두안혀")
     }
 
+    // 특정 페이지로 뛰어넘기
     const getNextReview = (idx) => {
       store.dispatch("root/requestProductReview", {
       pcode: pcode,
@@ -196,19 +204,21 @@ export default {
     })
     }
 
+    // 10페이지 다음으로
     const nextPage = () => {
-      if(state.pageIdx < 1) {
-      state.pageIdx = state.pageIdx+1;
-      this.getNextRevie(state.pageIdx);
-      route.push();
+      if((state.pageIdx+1)*10 < state.reviewInfo.reviewList.totalPages) {
+        state.pageIdx = state.pageIdx+1;
+        this.getNextReview(state.pageIdx);
+        route.push();
       }
     }
 
+    // 10페이지 이전으로
     const prePage = () => {
-       if (state.pageIdx<=state.reviewInfo.reviewList.totalPages){
-      state.pageIdx = state.pageIdx-1;
-      this.getNextRevie(state.pageIdx);
-      route.push("/");
+       if (state.pageIdx > 0){
+        state.pageIdx = state.pageIdx-1;
+        this.getNextReview(state.pageIdx);
+        route.push();
       }
     }
 
@@ -326,6 +336,10 @@ export default {
 
 #review-data nav {
   margin-top: 30px;
+}
+
+.page-item {
+  cursor: pointer;
 }
 
 .page-link {

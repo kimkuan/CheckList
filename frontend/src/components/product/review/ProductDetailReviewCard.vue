@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="card-top">
-      <div class="star-ratio">
-        <!-- <div v-for="star in 5" :key="star.id">
+      <div class="star-ratio" v-if="review">
+        <div v-for="star in (review.score/20)" :key="star.id">
           <img src="@/assets/star-yellow.png" alt="star-yellow" />
-        </div> -->
+        </div>
       </div>
-      <span v-if="review">{{ review.title }}</span>
-      <span v-if="review">{{ review.site }}</span>
+      <span v-if="review">{{ review.title.substring(0, review.title.length < 20 ? review.title.length : 20)+"..."}}</span>
+      <span v-if="review" style="margin-left: 20px">{{review.site }}</span>
     </div>
     <div class="card-content">
-      <p class="line-limit" v-if="review" :id="review.id">{{ review.content.substring(1, review.content.length-1) }}</p>
-      <div style="width: 12%; margin-top:auto; margin-bottom: 16px"><button @click="toggleContent(review.id)">펼쳐보기 ▼</button></div>
+      <p class="line-limit" v-if="review" :id="review.id">{{ review.content.substring(0, review.content.length < 100 ? review.content.length : 100) }}</p>
+      <div style="width: 12%; margin-top:auto; margin-bottom: 16px; font-size:14px"><button @click="toggleContent(review)">펼쳐보기 ▼</button></div>
     </div>
   </div>
 </template>
@@ -27,6 +27,13 @@ export default {
     review: Object,
   },
   setup() {
+
+    const state = reactive({
+      open : false,
+      isOpen : computed(() => {
+        console.log(state.open)
+      })
+    })
     // const store = useStore()
     // const state = reactive({
     //   reviewInfo: computed(() => {
@@ -39,9 +46,16 @@ export default {
 
     // });
 
-    const toggleContent = (id) => {
-      document.getElementById(id).classList.toggle('line-limit');
-
+    const toggleContent = (review) => {
+      document.getElementById(review.id).classList.toggle('line-limit');
+      if(!state.open && review.content.length > 100){
+        document.getElementById(review.id).innerText += review.content.substring(100, review.content.length)
+        state.open = true;
+      }
+      else if(state.open){
+         document.getElementById(review.id).innerText = document.getElementById(review.id).innerText.substring(0, 100)
+         state.open = false;
+      }
       // if(id.class) c.className += 'line-limit';
     }
 
@@ -62,14 +76,13 @@ export default {
 
 .card-top span {
   display: inline-block;
-  margin: auto 10px;
   font-size: 15px;
   color: #969696;
 }
 
 .star-ratio {
   display: inline-flex;
-  width: fit-content;
+  width: 90px;
   margin-right: 10px;
 }
 
@@ -84,6 +97,7 @@ export default {
   display: flex;
   text-align: left;
   width: 90%;
+  margin-bottom: 10px;
 }
 
 .card-content p {
