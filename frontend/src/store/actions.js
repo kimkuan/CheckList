@@ -48,3 +48,10 @@ export function requestGetSearchProducts({ state }, payload) {
   const url = category + "/search/" + pageValue + "/" + keywordValue
   return $axios.get(url);
 }
+
+// 워드클라우드 정보 가져오기
+export function requestWordcloud({ state }, payload) {
+  const url = "/review/wordcloud/" + payload.pcode
+  console.log("url : "+url)
+  return $axios.get(url);
+}
