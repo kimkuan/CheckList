@@ -1,12 +1,12 @@
 <template>
     <div class="searchList card mb-4 rounded-3" @click="clickProductDetail">
         <div class="title mt-3">
-            <h4 class="card-title fw-bold">[{{product.brand}}] {{product.name}}</h4>
+            <h3 class="card-title fw-bold">[{{product.brand}}] {{product.name}}</h3>
         </div>
         <div class="row g-0">
             <div class="col-md-3">
                 <div class="card-body image">
-                    <img :src="product.img" alt="상품 이미지" class="img-fluid rounded-3">
+                    <img :src="product.img" alt="상품 이미지" class="img rounded-3">
                 </div>
             </div>
             <div class="col-md-6">
@@ -26,7 +26,7 @@
                         <h3 class="title">추출성능</h3>
                         <div class="chart">
                             <div class="circle" :class="state.brewingWord.class" v-for="i in Math.ceil(state.brewingWord.score)" v-bind:key="i" />
-                            <!-- <div class="circle" v-for="i in 5 - Math.ceil(product.brewingPoint)" v-bind:key="i" /> -->
+                            <div class="circle" v-for="i in 5 - Math.ceil(state.brewingWord.score)" v-bind:key="i" />
                         </div>
                         <h3 class="content"> {{product.brewingPoint}}점 <span style="color: #C7C7C7;">|</span> {{product.heatTime}}</h3>
                         </div>
@@ -35,7 +35,7 @@
                         <h3 class="title">물통용량</h3>
                         <div class="chart">
                             <div class="circle" :class="state.waterWord.class" v-for="i in Math.ceil(state.waterWord.score)" v-bind:key="i" />
-                            <!-- <div class="circle" v-for="i in 5 - Math.ceil(product.waterVolumePoint)" v-bind:key="i" /> -->
+                            <div class="circle" v-for="i in 5 - Math.ceil(state.waterWord.score)" v-bind:key="i" />
                         </div>
                         <h3 class="content">{{product.waterVolumePoint}}점<span style="color: #C7C7C7;">|</span> {{product.waterVolume}}</h3>
                         </div>
@@ -44,7 +44,7 @@
                         <h3 class="title">사용편의</h3>
                         <div class="chart">
                             <div class="circle" :class="state.conferWord.class" v-for="i in Math.ceil(state.conferWord.score)" v-bind:key="i" />
-                            <!-- <div class="circle" v-for="i in 5 - Math.ceil(product.conveniencePoint)" v-bind:key="i" /> -->
+                            <div class="circle" v-for="i in 5 - Math.ceil(state.conferWord.score)" v-bind:key="i" />
                         </div>
                         <h3 class="content"> {{product.conveniencePoint}}점<span style="color: #C7C7C7;">|</span> {{ state.conferWord.content}}</h3>
                         </div>
@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card-body price">
-                    <h3 class="mt-5 mb-3 center">{{ $filters.convertPriceVer2(product.price) }}만원</h3>
+                    <h1 class="mt-5 mb-3 center">{{ $filters.convertPriceVer2(product.price) }}만원</h1>
                     <button @click="goToBuy()" class="btn btn-block goToBuy rounded-pill fw-bold">사러가기</button>
                 </div>
             </div>
@@ -70,9 +70,7 @@ export default {
     props : ['product'],
 
     setup(props){
-        console.log(props.product.pricePoint);
         let pricePoint = Math.ceil(props.product.pricePoint/20);
-        console.log("price; " + pricePoint);
         const store = useStore();
         const state = reactive({
             product: computed(() => {
@@ -328,12 +326,19 @@ export default {
 .card-title {
     text-align: center;
     margin: auto;
+    padding-top: 5px;
 }
-.card-body {
-    margin: 0px auto;
-    margin-top: 20px;
-    padding: 15px;
-    padding-right: 2px;
+
+.img {
+    max-height: 220px;
+}
+
+.image {
+    padding-top: 0px;
+}
+
+.col-md-6 {
+    max-height: 220px;
 }
 
 h3.title {
@@ -349,7 +354,7 @@ h3.content {
 }
 
 .score-chart {
-  margin: 5px auto;
+  margin: 5px 0px;
 }
 
 .score-group {
@@ -371,6 +376,52 @@ h3.content {
   display: inline-block;
   width: 40%;
 }
+
+ .score .circle {
+  display: inline-block;
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ECECEC;
+}
+/*
+.score .circle-low {
+  display: inline-block;
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FF8946;
+}
+
+.score .circle-middle {
+  display: inline-block;
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FFD480;
+}
+
+.score .circle-high {
+  display: inline-block;
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9EED9C;
+}
+
+.score .circle-highest {
+  display: inline-block;
+  margin-left: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #7BD8FF;
+} */
+
 
 .circle {
   display: inline-block;
@@ -419,5 +470,322 @@ h3.content {
 /* 5점 */
 .chart-high {
   background-color: #7BD8FF !important;
+}
+
+/* 공통 CSS */
+h2 {
+  margin: 0px 0px;
+  font-family: SpoqaHanSansNeo-Bold;
+}
+h3 {
+  display: inline-block;
+}
+.title {
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+}
+.body {
+  width: 70%; /* 변경 가능 */
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.spec {
+  margin-bottom: 100px;
+  width: 100%;
+}
+.section {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+/* ProductDetail에서 가져온 CSS */
+hr.division-line {
+  /* width: 1205px; */
+  /* width: 85%; */
+  /* max-width: 1205px; */
+  border: 1px solid #D8D8D8;;
+  margin-top: 100px;
+}
+
+.core-spec {
+  /* display: inline-block; */
+  /* position: absolute; */
+  /* width: 55%; */
+  width: 1048px;
+  height: 292px;
+  /* left: 437px; */
+  /* margin: 0px auto; */
+  /* top: 733px; */
+  /* background-color: lightgray; */
+  text-align: center;
+  justify-content: left;
+}
+
+.core-spec .title {
+  margin: 10px 10px;
+  line-height: 15%;
+}
+
+.core-spec .title div {
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.core-spec .title button {
+  width: 25%;
+  height: 40px;
+  border-radius: 15px;
+  /* margin-right: 5px; */
+  background-color: #FFFFFF;
+  border: 0.5px solid #000000;
+}
+
+.core-spec .content {
+  display: inline-block;
+  text-align: left;
+  width: 100%;
+}
+
+.spec-item {
+  display: inline-block;
+  width: 18%;
+  height: 89px;
+  background-color: #fff3f3;
+  border-radius: 15px;
+  margin: 10px 10px;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.spec-item div {
+  width: 100%;
+  vertical-align: middle;
+  margin-top: 10%;
+  align-items: center;
+}
+
+.spec-item p {
+  width: 100%;
+  margin: 5px auto;
+}
+
+.score {
+  /* position: absolute; */
+  /* width: 40%; */
+  width: 646px;
+  min-height: 200px;
+  /* height: 487px; */
+  /* left: 637px; */
+  /* top: 1115px; */
+  text-align: center;
+}
+
+.score-group {
+  margin: 15px auto;
+}
+
+.score-chart h3 {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.score-chart .score-group h3 {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+h3.title {
+  text-align: right;
+  width: 15%;
+  font-size: 20px;
+}
+
+h3.content {
+  text-align: left;
+  width: 40%;
+  font-size: 20px;
+}
+
+.score-chart .score-group .chart {
+  display: inline-block;
+  width: 30%;
+}
+
+.score .circle {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #ECECEC;
+}
+
+.score .circle-low {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #FF8946;
+}
+
+.score .circle-middle {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #FFD480;
+}
+
+.score .circle-high {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #9EED9C;
+}
+
+.score .circle-highest {
+  display: inline-block;
+  margin-left: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #7BD8FF;
+}
+
+h1 {
+  font-family: "SpoqaHanSansNeo-Bold";
+  margin: 0px 0px;
+  display: inline-block;
+  width: 80%;
+}
+
+h2 {
+  font-family: "SpoqaHanSansNeo-Bold";
+  margin: 0px 0px;
+}
+
+h4 {
+  font-family: "SpoqaHanSansNeo-Bold";
+  margin: 0px 0px;
+}
+
+/* 스펙 타이틀 CSS */
+.sub-title {
+  margin-bottom: 10px;
+}
+.spec .circle {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+.circle-margin {
+  margin-right: 10px;
+}
+
+/* 막대그래프 CSS */
+.spec-info .chart {
+  position: relative;
+  height: 60px;
+  width: 100%;
+}
+.spec-info .chart > div {
+  position: absolute;
+  display: block;
+  line-height: 22px;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+.chart-back {
+  background-color: #F5F5F5;
+  width: 100%;
+}
+
+/* 1 ~ 3점 */
+.chart-llow {
+  background-color: #FF8946 !important;
+  width: 20%; ; /* width 값을 이용하여 그래프 조정 */
+}
+
+/* 3 ~ 4점 */
+.chart-low {
+  background-color: #FFD480 !important;
+  width: 50%;
+}
+
+/* 4 ~ 5점*/
+.chart-middle {
+  background-color: #9EED9C !important;
+  width: 70%;
+}
+
+/* 5점 */
+.chart-high {
+  background-color: #7BD8FF !important;
+  width: 90%
+}
+.chart-desc {
+  position: relative;
+  display: table;
+  width: inherit;
+  table-layout: fixed;
+}
+.chart-desc > desc {
+  display: table-cell;
+}
+.chart-desc > li {
+  display: inline-block;
+  list-style: none;
+  width: 20%;/* 이게 맞는지는 모르겠음 */
+  text-align: right;
+  padding-top: 40px;
+  opacity: 0.5; /* 텍스트 투명도 조절 */
+}
+
+/* 성능 상세 설명 CSS */
+.content {
+  margin-top: 30px;
+  line-height: 30px;
+}
+.content > .content-func {
+  margin-bottom: 30px;
+}
+
+/* 주저리 */
+.content-article {
+  line-height: 30px;
+}
+/* 모달 버튼 CSS */
+.modal-button {
+  margin: 0 auto;
+  width: 100%;
+  padding : 20px;
+  text-align: center;
+}
+.modal-button > button {
+  display: block;
+  min-width: 300px;
+  width: 20%;
+  height: 50px;
+  margin: auto;
+  background-color: white;
+  border: none ;
+  border-radius: 50px;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.2));
+  font-size: 14px;
 }
 </style>
