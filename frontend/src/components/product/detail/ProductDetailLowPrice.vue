@@ -9,7 +9,7 @@
           <span class="name">{{ item.site }}</span>
           <span class="price">{{ $filters.convertPrice(item.price) }}원</span>
           <span class="fee">무료배송</span>
-          <button>사러가기</button>
+          <button @click="movePriceSite(index)">사러가기</button>
         </div>
       </div>
   </div>
@@ -80,7 +80,13 @@ export default {
       lowPriceInfoList : computed(() => store.getters["root/getProductInfo"].lowPriceInfoList),
     })
 
-    return { state }
+    const movePriceSite = function(index){
+      console.log("**뭅프사 함수 테스트**")
+      console.log(state.lowPriceInfoList)
+      location.href=state.lowPriceInfoList[index].link
+    }
+
+    return { state, movePriceSite }
   }
 }
 </script>

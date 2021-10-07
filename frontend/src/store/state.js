@@ -39,7 +39,9 @@ export default {
     cookPoint : 0,
     controlPoint : 0,
     managementPoint : 0,
-    conveniencePoint : 0,
+    conveniencePoint: 0,
+    
+    lowPriceInfoList: [],
   },
 
   // 최근 본 상품 목록
