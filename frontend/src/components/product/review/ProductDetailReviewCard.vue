@@ -10,8 +10,8 @@
       <span v-if="review" style="margin-left: 20px">{{review.site }}</span>
     </div>
     <div class="card-content">
-      <p class="line-limit" v-if="review" :id="review.id">{{ review.content.substring(0, review.content.length < 100 ? review.content.length : 100) }}</p>
-      <div style="width: 12%; margin-top:auto; margin-bottom: 16px; font-size:14px"><button @click="toggleContent(review)">펼쳐보기 ▼</button></div>
+      <p class="line-limit" v-if="review" :id="review.id">{{ review.content.substring(0,1) == '"' ? review.content.substring(1, review.content.length-1): review.content }}</p>
+      <div style="width: 12%; margin-top:auto; margin-bottom: 16px; font-size:14px"><button @click="toggleContent(review.id)">펼쳐보기 ▼</button></div>
     </div>
   </div>
 </template>
