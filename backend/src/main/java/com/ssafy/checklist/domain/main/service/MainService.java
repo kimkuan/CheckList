@@ -89,7 +89,7 @@ public class MainService {
         */
 
         // clickcount count desc 정렬하여 3개 가져옴
-        PageRequest pg = PageRequest.of(0, 3, Sort.by("count"));
+        PageRequest pg = PageRequest.of(0, 3, Sort.by("count").descending());
         List<ClickCount> clickCounts = clickCountRepository.findAll(pg).getContent();
 
         // ProductGetRes 형태로 반환

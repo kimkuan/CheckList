@@ -46,6 +46,11 @@ export function setProductInfo(state, productInfo) {
   state.productInfo = productInfo;
 }
 
+// 리뷰 정보 저장
+export function setReviewInfo(state, reviewInfo) {
+  state.reviewInfo = reviewInfo;
+}
+
 // 최근 본 상품 저장
 export function setProductHistory(state, history){
   // 만약, 이미 4개의 상품의 저장되어있으면 가장 먼저 저장된 값 삭제

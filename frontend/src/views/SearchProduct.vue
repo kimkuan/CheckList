@@ -2,7 +2,7 @@
   <div id="searchProduct">
     <div class="productList">
       <div class="result">
-        <span>검색 결과 </span> <span style="color:#CF000F; font-size:25px;"><strong>12</strong></span><span>건</span>
+        <span>검색 결과 </span> <span style="color:#CF000F; font-size:25px;"><strong>{{ state.products[0].totalResultCount }}</strong></span><span>건</span>
         <h3>현재 검색어 : {{ state.searchWord }}</h3>
       </div>
       <ProductCard v-for="product in state.products" :product="product" :key="product.id"/>
