@@ -612,6 +612,8 @@ export default {
         return store.getters["root/getProductInfo"];
       }),
       inch : computed(() => {
+        if(state.productInfo == undefined)
+          return 0;
         return state.productInfo.size.split('(');
       }),
       pixelCal : computed(() => {

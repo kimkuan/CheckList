@@ -6,8 +6,8 @@
         <div id="review-score">
           <h3>사용자 총 평점</h3>
           <div id="star">
-            <img src="@/assets/star-yellow.png" alt="star-yellow" v-for="i in (reviewInfo.avgScore/20)" v-bind:key="i">
-            <img src="@/assets/star-grey.png" alt="star-grey" v-for="i in 5-(reviewInfo.avgScore/20)" v-bind:key="i">
+            <img src="@/assets/star-yellow.png" alt="star-yellow" v-for="i in (reviewInfo == undefined ? 0 : reviewInfo.avgScore/20)" v-bind:key="i">
+            <img src="@/assets/star-grey.png" alt="star-grey" v-for="i in 5-(reviewInfo == undefined ? 0 : reviewInfo.avgScore/20)" v-bind:key="i">
           </div>
           <!-- 총 평점 계산해서 h4 태그 안에 넣기 -->
           <h4 style="margin-top: 10px">{{ reviewInfo.avgScore/20 }} / 5</h4>
@@ -161,11 +161,11 @@ export default {
       } else {
         console.log("댓글이 없습니다.")
       }
-      
+
     })
 
     const setWordcloud = function() {
-      console.log("setWordcloud시작") 
+      console.log("setWordcloud시작")
       const chart = Anychart.tagCloud(state.chartData);
       chart.angles([0]);
       chart.selected().fill(chart.normal().fill()); // word 선택시 색상 변하지 않도록 설정
