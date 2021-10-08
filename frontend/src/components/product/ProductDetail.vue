@@ -28,7 +28,7 @@
 
           <div class="price-chart">
             <!-- 최저가 추이 그래프 -->
-            <product-detail-chart></product-detail-chart>
+            <!-- <product-detail-chart></product-detail-chart> -->
           </div>
         </div>
       </div>
