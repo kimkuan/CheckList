@@ -25,8 +25,8 @@
 
                         <h3 class="title">추출성능</h3>
                         <div class="chart">
-                            <div class="circle" :class="state.brewingWord.class" v-for="i in Math.ceil(state.brewingWord.score)" v-bind:key="i" />
-                            <div class="circle" v-for="i in 5 - Math.ceil(state.brewingWord.score)" v-bind:key="i" />
+                            <div class="circle" :class="state.brewingWord.class" v-for="i in brewingPoint" v-bind:key="i" />
+                            <div class="circle" v-for="i in 5 - brewingPoint" v-bind:key="i" />
                         </div>
                         <h3 class="content"> {{product.brewingPoint}}점 <span style="color: #C7C7C7;">|</span> {{product.heatTime}}</h3>
                         </div>
@@ -71,6 +71,7 @@ export default {
 
     setup(props){
         let pricePoint = Math.ceil(props.product.pricePoint/20);
+        let brewingPoint = Math.ceil(props.product.brewingPoint/20);
         const store = useStore();
         const state = reactive({
             product: computed(() => {
@@ -145,6 +146,7 @@ export default {
                 };
                 }
             }),
+
             brewingWord: computed(() => {
                 // content 바꾸기
                 let brewingScore = store.getters["root/getProductInfo"].brewingPoint;
@@ -303,7 +305,7 @@ export default {
         }),
     });
 
-    return { pricePoint, store, state};
+    return { pricePoint, brewingPoint, store, state};
     }
 }
 </script>
