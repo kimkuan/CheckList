@@ -14,7 +14,10 @@
 > 서울 4반 6팀 🙋이영주, 권영린, 김윤주, 김선혜, 이상현
 
 <br>
-![image](https://user-images.githubusercontent.com/46213180/148536741-809a9f07-4fa6-44f8-80d3-e09aeba6c401.png) <br>
+
+![image](https://user-images.githubusercontent.com/46213180/148536741-809a9f07-4fa6-44f8-80d3-e09aeba6c401.png) 
+
+<br>
 
 
 
