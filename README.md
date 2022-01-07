@@ -14,7 +14,7 @@
 > 서울 4반 6팀 🙋이영주, 권영린, 김윤주, 김선혜, 이상현
 
 <br>
-![image](/uploads/b74414b046f0ffe49e3f07512dc779e5/image.png) <br>
+![image](https://user-images.githubusercontent.com/46213180/148536741-809a9f07-4fa6-44f8-80d3-e09aeba6c401.png) <br>
 
 
 
@@ -100,19 +100,19 @@
 
 ### 🔨 기술 스택
 
-![image](/uploads/0d76453845008f1abde98073a087417a/image.png)
+![image (1)](https://user-images.githubusercontent.com/46213180/148536781-8ee03d11-8031-4ed8-9636-fcc49435f232.png)
 
 <br><br>
 
 ### 🎈 서버 아키텍처
 
-![image](/uploads/6d8fb103181e94a4e117ba715455135d/image.png)
+![image (1)](https://user-images.githubusercontent.com/46213180/148536787-21395e51-c832-4e99-822c-f3c9bff2f9a6.png)
 
 <br><br>
 
 ### 🔍 ERD
 
-![image](/uploads/2266a009bca973b5ef0185cc90bfd238/image.png)
+![image (4)](https://user-images.githubusercontent.com/46213180/148536799-3379804e-caf4-4db1-a03f-b22f6894af9f.png)
 
 <br><br>
 
@@ -139,7 +139,7 @@
     🔑 리뷰 키워드 분석
     🔑 성능 기반의 상품 추천
 
-![image](/uploads/529d6d55dd45a46cd5ef29d31c1f4291/image.png)
+![image (5)](https://user-images.githubusercontent.com/46213180/148536831-33888db3-5ef6-4ff4-afb7-e6ae956c7f45.png)
 <br><br>
 
 ## 🥜 구현 결과
@@ -160,7 +160,7 @@
 <br><br>
 |Name|권영린|김윤주|김선혜|이영주|이상현|
 |-----|-----|-----|------|----|-----|
-|Profile|![image](/uploads/a74158da2a095f6f6e8536bc9fcf5698/image.png)|![image](/uploads/ac72272ad715bff60b2a609b2ec3a97a/image.png)|![image](/uploads/a794bf981e15840583ff512c21517cce/image.png)|![image](/uploads/91ecb287b49b3f6e2b75defc67b436a5/image.png)|![image](/uploads/e40dc6f52d103209df53b13f1a2d7f51/image.png)|
+|Profile|![image (5)](https://user-images.githubusercontent.com/46213180/148536853-dc834d4b-d858-4f0d-a3bf-8b02d096e2b0.png)|![image (6)](https://user-images.githubusercontent.com/46213180/148537114-650f6bc4-3b7b-4050-a651-f7cd3760a2f2.png)|![image (7)](https://user-images.githubusercontent.com/46213180/148537126-84192b14-68d8-41d7-b46a-63c862ec5ffa.png)|![image (8)](https://user-images.githubusercontent.com/46213180/148537204-7627d167-5f35-4586-9988-1f886fb07da3.png)|![image (9)](https://user-images.githubusercontent.com/46213180/148537219-ca746116-46f2-438d-bede-4d0696dcc10e.png)|
 |Position|Frontend, Backend, Data Analysis & Crawling |Frontend, Backend, Data Analysis & CI/CD| Frontend, Backend, Data Analysis & Crawling|👑팀장 , Frontend, Backend, Data Analysis & Crawling |Frontend, Backend, Data Analysis & CI/CD |
 |Git|@sqk8657| @yjyjk20|@wkadnsj | @clleo97| @zxd9857|
 
