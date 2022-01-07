@@ -106,13 +106,13 @@
 
 ### 🎈 서버 아키텍처
 
-![image (1)](https://user-images.githubusercontent.com/46213180/148536787-21395e51-c832-4e99-822c-f3c9bff2f9a6.png)
+![image (2)](https://user-images.githubusercontent.com/46213180/148537408-2a20d93b-319b-41ac-a61c-d800579eda70.png)
 
 <br><br>
 
 ### 🔍 ERD
 
-![image (4)](https://user-images.githubusercontent.com/46213180/148536799-3379804e-caf4-4db1-a03f-b22f6894af9f.png)
+![image (3)](https://user-images.githubusercontent.com/46213180/148537417-042ee073-9d38-46d3-85e6-931b3ff1cb89.png)
 
 <br><br>
 
@@ -139,7 +139,7 @@
     🔑 리뷰 키워드 분석
     🔑 성능 기반의 상품 추천
 
-![image (5)](https://user-images.githubusercontent.com/46213180/148536831-33888db3-5ef6-4ff4-afb7-e6ae956c7f45.png)
+![image (4)](https://user-images.githubusercontent.com/46213180/148537434-8c45afdc-b60d-4c86-a04d-f29de2087aa9.png)
 <br><br>
 
 ## 🥜 구현 결과
